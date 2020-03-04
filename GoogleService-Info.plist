@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UID</key>
+	<string></string>
+	<key>CLIENT_ID</key>
+	<string>824806512905-2t1ldgrmv16kb39nornmbok4nmrhljg4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.824806512905-2t1ldgrmv16kb39nornmbok4nmrhljg4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSklrfR6rmKQ6oDNg-4d51XqEiug734Ic</string>
+	<key>GCM_SENDER_ID</key>
+	<string>824806512905</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.safwan.My-Wallet</string>
+	<key>PROJECT_ID</key>
+	<string>mywallet-f283c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mywallet-f283c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:824806512905:ios:53d309f98c34cc0dc85bd8</string>
+	<key>DATABASE_URL</key>
+	<string>https://mywallet-f283c.firebaseio.com</string>
+</dict>
+</plist>
