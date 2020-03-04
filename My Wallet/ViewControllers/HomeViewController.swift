@@ -27,6 +27,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
          let cell = Bundle.main.loadNibNamed("StatByCategory", owner: self, options: nil)?.first as! StatByCategory
         cell.lbl_cost.text = "SAR "+cost
         cell.lbl_title.text = title
+        cell.paymentType = type
+        cell.setID(id: ats)
+        
         return cell
     }
     

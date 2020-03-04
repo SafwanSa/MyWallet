@@ -19,15 +19,32 @@ class StatByCategory: UITableViewCell{
     @IBOutlet weak var lbl_cost: UILabel!
     @IBOutlet weak var lbl_title: UILabel!
     
+    @IBOutlet weak var btn_pay: RoundButton!
+    
+    
+    var cellID = ""
+    var paymentType = ""
     override func awakeFromNib() {
         super.awakeFromNib()
+    
+    }
+    
+    func setID(id:String){
+        cellID = id
+    }
+    
+    @IBAction func btn_payAction(_ sender: RoundButton) {
+        let cost = Float(lbl_cost.text!.split(separator: " ")[1])!
         
-        
-               
-
-
-        
-        
+          let title = lbl_title.text!
+          let p = Payment(title: title, cost: cost, type: paymentType, paid: true)
+          //Show a message
+          p.addPayemnt()
+          //Delete the payment from unpaid list
+          p.deletePayment(id: cellID)
+          //Subtract the cost from the budget
+          p.payPayment(cost: cost)
+          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load1"), object: nil)
     }
     
     
