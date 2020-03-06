@@ -93,7 +93,7 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
         //Check if there is a cost or not, because we do not want to add a payment without cost
         if cost > 0{
             //Create a payment object
-            let payment = Payment(title, cost, paymentType, paid)
+            let payment = Payment(title, cost, paymentType, paid, "auto")
             //Do this if he adds a paid payemnt
             if(paid){
             payment.addPayemnt()

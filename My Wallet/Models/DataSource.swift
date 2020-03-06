@@ -11,7 +11,7 @@ import Firebase
 
 
 protocol DataSourceProtocol {
-    func unpaidDataUpdated(data: [String])
+    func unpaidDataUpdated(data: [Payment])
     func userDataUpdated(data: [String:Any])
 }
 
@@ -20,7 +20,7 @@ class DataSource{
     
 
     
-    var unpaidList = [String]()
+    var unpaidPaymentsList = [Payment]()
     var db = Firestore.firestore()
     var dataSourceDelegate: DataSourceProtocol?
     var userData = [String:Any]()
@@ -35,13 +35,13 @@ class DataSource{
         return Auth.auth().currentUser!.uid
     }
     
-    func toArray(data:[String:Any])->[String]{
+    func toArray(data:[String:Any])->[Payment]{
         //This method convert a Dictionary from the DataBase to array
         var costs = [String]()
         var titles = [String]()
         var ats = [String]()
         var types = [String]()
-        
+        var paids = [Bool]()
         for i in data{
             let key = i.key
             let value = i.value
@@ -54,17 +54,22 @@ class DataSource{
                         ats.append("\((value as? String)!)")
                     }else if key == "Type"{
                         types.append("\((value as? String)!)")
-                    }else if key == "Paid"{}
+                    }else if key == "Paid"{
+                        paids.append((value as? Bool)!)
+            }
         }
         for i in 0...costs.count-1{
-            unpaidList.append(titles[i]+","+costs[i]+","+types[i]+","+ats[i])//TODO
+            unpaidPaymentsList.append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
         }
-        return unpaidList
+        return unpaidPaymentsList
     }
     
     func clearArray(){
-        unpaidList.removeAll()
+        unpaidPaymentsList.removeAll()
     }
+    
+    
+    
     
     func getUnpaidData(){
         clearArray()
@@ -76,11 +81,10 @@ class DataSource{
           }
             self.clearArray()
             for doc in documents{
-                self.unpaidList = self.toArray(data: doc.data())
+                self.unpaidPaymentsList = self.toArray(data: doc.data())
             }
-            print("From Data Source2",self.unpaidList.capacity)
-            if self.unpaidList.capacity>=0{
-                self.dataSourceDelegate?.unpaidDataUpdated(data: self.unpaidList)
+            if self.unpaidPaymentsList.capacity>=0{
+                self.dataSourceDelegate?.unpaidDataUpdated(data: self.unpaidPaymentsList)
             }
         }
     }

@@ -57,7 +57,7 @@ class TableViewCell1: UITableViewCell {
     @IBAction func btn_pay(_ sender: UIButton) {
         let cost = Float(lbl_cost.text!.split(separator: " ")[0])!
         let title = lbl_title.text!
-        let p = Payment(title,cost,type,true)
+        let p = Payment(title,cost,type,true,"auto")
         //Show a message
         p.addPayemnt()
         //Delete the payment from unpaid list

@@ -36,14 +36,13 @@ class StatByCategory: UITableViewCell{
     @IBAction func btn_payAction(_ sender: RoundButton) {
         let cost = Float(lbl_cost.text!.split(separator: " ")[1])!
           let title = lbl_title.text!
-          let p = Payment(title,cost,paymentType,true)
+          let p = Payment(title,cost,paymentType,true, "auto")
           //Show a message
           p.addPayemnt()
           //Delete the payment from unpaid list
           p.deletePayment(id: cellID)
           //Subtract the cost from the budget
           p.payPayment(cost: cost)
-          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load1"), object: nil)
     }
     
     

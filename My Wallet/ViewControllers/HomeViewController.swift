@@ -15,17 +15,15 @@ import Charts
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                //Take the payments one by one from the array
-        let payment = self.unpaidList[indexPath.row]
-        //Split it into cost, title, and paid
-        let splitedString = payment.components(separatedBy: ",")
-        let cost = splitedString[1]
-        let title = splitedString[0]
-        let ats = splitedString[3]
-        let type = splitedString[2]
+        //Take the payments one by one from the array
+        let payment = self.unpaidPaymentsList[indexPath.row]
+        let cost = payment.cost
+        let title = payment.title
+        let ats = payment.at
+        let type = payment.type
         //Confgiuer Cell
-         let cell = Bundle.main.loadNibNamed("StatByCategory", owner: self, options: nil)?.first as! StatByCategory
-        cell.lbl_cost.text = "SAR "+cost
+        let cell = Bundle.main.loadNibNamed("StatByCategory", owner: self, options: nil)?.first as! StatByCategory
+        cell.lbl_cost.text = "SAR "+String(cost)
         cell.lbl_title.text = title
         cell.paymentType = type
         cell.setID(id: ats)
@@ -35,7 +33,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the Title of the Table
         let label = UILabel()
-        let str = " لديك " + String(self.unpaidList.count) + " من المصروفات غير مدفوعة"
+        let str = " لديك " + String(self.unpaidPaymentsList.count) + " من المصروفات غير مدفوعة"
         label.text = str
         label.font = UIFont.init(name: "JF Flat", size: 18)
         label.textAlignment = NSTextAlignment.center
@@ -52,7 +50,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return unpaidList.count
+        return unpaidPaymentsList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,7 +71,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Bottom View
     @IBOutlet weak var myTableView: UITableView!
     
-    var unpaidList = [String]()
+    var unpaidPaymentsList = [Payment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,8 +117,8 @@ extension HomeViewController: DataSourceProtocol{
         self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
     }
     
-    func unpaidDataUpdated(data: [String]) {
-        unpaidList = data
+    func unpaidDataUpdated(data: [Payment]) {
+        unpaidPaymentsList = data
         self.myTableView.reloadData()
     }
     
