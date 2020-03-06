@@ -22,16 +22,13 @@ class StatByCategory: UITableViewCell{
     @IBOutlet weak var btn_pay: RoundButton!
     
     
-    var cellID = ""
+    var paymentDate = ""
     var paymentType = ""
     override func awakeFromNib() {
         super.awakeFromNib()
     
     }
     
-    func setID(id:String){
-        cellID = id
-    }
     
     @IBAction func btn_payAction(_ sender: RoundButton) {
         let cost = Float(lbl_cost.text!.split(separator: " ")[1])!
@@ -40,7 +37,7 @@ class StatByCategory: UITableViewCell{
           //Show a message
           p.addPayemnt()
           //Delete the payment from unpaid list
-          p.deletePayment(id: cellID)
+          p.deletePayment(id: paymentDate)
           //Subtract the cost from the budget
           p.payPayment(cost: cost)
     }

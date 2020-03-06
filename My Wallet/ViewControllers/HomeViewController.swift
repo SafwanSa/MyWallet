@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.lbl_cost.text = "SAR "+String(cost)
         cell.lbl_title.text = title
         cell.paymentType = type
-        cell.setID(id: ats)
+        cell.paymentDate = ats
         return cell
     }
     
