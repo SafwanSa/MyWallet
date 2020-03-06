@@ -10,7 +10,7 @@ import UIKit
 import FirebaseFirestore
 
 
-class StatByCategory: UITableViewCell{
+class UnpaidCell: UITableViewCell{
     
     @IBOutlet weak var testView: UIView!
     @IBOutlet weak var backGroundView: GradientView!

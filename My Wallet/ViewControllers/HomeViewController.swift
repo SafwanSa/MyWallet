@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let ats = payment.at
         let type = payment.type
         //Confgiuer Cell
-        let cell = Bundle.main.loadNibNamed("StatByCategory", owner: self, options: nil)?.first as! StatByCategory
+        let cell = Bundle.main.loadNibNamed("UnpaidCell", owner: self, options: nil)?.first as! UnpaidCell
         cell.lbl_cost.text = "SAR "+String(cost)
         cell.lbl_title.text = title
         cell.paymentType = type
@@ -94,7 +94,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         myTableView.dataSource = self
         myTableView.delegate = self
         
-        let dataSourceDelivery = DataSource()
+        let dataSourceDelivery = DataSource(type: "uppayment")
         dataSourceDelivery.dataSourceDelegate = self
     }
     
@@ -107,6 +107,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 extension HomeViewController: DataSourceProtocol{
+    func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here
+
+    
     func userDataUpdated(data: [String : Any]) {
         self.lbl_budget.text = String(data["Budget"] as! Float)
         let budget = data["Budget"] as! Float

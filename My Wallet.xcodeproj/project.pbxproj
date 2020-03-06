@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17012FEF2401504A000B840A /* AddPaymentViewController.swift */; };
 		17012FF224027E08000B840A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17012FF124027E08000B840A /* GradientView.swift */; };
-		17012FF824032966000B840A /* StatByCategory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17012FF724032966000B840A /* StatByCategory.xib */; };
-		17012FFA24032990000B840A /* StatByCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17012FF924032990000B840A /* StatByCategory.swift */; };
+		17012FF824032966000B840A /* UnpaidCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17012FF724032966000B840A /* UnpaidCell.xib */; };
+		17012FFA24032990000B840A /* UnpaidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17012FF924032990000B840A /* UnpaidCell.swift */; };
 		1705F68323463DF6009C16DF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705F68223463DF6009C16DF /* UserInfo.swift */; };
 		170E79C723F9C029007A894C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 170E79C623F9C029007A894C /* Assets.xcassets */; };
 		171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D552333AAA800EA774D /* HomeViewController.swift */; };
@@ -37,8 +37,8 @@
 /* Begin PBXFileReference section */
 		17012FEF2401504A000B840A /* AddPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentViewController.swift; sourceTree = "<group>"; };
 		17012FF124027E08000B840A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		17012FF724032966000B840A /* StatByCategory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatByCategory.xib; sourceTree = "<group>"; };
-		17012FF924032990000B840A /* StatByCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatByCategory.swift; sourceTree = "<group>"; };
+		17012FF724032966000B840A /* UnpaidCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnpaidCell.xib; sourceTree = "<group>"; };
+		17012FF924032990000B840A /* UnpaidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpaidCell.swift; sourceTree = "<group>"; };
 		1705F68223463DF6009C16DF /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		170E79C623F9C029007A894C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		171D5D552333AAA800EA774D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -93,8 +93,8 @@
 			children = (
 				17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */,
 				17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */,
-				17012FF724032966000B840A /* StatByCategory.xib */,
-				17012FF924032990000B840A /* StatByCategory.swift */,
+				17012FF724032966000B840A /* UnpaidCell.xib */,
+				17012FF924032990000B840A /* UnpaidCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 				171D5D5F2333B01200EA774D /* JF Flat regular.ttf in Resources */,
 				1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */,
 				170E79C723F9C029007A894C /* Assets.xcassets in Resources */,
-				17012FF824032966000B840A /* StatByCategory.xib in Resources */,
+				17012FF824032966000B840A /* UnpaidCell.xib in Resources */,
 				17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +325,7 @@
 				171D5D582333AABF00EA774D /* LoginViewController.swift in Sources */,
 				17012FF224027E08000B840A /* GradientView.swift in Sources */,
 				171D5D612333B39F00EA774D /* MyButton.swift in Sources */,
-				17012FFA24032990000B840A /* StatByCategory.swift in Sources */,
+				17012FFA24032990000B840A /* UnpaidCell.swift in Sources */,
 				1745A89C233637F800BECDD9 /* StartBudgetViewController.swift in Sources */,
 				17FB6F6C233E103800A039EC /* Payment.swift in Sources */,
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,

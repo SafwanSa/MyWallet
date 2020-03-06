@@ -14,39 +14,23 @@ class TableViewCell1: UITableViewCell {
     @IBOutlet weak var lbl_cost: UILabel!
     @IBOutlet weak var lbl_title: UILabel!
     
-    var cellID: String
-        = ""
+    var paymentDate: String = ""
     var type = ""
     let db = Firestore.firestore()
-    @IBOutlet weak var btn_pay_out: RoundButton!
     
-    
-    
-    
-    func setID(id:String){
-        cellID = id
-    }
     
     func getID()->String{
-        return cellID
+        return paymentDate
     }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        
     }
     
     
  
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        lbl_cost = nil
-        lbl_title = nil
-    }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -61,7 +45,7 @@ class TableViewCell1: UITableViewCell {
         //Show a message
         p.addPayemnt()
         //Delete the payment from unpaid list
-        p.deletePayment(id: cellID)
+        p.deletePayment(id: paymentDate)
         //Subtract the cost from the budget
         p.payPayment(cost: cost)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load1"), object: nil)
@@ -72,14 +56,6 @@ class TableViewCell1: UITableViewCell {
     func setPaidCell(cost:String){
         lbl_cost.text = String("-"+cost+" SAR")
         lbl_cost.textColor = UIColor.red
-        btn_pay_out.isHidden = true
-        lbl_title.textAlignment = NSTextAlignment.center
-    }
-    
-    func setUnPaidCell(cost:String){
-        lbl_cost.text = String(cost+" SAR")
-        lbl_cost.textColor = UIColor.green
-        btn_pay_out.isHidden = false
         lbl_title.textAlignment = NSTextAlignment.center
     }
     

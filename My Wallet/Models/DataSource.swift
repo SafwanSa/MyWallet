@@ -11,31 +11,36 @@ import Firebase
 
 
 protocol DataSourceProtocol {
+    func paidDataUpdated(data:[[Payment]])
     func unpaidDataUpdated(data: [Payment])
     func userDataUpdated(data: [String:Any])
 }
 
 
 class DataSource{
-    
-
-    
     var unpaidPaymentsList = [Payment]()
+    var paidPaymentsList = [[Payment](),[Payment](),[Payment](),[Payment](),[Payment](),[Payment](),[Payment]()]
     var db = Firestore.firestore()
     var dataSourceDelegate: DataSourceProtocol?
     var userData = [String:Any]()
+    var type: String
     
-    
-    init(){
-        self.getUnpaidData()
-        self.getUserInfo()
+    init(type: String){
+        self.type = type
+        if(type == "uppayment"){
+            self.getData(type)
+            self.getUserInfo()
+        }else{
+            self.getData(type)
+            self.getUserInfo()
+        }
     }
     
     func getID()->String{
         return Auth.auth().currentUser!.uid
     }
     
-    func toArray(data:[String:Any])->[Payment]{
+    func dataCleaner(data:[String:Any], _ type: String)-> Any{
         //This method convert a Dictionary from the DataBase to array
         var costs = [String]()
         var titles = [String]()
@@ -58,33 +63,65 @@ class DataSource{
                         paids.append((value as? Bool)!)
             }
         }
-        for i in 0...costs.count-1{
-            unpaidPaymentsList.append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+        if(type == "uppayment"){
+            for i in 0...costs.count-1{
+                unpaidPaymentsList.append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+            }
+            return unpaidPaymentsList
+        }else{
+            for i in 0...costs.count-1{
+                if types[i] == "أخرى"{
+                    paidPaymentsList[0].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                }else if types[i] == "صحة"{
+                    paidPaymentsList[1].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                }else if types[i] == "ترفيه"{
+                    paidPaymentsList[2].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                }else if types[i] == "مواصلات"{
+                    paidPaymentsList[3].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                }else if types[i] == "طعام"{
+                    paidPaymentsList[4].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                }else if types[i] == "تسوق"{
+                    paidPaymentsList[5].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                }else if types[i] == "وقود"{
+                    paidPaymentsList[6].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                }
+            }
+            return paidPaymentsList
         }
-        return unpaidPaymentsList
     }
+    
     
     func clearArray(){
         unpaidPaymentsList.removeAll()
+        for i in 0 ... paidPaymentsList.count - 1{
+            paidPaymentsList[i].removeAll()
+        }
     }
     
     
     
-    
-    func getUnpaidData(){
-        clearArray()
-        db.collection("uppayment").whereField("uid", isEqualTo: getID())
+    func getData(_ type: String){
+        db.collection(type).whereField("uid", isEqualTo: getID())
         .addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else {
             print("Error fetching document: \(error!)")
             return
           }
             self.clearArray()
-            for doc in documents{
-                self.unpaidPaymentsList = self.toArray(data: doc.data())
-            }
-            if self.unpaidPaymentsList.capacity>=0{
-                self.dataSourceDelegate?.unpaidDataUpdated(data: self.unpaidPaymentsList)
+            if(type == "uppayment"){
+                for doc in documents{
+                    self.unpaidPaymentsList = self.dataCleaner(data: doc.data(), type) as! [Payment]
+                }
+                if self.unpaidPaymentsList.capacity>=0{
+                    self.dataSourceDelegate?.unpaidDataUpdated(data: self.unpaidPaymentsList)
+                }
+            }else{
+                for doc in documents{
+                    self.paidPaymentsList = self.dataCleaner(data: doc.data(), type) as! [[Payment]]
+                }
+                if self.paidPaymentsList.capacity>=0{
+                    self.dataSourceDelegate?.paidDataUpdated(data: self.paidPaymentsList)
+                        }
             }
         }
     }
