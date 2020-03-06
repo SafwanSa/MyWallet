@@ -29,7 +29,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.lbl_title.text = title
         cell.paymentType = type
         cell.setID(id: ats)
-        
         return cell
     }
     
@@ -61,9 +60,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    var unpaidList = [String]()
 
-    
+
     @IBOutlet weak var prog_view: UICircularProgressRing!
     @IBOutlet weak var bottom_view: GradientView!
     
@@ -75,7 +73,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Bottom View
     @IBOutlet weak var myTableView: UITableView!
     
-    let db = Firestore.firestore()
+    var unpaidList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,53 +91,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         prog_view.style = .dashed(pattern: [7.0, 7.0])
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        updateData()
         
         
         myTableView.dataSource = self
         myTableView.delegate = self
+        
         let dataSourceDelivery = DataSource()
         dataSourceDelivery.dataSourceDelegate = self
     }
     
-    
-    @objc func loadList(notification: NSNotification){
-        //load data here after adding payment
-        updateData()
-//        clearArray()
-//        getData()
-    }
-    
-    
-     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           updateData()
-//            clearArray()
-//            getData()
-       }
-    
-    func updateData(){
-        db.collection("user").document(getID()).getDocument { (DocumentSnapshot, Error) in
-           let data =  DocumentSnapshot!.data()
-            self.lbl_budget.text = String(data!["Budget"] as! Float)
-//            self.lbl_savings.text = String("مدخراتك: "+String(data!["Savings"] as! Float))
-            let budget = data!["Budget"] as! Float
-            let savings = data!["Savings"] as! Float
-            let percent = (100 * budget)/5000
-            self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {
-            }
-            
-        }
-        
-        
-        
-    }
-    
-
-    func getID()->String{
-        return Auth.auth().currentUser!.uid
-    }
     
     func closeKeyboard(){
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -149,7 +109,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 extension HomeViewController: DataSourceProtocol{
-    func dataUpdated(data: [String]) {
+    func userDataUpdated(data: [String : Any]) {
+        self.lbl_budget.text = String(data["Budget"] as! Float)
+        let budget = data["Budget"] as! Float
+        let savings = data["Savings"] as! Float
+//        let startBudget = data["Starting Budget"] as! Float
+        let startBudget = Float(5000)
+        let percent = (100 * budget)/startBudget
+        self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
+    }
+    
+    func unpaidDataUpdated(data: [String]) {
         unpaidList = data
         self.myTableView.reloadData()
     }

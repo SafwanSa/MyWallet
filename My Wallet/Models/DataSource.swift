@@ -11,7 +11,8 @@ import Firebase
 
 
 protocol DataSourceProtocol {
-    func dataUpdated(data: [String])
+    func unpaidDataUpdated(data: [String])
+    func userDataUpdated(data: [String:Any])
 }
 
 
@@ -21,13 +22,13 @@ class DataSource{
     
     var unpaidList = [String]()
     var db = Firestore.firestore()
-    var dataSourceDelegate: DataSourceProtocol!
-    
+    var dataSourceDelegate: DataSourceProtocol?
+    var userData = [String:Any]()
     
     
     init(){
-        print("GetData")
-        self.getData()
+        self.getUnpaidData()
+        self.getUserInfo()
     }
     
     func getID()->String{
@@ -56,7 +57,7 @@ class DataSource{
                     }else if key == "Paid"{}
         }
         for i in 0...costs.count-1{
-            unpaidList.append(titles[i]+","+costs[i]+","+types[i]+","+ats[i])
+            unpaidList.append(titles[i]+","+costs[i]+","+types[i]+","+ats[i])//TODO
         }
         return unpaidList
     }
@@ -65,9 +66,8 @@ class DataSource{
         unpaidList.removeAll()
     }
     
-    func getData(){
+    func getUnpaidData(){
         clearArray()
-        print("From Data Source",unpaidList.capacity)
         db.collection("uppayment").whereField("uid", isEqualTo: getID())
         .addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else {
@@ -75,19 +75,31 @@ class DataSource{
             return
           }
             self.clearArray()
-            print("From Data Source",self.unpaidList.capacity)
             for doc in documents{
                 self.unpaidList = self.toArray(data: doc.data())
             }
             print("From Data Source2",self.unpaidList.capacity)
             if self.unpaidList.capacity>=0{
-                self.dataSourceDelegate.dataUpdated(data: self.unpaidList)
+                self.dataSourceDelegate?.unpaidDataUpdated(data: self.unpaidList)
             }
-            //Data returned
         }
     }
     
     
+    func getUserInfo(){
+        db.collection("user").document(getID())
+        .addSnapshotListener { documentSnapshot, error in
+          guard let document = documentSnapshot else {
+            print("Error fetching document: \(error!)")
+            return
+          }
+          guard let data = document.data() else {
+            print("Document data was empty.")
+            return
+          }
+            self.dataSourceDelegate?.userDataUpdated(data: data)
+        }
+    }
     
     
     

@@ -19,11 +19,11 @@ class UserInfo{
     var last_name:String
     var id:String
     var email:String
-    let db = Firestore.firestore()
+    var startBudget: Float
     
     
     
-    init(first_name:String,last_name:String,email:String,id:String,income:Float,budget:Float,savings:Float) {
+    init(first_name:String,last_name:String,email:String,id:String,income:Float, startBudget:Float, budget:Float,savings:Float) {
             self.first_name = first_name
             self.last_name = last_name
             self.email = email
@@ -31,6 +31,7 @@ class UserInfo{
             self.income = income
             self.budget = budget
             self.savings = savings
+            self.startBudget = startBudget
        }
     
     
@@ -39,7 +40,7 @@ class UserInfo{
     }
     
     func setToDic() -> [String:Any]{
-        return ["First Name":first_name, "Last Name":last_name, "Email":email, "uid":id, "Income":income, "Budget":budget, "Savings":savings]
+        return ["First Name":first_name, "Last Name":last_name, "Email":email, "uid":id, "Income":income,"Starting Budget": startBudget, "Budget":budget, "Savings":savings]
     }
         
     

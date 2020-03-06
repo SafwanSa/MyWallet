@@ -84,7 +84,7 @@ class SignupViewController: UIViewController {
                     SVProgressHUD.dismiss()
                 }else{
                     //The user has been created successfuly, now store his data in firestore.
-                    let user = UserInfo(first_name: first_name, last_name: last_name, email: email, id: result!.user.uid, income: 0, budget: 0, savings: 0)
+                    let user = UserInfo(first_name: first_name, last_name: last_name, email: email, id: result!.user.uid, income: 0, startBudget: 0, budget: 0, savings: 0)
                     db.collection("user").document(user.id).setData(user.setToDic())
                     SVProgressHUD.dismiss()
                     //Transition to the home screen

@@ -93,20 +93,12 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
         //Check if there is a cost or not, because we do not want to add a payment without cost
         if cost > 0{
             //Create a payment object
-            let payment = Payment(title: title, cost: cost, type: paymentType, paid: paid)
+            let payment = Payment(title, cost, paymentType, paid)
             //Do this if he adds a paid payemnt
             if(paid){
             payment.addPayemnt()
             //Subtract the cost from the budget
-                payment.payPayment(cost: cost)
-//            db.collection("user").document(getID()).getDocument { (DocumentSnapshot, Error) in
-//               let data =  DocumentSnapshot!.data()
-//                let budget = data!["Budget"] as! Float - cost
-//                let newData = ["Budget":budget]
-//                self.db.collection("user").document(self.getID()).updateData(newData)
-//                //Reload the page in the HomeViewController
-//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-//            }
+            payment.payPayment(cost: cost)
             }else{
                 //Do this if he adds unpaid payment
                 payment.addPayemnt()

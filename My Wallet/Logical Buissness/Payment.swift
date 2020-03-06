@@ -21,7 +21,7 @@ class Payment{
     var at : String
 
     
-    init(title:String, cost:Float,type:String,paid:Bool) {
+    init(_ title:String,_ cost:Float, _ type:String, _ paid:Bool) {
         //Get the current time
         let date = Date()
         let format = DateFormatter()
