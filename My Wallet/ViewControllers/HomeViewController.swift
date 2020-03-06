@@ -76,7 +76,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var myTableView: UITableView!
     
     let db = Firestore.firestore()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
@@ -99,68 +99,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         myTableView.dataSource = self
         myTableView.delegate = self
+        let dataSourceDelivery = DataSource()
+        dataSourceDelivery.dataSourceDelegate = self
     }
-
-
-
-    func getData(){
-      db.collection("uppayment").whereField("uid", isEqualTo: getID())
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                  self.clearArray()
-                    for document in querySnapshot!.documents {
-                        self.unpaidList = (self.toArray(data: document.data()))
-                      self.myTableView.reloadData()
-                    }
-                }
-        }
-    }
-    
-    
-    func toArray(data:[String:Any])->[String]{
-        //This method convert a Dictionary from the DataBase to array
-        var costs = [String]()
-        var titles = [String]()
-        var ats = [String]()
-        var types = [String]()
-        
-        for i in data{
-            let key = i.key
-            let value = i.value
-                    if key == "Cost"{
-                        let q = value as? NSNumber
-                        costs.append("\(q!.stringValue)")
-                    }else if key == "Title"{
-                        titles.append("\((value as? String)!)")
-                    }else if key == "At"{
-                        ats.append("\((value as? String)!)")
-                    }else if key == "Type"{
-                        types.append("\((value as? String)!)")
-                    }else if key == "Paid"{}
-        }
-        for i in 0...costs.count-1{
-            unpaidList.append(titles[i]+","+costs[i]+","+types[i]+","+ats[i])
-        }
-        return unpaidList
-    }
-    
     
     
     @objc func loadList(notification: NSNotification){
         //load data here after adding payment
         updateData()
-        clearArray()
-        getData()
+//        clearArray()
+//        getData()
     }
     
     
      override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            updateData()
-            clearArray()
-            getData()
+//            clearArray()
+//            getData()
        }
     
     func updateData(){
@@ -169,12 +125,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.lbl_budget.text = String(data!["Budget"] as! Float)
 //            self.lbl_savings.text = String("مدخراتك: "+String(data!["Savings"] as! Float))
             let budget = data!["Budget"] as! Float
-            print(budget)
             let savings = data!["Savings"] as! Float
             let percent = (100 * budget)/5000
             self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {
-              print("Done animating!")
-              // Do anything your heart desires...
             }
             
         }
@@ -183,28 +136,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func clearArray(){
-        unpaidList.removeAll()
-    }
-    
 
     func getID()->String{
         return Auth.auth().currentUser!.uid
     }
     
-   
-    
     func closeKeyboard(){
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
-    
-    
-   
-    
-
-    
 
 }
 
+extension HomeViewController: DataSourceProtocol{
+    func dataUpdated(data: [String]) {
+        unpaidList = data
+        self.myTableView.reloadData()
+    }
+    
+    
+}
 

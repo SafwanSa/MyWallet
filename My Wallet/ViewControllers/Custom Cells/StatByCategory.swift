@@ -35,7 +35,6 @@ class StatByCategory: UITableViewCell{
     
     @IBAction func btn_payAction(_ sender: RoundButton) {
         let cost = Float(lbl_cost.text!.split(separator: " ")[1])!
-        
           let title = lbl_title.text!
           let p = Payment(title: title, cost: cost, type: paymentType, paid: true)
           //Show a message
