@@ -9,15 +9,14 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
-import BetterSegmentedControl
 
 class HistoryTableViewController: UITableViewController {
     
 
     
-    @IBOutlet weak var sgmnt_types2: BetterSegmentedControl!
-    
 
+    @IBOutlet weak var sgmnt_types: UISegmentedControl!
+    
     var allPayments = [
         [Payment](),
         [Payment](),
@@ -35,8 +34,10 @@ class HistoryTableViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "JF Flat", size: 19)!]
             
+        let font = UIFont.init(name: "JF Flat", size: 11)
+        sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+
         
-        sgmnt_types2.segments = LabelSegment.segments(withTitles: ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"] ,normalFont: UIFont(name: "JF Flat", size: 11), normalTextColor: UIColor.darkGray,selectedFont: UIFont(name: "JF Flat", size: 12),selectedTextColor: UIColor.darkText)
         
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self
@@ -51,22 +52,22 @@ class HistoryTableViewController: UITableViewController {
     }
     
 
-    @IBAction func sgmnt_types(_ sender: BetterSegmentedControl) {
-        if(sender.index == 0){
+    @IBAction func sgmnt_types(_ sender: UISegmentedControl) {
+        if(sender.selectedSegmentIndex == 0){
             typesIndex = 0
-        }else if(sender.index == 1){
+        }else if(sender.selectedSegmentIndex == 1){
             typesIndex = 1
-        }else if(sender.index == 2){
+        }else if(sender.selectedSegmentIndex == 2){
             typesIndex = 2
-        }else if(sender.index == 3){
+        }else if(sender.selectedSegmentIndex == 3){
             typesIndex = 3
-        }else if(sender.index == 4){
+        }else if(sender.selectedSegmentIndex == 4){
             typesIndex = 4
-        }else if(sender.index == 5){
+        }else if(sender.selectedSegmentIndex == 5){
             typesIndex = 5
-        }else if(sender.index == 6){
+        }else if(sender.selectedSegmentIndex == 6){
             typesIndex = 6
-        }else if(sender.index == 7){
+        }else if(sender.selectedSegmentIndex == 7){
             typesIndex = 7
         }
         self.tableView.reloadData()
@@ -120,7 +121,6 @@ class HistoryTableViewController: UITableViewController {
 
 extension HistoryTableViewController: DataSourceProtocol{
     func paidDataUpdated(data: [[Payment]]) {
-        print(data[0].count, "COooooooooooooo")
         allPayments = data
         self.tableView.reloadData()
     }

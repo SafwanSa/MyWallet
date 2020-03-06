@@ -158,7 +158,6 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - BetterSegmentedControl (1.3.0)
   - BoringSSL-GRPC (0.0.3):
     - BoringSSL-GRPC/Implementation (= 0.0.3)
     - BoringSSL-GRPC/Interface (= 0.0.3)
@@ -287,7 +286,6 @@ PODS:
   - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
-  - BetterSegmentedControl (~> 1.3)
   - Charts
   - Firebase/Analytics
   - Firebase/Auth
@@ -299,7 +297,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - abseil
-    - BetterSegmentedControl
     - BoringSSL-GRPC
     - Charts
     - Firebase
@@ -327,7 +324,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
-  BetterSegmentedControl: 85d1b0343a09603b098884d527f550dfc8e6cdd9
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Firebase: 2672e5636b42f977177716317e68346ae5e9de25
@@ -353,6 +349,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: aa5869492ce2f9f24ac4662e52b1c04cc8466de8
+PODFILE CHECKSUM: bb06e4a0a42748cb09ebd464c00314138ce36be5
 
 COCOAPODS: 1.8.4

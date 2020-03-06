@@ -236,46 +236,34 @@
                         <color key="sectionIndexBackgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="nmo-JC-9GX">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="center" semanticContentAttribute="spatial" id="5V4-E8-rhN" userLabel="types" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                    <rect key="frame" x="3" y="0.0" width="368" height="66"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4iG-Pc-Arz">
+                                    <rect key="frame" x="8" y="8" width="359" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="announcesValueImmediately" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="panningDisabled" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="alwaysAnnouncesValue" value="NO"/>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
-                                            <real key="value" value="10"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewBorderWidth">
-                                            <real key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="animationSpringDamping">
-                                            <real key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                            <real key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBorderColor">
-                                            <color key="value" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
+                                    <segments>
+                                        <segment title="أخرى"/>
+                                        <segment title="صحة"/>
+                                        <segment title="ترفيه"/>
+                                        <segment title="مواصلات"/>
+                                        <segment title="طعام"/>
+                                        <segment title="تسوق"/>
+                                        <segment title="وقود"/>
+                                    </segments>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="selectedSegmentTintColor" red="0.35294117650000001" green="0.7725490196" blue="0.5154891304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
-                                        <action selector="sgmnt_types:" destination="VmY-2Z-DH7" eventType="valueChanged" id="Csl-ze-sRf"/>
+                                        <action selector="sgmnt_types:" destination="VmY-2Z-DH7" eventType="valueChanged" id="dc4-NF-jtS"/>
                                     </connections>
-                                </view>
+                                </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zBP-9V-y4J">
-                                <rect key="frame" x="0.0" y="126.5" width="375" height="43.5"/>
+                                <rect key="frame" x="0.0" y="104.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zBP-9V-y4J" id="XLe-nI-Qiu">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -319,7 +307,7 @@
                         </view>
                     </navigationItem>
                     <connections>
-                        <outlet property="sgmnt_types2" destination="5V4-E8-rhN" id="w8V-Pe-2Gk"/>
+                        <outlet property="sgmnt_types" destination="4iG-Pc-Arz" id="VP0-86-XUc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4q9-7y-UPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -841,42 +829,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="pGj-qS-l8f">
                                         <rect key="frame" x="17" y="115" width="305" height="34"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZ7-nD-hXy" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                                <rect key="frame" x="0.0" y="0.0" width="170" height="34"/>
-                                                <color key="backgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="Akq-FU-vKA"/>
-                                                    <constraint firstAttribute="width" constant="170" id="OHa-v8-tm0"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="13"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
-                                                        <color key="value" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBorderColor">
-                                                        <color key="value" red="1" green="0.4039215686" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="animationSpringDamping">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="alwaysAnnouncesValue" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="announcesValueImmediately" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="panningDisabled" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NUt-N8-i5d">
+                                                <rect key="frame" x="0.0" y="0.0" width="206.5" height="35"/>
+                                                <segments>
+                                                    <segment title=" غير مدفوع"/>
+                                                    <segment title="مدفوع"/>
+                                                </segments>
                                                 <connections>
-                                                    <action selector="sgmnt_choose:" destination="59f-kL-Az5" eventType="valueChanged" id="IYg-wV-pSN"/>
+                                                    <action selector="sgmnt_choose:" destination="59f-kL-Az5" eventType="valueChanged" id="yly-Ba-HJb"/>
                                                 </connections>
-                                            </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="التصنيف" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFm-Cn-Bfm" userLabel="Type">
-                                                <rect key="frame" x="179" y="0.0" width="126" height="34"/>
+                                            </segmentedControl>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="التصنيف" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFm-Cn-Bfm" userLabel="Type">
+                                                <rect key="frame" x="215.5" y="0.0" width="89.5" height="34"/>
                                                 <color key="backgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -920,7 +884,7 @@
                         <viewLayoutGuide key="safeArea" id="gvT-P8-RyS"/>
                     </view>
                     <connections>
-                        <outlet property="sgmnt_paid" destination="pZ7-nD-hXy" id="DHx-mZ-X5Z"/>
+                        <outlet property="sgmnt_paid" destination="NUt-N8-i5d" id="Ert-bk-hqk"/>
                         <outlet property="topView" destination="abj-Uf-12v" id="Ibv-9N-1Yz"/>
                         <outlet property="txt_cost" destination="Crp-nh-eyT" id="aTo-bj-7dz"/>
                         <outlet property="txt_title" destination="W3Y-z7-Y6e" id="fAL-Eo-wXW"/>

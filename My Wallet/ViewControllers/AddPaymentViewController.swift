@@ -11,10 +11,11 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
-import BetterSegmentedControl
+
 class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource{
     
-    @IBOutlet weak var sgmnt_paid: BetterSegmentedControl!
+
+    @IBOutlet weak var sgmnt_paid: UISegmentedControl!
     @IBOutlet weak var txt_title: UITextField!
     @IBOutlet weak var txt_cost: UITextField!
     @IBOutlet weak var txt_type: UITextField!
@@ -54,13 +55,15 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
         topView.layer.shadowOffset = .zero
         topView.layer.masksToBounds = false
         
-        sgmnt_paid.segments = LabelSegment.segments(withTitles: ["غير مدفوع","مدفوع"] ,normalFont: UIFont(name: "JF Flat", size: 11), normalTextColor: UIColor.darkGray,selectedFont: UIFont(name: "JF Flat", size: 12),selectedTextColor: UIColor.darkText)
+        let font = UIFont(name: "JF Flat", size: 11)
+        sgmnt_paid.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+
         
     }
     
     
-    @IBAction func sgmnt_choose(_ sender: BetterSegmentedControl) {
-        if(sender.index==0){
+    @IBAction func sgmnt_choose(_ sender: UISegmentedControl) {
+        if(sender.selectedSegmentIndex==0){
             paidOrNot = false
         }else{
             paidOrNot = true
@@ -108,7 +111,7 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
             txt_title.text = ""
             txt_type.text = ""
             paidOrNot = false
-            sgmnt_paid.setIndex(0)
+            sgmnt_paid.selectedSegmentIndex = 0
             self.dismiss(animated: true, completion: nil)
         }
     }
