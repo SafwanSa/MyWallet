@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-protocol DataSourceProtocol {
+protocol DataSourceProtocol{
     func paidDataUpdated(data:[[Payment]])
     func unpaidDataUpdated(data: [Payment])
     func userDataUpdated(data: [String:Any])
@@ -25,14 +25,19 @@ class DataSource{
     var userData = [String:Any]()
     var type: String
     
+    init() {
+        self.type = ""
+        self.getUserInfoWhenUpdated()
+    }
+    
     init(type: String){
         self.type = type
         if(type == "uppayment"){
             self.getData(type)
-            self.getUserInfo()
-        }else{
+            self.getUserInfoWhenUpdated()
+        }else if(type == "ppayment"){
             self.getData(type)
-            self.getUserInfo()
+            self.getUserInfoWhenUpdated()
         }
     }
     
@@ -65,25 +70,27 @@ class DataSource{
         }
         if(type == "uppayment"){
             for i in 0...costs.count-1{
-                unpaidPaymentsList.append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                let payment = Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i])
+                unpaidPaymentsList.append(payment)
             }
             return unpaidPaymentsList
         }else{
             for i in 0...costs.count-1{
+                let payment = Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i])
                 if types[i] == "أخرى"{
-                    paidPaymentsList[0].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                    paidPaymentsList[0].append(payment)
                 }else if types[i] == "صحة"{
-                    paidPaymentsList[1].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                    paidPaymentsList[1].append(payment)
                 }else if types[i] == "ترفيه"{
-                    paidPaymentsList[2].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                    paidPaymentsList[2].append(payment)
                 }else if types[i] == "مواصلات"{
-                    paidPaymentsList[3].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                    paidPaymentsList[3].append(payment)
                 }else if types[i] == "طعام"{
-                    paidPaymentsList[4].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                    paidPaymentsList[4].append(payment)
                 }else if types[i] == "تسوق"{
-                    paidPaymentsList[5].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                    paidPaymentsList[5].append(payment)
                 }else if types[i] == "وقود"{
-                    paidPaymentsList[6].append(Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i]))
+                    paidPaymentsList[6].append(payment)
                 }
             }
             return paidPaymentsList
@@ -127,7 +134,7 @@ class DataSource{
     }
     
     
-    func getUserInfo(){
+    func getUserInfoWhenUpdated(){
         db.collection("user").document(getID())
         .addSnapshotListener { documentSnapshot, error in
           guard let document = documentSnapshot else {
@@ -142,7 +149,9 @@ class DataSource{
         }
     }
     
-    
+    func updateUserInformation(data: [String:Float]){
+        db.collection("user").document(getID()).updateData(data)
+    }
     
     
 }
