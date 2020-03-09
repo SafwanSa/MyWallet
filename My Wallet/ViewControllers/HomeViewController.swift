@@ -114,7 +114,7 @@ extension HomeViewController: DataSourceProtocol{
     func userDataUpdated(data: [String : Any]) {
         self.lbl_budget.text = String(data["Budget"] as! Float)
         let budget = data["Budget"] as! Float
-        let savings = data["Savings"] as! Float
+//        let savings = data["Savings"] as! Float
 //        let startBudget = data["Starting Budget"] as! Float
         let startBudget = Float(5000)
         let percent = (100 * budget)/startBudget

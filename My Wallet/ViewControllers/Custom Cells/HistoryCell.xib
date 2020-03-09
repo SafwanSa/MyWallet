@@ -77,7 +77,7 @@
                                     <constraint firstAttribute="height" constant="165" id="74D-WW-WKm"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="btn_hist:" destination="ccZ-mF-PwR" eventType="touchUpInside" id="FBN-Uq-ypf"/>
+                                    <action selector="btn_hist:" destination="ccZ-mF-PwR" eventType="touchUpInside" id="fhY-1g-vVs"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="مشترياتك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xb-w5-3dh">

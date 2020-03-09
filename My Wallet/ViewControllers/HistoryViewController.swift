@@ -52,10 +52,22 @@ class HistoryViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Take the cell from HistoryCell
         let cell = Bundle.main.loadNibNamed("HistoryCell", owner: self, options: nil)?.first as! HistoryCell
-            //Giving each cell an id (the date the time) Configure the cell...
+        if(indexPath == IndexPath.init(item: 0, section: 0)){
+            cell.category = "Current month"
+        }else{
+            cell.category = "Other months"
+        }
+            cell.delegate = self
             return cell
     }
     
+    
+    
+}
+extension HistoryViewController: HistoryCellProtocol{
+    func transitions(category: String) {
+        self.performSegue(withIdentifier: "gogo", sender: self)
+    }
     
     
 }

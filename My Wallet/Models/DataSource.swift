@@ -18,6 +18,7 @@ protocol DataSourceProtocol{
 
 
 class DataSource{
+    
     var unpaidPaymentsList = [Payment]()
     var paidPaymentsList = [[Payment](),[Payment](),[Payment](),[Payment](),[Payment](),[Payment](),[Payment]()]
     var db = Firestore.firestore()

@@ -11,10 +11,6 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class HistoryTableViewController: UITableViewController {
-    
-
-    
-
     @IBOutlet weak var sgmnt_types: UISegmentedControl!
     
     var allPayments = [
@@ -27,6 +23,7 @@ class HistoryTableViewController: UITableViewController {
         [Payment]()
     ]
     var typesIndex = 0
+    var category = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +33,6 @@ class HistoryTableViewController: UITableViewController {
             
         let font = UIFont.init(name: "JF Flat", size: 11)
         sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-
-        
         
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self

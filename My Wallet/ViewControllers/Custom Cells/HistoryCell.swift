@@ -8,14 +8,19 @@
 
 import UIKit
 
+
+protocol HistoryCellProtocol {
+    func transitions(category: String)
+}
+
 class HistoryCell: UITableViewCell{
-    
-    
-    
     
     @IBOutlet weak var rightView: GradientView!
     @IBOutlet weak var leftView: GradientView!
     
+    
+    var category = ""
+    var delegate:HistoryCellProtocol!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,12 +36,14 @@ class HistoryCell: UITableViewCell{
     
     
     @IBAction func btn_stat(_ sender: Any) {
-        print("Stat")
+        print("Stat", category)
     }
     
     
     @IBAction func btn_hist(_ sender: Any) {
-        print("Hist")
+        if(self.delegate != nil){ //Just to be safe.
+            self.delegate.transitions(category: category)
+        }
     }
     
     
