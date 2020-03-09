@@ -10,7 +10,7 @@ import Foundation
 
 class Calendar{
     
-    
+    static var categ = ""
     
     static func getDate()->String{
            let date = Date()
@@ -55,5 +55,10 @@ class Calendar{
         }
         return monthInAr
     }
+    
+    static func getCurrentMonth()->String{
+        return String(getDate().split(separator: "/")[0])
+    }
+    
     
 }

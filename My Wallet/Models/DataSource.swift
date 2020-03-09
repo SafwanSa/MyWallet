@@ -25,7 +25,8 @@ class DataSource{
     var dataSourceDelegate: DataSourceProtocol?
     var userData = [String:Any]()
     var type: String
-    
+    var category = ""
+
     init() {
         self.type = ""
         self.getUserInfoWhenUpdated()
@@ -78,20 +79,29 @@ class DataSource{
         }else{
             for i in 0...costs.count-1{
                 let payment = Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i])
-                if types[i] == "أخرى"{
-                    paidPaymentsList[0].append(payment)
-                }else if types[i] == "صحة"{
-                    paidPaymentsList[1].append(payment)
-                }else if types[i] == "ترفيه"{
-                    paidPaymentsList[2].append(payment)
-                }else if types[i] == "مواصلات"{
-                    paidPaymentsList[3].append(payment)
-                }else if types[i] == "طعام"{
-                    paidPaymentsList[4].append(payment)
-                }else if types[i] == "تسوق"{
-                    paidPaymentsList[5].append(payment)
-                }else if types[i] == "وقود"{
-                    paidPaymentsList[6].append(payment)
+                    if types[i] == "أخرى"{
+                        paidPaymentsList[0].append(payment)
+                    }else if types[i] == "صحة"{
+                        paidPaymentsList[1].append(payment)
+                    }else if types[i] == "ترفيه"{
+                        paidPaymentsList[2].append(payment)
+                    }else if types[i] == "مواصلات"{
+                        paidPaymentsList[3].append(payment)
+                    }else if types[i] == "طعام"{
+                        paidPaymentsList[4].append(payment)
+                    }else if types[i] == "تسوق"{
+                        paidPaymentsList[5].append(payment)
+                    }else if types[i] == "وقود"{
+                        paidPaymentsList[6].append(payment)
+                    }
+            }
+            //If category == current month, remove evrey thing not in that month
+            for i in 0..<paidPaymentsList.count{
+                paidPaymentsList[i].removeAll { (payment) -> Bool in
+                    let month = payment.at.split(separator: "/")[0]
+                    let check1 = (month != Calendar.categ)
+                    let check2 = (Calendar.categ != "")
+                    return check1 && check2
                 }
             }
             return paidPaymentsList

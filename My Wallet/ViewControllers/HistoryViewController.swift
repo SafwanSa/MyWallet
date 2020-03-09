@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class HistoryViewController: UITableViewController{
     
     
@@ -53,9 +52,9 @@ class HistoryViewController: UITableViewController{
         //Take the cell from HistoryCell
         let cell = Bundle.main.loadNibNamed("HistoryCell", owner: self, options: nil)?.first as! HistoryCell
         if(indexPath == IndexPath.init(item: 0, section: 0)){
-            cell.category = "Current month"
+            cell.category = "Current Month"
         }else{
-            cell.category = "Other months"
+            cell.category = "Other Months"
         }
             cell.delegate = self
             return cell
@@ -66,6 +65,12 @@ class HistoryViewController: UITableViewController{
 }
 extension HistoryViewController: HistoryCellProtocol{
     func transitions(category: String) {
+        //Get the category to display before transition
+        if(category == "Current Month"){
+            Calendar.categ = Calendar.getCurrentMonth()
+        }else{
+            Calendar.categ = ""
+        }
         self.performSegue(withIdentifier: "gogo", sender: self)
     }
     

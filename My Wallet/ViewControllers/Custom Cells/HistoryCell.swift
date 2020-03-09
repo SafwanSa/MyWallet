@@ -36,7 +36,6 @@ class HistoryCell: UITableViewCell{
     
     
     @IBAction func btn_stat(_ sender: Any) {
-        print("Stat", category)
     }
     
     
