@@ -13,6 +13,10 @@
 		17012FFA24032990000B840A /* UnpaidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17012FF924032990000B840A /* UnpaidCell.swift */; };
 		1705F68323463DF6009C16DF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705F68223463DF6009C16DF /* UserInfo.swift */; };
 		170E79C723F9C029007A894C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 170E79C623F9C029007A894C /* Assets.xcassets */; };
+		171029C92415AF8700D0D697 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171029C82415AF8700D0D697 /* HistoryViewController.swift */; };
+		171029CB2415B25800D0D697 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171029CA2415B25800D0D697 /* HistoryCell.xib */; };
+		171029CD2415B27B00D0D697 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171029CC2415B27B00D0D697 /* HistoryCell.swift */; };
+		171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171029CE2415BFCB00D0D697 /* Calendar.swift */; };
 		171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D552333AAA800EA774D /* HomeViewController.swift */; };
 		171D5D582333AABF00EA774D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D572333AABF00EA774D /* LoginViewController.swift */; };
 		171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D592333AACB00EA774D /* SignupViewController.swift */; };
@@ -41,6 +45,10 @@
 		17012FF924032990000B840A /* UnpaidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpaidCell.swift; sourceTree = "<group>"; };
 		1705F68223463DF6009C16DF /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		170E79C623F9C029007A894C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		171029C82415AF8700D0D697 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		171029CA2415B25800D0D697 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		171029CC2415B27B00D0D697 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		171029CE2415BFCB00D0D697 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		171D5D552333AAA800EA774D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		171D5D572333AABF00EA774D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		171D5D592333AACB00EA774D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,8 @@
 				17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */,
 				17012FF724032966000B840A /* UnpaidCell.xib */,
 				17012FF924032990000B840A /* UnpaidCell.swift */,
+				171029CA2415B25800D0D697 /* HistoryCell.xib */,
+				171029CC2415B27B00D0D697 /* HistoryCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -109,6 +119,7 @@
 				17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */,
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
+				171029C82415AF8700D0D697 /* HistoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -125,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				171D5D6323344A4300EA774D /* Constants.swift */,
+				171029CE2415BFCB00D0D697 /* Calendar.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -263,6 +275,7 @@
 			files = (
 				1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */,
 				1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */,
+				171029CB2415B25800D0D697 /* HistoryCell.xib in Resources */,
 				171D5D5F2333B01200EA774D /* JF Flat regular.ttf in Resources */,
 				1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */,
 				170E79C723F9C029007A894C /* Assets.xcassets in Resources */,
@@ -331,12 +344,15 @@
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,
 				1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */,
 				171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */,
+				171029CD2415B27B00D0D697 /* HistoryCell.swift in Sources */,
 				17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */,
 				17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */,
 				17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */,
 				171D5D6423344A4300EA774D /* Constants.swift in Sources */,
+				171029C92415AF8700D0D697 /* HistoryViewController.swift in Sources */,
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
 				171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */,
+				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
