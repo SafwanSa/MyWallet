@@ -79,7 +79,7 @@ class HistoryTableViewController: UITableViewController {
     }
         
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 79.5
+        return 118
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -102,13 +102,16 @@ class HistoryTableViewController: UITableViewController {
         let cost = payment.cost
         let title = payment.title
         let ats = payment.at
-        let type = payment.type
         //Take the cell from TableViewCell1
         let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
             //Giving each cell an id (the date the time) Configure the cell...
-            cell.paymentDate = ats
+//        "MM/dd HH:mm:ss"
+        let formated = ats.split(separator: "/")[1]
+        let day = formated.split(separator: " ")[0]
+        let time = formated.split(separator: " ")[1]
+        let timeFormated = String(time)
+            cell.lbl_date.text = String(day + ", " + timeFormated)
             cell.lbl_title.text = String(title)
-            cell.type = type
             cell.setPaidCell(cost: String(cost))
             return cell
     }

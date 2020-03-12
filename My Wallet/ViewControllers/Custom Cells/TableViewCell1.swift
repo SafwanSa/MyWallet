@@ -13,15 +13,7 @@ class TableViewCell1: UITableViewCell {
 
     @IBOutlet weak var lbl_cost: UILabel!
     @IBOutlet weak var lbl_title: UILabel!
-    
-    var paymentDate: String = ""
-    var type = ""
-    let db = Firestore.firestore()
-    
-    
-    func getID()->String{
-        return paymentDate
-    }
+    @IBOutlet weak var lbl_date: UILabel!
     
     
     override func awakeFromNib() {
@@ -38,20 +30,7 @@ class TableViewCell1: UITableViewCell {
         // Configure the view for the selected state
         
     }
-    @IBAction func btn_pay(_ sender: UIButton) {
-        let cost = Float(lbl_cost.text!.split(separator: " ")[0])!
-        let title = lbl_title.text!
-        let p = Payment(title,cost,type,true,"auto")
-        //Show a message
-        p.addPayemnt()
-        //Delete the payment from unpaid list
-        p.deletePayment(id: paymentDate)
-        //Subtract the cost from the budget
-        p.payPayment(cost: cost)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load1"), object: nil)
-        
-    }
- 
+  
     
     func setPaidCell(cost:String){
         lbl_cost.text = String("-"+cost+" SAR")

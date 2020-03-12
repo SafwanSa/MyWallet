@@ -226,10 +226,10 @@
         <scene sceneID="a5J-tV-ysX">
             <objects>
                 <tableViewController id="VmY-2Z-DH7" customClass="HistoryTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" id="QPL-EX-7ls">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" id="QPL-EX-7ls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <color key="sectionIndexColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,9 +239,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4iG-Pc-Arz">
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4iG-Pc-Arz">
                                     <rect key="frame" x="8" y="19" width="359" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <segments>
                                         <segment title="أخرى"/>
@@ -253,14 +252,30 @@
                                         <segment title="وقود"/>
                                     </segments>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="selectedSegmentTintColor" red="0.35294117650000001" green="0.7725490196" blue="0.5154891304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="selectedSegmentTintColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <action selector="sgmnt_types:" destination="VmY-2Z-DH7" eventType="valueChanged" id="dc4-NF-jtS"/>
                                     </connections>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="4iG-Pc-Arz" secondAttribute="trailing" constant="8" id="EgG-8s-osU"/>
+                                <constraint firstAttribute="bottom" secondItem="4iG-Pc-Arz" secondAttribute="bottom" constant="19" id="bn3-mq-8nr"/>
+                                <constraint firstItem="4iG-Pc-Arz" firstAttribute="leading" secondItem="nmo-JC-9GX" secondAttribute="leading" constant="8" id="omd-9l-raF"/>
+                                <constraint firstItem="4iG-Pc-Arz" firstAttribute="top" secondItem="nmo-JC-9GX" secondAttribute="top" constant="19" id="qC5-XO-E6A"/>
+                            </constraints>
                         </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="M1U-H3-JMN">
+                                <rect key="frame" x="16" y="124.5" width="343" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M1U-H3-JMN" id="dV5-gb-IZh">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <sections/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
@@ -308,16 +323,15 @@
         <scene sceneID="JM7-BT-J9m">
             <objects>
                 <tableViewController id="nvo-ar-cdV" customClass="MonthsTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bE2-RC-8MC">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bE2-RC-8MC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="monthCell" rowHeight="77" id="opA-Bf-Wel">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="77"/>
+                                <rect key="frame" x="16" y="55.5" width="343" height="77"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="opA-Bf-Wel" id="1ZI-L3-H8b">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="77"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="317" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -327,9 +341,10 @@
                             <outlet property="delegate" destination="nvo-ar-cdV" id="9h8-2U-py8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7s0-La-5Nr"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="7s0-La-5Nr"/>
                     <connections>
                         <outlet property="myTableView" destination="bE2-RC-8MC" id="qU9-TZ-8y0"/>
+                        <segue destination="VmY-2Z-DH7" kind="show" identifier="goToCurrentMonthHistory" id="V7c-Ve-NWA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ex4-pB-qw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1117,5 +1132,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="erF-3g-8gi"/>
+        <segue reference="V7c-Ve-NWA"/>
     </inferredMetricsTieBreakers>
 </document>

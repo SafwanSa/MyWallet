@@ -175,8 +175,8 @@ class DataSource{
         for i in 0..<data.count-1{
             for j in data[i]{
                 let date = j.at
-                let m = Calendar.getMonthInAr(m: String(date.split(separator: "/")[0]))
-                if(m != Calendar.getMonthInAr(m: "auto")){
+                let m = String(date.split(separator: "/")[0])
+                if(m != Calendar.getCurrentMonth()){
                     tempArray.append(m)
                 }
             }
