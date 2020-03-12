@@ -16,7 +16,7 @@ class HistoryViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        month = Calendar.getCurrentMonthInAr()
+        month = Calendar.getMonthInAr(m: "auto")
         lbl_month.text =  " الشهر الحالي : " + month
     }
     
@@ -68,10 +68,12 @@ extension HistoryViewController: HistoryCellProtocol{
         //Get the category to display before transition
         if(category == "Current Month"){
             Calendar.categ = Calendar.getCurrentMonth()
+            self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
         }else{
+            self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
             Calendar.categ = ""
         }
-        self.performSegue(withIdentifier: "gogo", sender: self)
+
     }
     
     

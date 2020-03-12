@@ -108,6 +108,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 //MARK:- Delegate and protocol overriding
 extension HomeViewController: DataSourceProtocol{
+    func getMonths(months: [String]) {}
+    
     func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here
     
     //This will be excuted when any updates happens to userInfo

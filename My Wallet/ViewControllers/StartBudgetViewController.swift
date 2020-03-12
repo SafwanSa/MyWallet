@@ -80,8 +80,10 @@ class StartBudgetViewController: UIViewController {
 
 //MARK:- Delegate and protocol overriding
 extension StartBudgetViewController: DataSourceProtocol{
+    func getMonths(months: [String]) {}
     func paidDataUpdated(data: [[Payment]]) {}
     func unpaidDataUpdated(data: [Payment]) {}
+    
     func userDataUpdated(data: [String : Any]) {
         txt_email.text = data["Email"] as? String
         txt_fname.text = data["First Name"] as? String

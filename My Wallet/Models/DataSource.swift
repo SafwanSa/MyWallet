@@ -14,6 +14,7 @@ protocol DataSourceProtocol{
     func paidDataUpdated(data:[[Payment]])
     func unpaidDataUpdated(data: [Payment])
     func userDataUpdated(data: [String:Any])
+    func getMonths(months: [String])
 }
 
 
@@ -26,7 +27,7 @@ class DataSource{
     var userData = [String:Any]()
     var type: String
     var category = ""
-
+    var months = [String]()
     init() {
         self.type = ""
         self.getUserInfoWhenUpdated()
@@ -39,6 +40,9 @@ class DataSource{
             self.getUserInfoWhenUpdated()
         }else if(type == "ppayment"){
             self.getData(type)
+            self.getUserInfoWhenUpdated()
+        }else if(type == "months"){
+            self.getMonthsData()
             self.getUserInfoWhenUpdated()
         }
     }
@@ -110,6 +114,7 @@ class DataSource{
     
     
     func clearArray(){
+        months.removeAll()
         unpaidPaymentsList.removeAll()
         for i in 0 ... paidPaymentsList.count - 1{
             paidPaymentsList[i].removeAll()
@@ -133,13 +138,13 @@ class DataSource{
                 if self.unpaidPaymentsList.capacity>=0{
                     self.dataSourceDelegate?.unpaidDataUpdated(data: self.unpaidPaymentsList)
                 }
-            }else{
+            }else if(type == "ppayment"){
                 for doc in documents{
                     self.paidPaymentsList = self.dataCleaner(data: doc.data(), type) as! [[Payment]]
                 }
                 if self.paidPaymentsList.capacity>=0{
                     self.dataSourceDelegate?.paidDataUpdated(data: self.paidPaymentsList)
-                        }
+                }
             }
         }
     }
@@ -163,6 +168,58 @@ class DataSource{
     func updateUserInformation(data: [String:Float]){
         db.collection("user").document(getID()).updateData(data)
     }
+    
+    
+    func getPaymentsMonths(data: [[Payment]]) -> [String]{
+        var tempArray = [String]()
+        for i in 0..<data.count-1{
+            for j in data[i]{
+                let date = j.at
+                let m = Calendar.getMonthInAr(m: String(date.split(separator: "/")[0]))
+                if(m != Calendar.getMonthInAr(m: "auto")){
+                    tempArray.append(m)
+                }
+            }
+        }
+        tempArray = tempArray.removingDuplicates()
+        self.months = tempArray
+        return self.months
+    }
+    
+    
+    func getMonthsData(){
+        db.collection("ppayment").whereField("uid", isEqualTo: getID())
+        .addSnapshotListener { documentSnapshot, error in
+            guard let documents = documentSnapshot?.documents else {
+            print("Error fetching document: \(error!)")
+            return
+          }
+            self.clearArray()
+                for doc in documents{
+                    self.months = self.getPaymentsMonths(data: self.dataCleaner(data: doc.data(), "ppayment") as! [[Payment]])
+                }
+                if self.months.capacity>=0{
+                    self.dataSourceDelegate?.getMonths(months: self.months)
+                }
+        }
+    }
+    
+    
+}
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+
+        return filter {
+            addedDict.updateValue(true, forKey: $0) == nil
+        }
+    }
+
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
+    
+  
     
     
 }

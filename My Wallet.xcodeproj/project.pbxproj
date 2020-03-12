@@ -24,6 +24,7 @@
 		171D5D612333B39F00EA774D /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D602333B39F00EA774D /* MyButton.swift */; };
 		171D5D6423344A4300EA774D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D6323344A4300EA774D /* Constants.swift */; };
 		1745A89C233637F800BECDD9 /* StartBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A89B233637F800BECDD9 /* StartBudgetViewController.swift */; };
+		1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745E11A24199CC5003C697A /* MonthsTableViewController.swift */; };
 		1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED372333A1400052CE54 /* AppDelegate.swift */; };
 		1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED392333A1400052CE54 /* ViewController.swift */; };
 		1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED3B2333A1410052CE54 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		171D5D602333B39F00EA774D /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		171D5D6323344A4300EA774D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1745A89B233637F800BECDD9 /* StartBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBudgetViewController.swift; sourceTree = "<group>"; };
+		1745E11A24199CC5003C697A /* MonthsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewController.swift; sourceTree = "<group>"; };
 		1752ED342333A1400052CE54 /* My Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1752ED372333A1400052CE54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1752ED392333A1400052CE54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		171D5D542333AA6400EA774D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				171029C82415AF8700D0D697 /* HistoryViewController.swift */,
 				171D5D552333AAA800EA774D /* HomeViewController.swift */,
 				171D5D572333AABF00EA774D /* LoginViewController.swift */,
 				171D5D592333AACB00EA774D /* SignupViewController.swift */,
@@ -119,7 +122,7 @@
 				17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */,
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
-				171029C82415AF8700D0D697 /* HistoryViewController.swift */,
+				1745E11A24199CC5003C697A /* MonthsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				171029C92415AF8700D0D697 /* HistoryViewController.swift in Sources */,
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
 				171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */,
+				1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */,
 				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

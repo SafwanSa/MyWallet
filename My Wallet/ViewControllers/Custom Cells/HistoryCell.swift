@@ -20,7 +20,7 @@ class HistoryCell: UITableViewCell{
     
     
     var category = ""
-    var delegate:HistoryCellProtocol!
+    var delegate: HistoryCellProtocol!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +36,7 @@ class HistoryCell: UITableViewCell{
     
     
     @IBAction func btn_stat(_ sender: Any) {
+        
     }
     
     

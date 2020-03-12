@@ -19,9 +19,15 @@ class Calendar{
            let formattedDate = format.string(from: date)
            return formattedDate
        }
-    static func getCurrentMonthInAr()->String{
-        let current = getDate().split(separator: "/")
-        let month = current[0]
+    static func getMonthInAr(m: String)->String{
+        var month = ""
+        if (m == "auto"){
+            let current = getDate().split(separator: "/")
+            month = String(current[0])
+        }else{
+            month = m
+        }
+
         var monthInAr = ""
 
         switch month {

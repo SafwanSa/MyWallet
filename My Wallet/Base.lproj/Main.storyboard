@@ -302,7 +302,39 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4q9-7y-UPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6424.8000000000002" y="-45.42728635682159"/>
+            <point key="canvasLocation" x="7697" y="826"/>
+        </scene>
+        <!--Months Table View Controller-->
+        <scene sceneID="JM7-BT-J9m">
+            <objects>
+                <tableViewController id="nvo-ar-cdV" customClass="MonthsTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bE2-RC-8MC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="monthCell" rowHeight="77" id="opA-Bf-Wel">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="77"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="opA-Bf-Wel" id="1ZI-L3-H8b">
+                                    <rect key="frame" x="0.0" y="0.0" width="348" height="77"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nvo-ar-cdV" id="0iA-Pf-BFy"/>
+                            <outlet property="delegate" destination="nvo-ar-cdV" id="9h8-2U-py8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="7s0-La-5Nr"/>
+                    <connections>
+                        <outlet property="myTableView" destination="bE2-RC-8MC" id="qU9-TZ-8y0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ex4-pB-qw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7697" y="65"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="FJK-Z2-U3k">
@@ -423,7 +455,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="kla-fb-GFm">
-                                <rect key="frame" x="16" y="20" width="343" height="473"/>
+                                <rect key="frame" x="16" y="20" width="343" height="477"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="معلومات الحساب" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXr-EY-03H">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="15"/>
@@ -492,13 +524,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gam-JH-s33" customClass="GradientView" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="312" width="343" height="161"/>
+                                        <rect key="frame" x="0.0" y="312" width="343" height="165"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-oE-wtK">
-                                                <rect key="frame" x="30" y="20" width="287" height="48"/>
+                                                <rect key="frame" x="30" y="20" width="287" height="52"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ghp-yu-mVd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="48"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="52"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="الميزانية" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB8-Ds-kFh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="18"/>
@@ -507,7 +539,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5000" translatesAutoresizingMaskIntoConstraints="NO" id="5UE-IE-oeQ">
-                                                                <rect key="frame" x="-2" y="18" width="244" height="31"/>
+                                                                <rect key="frame" x="-2" y="18" width="244" height="35"/>
                                                                 <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <connections>
@@ -517,7 +549,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BC-tg-N5Y">
-                                                        <rect key="frame" x="265" y="0.0" width="22" height="48"/>
+                                                        <rect key="frame" x="265" y="0.0" width="22" height="52"/>
                                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -530,7 +562,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-eG-gII">
-                                                <rect key="frame" x="30" y="95" width="287" height="48"/>
+                                                <rect key="frame" x="30" y="99" width="287" height="48"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XMX-Br-wpD">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="48"/>
@@ -594,7 +626,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn5-Uf-z3I" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="110" y="525" width="154" height="30"/>
+                                <rect key="frame" x="110" y="529" width="154" height="30"/>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                 <state key="normal" title="تحديث المعلومات">
                                     <color key="titleColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -690,7 +722,8 @@
                     <navigationItem key="navigationItem" id="A0f-8I-e56"/>
                     <connections>
                         <outlet property="lbl_month" destination="PgD-xI-uV4" id="HnO-cG-osl"/>
-                        <segue destination="VmY-2Z-DH7" kind="show" identifier="gogo" id="W5A-zB-jkd"/>
+                        <segue destination="VmY-2Z-DH7" kind="show" identifier="goToCurrentMonthHistory" id="W5A-zB-jkd"/>
+                        <segue destination="nvo-ar-cdV" kind="show" identifier="goToMonthsClass" id="aYW-DP-pcP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iK2-XO-89B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
