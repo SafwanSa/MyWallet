@@ -66,5 +66,17 @@ class Calendar{
         return String(getDate().split(separator: "/")[0])
     }
     
+    static func getFormatedDate(by: String, date: String)->String{
+        if(by == "month"){
+            return String(date.split(separator: "/")[0])
+        }
+        let formated = date.split(separator: "/")[1]
+        if(by == "day"){
+            return String(formated.split(separator: " ")[0])
+        }else if(by == "time"){
+            return String(formated.split(separator: " ")[1])
+        }
+        return "invalid"
+    }
     
 }

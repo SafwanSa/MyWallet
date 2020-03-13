@@ -114,6 +114,7 @@
 		171D5D542333AA6400EA774D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1745E11A24199CC5003C697A /* MonthsTableViewController.swift */,
 				171029C82415AF8700D0D697 /* HistoryViewController.swift */,
 				171D5D552333AAA800EA774D /* HomeViewController.swift */,
 				171D5D572333AABF00EA774D /* LoginViewController.swift */,
@@ -122,7 +123,6 @@
 				17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */,
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
-				1745E11A24199CC5003C697A /* MonthsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

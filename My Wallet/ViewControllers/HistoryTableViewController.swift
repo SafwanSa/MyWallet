@@ -105,12 +105,10 @@ class HistoryTableViewController: UITableViewController {
         //Take the cell from TableViewCell1
         let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
             //Giving each cell an id (the date the time) Configure the cell...
-//        "MM/dd HH:mm:ss"
-        let formated = ats.split(separator: "/")[1]
-        let day = formated.split(separator: " ")[0]
-        let time = formated.split(separator: " ")[1]
-        let timeFormated = String(time)
-            cell.lbl_date.text = String(day + ", " + timeFormated)
+        let day = Calendar.getFormatedDate(by: "day", date: ats)
+        let time = Calendar.getFormatedDate(by: "time", date: ats)
+            cell.lbl_day.text = "يوم: "+day
+            cell.lbl_time.text = "الوقت: "+time
             cell.lbl_title.text = String(title)
             cell.setPaidCell(cost: String(cost))
             return cell

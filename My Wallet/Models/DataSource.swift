@@ -28,6 +28,7 @@ class DataSource{
     var type: String
     var category = ""
     var months = [String]()
+    
     init() {
         self.type = ""
         self.getUserInfoWhenUpdated()
@@ -79,6 +80,8 @@ class DataSource{
                 let payment = Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i])
                 unpaidPaymentsList.append(payment)
             }
+            //Sorting the array by the date
+            unpaidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
             return unpaidPaymentsList
         }else{
             for i in 0...costs.count-1{
@@ -102,11 +105,15 @@ class DataSource{
             //If category == current month, remove evrey thing not in that month
             for i in 0..<paidPaymentsList.count{
                 paidPaymentsList[i].removeAll { (payment) -> Bool in
-                    let month = payment.at.split(separator: "/")[0]
+                    let month = Calendar.getFormatedDate(by: "month", date: payment.at)
                     let check1 = (month != Calendar.categ)
                     let check2 = (Calendar.categ != "")
                     return check1 && check2
                 }
+            }
+            //Sorting thr array by date
+            for i in 0..<paidPaymentsList.count{
+                paidPaymentsList[i].sort(by: { $0.at.compare($1.at) == .orderedDescending })
             }
             return paidPaymentsList
         }
@@ -175,7 +182,7 @@ class DataSource{
         for i in 0..<data.count-1{
             for j in data[i]{
                 let date = j.at
-                let m = String(date.split(separator: "/")[0])
+                let m = Calendar.getFormatedDate(by: "month", date: date)
                 if(m != Calendar.getCurrentMonth()){
                     tempArray.append(m)
                 }
@@ -203,7 +210,6 @@ class DataSource{
                 }
         }
     }
-    
     
 }
 extension Array where Element: Hashable {

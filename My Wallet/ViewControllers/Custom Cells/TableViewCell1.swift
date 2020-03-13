@@ -13,7 +13,9 @@ class TableViewCell1: UITableViewCell {
 
     @IBOutlet weak var lbl_cost: UILabel!
     @IBOutlet weak var lbl_title: UILabel!
-    @IBOutlet weak var lbl_date: UILabel!
+    @IBOutlet weak var lbl_day: UILabel!
+    @IBOutlet weak var lbl_time: UILabel!
+    
     
     
     override func awakeFromNib() {

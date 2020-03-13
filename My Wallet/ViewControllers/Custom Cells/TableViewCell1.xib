@@ -25,47 +25,54 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-YM-R73" customClass="GradientView" customModule="My_Wallet" customModuleProvider="target">
                         <rect key="frame" x="20" y="19" width="359" height="80"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moR-Bu-9Lr">
-                                <rect key="frame" x="16" y="32" width="67" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moR-Bu-9Lr">
+                                <rect key="frame" x="16" y="10" width="81" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="LhG-5d-2jo"/>
-                                    <constraint firstAttribute="height" constant="15" id="dRS-Zb-1d6"/>
+                                    <constraint firstAttribute="width" constant="81" id="DM0-Dv-D9O"/>
+                                    <constraint firstAttribute="height" constant="15" id="fhc-Ma-ASc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="12"/>
                                 <color key="textColor" red="0.7005426307" green="0.2475695118" blue="0.2280554642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="highlightedColor" red="0.7005426307" green="0.2475695118" blue="0.2280554642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px0-nL-Xbc">
-                                <rect key="frame" x="23" y="60" width="84" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="يوم : 06" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px0-nL-Xbc">
+                                <rect key="frame" x="167" y="63" width="43" height="12"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="ATL-lZ-pS4"/>
-                                    <constraint firstAttribute="height" constant="12" id="lLi-mU-NdY"/>
+                                    <constraint firstAttribute="height" constant="12" id="TwF-ll-xta"/>
+                                    <constraint firstAttribute="width" constant="43" id="gik-ju-GfY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الذهاب للعطلة مع الاأصدقا" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETR-dJ-G8z">
-                                <rect key="frame" x="166" y="17" width="185" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الذهاب للعطلة مع الاأصدقا" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETR-dJ-G8z">
+                                <rect key="frame" x="202.5" y="10" width="148.5" height="14"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="X6s-U3-uZf"/>
-                                    <constraint firstAttribute="width" constant="185" id="him-A9-XiG"/>
+                                    <constraint firstAttribute="width" constant="148.5" id="uSG-XH-UQC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الوقت : 14:14:45" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kru-cC-oaP">
+                                <rect key="frame" x="20" y="63" width="76.5" height="12"/>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="11"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ETR-dJ-G8z" firstAttribute="top" secondItem="ajp-YM-R73" secondAttribute="top" constant="17" id="106-yo-CSO"/>
-                            <constraint firstAttribute="bottom" secondItem="ETR-dJ-G8z" secondAttribute="bottom" constant="16" id="5Vd-9N-JI1"/>
-                            <constraint firstItem="Px0-nL-Xbc" firstAttribute="top" secondItem="moR-Bu-9Lr" secondAttribute="bottom" constant="13" id="H1h-qe-5f8"/>
-                            <constraint firstItem="moR-Bu-9Lr" firstAttribute="leading" secondItem="ajp-YM-R73" secondAttribute="leading" constant="16" id="JAS-Ff-qhg"/>
-                            <constraint firstItem="moR-Bu-9Lr" firstAttribute="top" secondItem="ajp-YM-R73" secondAttribute="top" constant="32" id="TYJ-Jg-bGo"/>
-                            <constraint firstItem="Px0-nL-Xbc" firstAttribute="leading" secondItem="ajp-YM-R73" secondAttribute="leading" constant="23" id="bnK-ZK-voX"/>
-                            <constraint firstAttribute="trailing" secondItem="ETR-dJ-G8z" secondAttribute="trailing" constant="8" id="rzx-Rg-tPy"/>
-                            <constraint firstAttribute="bottom" secondItem="Px0-nL-Xbc" secondAttribute="bottom" constant="8" id="vV6-gl-dfp"/>
+                            <constraint firstAttribute="trailing" secondItem="ETR-dJ-G8z" secondAttribute="trailing" constant="8" id="5tQ-xo-grw"/>
+                            <constraint firstItem="moR-Bu-9Lr" firstAttribute="top" secondItem="ajp-YM-R73" secondAttribute="top" constant="10" id="9Bh-n3-WTW"/>
+                            <constraint firstItem="moR-Bu-9Lr" firstAttribute="leading" secondItem="ajp-YM-R73" secondAttribute="leading" constant="16" id="9KN-eX-56a"/>
+                            <constraint firstItem="ETR-dJ-G8z" firstAttribute="top" secondItem="ajp-YM-R73" secondAttribute="top" constant="10" id="Al3-qe-hZu"/>
+                            <constraint firstAttribute="trailing" secondItem="Px0-nL-Xbc" secondAttribute="trailing" constant="149" id="JFy-KS-u4M"/>
+                            <constraint firstAttribute="height" constant="80" id="K2K-5j-rxV"/>
+                            <constraint firstAttribute="width" constant="359" id="gys-5N-Zc8"/>
+                            <constraint firstAttribute="bottom" secondItem="kru-cC-oaP" secondAttribute="bottom" constant="5" id="m9Y-g7-WZT"/>
+                            <constraint firstAttribute="bottom" secondItem="Px0-nL-Xbc" secondAttribute="bottom" constant="5" id="r2c-3R-qvl"/>
+                            <constraint firstItem="kru-cC-oaP" firstAttribute="leading" secondItem="ajp-YM-R73" secondAttribute="leading" constant="20" id="se9-ne-bHU"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="topColor">
@@ -82,10 +89,10 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ajp-YM-R73" secondAttribute="bottom" constant="19" id="Czg-1G-2Hw"/>
-                    <constraint firstItem="ajp-YM-R73" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="LWq-RQ-YUR"/>
-                    <constraint firstAttribute="trailing" secondItem="ajp-YM-R73" secondAttribute="trailing" constant="31" id="VLq-ug-kaX"/>
-                    <constraint firstItem="ajp-YM-R73" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="iLC-Gi-lsW"/>
+                    <constraint firstAttribute="bottom" secondItem="ajp-YM-R73" secondAttribute="bottom" constant="19" id="5lA-zJ-J74"/>
+                    <constraint firstItem="ajp-YM-R73" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="IBP-yd-MoX"/>
+                    <constraint firstItem="ajp-YM-R73" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sEp-uJ-ZUK"/>
+                    <constraint firstAttribute="trailing" secondItem="ajp-YM-R73" secondAttribute="trailing" constant="31" id="vd4-dX-PFx"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
@@ -96,7 +103,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lbl_cost" destination="moR-Bu-9Lr" id="jyM-YI-MiO"/>
-                <outlet property="lbl_date" destination="Px0-nL-Xbc" id="3eh-0w-dkD"/>
+                <outlet property="lbl_day" destination="Px0-nL-Xbc" id="gM4-sa-MAc"/>
+                <outlet property="lbl_time" destination="kru-cC-oaP" id="EL9-HM-pE8"/>
                 <outlet property="lbl_title" destination="ETR-dJ-G8z" id="byT-5E-dKe"/>
             </connections>
             <point key="canvasLocation" x="111.59420289855073" y="52.232142857142854"/>
