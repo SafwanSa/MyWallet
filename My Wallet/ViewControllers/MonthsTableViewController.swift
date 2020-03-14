@@ -62,7 +62,7 @@ extension MonthsTableViewController: DataSourceProtocol{
     
     func unpaidDataUpdated(data: [Payment]) {}
     
-    func userDataUpdated(data: [String : Any]) {}
+    func userDataUpdated(data: [String : Any], which:String) {}
     
     func getMonths(months: [String]) {
         self.months = months

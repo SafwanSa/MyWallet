@@ -123,5 +123,5 @@ extension HistoryTableViewController: DataSourceProtocol{
         self.tableView.reloadData()
     }
     func unpaidDataUpdated(data: [Payment]) {} //Nothing will happend here
-    func userDataUpdated(data: [String : Any]) {} //Nothing will happend here
+    func userDataUpdated(data: [String : Any], which:String) {} //Nothing will happend here
 }

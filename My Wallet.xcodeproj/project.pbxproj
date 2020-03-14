@@ -31,6 +31,7 @@
 		1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED402333A1420052CE54 /* LaunchScreen.storyboard */; };
 		1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED492333A2770052CE54 /* GoogleService-Info.plist */; };
 		178EF38E241273520082901F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EF38D241273520082901F /* DataSource.swift */; };
+		179DBE22241D16CB0009C763 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE21241D16CB0009C763 /* Budget.swift */; };
 		17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B42951233ACA4C004F2436 /* MyRoundedView.swift */; };
 		17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */; };
 		17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */; };
@@ -66,6 +67,7 @@
 		1752ED432333A1420052CE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1752ED492333A2770052CE54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		178EF38D241273520082901F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		179DBE21241D16CB0009C763 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		17B42951233ACA4C004F2436 /* MyRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedView.swift; sourceTree = "<group>"; };
 		17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				17FB6F6B233E103800A039EC /* Payment.swift */,
 				1705F68223463DF6009C16DF /* UserInfo.swift */,
+				179DBE21241D16CB0009C763 /* Budget.swift */,
 			);
 			path = "Logical Buissness";
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
 				171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */,
 				1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */,
+				179DBE22241D16CB0009C763 /* Budget.swift in Sources */,
 				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

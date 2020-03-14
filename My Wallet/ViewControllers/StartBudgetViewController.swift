@@ -64,8 +64,7 @@ class StartBudgetViewController: UIViewController {
         //Create a Budget
         let budget = Float(lbl_budget.text!)
         let savings = Float(lbl_savings.text!)
-        let income = Float(0)
-        let newData = ["Income":income, "Budget":budget, "Savings":savings]
+        let newData = ["Starting Amount":budget, "Current Amount":budget, "Savings":savings]
         //Update the database
         dataSourceDelivery?.updateUserInformation(data: newData as! [String : Float])
             
@@ -84,14 +83,18 @@ extension StartBudgetViewController: DataSourceProtocol{
     func paidDataUpdated(data: [[Payment]]) {}
     func unpaidDataUpdated(data: [Payment]) {}
     
-    func userDataUpdated(data: [String : Any]) {
-        txt_email.text = data["Email"] as? String
-        txt_fname.text = data["First Name"] as? String
-        txt_lname.text = data["Last Name"] as? String
-        sldr_budget_out.value = (data["Budget"] as? Float)!
-        lbl_budget.text = String((data["Budget"] as? Float)!)
-        sldr_savings_out.value = (data["Savings"] as? Float)!
-        lbl_savings.text = String((data["Savings"] as? Float)!)
+    func userDataUpdated(data: [String : Any], which:String) {
+        if(which == "user"){
+            txt_email.text = data["Email"] as? String
+            txt_fname.text = data["First Name"] as? String
+            txt_lname.text = data["Last Name"] as? String
+        }else{
+            sldr_budget_out.value = (data["Current Amount"] as? Float)!
+            lbl_budget.text = String((data["Current Amount"] as? Float)!)
+            sldr_savings_out.value = (data["Savings"] as? Float)!
+            lbl_savings.text = String((data["Savings"] as? Float)!)
+        }
+
     }
     
     

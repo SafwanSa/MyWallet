@@ -13,7 +13,7 @@ import Firebase
 protocol DataSourceProtocol{
     func paidDataUpdated(data:[[Payment]])
     func unpaidDataUpdated(data: [Payment])
-    func userDataUpdated(data: [String:Any])
+    func userDataUpdated(data: [String:Any], which: String)
     func getMonths(months: [String])
 }
 
@@ -158,22 +158,25 @@ class DataSource{
     
     
     func getUserInfoWhenUpdated(){
-        db.collection("user").document(getID())
-        .addSnapshotListener { documentSnapshot, error in
-          guard let document = documentSnapshot else {
-            print("Error fetching document: \(error!)")
-            return
-          }
-          guard let data = document.data() else {
-            print("Document data was empty.")
-            return
-          }
-            self.dataSourceDelegate?.userDataUpdated(data: data)
+        let info = ["budgets","user"]
+        for dt in info{
+            db.collection(dt).document(getID())
+            .addSnapshotListener { documentSnapshot, error in
+              guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+              }
+              guard let data = document.data() else {
+                print("Document data was empty.")
+                return
+              }
+                self.dataSourceDelegate?.userDataUpdated(data: data, which: dt)
+            }
         }
     }
     
     func updateUserInformation(data: [String:Float]){
-        db.collection("user").document(getID()).updateData(data)
+        db.collection("budgets").document(getID()).updateData(data)
     }
     
     

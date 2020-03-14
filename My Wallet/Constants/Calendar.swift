@@ -19,6 +19,15 @@ class Calendar{
            let formattedDate = format.string(from: date)
            return formattedDate
        }
+    
+    static func getCurrentYear()->String{
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "YYYY"
+        let formattedDate = format.string(from: date)
+        return formattedDate
+    }
+    
     static func getMonthInAr(m: String)->String{
         var month = ""
         if (m == "auto"){
@@ -77,6 +86,11 @@ class Calendar{
             return String(formated.split(separator: " ")[1])
         }
         return "invalid"
+    }
+    
+    
+    static func getBudgetName()->String{
+        return "Budget_"+getCurrentMonth()+"_"+getCurrentYear()
     }
     
 }

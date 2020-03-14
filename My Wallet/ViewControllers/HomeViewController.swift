@@ -113,14 +113,17 @@ extension HomeViewController: DataSourceProtocol{
     func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here
     
     //This will be excuted when any updates happens to userInfo
-    func userDataUpdated(data: [String : Any]) {
-        self.lbl_budget.text = String(data["Budget"] as! Float)
-        let budget = data["Budget"] as! Float
-//        let savings = data["Savings"] as! Float
-//        let startBudget = data["Starting Budget"] as! Float
-        let startBudget = Float(5000)
-        let percent = (100 * budget)/startBudget
-        self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
+    func userDataUpdated(data: [String : Any], which: String) {
+        if(which == "budgets"){
+            self.lbl_budget.text = String(data["Current Amount"] as! Float)
+            let budget = data["Current Amount"] as! Float
+            //        let savings = data["Savings"] as! Float
+            //        let startBudget = data["Starting Budget"] as! Float
+            let startBudget = Float(5000)
+            let percent = (100 * budget)/startBudget
+            self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
+        }
+       
     }
     //This method will be excuted when any updates happens to "uppayments"
     func unpaidDataUpdated(data: [Payment]) {

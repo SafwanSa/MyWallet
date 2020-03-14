@@ -52,11 +52,11 @@ class Payment{
     }
 
     func payPayment(cost:Float){
-        db.collection("user").document(getID()).getDocument { (DocumentSnapshot, Error) in
+        db.collection("budgets").document(getID()).getDocument { (DocumentSnapshot, Error) in
                       let data =  DocumentSnapshot!.data()
-                       let budget = data!["Budget"] as! Float - cost
-                       let newData = ["Budget":budget]
-                       self.db.collection("user").document(self.getID()).updateData(newData)
+                       let budget = data!["Current Amount"] as! Float - cost
+                       let newData = ["Current Amount":budget]
+                       self.db.collection("budgets").document(self.getID()).updateData(newData)
                    }
     }
     
