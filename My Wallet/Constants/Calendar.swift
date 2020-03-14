@@ -89,7 +89,7 @@ class Calendar{
     }
     
     
-    static func getBudgetName()->String{
+    static func getBudgetId()->String{
         return "Budget_"+getCurrentMonth()+"_"+getCurrentYear()
     }
     

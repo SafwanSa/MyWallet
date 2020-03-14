@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    let em = "d@d.com"
+    let em = "test@test.com"
     let ps = "@s1111111"
     
     

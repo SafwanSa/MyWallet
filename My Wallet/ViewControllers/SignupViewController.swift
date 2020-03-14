@@ -87,7 +87,7 @@ class SignupViewController: UIViewController {
                     let user = UserInfo(first_name: first_name, last_name: last_name, email: email, id: result!.user.uid)
                     let budget = user.createBudget(amount: 0.0, savings: 0.0)
                     db.collection("user").document(user.id).setData(user.setUserInfoData())
-                    db.collection("budgets").document(user.id).setData(budget.setBudgetData())
+                    db.collection("budgets").document(Calendar.getBudgetId()).setData(budget.setBudgetData())
                     SVProgressHUD.dismiss()
                     //Transition to the home screen
                     self.performSegue(withIdentifier: "goToHomeVC", sender: self)

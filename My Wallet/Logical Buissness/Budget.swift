@@ -12,13 +12,13 @@ import FirebaseAuth
 
 class Budget{
     
-    var name: String
+    var bid: String
     var current_amount: Float
     var savings: Float
     var start_amount: Float
     var userId: String
     init(amount: Float, savings: Float, user: UserInfo) {
-        self.name = Calendar.getBudgetName()
+        self.bid = Calendar.getBudgetId()
         self.start_amount = amount
         self.current_amount = amount
         self.savings = savings
@@ -31,7 +31,7 @@ class Budget{
     }
     
     func setBudgetData() -> [String:Any]{
-        return ["Name": name,"Start Amount":start_amount, "Current Amount":current_amount, "Savings":savings, "uid":userId]
+        return ["bid": bid,"Start Amount":start_amount, "Current Amount":current_amount, "Savings":savings, "uid":userId]
     }
     
     

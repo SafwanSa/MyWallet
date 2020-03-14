@@ -52,11 +52,11 @@ class Payment{
     }
 
     func payPayment(cost:Float){
-        db.collection("budgets").document(getID()).getDocument { (DocumentSnapshot, Error) in
+        db.collection("budgets").document(Calendar.getBudgetId()).getDocument { (DocumentSnapshot, Error) in
                       let data =  DocumentSnapshot!.data()
                        let budget = data!["Current Amount"] as! Float - cost
                        let newData = ["Current Amount":budget]
-                       self.db.collection("budgets").document(self.getID()).updateData(newData)
+            self.db.collection("budgets").document(Calendar.getBudgetId()).updateData(newData)
                    }
     }
     

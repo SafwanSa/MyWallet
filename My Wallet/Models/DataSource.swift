@@ -159,8 +159,14 @@ class DataSource{
     
     func getUserInfoWhenUpdated(){
         let info = ["budgets","user"]
+        var doc = getID()
         for dt in info{
-            db.collection(dt).document(getID())
+            if(dt == "budgets"){
+                doc = Calendar.getBudgetId()
+            }else{
+                doc = getID()
+            }
+            db.collection(dt).document(doc)
             .addSnapshotListener { documentSnapshot, error in
               guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -176,7 +182,7 @@ class DataSource{
     }
     
     func updateUserInformation(data: [String:Float]){
-        db.collection("budgets").document(getID()).updateData(data)
+        db.collection("budgets").document(Calendar.getBudgetId()).updateData(data)
     }
     
     
