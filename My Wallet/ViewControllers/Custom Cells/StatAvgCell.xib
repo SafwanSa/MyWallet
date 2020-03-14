@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="JF Flat regular.ttf">
+            <string>JFFlat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="168" id="Law-lo-K7f" customClass="StatAvgCell" customModule="My_Wallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Law-lo-K7f" id="tLT-mp-2lT">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="متوسط المصاريف" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPz-TB-wnh">
+                        <rect key="frame" x="299" y="12" width="99" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="H8T-M6-q7U"/>
+                            <constraint firstAttribute="width" constant="99" id="uJ3-92-6na"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="13"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mcN-sq-25J">
+                        <rect key="frame" x="265" y="71" width="68" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="يومياً" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyj-Ik-KdP">
+                                <rect key="frame" x="17.5" y="0.0" width="33.5" height="16"/>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR 30.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgN-T3-O1A">
+                                <rect key="frame" x="0.0" y="32" width="68" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAI-ZO-uIA">
+                        <rect key="frame" x="1" y="34" width="412" height="1"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5pm-WK-NZB">
+                        <rect key="frame" x="81" y="71" width="68" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أسبوعياً" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-w1-Q33">
+                                <rect key="frame" x="8.5" y="0.0" width="51" height="16"/>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAR 30.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-W5-gUC">
+                                <rect key="frame" x="0.0" y="32" width="68" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dAI-ZO-uIA" secondAttribute="trailing" constant="1" id="Ak4-OK-XLA"/>
+                    <constraint firstItem="5pm-WK-NZB" firstAttribute="leading" secondItem="tLT-mp-2lT" secondAttribute="leadingMargin" constant="61" id="D3Y-oF-5kh"/>
+                    <constraint firstItem="dAI-ZO-uIA" firstAttribute="top" secondItem="VPz-TB-wnh" secondAttribute="bottom" constant="8" id="Mxo-t9-kus"/>
+                    <constraint firstItem="mcN-sq-25J" firstAttribute="top" secondItem="dAI-ZO-uIA" secondAttribute="bottom" constant="36" id="R9n-u5-uuG"/>
+                    <constraint firstItem="VPz-TB-wnh" firstAttribute="top" secondItem="tLT-mp-2lT" secondAttribute="top" constant="12" id="a3g-rP-Ehl"/>
+                    <constraint firstItem="5pm-WK-NZB" firstAttribute="top" secondItem="dAI-ZO-uIA" secondAttribute="bottom" constant="36" id="e0a-B2-HAt"/>
+                    <constraint firstAttribute="trailing" secondItem="VPz-TB-wnh" secondAttribute="trailing" constant="16" id="gQa-WP-PMp"/>
+                    <constraint firstItem="dAI-ZO-uIA" firstAttribute="leading" secondItem="tLT-mp-2lT" secondAttribute="leading" constant="1" id="siI-bA-Eze"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="mcN-sq-25J" secondAttribute="bottom" constant="36" id="uIY-76-RN8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5pm-WK-NZB" secondAttribute="bottom" constant="36" id="xGw-Xs-0Dt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mcN-sq-25J" secondAttribute="trailing" constant="61" id="zWs-Vj-dRE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-123.18840579710145" y="105.13392857142857"/>
+        </tableViewCell>
+    </objects>
+</document>

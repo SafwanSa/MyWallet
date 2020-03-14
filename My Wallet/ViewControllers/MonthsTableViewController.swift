@@ -52,12 +52,19 @@ class MonthsTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Calendar.categ = self.months[indexPath.row]
-        self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
+        if(Calendar.side == 0){
+            self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
+        }else if(Calendar.side == 1){
+            self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
+        }
+
     }
     
     
 }
 extension MonthsTableViewController: DataSourceProtocol{
+    func getCosts(costs: [Float]) {}
+    
     func paidDataUpdated(data: [[Payment]]) {}
     
     func unpaidDataUpdated(data: [Payment]) {}

@@ -11,7 +11,7 @@ import Firebase
 class Calendar{
     
     static var categ = ""
-    
+    static var side = -1
     
     static func getID()->String{
         return Auth.auth().currentUser!.uid

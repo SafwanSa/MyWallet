@@ -64,15 +64,28 @@ class HistoryViewController: UITableViewController{
     
 }
 extension HistoryViewController: HistoryCellProtocol{
-    func transitions(category: String) {
-        //Get the category to display before transition
-        if(category == "Current Month"){
-            Calendar.categ = Calendar.getCurrentMonth()
-            self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
+    func transitions(category: String, side: Int) {
+        //Get the category and the button's tag to display before transition
+        if(side == 0){
+            if(category == "Current Month"){
+                Calendar.categ = Calendar.getCurrentMonth()
+                Calendar.side = side
+                self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
+            }else{
+                self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
+                Calendar.categ = ""
+            }
         }else{
-            self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
-            Calendar.categ = ""
+            if(category == "Current Month"){
+                Calendar.categ = Calendar.getCurrentMonth()
+                Calendar.side = side
+                self.performSegue(withIdentifier: "goToStatClass", sender: self)
+            }else{
+                self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
+                Calendar.categ = ""
+            }
         }
+        
 
     }
     

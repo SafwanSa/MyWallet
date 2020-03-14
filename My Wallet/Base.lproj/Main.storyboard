@@ -222,6 +222,27 @@
             </objects>
             <point key="canvasLocation" x="2110" y="-1179"/>
         </scene>
+        <!--Stat Table View Controller-->
+        <scene sceneID="w5l-7C-Plm">
+            <objects>
+                <tableViewController id="FCZ-t8-D1f" customClass="StatTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="7sW-kW-OXD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <connections>
+                            <outlet property="dataSource" destination="FCZ-t8-D1f" id="na1-Kp-EfL"/>
+                            <outlet property="delegate" destination="FCZ-t8-D1f" id="WeO-yW-CDN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="OWm-Nk-fRc"/>
+                    <connections>
+                        <outlet property="myTableView" destination="7sW-kW-OXD" id="hCB-Ly-QjI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68m-Jg-G3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8561" y="825"/>
+        </scene>
         <!--History Table View Controller-->
         <scene sceneID="a5J-tV-ysX">
             <objects>
@@ -345,6 +366,7 @@
                     <connections>
                         <outlet property="myTableView" destination="bE2-RC-8MC" id="qU9-TZ-8y0"/>
                         <segue destination="VmY-2Z-DH7" kind="show" identifier="goToCurrentMonthHistory" id="V7c-Ve-NWA"/>
+                        <segue destination="FCZ-t8-D1f" kind="show" identifier="goToStatClass" id="GkP-Fr-Hdb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ex4-pB-qw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -739,6 +761,7 @@
                         <outlet property="lbl_month" destination="PgD-xI-uV4" id="HnO-cG-osl"/>
                         <segue destination="VmY-2Z-DH7" kind="show" identifier="goToCurrentMonthHistory" id="W5A-zB-jkd"/>
                         <segue destination="nvo-ar-cdV" kind="show" identifier="goToMonthsClass" id="aYW-DP-pcP"/>
+                        <segue destination="FCZ-t8-D1f" kind="show" identifier="goToStatClass" id="0S5-Hy-7db"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iK2-XO-89B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1133,5 +1156,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="erF-3g-8gi"/>
         <segue reference="V7c-Ve-NWA"/>
+        <segue reference="GkP-Fr-Hdb"/>
     </inferredMetricsTieBreakers>
 </document>

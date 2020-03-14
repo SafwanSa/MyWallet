@@ -108,6 +108,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 //MARK:- Delegate and protocol overriding
 extension HomeViewController: DataSourceProtocol{
+    func getCosts(costs: [Float]) {}
+    
     func getMonths(months: [String]) {}
     
     func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here

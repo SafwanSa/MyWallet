@@ -64,7 +64,7 @@ class StartBudgetViewController: UIViewController {
         //Create a Budget
         let budget = Float(lbl_budget.text!)
         let savings = Float(lbl_savings.text!)
-        let newData = ["Starting Amount":budget, "Current Amount":budget, "Savings":savings]
+        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
         //Update the database
         dataSourceDelivery?.updateUserInformation(data: newData as! [String : Float])
             
@@ -79,6 +79,7 @@ class StartBudgetViewController: UIViewController {
 
 //MARK:- Delegate and protocol overriding
 extension StartBudgetViewController: DataSourceProtocol{
+    func getCosts(costs: [Float]) {}
     func getMonths(months: [String]) {}
     func paidDataUpdated(data: [[Payment]]) {}
     func unpaidDataUpdated(data: [Payment]) {}

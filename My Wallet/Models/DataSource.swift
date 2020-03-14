@@ -15,6 +15,7 @@ protocol DataSourceProtocol{
     func unpaidDataUpdated(data: [Payment])
     func userDataUpdated(data: [String:Any], which: String)
     func getMonths(months: [String])
+    func getCosts(costs: [Float])
 }
 
 
@@ -28,6 +29,7 @@ class DataSource{
     var type: String
     var category = ""
     var months = [String]()
+    var costs = [Float]()
     
     init() {
         self.type = ""
@@ -65,6 +67,7 @@ class DataSource{
                     if key == "Cost"{
                         let q = value as? NSNumber
                         costs.append("\(q!.stringValue)")
+                        self.costs.append(Float(truncating: q!))
                     }else if key == "Title"{
                         titles.append("\((value as? String)!)")
                     }else if key == "At"{
@@ -115,6 +118,7 @@ class DataSource{
             for i in 0..<paidPaymentsList.count{
                 paidPaymentsList[i].sort(by: { $0.at.compare($1.at) == .orderedDescending })
             }
+            dataSourceDelegate?.getCosts(costs: self.costs)
             return paidPaymentsList
         }
     }

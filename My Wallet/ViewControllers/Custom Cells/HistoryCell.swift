@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol HistoryCellProtocol {
-    func transitions(category: String)
+    func transitions(category: String, side: Int)
 }
 
 class HistoryCell: UITableViewCell{
@@ -35,14 +35,10 @@ class HistoryCell: UITableViewCell{
     }
     
     
-    @IBAction func btn_stat(_ sender: Any) {
-        
-    }
     
-    
-    @IBAction func btn_hist(_ sender: Any) {
+    @IBAction func btn_hist(_ sender: UIButton) {
         if(self.delegate != nil){ //Just to be safe.
-            self.delegate.transitions(category: category)
+            self.delegate.transitions(category: category, side: sender.tag)
         }
     }
     
