@@ -13,31 +13,34 @@ class Calculations{
     
     var costs = [Float]()
     
-    init() {
-        let dataSourceDelivery = DataSource(type: "ppaymnet")
-        dataSourceDelivery.dataSourceDelegate = self
+    static func getAverageCosts(costs: [Float], by:String)->Float{
+        var sum : Float = 0
+        var divd : Float = 0
+        if(by == "day"){
+            divd = 30
+        }else if(by == "week"){
+            divd = 4
+        }
+        for i in costs{
+            sum = sum + i
+        }
+        return (sum / divd).rounded()
     }
-    
-    static func getAverage(){
-        
+    static func getAverageCounts(costs: [Float], by:String)->Int{
+        var counter : Float = 0
+        var divd : Float = 0
+        if(by == "day"){
+            divd = 30
+        }else if(by == "week"){
+            divd = 4
+        }
+        for i in costs{
+            counter = counter + 1
+        }
+        return Int(counter / divd) + 1
     }
     
     
     
 }
-extension Calculations: DataSourceProtocol{
-    func paidDataUpdated(data: [[Payment]]) {}
-    
-    func unpaidDataUpdated(data: [Payment]) {}
-    
-    func userDataUpdated(data: [String : Any], which: String) {}
-    
-    func getMonths(months: [String]) {}
-    
-    func getCosts(costs: [Float]) {
-        print(costs)
-        self.costs = costs
-    }
-    
-    
-}
+
