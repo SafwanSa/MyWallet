@@ -7,10 +7,16 @@
 //
 
 import Foundation
-
+import Firebase
 class Calendar{
     
     static var categ = ""
+    
+    
+    static func getID()->String{
+        return Auth.auth().currentUser!.uid
+    }
+    
     
     static func getDate()->String{
            let date = Date()
@@ -90,7 +96,7 @@ class Calendar{
     
     
     static func getBudgetId()->String{
-        return "Budget_"+getCurrentMonth()+"_"+getCurrentYear()
+        return getID()+"_Budget_"+getCurrentMonth()+"_"+getCurrentYear()
     }
     
 }
