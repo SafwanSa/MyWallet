@@ -40,7 +40,29 @@ class Calculations{
         return Int(counter / divd) + 1
     }
     
+    static func getCostForEachType(payments:[[Payment]]) -> [Int:Double]{
+        var result = [Int:Double]()
+        for i in 0..<payments.count{
+            var sum : Double = 0.0
+            for j in payments[i]{
+                sum += Double(j.cost)
+            }
+            result[i] = sum.rounded()
+        }
+        return result
+    }
     
+    static func getMaxCostForType(typesAndCost: [Int:Double])->Double{
+        var max: Double = 0.0
+        for data in typesAndCost{
+            let value = data.value
+            if(value > max){
+                max = value
+            }
+        }
+        if(max > 0){return max} else {return 1000}
+
+    }
     
 }
 

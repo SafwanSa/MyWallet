@@ -14,6 +14,15 @@ class StatTableViewController: UITableViewController{
 
     var costs = [Float]()
     var chart: BarsChart?
+    var allPayments = [
+        [Payment](),
+        [Payment](),
+        [Payment](),
+        [Payment](),
+        [Payment](),
+        [Payment](),
+        [Payment]()
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataSourceDelivery = DataSource(type: "ppayment")
@@ -42,6 +51,9 @@ class StatTableViewController: UITableViewController{
             return cell
         }else{
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
+            let eachCost = Calculations.getCostForEachType(payments: self.allPayments)
+            let maxValue = Calculations.getMaxCostForType(typesAndCost: eachCost)
+            //Setting up the bar chart
             let chartConfig = BarsChartConfig(
                 valsAxisConfig: ChartAxisConfig(from: 0, to: 1000, by: 150)
                 )
@@ -55,13 +67,13 @@ class StatTableViewController: UITableViewController{
                       xTitle: "التصنيفات",
                       yTitle: "قيمة الصرف",
                       bars: [
-                          (typesNames[0], 200),
-                          (typesNames[1], 400),
-                          (typesNames[2], 30),
-                          (typesNames[3], 540),
-                          (typesNames[4], 680),
-                          (typesNames[5], 0500),
-                          (typesNames[6], 0600)
+                        (typesNames[0], eachCost[0]!),
+                          (typesNames[1], eachCost[1]!),
+                          (typesNames[2], eachCost[2]!),
+                          (typesNames[3], eachCost[3]!),
+                          (typesNames[4], eachCost[4]!),
+                          (typesNames[5], eachCost[5]!),
+                          (typesNames[6], eachCost[6]!)
                       ],
                       color: UIColor.gray,
                       barWidth: 10
@@ -75,7 +87,11 @@ class StatTableViewController: UITableViewController{
     
 }
 extension StatTableViewController: DataSourceProtocol{
-    func paidDataUpdated(data: [[Payment]]) {}
+    func paidDataUpdated(data: [[Payment]]) {
+        print(data)
+        self.allPayments = data
+        self.myTableView.reloadData()
+    }
     
     func unpaidDataUpdated(data: [Payment]) {}
     
