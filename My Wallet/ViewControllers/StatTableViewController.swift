@@ -88,7 +88,6 @@ class StatTableViewController: UITableViewController{
 }
 extension StatTableViewController: DataSourceProtocol{
     func paidDataUpdated(data: [[Payment]]) {
-        print(data)
         self.allPayments = data
         self.myTableView.reloadData()
     }

@@ -12,92 +12,82 @@ import FirebaseAuth
 import FirebaseFirestore
 import UICircularProgressRing
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class HomeViewController: UITableViewController{
     
     
     
     //MARK: -Main Storyboard vars
-    @IBOutlet weak var prog_view: UICircularProgressRing!
-    @IBOutlet weak var bottom_view: GradientView!
-    
-    
-    //Top View
-    @IBOutlet weak var btn_add: RoundButton!
-    @IBOutlet weak var lbl_budget: UILabel!
-    
     //Bottom View
     @IBOutlet weak var myTableView: UITableView!
     
     //MARK: -Instance vars
     var unpaidPaymentsList = [Payment]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        myTableView.dataSource = self
-        myTableView.delegate = self
-        
-        //Customize the View's
-        bottom_view.layer.shadowOffset = .zero
-        bottom_view.layer.shadowRadius = 5
-        bottom_view.layer.shadowOpacity = 0.6
-        bottom_view.layer.masksToBounds = false
-        btn_add.layer.shadowOffset = .zero
-        btn_add.layer.shadowRadius = 5
-        btn_add.layer.shadowOpacity = 0.8
-        btn_add.layer.masksToBounds = false
-        
-        //Styling the progress bar
-        prog_view.style = .dashed(pattern: [7.0, 7.0])
-
         //Seting up the delegate
         let dataSourceDelivery = DataSource(type: "uppayment")
         dataSourceDelivery.dataSourceDelegate = self
     }
     
     //MARK:- TableView Configuraion
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Take the payments one by one from the array
-        let payment = self.unpaidPaymentsList[indexPath.row]
-        let cost = payment.cost
-        let title = payment.title
-        let ats = payment.at
-        let type = payment.type
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Confgiuer Cell
-        let cell = Bundle.main.loadNibNamed("UnpaidCell", owner: self, options: nil)?.first as! UnpaidCell
-        cell.lbl_cost.text = "SAR "+String(cost)
-        cell.lbl_title.text = title
-        cell.paymentType = type
-        cell.paymentDate = ats
-        return cell
+            //Take the payments one by one from the array
+        if(indexPath.section == 0){
+            let cell = Bundle.main.loadNibNamed("HomeCell", owner: self, options: nil)?.first as! HomeCell
+            cell.delegate = self
+            return cell
+        }else{
+           let payment = self.unpaidPaymentsList[indexPath.row]
+           let cost = payment.cost
+           let title = payment.title
+           let ats = payment.at
+           let type = payment.type
+           let cell1 = Bundle.main.loadNibNamed("UnpaidCell", owner: self, options: nil)?.first as! UnpaidCell
+           cell1.lbl_cost.text = "SAR "+String(cost)
+           cell1.lbl_title.text = title
+           cell1.paymentType = type
+           cell1.paymentDate = ats
+           return cell1
+        }
     }
     
-     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the Title of the Table
         let label = UILabel()
         let str = " لديك " + String(self.unpaidPaymentsList.count) + " من المصروفات غير مدفوعة"
-        label.text = str
+        let sectionsNames = ["",str]
+        label.text = sectionsNames[section]
         label.font = UIFont.init(name: "JF Flat", size: 18)
         label.textAlignment = NSTextAlignment.center
         return label
     }
     
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return unpaidPaymentsList.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 0){
+            return 1
+        }else{
+            return unpaidPaymentsList.count
+        }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 0){
+            return 356
+        }else{
+            return 80
+        }
     }
     
     //MARK:- Kb closing
@@ -109,29 +99,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //MARK:- Delegate and protocol overriding
 extension HomeViewController: DataSourceProtocol{
     func getCosts(costs: [Float]) {}
-    
     func getMonths(months: [String]) {}
-    
     func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here
+    func userDataUpdated(data: [String : Any], which: String) {}
     
-    //This will be excuted when any updates happens to userInfo
-    func userDataUpdated(data: [String : Any], which: String) {
-        if(which == "budgets"){
-            self.lbl_budget.text = String(data["Current Amount"] as! Float)
-            let budget = data["Current Amount"] as! Float
-            //        let savings = data["Savings"] as! Float
-            //        let startBudget = data["Starting Budget"] as! Float
-            let startBudget = Float(5000)
-            let percent = (100 * budget)/startBudget
-            self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
-        }
-       
-    }
     //This method will be excuted when any updates happens to "uppayments"
     func unpaidDataUpdated(data: [Payment]) {
         unpaidPaymentsList = data
         self.myTableView.reloadData()
     }
+    
+    
+}
+extension HomeViewController: HomeCellProtocol{
+    func transitions() {
+        self.performSegue(withIdentifier: "moveToAddPayment", sender: self)
+    }
+    
     
     
 }

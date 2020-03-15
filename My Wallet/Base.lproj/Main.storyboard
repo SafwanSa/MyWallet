@@ -787,199 +787,49 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="8Or-In-wLH" kind="relationship" relationship="viewControllers" id="uBm-3R-l0l"/>
                         <segue destination="deO-By-FK2" kind="relationship" relationship="viewControllers" id="iI0-3C-VEN"/>
                         <segue destination="tnH-n2-YBz" kind="relationship" relationship="viewControllers" id="gRx-sX-uOn"/>
+                        <segue destination="bpp-xz-8YE" kind="relationship" relationship="viewControllers" id="o3B-LA-2lR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TP0-pX-5lV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3095" y="-609"/>
         </scene>
-        <!--ادارة المصروفات-->
-        <scene sceneID="imh-mk-dNp">
+        <!--Item-->
+        <scene sceneID="1Nv-l6-ffR">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Or-In-wLH" customClass="HomeViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="HomeVC" id="uhd-og-rs8">
+                <tableViewController id="bpp-xz-8YE" customClass="HomeViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ac-pP-BNT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cs5-6F-4Cb" customClass="GradientView" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                <subviews>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqg-p8-6UH" userLabel="Top View" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
-                                        <rect key="frame" x="74" y="53" width="226" height="167.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="167.5" id="Oul-zC-DcQ"/>
-                                            <constraint firstAttribute="width" constant="226" id="a7f-6N-qnh"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                                <real key="value" value="100"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                <real key="value" value="100"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldShowValueText" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
-                                                <color key="value" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldDrawMinValueKnob" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
-                                                <real key="value" value="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
-                                                <real key="value" value="11"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="innerRingSpacing">
-                                                <real key="value" value="-3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isClockwise" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frg-qG-x31" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="318" y="16" width="41" height="41"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="SRw-LH-SXQ"/>
-                                            <constraint firstAttribute="width" constant="41" id="TvI-fl-erL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="34"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="59f-kL-Az5" kind="popoverPresentation" popoverAnchorView="Frg-qG-x31" id="jLh-NP-vaM">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5U-gf-rb1">
-                                        <rect key="frame" x="156" y="242" width="105" height="30.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30.5" id="l8h-UN-XUv"/>
-                                            <constraint firstAttribute="width" constant="105" id="nO0-Oe-ISG"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="29"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ريال" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOz-RQ-tC2">
-                                        <rect key="frame" x="138" y="248" width="25" height="18"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="VRf-wo-qQP"/>
-                                            <constraint firstAttribute="width" constant="25" id="m0a-Um-yIW"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kpg-x0-3rD" customClass="GradientView" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="281" width="375" height="382"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" id="u7N-f8-nS2">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="383"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="sectionIndexBackgroundColor" red="1" green="0.4039215686" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                                        <real key="value" value="61"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="8Or-In-wLH" id="721-hm-W9F"/>
-                                                    <outlet property="delegate" destination="8Or-In-wLH" id="LPc-Pa-gD5"/>
-                                                </connections>
-                                            </tableView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                                <real key="value" value="61"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.41960784309999999" green="0.46666666670000001" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Tqg-p8-6UH" secondAttribute="trailing" constant="75" id="0m5-vx-nfR"/>
-                                    <constraint firstItem="Tqg-p8-6UH" firstAttribute="top" secondItem="cs5-6F-4Cb" secondAttribute="top" constant="53" id="9uV-Pe-0Z7"/>
-                                    <constraint firstItem="Tqg-p8-6UH" firstAttribute="leading" secondItem="cs5-6F-4Cb" secondAttribute="leading" constant="74" id="IJM-Au-D3W"/>
-                                    <constraint firstAttribute="trailing" secondItem="FOz-RQ-tC2" secondAttribute="trailing" constant="212" id="J1e-Jt-fUu"/>
-                                    <constraint firstItem="n5U-gf-rb1" firstAttribute="top" secondItem="Tqg-p8-6UH" secondAttribute="bottom" constant="21.5" id="JeL-dl-N9o"/>
-                                    <constraint firstItem="FOz-RQ-tC2" firstAttribute="leading" secondItem="cs5-6F-4Cb" secondAttribute="leading" constant="138" id="Smz-57-HCl"/>
-                                    <constraint firstItem="Frg-qG-x31" firstAttribute="leading" secondItem="Tqg-p8-6UH" secondAttribute="trailing" constant="18" id="TsX-ZG-bJh"/>
-                                    <constraint firstAttribute="trailing" secondItem="Frg-qG-x31" secondAttribute="trailing" constant="16" id="X0I-Wg-q27"/>
-                                    <constraint firstAttribute="trailing" secondItem="n5U-gf-rb1" secondAttribute="trailing" constant="114" id="YmZ-Jl-bEu"/>
-                                    <constraint firstItem="FOz-RQ-tC2" firstAttribute="top" secondItem="Tqg-p8-6UH" secondAttribute="bottom" constant="27.5" id="jPh-Sb-pdP"/>
-                                    <constraint firstItem="Frg-qG-x31" firstAttribute="top" secondItem="cs5-6F-4Cb" secondAttribute="top" constant="16" id="pmd-of-33M"/>
-                                    <constraint firstItem="n5U-gf-rb1" firstAttribute="top" secondItem="Tqg-p8-6UH" secondAttribute="bottom" constant="21.5" id="xlk-c4-Dio"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                        <color key="value" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                        <color key="value" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="cs5-6F-4Cb" firstAttribute="leading" secondItem="DtC-xy-kGc" secondAttribute="leading" id="Eoh-RL-TkP"/>
-                            <constraint firstItem="cs5-6F-4Cb" firstAttribute="trailing" secondItem="DtC-xy-kGc" secondAttribute="trailing" id="PcZ-Ic-SDG"/>
-                            <constraint firstAttribute="bottom" secondItem="cs5-6F-4Cb" secondAttribute="bottom" constant="20" symbolic="YES" id="WYq-Ow-5Cf"/>
-                            <constraint firstItem="cs5-6F-4Cb" firstAttribute="top" secondItem="DtC-xy-kGc" secondAttribute="top" id="yoV-c5-744"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="DtC-xy-kGc"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="ادارة المصروفات" image="pencil" catalog="system" id="Z7a-fk-jeS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fa3-bg-Vvt">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fa3-bg-Vvt" id="2kf-JP-GTo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bpp-xz-8YE" id="ohB-Ec-5ty"/>
+                            <outlet property="delegate" destination="bpp-xz-8YE" id="wkm-X3-DdD"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="GCb-iS-73H"/>
                     <connections>
-                        <outlet property="bottom_view" destination="Kpg-x0-3rD" id="Af8-Ab-xKs"/>
-                        <outlet property="btn_add" destination="Frg-qG-x31" id="Efr-b5-xv7"/>
-                        <outlet property="lbl_budget" destination="n5U-gf-rb1" id="mVY-rT-XLU"/>
-                        <outlet property="myTableView" destination="u7N-f8-nS2" id="4M6-wd-ta5"/>
-                        <outlet property="prog_view" destination="Tqg-p8-6UH" id="E0r-x8-eEN"/>
+                        <outlet property="myTableView" destination="9ac-pP-BNT" id="22n-aO-rae"/>
+                        <segue destination="59f-kL-Az5" kind="popoverPresentation" identifier="moveToAddPayment" popoverAnchorView="9ac-pP-BNT" id="k9i-mB-Xwj">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xby-HJ-xnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UmA-C3-uRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4293.6000000000004" y="-1181.5592203898052"/>
+            <point key="canvasLocation" x="4241" y="-1206"/>
         </scene>
         <!--Add Payment View Controller-->
         <scene sceneID="GMN-wW-di3">
@@ -1010,7 +860,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="btn_addPayment:" destination="8Or-In-wLH" eventType="touchUpInside" id="ZwI-oI-gJT"/>
                                             <action selector="btn_addPayment:" destination="59f-kL-Az5" eventType="touchUpInside" id="scy-Nq-66V"/>
                                         </connections>
                                     </button>
@@ -1094,6 +943,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gvT-P8-RyS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CXO-Q9-8Hr"/>
                     <connections>
                         <outlet property="sgmnt_paid" destination="NUt-N8-i5d" id="Ert-bk-hqk"/>
                         <outlet property="topView" destination="abj-Uf-12v" id="Ibv-9N-1Yz"/>
@@ -1150,12 +1000,11 @@
     <resources>
         <image name="doc.text.magnifyingglass" catalog="system" width="58" height="64"/>
         <image name="newBackground" width="1000" height="1000"/>
-        <image name="pencil" catalog="system" width="64" height="56"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="erF-3g-8gi"/>
-        <segue reference="V7c-Ve-NWA"/>
-        <segue reference="GkP-Fr-Hdb"/>
+        <segue reference="W5A-zB-jkd"/>
+        <segue reference="0S5-Hy-7db"/>
     </inferredMetricsTieBreakers>
 </document>

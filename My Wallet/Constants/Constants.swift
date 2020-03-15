@@ -9,9 +9,9 @@
 import Foundation
 
 
-struct Constants {
-    struct StoryBoard {
-        static let HomeViewController = "HomeVC"
-        static let ViewController = "ViewController"
-    }
-}
+//struct Constants {
+//    struct StoryBoard {
+//        static let HomeViewController = "HomeVC"
+//        static let ViewController = "ViewController"
+//    }
+//}
