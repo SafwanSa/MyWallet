@@ -11,7 +11,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import UICircularProgressRing
-import Charts
+
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     

@@ -34,7 +34,7 @@ class Calculations{
         }else if(by == "week"){
             divd = 4
         }
-        for i in costs{
+        for _ in costs{
             counter = counter + 1
         }
         return Int(counter / divd) + 1

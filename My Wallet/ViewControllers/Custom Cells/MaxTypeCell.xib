@@ -60,7 +60,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="CNY-IC-AF7" secondAttribute="trailing" constant="153" id="wmr-IQ-aIk"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="59" y="96"/>
+            <point key="canvasLocation" x="57.971014492753625" y="95.758928571428569"/>
         </tableViewCell>
     </objects>
 </document>

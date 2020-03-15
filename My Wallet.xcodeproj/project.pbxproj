@@ -13,6 +13,8 @@
 		17012FFA24032990000B840A /* UnpaidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17012FF924032990000B840A /* UnpaidCell.swift */; };
 		1705F68323463DF6009C16DF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705F68223463DF6009C16DF /* UserInfo.swift */; };
 		170E79C723F9C029007A894C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 170E79C623F9C029007A894C /* Assets.xcassets */; };
+		170E8403241E6C3700A68971 /* StatTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E8401241E6C3700A68971 /* StatTypeCell.swift */; };
+		170E8404241E6C3700A68971 /* StatTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 170E8402241E6C3700A68971 /* StatTypeCell.xib */; };
 		171029C92415AF8700D0D697 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171029C82415AF8700D0D697 /* HistoryViewController.swift */; };
 		171029CB2415B25800D0D697 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 171029CA2415B25800D0D697 /* HistoryCell.xib */; };
 		171029CD2415B27B00D0D697 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171029CC2415B27B00D0D697 /* HistoryCell.swift */; };
@@ -53,6 +55,8 @@
 		17012FF924032990000B840A /* UnpaidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpaidCell.swift; sourceTree = "<group>"; };
 		1705F68223463DF6009C16DF /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		170E79C623F9C029007A894C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		170E8401241E6C3700A68971 /* StatTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTypeCell.swift; sourceTree = "<group>"; };
+		170E8402241E6C3700A68971 /* StatTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatTypeCell.xib; sourceTree = "<group>"; };
 		171029C82415AF8700D0D697 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		171029CA2415B25800D0D697 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		171029CC2415B27B00D0D697 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				179DBE29241D431C0009C763 /* StatAvgCell.xib */,
 				179DBE2D241D6A9A0009C763 /* MaxTypeCell.swift */,
 				179DBE2F241D6AA80009C763 /* MaxTypeCell.xib */,
+				170E8401241E6C3700A68971 /* StatTypeCell.swift */,
+				170E8402241E6C3700A68971 /* StatTypeCell.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 				179DBE30241D6AA80009C763 /* MaxTypeCell.xib in Resources */,
 				17012FF824032966000B840A /* UnpaidCell.xib in Resources */,
 				179DBE2A241D431C0009C763 /* StatAvgCell.xib in Resources */,
+				170E8404241E6C3700A68971 /* StatTypeCell.xib in Resources */,
 				17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +389,7 @@
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
 				171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */,
 				1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */,
+				170E8403241E6C3700A68971 /* StatTypeCell.swift in Sources */,
 				179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */,
 				179DBE22241D16CB0009C763 /* Budget.swift in Sources */,
 				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,
