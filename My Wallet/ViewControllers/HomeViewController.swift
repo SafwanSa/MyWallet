@@ -33,13 +33,13 @@ class HomeViewController: UITableViewController{
     
     //MARK:- TableView Configuraion
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Confgiuer Cell
-            //Take the payments one by one from the array
+        //Confgiuer Cells
         if(indexPath.section == 0){
             let cell = Bundle.main.loadNibNamed("HomeCell", owner: self, options: nil)?.first as! HomeCell
             cell.delegate = self
             return cell
         }else{
+            //Take the payments one by one from the array
            let payment = self.unpaidPaymentsList[indexPath.row]
            let cost = payment.cost
            let title = payment.title
@@ -62,6 +62,8 @@ class HomeViewController: UITableViewController{
         label.text = sectionsNames[section]
         label.font = UIFont.init(name: "JF Flat", size: 18)
         label.textAlignment = NSTextAlignment.center
+        label.textColor = .gray
+        label.alpha = 0.7
         return label
     }
     

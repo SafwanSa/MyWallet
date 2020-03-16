@@ -12,7 +12,6 @@ import FirebaseFirestore
 
 class UnpaidCell: UITableViewCell{
     
-    @IBOutlet weak var testView: UIView!
     @IBOutlet weak var backGroundView: GradientView!
     @IBOutlet weak var insideBackground: GradientView!
     
@@ -21,6 +20,7 @@ class UnpaidCell: UITableViewCell{
     
     @IBOutlet weak var btn_pay: RoundButton!
     
+    @IBOutlet weak var btn_dellete: RoundButton!
     
     var paymentDate = ""
     var paymentType = ""
@@ -32,14 +32,20 @@ class UnpaidCell: UITableViewCell{
     
     @IBAction func btn_payAction(_ sender: RoundButton) {
         let cost = Float(lbl_cost.text!.split(separator: " ")[1])!
-          let title = lbl_title.text!
-          let p = Payment(title,cost,paymentType,true, "auto")
-          //Show a message
-          p.addPayemnt()
-          //Delete the payment from unpaid list
-          p.deletePayment(id: paymentDate)
-          //Subtract the cost from the budget
-          p.payPayment(cost: cost)
+        let title = lbl_title.text!
+        let p = Payment(title,cost,paymentType,true, "auto")
+        if (sender.tag == 0){
+              //Show a message
+              p.addPayemnt()
+              //Delete the payment from unpaid list
+              p.deletePayment(id: paymentDate)
+              //Subtract the cost from the budget
+              p.payPayment(cost: cost)
+        }else{
+            //Delete the payment from unpaid list
+              p.deletePayment(id: paymentDate)
+        }
+
     }
     
     
