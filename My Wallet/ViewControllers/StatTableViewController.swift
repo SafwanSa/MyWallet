@@ -11,7 +11,7 @@ import SwiftCharts
 class StatTableViewController: UITableViewController{
     @IBOutlet var myTableView: UITableView!
     
-
+    //MARK:- Vars Declaration
     var costs = [Float]()
     var chart: BarsChart?
     var allPayments = [
@@ -23,13 +23,15 @@ class StatTableViewController: UITableViewController{
         [Payment](),
         [Payment]()
     ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self
     }
     
-    
+    //MARK:- TableView Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -42,23 +44,27 @@ class StatTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //If it is the first section, then display the (StatAvgCell)
         if(indexPath.section == 0){
             let cell = Bundle.main.loadNibNamed("StatAvgCell", owner: self, options: nil)?.first as! StatAvgCell
+            //Cell configuration
             cell.setUpAverage(costs: self.costs)
             return cell
+        //If it is the second section, then display the (MaxTypeCell)
         }else if(indexPath.section == 1){
             let cell = Bundle.main.loadNibNamed("MaxTypeCell", owner: self, options: nil)?.first as! MaxTypeCell
             return cell
+        //If it is the third section, then display the (StatTypeCell)
         }else{
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
+            //EachCost var -> it will contain the total cost for each type
             let eachCost = Calculations.getCostForEachType(payments: self.allPayments)
-            let maxValue = Calculations.getMaxCostForType(typesAndCost: eachCost)
+            //MaxValue var -> it will contain the max cost
+            let _ = Calculations.getMaxCostForType(typesAndCost: eachCost)//TODO put this in the vasAxisConfig
             //Setting up the bar chart
             let chartConfig = BarsChartConfig(
                 valsAxisConfig: ChartAxisConfig(from: 0, to: 1000, by: 150)
                 )
-//            chartConfig.xAxisLabelSettings.font = UIFont(name: "JF Flat", size: 9)
-
             let frame = CGRect(x: 0, y: 20, width: cell.view.frame.width-60, height:  136)
             let typesNames = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"]
                   let chart = BarsChart(
@@ -80,12 +86,13 @@ class StatTableViewController: UITableViewController{
                   )
             
             cell.view.addSubview(chart.view)
-                  self.chart = chart
+            self.chart = chart
             return cell
         }
     }
     
 }
+//MARK:- Delegate and protocol overriding
 extension StatTableViewController: DataSourceProtocol{
     func paidDataUpdated(data: [[Payment]]) {
         self.allPayments = data
