@@ -24,17 +24,10 @@ class StartBudgetViewController: UIViewController {
     @IBOutlet weak var lbl_budget: UILabel!
 
     
-    
     @IBOutlet weak var sldr_budget_out: UISlider!
-    @IBAction func sldr_budget(_ sender: UISlider) {
-        updateSliders()
-    }
-    
     @IBOutlet weak var sldr_savings_out: UISlider!
-    @IBAction func sldr_savings(_ sender: UISlider) {
-        updateSliders()
-    }
-    
+
+    //MARK:- Intsance Vars
     var dataSourceDelivery : DataSource?
     
     override func viewDidLoad() {
@@ -52,14 +45,14 @@ class StartBudgetViewController: UIViewController {
         topView.layer.masksToBounds = false
     }
     
-    //MARK: -Updating the sliders
+    //MARK:- Updating the sliders
     func updateSliders(){
         self.lbl_budget.text = String(Int(sldr_budget_out.value))+".0"
         self.lbl_savings.text = String(Int(sldr_savings_out.value))+".0"
         sldr_savings_out.maximumValue = Float(lbl_budget.text!)!
     }
     
-    //MARK: -Update Button Pressed function
+    //MARK:- Update Button Pressed function
     @IBAction func updateButtonPressed(_ sender: Any) {
         //Create a Budget
         let budget = Float(lbl_budget.text!)
@@ -69,8 +62,15 @@ class StartBudgetViewController: UIViewController {
         dataSourceDelivery?.updateUserInformation(data: newData as! [String : Float])
             
     }
-    
-    
+    //MARK:- Sliders actions
+    @IBAction func slideBudgetSlider(_ sender: UISlider) {
+        //Fix the incremen to be by 50
+        let steps: Float = 50
+        let roundedValue = round(sender.value / steps) * steps
+        sender.value = roundedValue
+        updateSliders()
+    }
+
     func closeKeyboard(){
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
