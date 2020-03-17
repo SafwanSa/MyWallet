@@ -12,6 +12,7 @@ import FirebaseFirestore
 import SVProgressHUD
 class SignupViewController: UIViewController {
 
+    @IBOutlet weak var signUpView: UIView!
     @IBOutlet weak var lbl_error: UILabel!
     @IBOutlet weak var txt_password: UITextField!
     @IBOutlet weak var txt_email: UITextField!
@@ -20,7 +21,10 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        // Do any additional setup after loading the view.
+        signUpView.layer.shadowOpacity = 0.6
+        signUpView.layer.shadowRadius = 5
+        signUpView.layer.shadowOffset = .zero
+        signUpView.layer.masksToBounds = false
     }
     
     func isPasswordValid(_ password : String) -> Bool{
@@ -94,11 +98,6 @@ class SignupViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    @IBAction func btnBackPressed(_ sender: Any) {
-    //Going back to base screen
-        dismiss(animated: true, completion: nil)
     }
     
     func closeKeyboard(){
