@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
 
 
     
-    @IBOutlet weak var loginView: UIStackView!
+    @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var txt_email: UITextField!
     @IBOutlet weak var txt_password: UITextField!
     @IBOutlet weak var lbl_error: UILabel!

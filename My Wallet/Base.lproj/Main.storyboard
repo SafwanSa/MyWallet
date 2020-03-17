@@ -273,7 +273,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68m-Jg-G3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8561" y="825"/>
+            <point key="canvasLocation" x="8614" y="534"/>
         </scene>
         <!--History Table View Controller-->
         <scene sceneID="a5J-tV-ysX">
@@ -370,7 +370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4q9-7y-UPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7697" y="826"/>
+            <point key="canvasLocation" x="7697" y="964"/>
         </scene>
         <!--Months Table View Controller-->
         <scene sceneID="JM7-BT-J9m">
@@ -403,7 +403,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ex4-pB-qw5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7697" y="65"/>
+            <point key="canvasLocation" x="7697" y="-287"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="FJK-Z2-U3k">
@@ -516,7 +516,7 @@
                     <navigationItem key="navigationItem" id="OXe-Zo-PXa"/>
                     <connections>
                         <outlet property="lbl_error" destination="xFN-Jq-5oh" id="S36-Ti-7Um"/>
-                        <outlet property="loginView" destination="udI-IQ-Qy9" id="edF-s9-Lye"/>
+                        <outlet property="loginView" destination="dbK-vc-toy" id="3lj-Y2-utb"/>
                         <outlet property="txt_email" destination="nJP-lN-cdZ" id="Y8B-ST-OQD"/>
                         <outlet property="txt_password" destination="YDy-BT-IcW" id="fcq-fc-nC5"/>
                         <segue destination="M85-wA-YG9" kind="show" identifier="goToHomeVC" id="erF-3g-8gi"/>
@@ -1046,8 +1046,8 @@
         <image name="transLogo" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DK4-vx-lH9"/>
-        <segue reference="W5A-zB-jkd"/>
-        <segue reference="0S5-Hy-7db"/>
+        <segue reference="erF-3g-8gi"/>
+        <segue reference="V7c-Ve-NWA"/>
+        <segue reference="GkP-Fr-Hdb"/>
     </inferredMetricsTieBreakers>
 </document>
