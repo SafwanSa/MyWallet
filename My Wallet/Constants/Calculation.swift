@@ -52,6 +52,24 @@ class Calculations{
         return result
     }
     
+    static func getCostPercentageForTypes(payments:[[Payment]], userData: [String:Any]) -> [Int:Double]{
+        var totalExpenses: Double = 1
+        var result = [Int:Double]()
+        if(userData.count != 0){
+            let currentBudget = userData["Current Amount"] as? Float
+            let startBudget = userData["Start Amount"] as? Float
+            totalExpenses = Double(startBudget! - currentBudget!)
+        }
+        for i in 0..<payments.count{
+            var sum : Double = 0.0
+            for j in payments[i]{
+                sum += Double(j.cost)
+            }
+            result[i] = ((sum*100)/(totalExpenses)).rounded()
+        }
+        return result
+    }
+    
     static func getMaxCostForType(typesAndCost: [Int:Double])->Double{
         var max: Double = 0.0
         for data in typesAndCost{

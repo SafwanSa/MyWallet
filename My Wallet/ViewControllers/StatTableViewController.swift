@@ -14,6 +14,7 @@ class StatTableViewController: UITableViewController{
     //MARK:- Vars Declaration
     var costs = [Float]()
     var chart: BarsChart?
+    var userData = [String:Any]()
     var allPayments = [
         [Payment](),
         [Payment](),
@@ -57,29 +58,27 @@ class StatTableViewController: UITableViewController{
         //If it is the third section, then display the (StatTypeCell)
         }else{
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            //EachCost var -> it will contain the total cost for each type
-            let eachCost = Calculations.getCostForEachType(payments: self.allPayments)
-            //MaxValue var -> it will contain the max cost
-            let _ = Calculations.getMaxCostForType(typesAndCost: eachCost)//TODO put this in the vasAxisConfig
+            //typesPercent var -> it will contain the cost percent for each type
+            let typesPercentage = Calculations.getCostPercentageForTypes(payments: self.allPayments, userData: self.userData)
             //Setting up the bar chart
             let chartConfig = BarsChartConfig(
-                valsAxisConfig: ChartAxisConfig(from: 0, to: 1000, by: 150)
+                valsAxisConfig: ChartAxisConfig(from: 0, to: 109, by: 10)
                 )
-            let frame = CGRect(x: 0, y: 20, width: cell.view.frame.width-60, height:  136)
+            let frame = CGRect(x: 0, y: cell.view.frame.minY - 10, width: cell.view.frame.width-60, height:  cell.view.frame.height - 20)
             let typesNames = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"]
                   let chart = BarsChart(
                       frame: frame,
                       chartConfig: chartConfig,
-                      xTitle: "التصنيفات",
-                      yTitle: "قيمة الصرف",
+                      xTitle: "",
+                      yTitle: "SAR",
                       bars: [
-                        (typesNames[0], eachCost[0]!),
-                          (typesNames[1], eachCost[1]!),
-                          (typesNames[2], eachCost[2]!),
-                          (typesNames[3], eachCost[3]!),
-                          (typesNames[4], eachCost[4]!),
-                          (typesNames[5], eachCost[5]!),
-                          (typesNames[6], eachCost[6]!)
+                        (typesNames[0], typesPercentage[0]!),
+                          (typesNames[1], typesPercentage[1]!),
+                          (typesNames[2], typesPercentage[2]!),
+                          (typesNames[3], typesPercentage[3]!),
+                          (typesNames[4], typesPercentage[4]!),
+                          (typesNames[5], typesPercentage[5]!),
+                          (typesNames[6], typesPercentage[6]!)
                       ],
                       color: UIColor.gray,
                       barWidth: 10
@@ -101,7 +100,12 @@ extension StatTableViewController: DataSourceProtocol{
     
     func unpaidDataUpdated(data: [Payment]) {}
     
-    func userDataUpdated(data: [String : Any], which: String) {}
+    func userDataUpdated(data: [String : Any], which: String) {
+        if(which == "budgets"){
+            self.userData = data
+            self.myTableView.reloadData()
+        }
+    }
     
     func getMonths(months: [String]) {}
     
