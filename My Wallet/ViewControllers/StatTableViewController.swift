@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import SwiftCharts
+import Charts
+
 class StatTableViewController: UITableViewController{
     @IBOutlet var myTableView: UITableView!
     
     //MARK:- Vars Declaration
     var costs = [Float]()
-    var chart: BarsChart?
+    var chart: PieChartView!
     var userData = [String:Any]()
     var allPayments = [
         [Payment](),
@@ -58,38 +59,10 @@ class StatTableViewController: UITableViewController{
         //If it is the third section, then display the (StatTypeCell)
         }else{
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            //typesPercent var -> it will contain the cost percent for each type
-            let typesPercentage = Calculations.getCostPercentageForTypes(payments: self.allPayments, userData: self.userData)
-            //Setting up the bar chart
-            let chartConfig = BarsChartConfig(
-                valsAxisConfig: ChartAxisConfig(from: 0, to: 109, by: 10)
-                )
-            let frame = CGRect(x: 0, y: cell.view.frame.minY - 10, width: cell.view.frame.width-60, height:  cell.view.frame.height - 20)
-            let typesNames = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"]
-                  let chart = BarsChart(
-                      frame: frame,
-                      chartConfig: chartConfig,
-                      xTitle: "",
-                      yTitle: "SAR",
-                      bars: [
-                        (typesNames[0], typesPercentage[0]!),
-                          (typesNames[1], typesPercentage[1]!),
-                          (typesNames[2], typesPercentage[2]!),
-                          (typesNames[3], typesPercentage[3]!),
-                          (typesNames[4], typesPercentage[4]!),
-                          (typesNames[5], typesPercentage[5]!),
-                          (typesNames[6], typesPercentage[6]!)
-                      ],
-                      color: UIColor.gray,
-                      barWidth: 10
-                  )
-            
-            cell.view.addSubview(chart.view)
-            self.chart = chart
+            cell.updateChartData(payments: self.allPayments, userData: self.userData)
             return cell
         }
     }
-    
 }
 //MARK:- Delegate and protocol overriding
 extension StatTableViewController: DataSourceProtocol{

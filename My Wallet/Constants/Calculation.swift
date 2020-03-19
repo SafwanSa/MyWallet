@@ -40,6 +40,16 @@ class Calculations{
         return Int(counter / divd) + 1
     }
     
+    static func getTotalCost(paymnets: [[Payment]]) -> Double{
+        let typesCosts = getCostForEachType(payments: paymnets)
+        var sum: Double = 0.0
+        for i in typesCosts{
+            let cost = i.value
+            sum += cost
+        }
+        return sum.rounded()
+    }
+    
     static func getCostForEachType(payments:[[Payment]]) -> [Int:Double]{
         var result = [Int:Double]()
         for i in 0..<payments.count{
@@ -52,20 +62,19 @@ class Calculations{
         return result
     }
     
-    static func getCostPercentageForTypes(payments:[[Payment]], userData: [String:Any]) -> [Int:Double]{
-        var totalExpenses: Double = 1
-        var result = [Int:Double]()
+    static func getCostPercentageForTypes(payments:[[Payment]], userData: [String:Any]) -> [Double]{
+        var startBudget: Double = 1
+        var result = [Double]()
         if(userData.count != 0){
-            let currentBudget = userData["Current Amount"] as? Float
-            let startBudget = userData["Start Amount"] as? Float
-            totalExpenses = Double(startBudget! - currentBudget!)
+            startBudget = Double(userData["Start Amount"] as! Float)
         }
         for i in 0..<payments.count{
             var sum : Double = 0.0
             for j in payments[i]{
                 sum += Double(j.cost)
             }
-            result[i] = ((sum*100)/(totalExpenses)).rounded()
+            let value = ((sum*100)/(startBudget)).rounded()
+            result.append(value)
         }
         return result
     }
