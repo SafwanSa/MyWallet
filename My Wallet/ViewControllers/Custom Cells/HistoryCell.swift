@@ -17,6 +17,7 @@ class HistoryCell: UITableViewCell{
     
     @IBOutlet weak var rightView: GradientView!
     @IBOutlet weak var leftView: GradientView!
+    @IBOutlet weak var lbl_CellTitle: UILabel!
     
     
     var category = ""

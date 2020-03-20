@@ -31,29 +31,21 @@ class HistoryViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 181
+        return 242
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.font = UIFont.init(name: "JF Flat", size: 14)
-        label.textColor = .black
-        label.textAlignment = NSTextAlignment.center
-        let names = ["إحصائيات الشهر الحالي", "إحصائيات الشهور الماضية"]
-        label.text = names[section]
-        return label
+        return 30
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Take the cell from HistoryCell
         let cell = Bundle.main.loadNibNamed("HistoryCell", owner: self, options: nil)?.first as! HistoryCell
         if(indexPath == IndexPath.init(item: 0, section: 0)){
+            cell.lbl_CellTitle.text = "إحصائيات الشهر الحالي"
             cell.category = "Current Month"
         }else{
+            cell.lbl_CellTitle.text = "إحصائيات الشهور الماضية"
             cell.category = "Other Months"
         }
             cell.delegate = self
