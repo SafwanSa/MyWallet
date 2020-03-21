@@ -35,7 +35,7 @@ class StatTableViewController: UITableViewController{
     
     //MARK:- TableView Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,9 +57,15 @@ class StatTableViewController: UITableViewController{
             let cell = Bundle.main.loadNibNamed("MaxTypeCell", owner: self, options: nil)?.first as! MaxTypeCell
             return cell
         //If it is the third section, then display the (StatTypeCell)
+        }else if(indexPath.section == 2){
+            let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
+            cell.updateChartData(payments: self.allPayments, userData: self.userData, type: "cost")
+            cell.lbl_cellTitle.text = "قيمة كل تصنيف من مجموع المصاريف"
+            return cell
         }else{
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            cell.updateChartData(payments: self.allPayments, userData: self.userData)
+            cell.updateChartData(payments: self.allPayments, userData: self.userData, type: "percent")
+            cell.lbl_cellTitle.text = "نسبة كل تصنيف من الميزانية"
             return cell
         }
     }

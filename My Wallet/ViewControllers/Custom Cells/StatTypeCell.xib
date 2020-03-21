@@ -22,11 +22,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="قيمة كل تصنيف" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbm-L5-q7S">
-                        <rect key="frame" x="289" y="12" width="109" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="نسبة كل تصنيف من مجموع المصاريف" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbm-L5-q7S">
+                        <rect key="frame" x="184" y="12" width="214" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="109" id="dUn-oH-ama"/>
-                            <constraint firstAttribute="height" constant="14" id="sJb-og-aOs"/>
+                            <constraint firstAttribute="width" constant="300" id="7c5-yt-J50"/>
+                            <constraint firstAttribute="height" constant="14" id="IcI-RI-LzI"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="13"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,19 +46,20 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="vid-TB-9CJ" firstAttribute="top" secondItem="Cbm-L5-q7S" secondAttribute="bottom" constant="8" id="BzT-cx-yFM"/>
                     <constraint firstItem="vid-TB-9CJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="Etz-QL-Hri"/>
                     <constraint firstItem="73J-Cf-Asu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="J38-EE-p7l"/>
-                    <constraint firstItem="Cbm-L5-q7S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="PLQ-v0-VUg"/>
-                    <constraint firstAttribute="trailing" secondItem="Cbm-L5-q7S" secondAttribute="trailing" constant="16" id="Rsj-sq-Fxf"/>
+                    <constraint firstAttribute="trailing" secondItem="Cbm-L5-q7S" secondAttribute="trailing" constant="16" id="QBZ-hc-ygz"/>
                     <constraint firstAttribute="trailing" secondItem="vid-TB-9CJ" secondAttribute="trailing" constant="1" id="U4y-A8-pEz"/>
                     <constraint firstAttribute="trailing" secondItem="73J-Cf-Asu" secondAttribute="trailing" constant="1" id="UA2-sP-10n"/>
                     <constraint firstAttribute="bottom" secondItem="73J-Cf-Asu" secondAttribute="bottom" constant="11" id="UGf-lc-FDz"/>
                     <constraint firstItem="73J-Cf-Asu" firstAttribute="top" secondItem="vid-TB-9CJ" secondAttribute="bottom" constant="20" id="WRg-8A-nwa"/>
-                    <constraint firstItem="vid-TB-9CJ" firstAttribute="top" secondItem="Cbm-L5-q7S" secondAttribute="bottom" constant="8" id="trE-QN-b2P"/>
+                    <constraint firstItem="Cbm-L5-q7S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="yY2-EM-Id3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="lbl_cellTitle" destination="Cbm-L5-q7S" id="UgD-SY-wtr"/>
                 <outlet property="pieView" destination="73J-Cf-Asu" id="zZJ-Kh-zCp"/>
             </connections>
             <point key="canvasLocation" x="78.260869565217391" y="179.46428571428569"/>

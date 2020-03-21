@@ -32,8 +32,116 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "Array"
-            landmarkType = "21">
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AEBE0D17-1E05-4755-92DD-CBDA241A90B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My Wallet/ViewControllers/Custom Cells/UnpaidCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "UnpaidCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "AEBE0D17-1E05-4755-92DD-CBDA241A90B4 - 4f32d43ec6809de8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Wallet.UnpaidCell.lbl_cost.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "My Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/safwan/Desktop/Safwan/My%20Wallet/My%20Wallet/ViewControllers/Custom%20Cells/UnpaidCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "AEBE0D17-1E05-4755-92DD-CBDA241A90B4 - 5ca9a03c4e04c994"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Wallet.UnpaidCell.lbl_cost.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "My Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/safwan/Desktop/Safwan/My%20Wallet/My%20Wallet/ViewControllers/Custom%20Cells/UnpaidCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "AEBE0D17-1E05-4755-92DD-CBDA241A90B4 - bb082b15ac48dad9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Wallet.UnpaidCell.lbl_cost.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "My Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/safwan/Desktop/Safwan/My%20Wallet/My%20Wallet/ViewControllers/Custom%20Cells/UnpaidCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "AEBE0D17-1E05-4755-92DD-CBDA241A90B4 - 4b1a4d0039cfc4c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Wallet.UnpaidCell.lbl_cost.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "My Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/safwan/Desktop/Safwan/My%20Wallet/My%20Wallet/ViewControllers/Custom%20Cells/UnpaidCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "AEBE0D17-1E05-4755-92DD-CBDA241A90B4 - 860b950565ec87da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Wallet.UnpaidCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; My_Wallet.UnpaidCell"
+                  moduleName = "My Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/safwan/Desktop/Safwan/My%20Wallet/My%20Wallet/ViewControllers/Custom%20Cells/UnpaidCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "375">
+               </Location>
+               <Location
+                  uuid = "AEBE0D17-1E05-4755-92DD-CBDA241A90B4 - 93a19f5888ad846"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "My_Wallet.UnpaidCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;My_Wallet.UnpaidCell&gt;"
+                  moduleName = "My Wallet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/safwan/Desktop/Safwan/My%20Wallet/My%20Wallet/ViewControllers/Custom%20Cells/UnpaidCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "313">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

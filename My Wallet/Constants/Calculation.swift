@@ -43,21 +43,20 @@ class Calculations{
     static func getTotalCost(paymnets: [[Payment]]) -> Double{
         let typesCosts = getCostForEachType(payments: paymnets)
         var sum: Double = 0.0
-        for i in typesCosts{
-            let cost = i.value
+        for cost in typesCosts{
             sum += cost
         }
         return sum.rounded()
     }
     
-    static func getCostForEachType(payments:[[Payment]]) -> [Int:Double]{
-        var result = [Int:Double]()
+    static func getCostForEachType(payments:[[Payment]]) -> [Double]{
+        var result = [Double]()
         for i in 0..<payments.count{
             var sum : Double = 0.0
             for j in payments[i]{
                 sum += Double(j.cost)
             }
-            result[i] = sum.rounded()
+            result.append(sum.rounded())
         }
         return result
     }

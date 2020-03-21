@@ -12,6 +12,7 @@ import Charts
 class StatTypeCell: UITableViewCell {
     
     
+    @IBOutlet weak var lbl_cellTitle: UILabel!
     @IBOutlet weak var pieView: PieChartView!
 
     override func awakeFromNib() {
@@ -25,8 +26,13 @@ class StatTypeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateChartData(payments: [[Payment]], userData: [String:Any])  {
-        let values = Calculations.getCostPercentageForTypes(payments: payments, userData: userData)
+    func updateChartData(payments: [[Payment]], userData: [String:Any], type: String)  {
+        var values: [Double]!
+        if(type == "percent"){
+             values = Calculations.getCostPercentageForTypes(payments: payments, userData: userData)
+        }else if(type == "cost"){
+             values = Calculations.getCostForEachType(payments: payments)
+        }
         let labels = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"]
         var entries = [PieChartDataEntry]()
         for (index, value) in values.enumerated() {
@@ -59,13 +65,14 @@ class StatTypeCell: UITableViewCell {
         let data = PieChartData(dataSet: set)
         
         let formatter = NumberFormatter()
-        formatter.numberStyle = .percent
-        formatter.maximumFractionDigits = 2
-        formatter.multiplier = 1.0
-        formatter.percentSymbol = "%"
-        formatter.zeroSymbol = ""
-        data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
-        
+        if(type == "percent"){
+            formatter.numberStyle = .percent
+            formatter.maximumFractionDigits = 2
+            formatter.multiplier = 1.0
+            formatter.percentSymbol = "%"
+            formatter.zeroSymbol = ""
+            data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+        }
         pieView.data = data
         pieView.legend.enabled = false
         pieView.noDataText = "No data available"
