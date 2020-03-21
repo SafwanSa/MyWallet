@@ -34,6 +34,8 @@
 		1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED402333A1420052CE54 /* LaunchScreen.storyboard */; };
 		1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED492333A2770052CE54 /* GoogleService-Info.plist */; };
 		178EF38E241273520082901F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EF38D241273520082901F /* DataSource.swift */; };
+		179B74E62426B66800471439 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E52426B66800471439 /* Bill.swift */; };
+		179B74E82426C03500471439 /* AddBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E72426C03500471439 /* AddBillViewController.swift */; };
 		179DBE22241D16CB0009C763 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE21241D16CB0009C763 /* Budget.swift */; };
 		179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE23241D426E0009C763 /* StatTableViewController.swift */; };
 		179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE25241D42D80009C763 /* StatAvgCell.swift */; };
@@ -79,6 +81,8 @@
 		1752ED432333A1420052CE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1752ED492333A2770052CE54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		178EF38D241273520082901F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		179B74E52426B66800471439 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		179B74E72426C03500471439 /* AddBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillViewController.swift; sourceTree = "<group>"; };
 		179DBE21241D16CB0009C763 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		179DBE23241D426E0009C763 /* StatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
 		179DBE25241D42D80009C763 /* StatAvgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatAvgCell.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */,
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
+				179B74E72426C03500471439 /* AddBillViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				17FB6F6B233E103800A039EC /* Payment.swift */,
 				1705F68223463DF6009C16DF /* UserInfo.swift */,
 				179DBE21241D16CB0009C763 /* Budget.swift */,
+				179B74E52426B66800471439 /* Bill.swift */,
 			);
 			path = "Logical Buissness";
 			sourceTree = "<group>";
@@ -374,6 +380,8 @@
 				178EF38E241273520082901F /* DataSource.swift in Sources */,
 				171D5D582333AABF00EA774D /* LoginViewController.swift in Sources */,
 				17012FF224027E08000B840A /* GradientView.swift in Sources */,
+				179B74E82426C03500471439 /* AddBillViewController.swift in Sources */,
+				179B74E62426B66800471439 /* Bill.swift in Sources */,
 				171D5D612333B39F00EA774D /* MyButton.swift in Sources */,
 				17012FFA24032990000B840A /* UnpaidCell.swift in Sources */,
 				1745A89C233637F800BECDD9 /* StartBudgetViewController.swift in Sources */,

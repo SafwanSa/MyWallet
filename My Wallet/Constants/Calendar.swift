@@ -13,6 +13,16 @@ class Calendar{
     static var categ = ""
     static var side = -1
     
+    
+    static func genetrateDays()->[String]{
+        var days = [String]()
+        for i in 1..<32{
+            days.append(String(i))
+        }
+        return days
+    }
+    
+    
     static func getID()->String{
         return Auth.auth().currentUser!.uid
     }
@@ -97,6 +107,29 @@ class Calendar{
     
     static func getBudgetId()->String{
         return getID()+"_Budget_"+getCurrentMonth()+"_"+getCurrentYear()
+    }
+    
+    
+    static func getMaxDayInCurrentMonth()->Int{
+        let date = Date()
+        let cal = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)!
+        let days = cal.range(of: .day, in: .month, for: date)
+        return days.upperBound-1
+    }
+    
+    
+    static func getTheDayOfBill(day: String)->String{
+        let dayInt:Int = Int(day)!
+        var validDay = ""
+        if(dayInt <= getMaxDayInCurrentMonth()){
+            validDay = String(dayInt)
+        }else{
+            validDay = String(getMaxDayInCurrentMonth())
+        }
+        if(validDay.count < 2){
+            validDay = "0"+validDay
+        }
+        return validDay
     }
     
 }
