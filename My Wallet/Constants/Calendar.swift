@@ -31,7 +31,7 @@ class Calendar{
     static func getDate()->String{
            let date = Date()
            let format = DateFormatter()
-           format.dateFormat = "MM/DD"
+           format.dateFormat = "MM/dd"
            let formattedDate = format.string(from: date)
            return formattedDate
        }

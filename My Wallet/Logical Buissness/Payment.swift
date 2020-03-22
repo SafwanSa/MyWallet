@@ -19,7 +19,7 @@ class Payment{
     var type : String
     var paid : Bool
     var at = ""
-
+    var day = ""
     
     
     
@@ -62,6 +62,7 @@ class Payment{
     
     
     func deletePayment(id:String){
+        print(id)
         db.collection("uppayment").whereField("At", isEqualTo: id)
                      .getDocuments() { (querySnapshot, err) in
                          if let err = err {

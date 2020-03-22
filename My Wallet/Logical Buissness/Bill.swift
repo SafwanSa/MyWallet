@@ -10,11 +10,9 @@ import UIKit
 
 class Bill: Payment{
     
-    var day: String
-    
-    init(_ title: String, _ cost: Float, _ day: String) {
+    init(_ title: String, _ cost: Float, _ day: String, _ at: String) {
+        super.init(title, cost, "فواتير", false, at)
         self.day = day
-        super.init(title, cost, "فواتير", false, "auto")
     }
     
     override func addPayemnt() {
