@@ -11,7 +11,6 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Core'
 pod 'SVProgressHUD'
-pod 'BetterSegmentedControl', '~> 1.3'
 pod 'UICircularProgressRing'
 pod 'Charts'
 end

@@ -14,14 +14,17 @@ class LoginViewController: UIViewController {
 
 
     
+    @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var txt_email: UITextField!
     @IBOutlet weak var txt_password: UITextField!
     @IBOutlet weak var lbl_error: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        // Do any additional setup after loading the view.
-        
+       loginView.layer.shadowOpacity = 0.6
+       loginView.layer.shadowRadius = 5
+       loginView.layer.shadowOffset = .zero
+       loginView.layer.masksToBounds = false
     }
     
     let em = "d@d.com"

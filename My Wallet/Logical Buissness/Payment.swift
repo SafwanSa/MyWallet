@@ -18,40 +18,51 @@ class Payment{
     var cost : Float
     var type : String
     var paid : Bool
-    var at : String
-
+    var at = ""
+    var day = ""
     
-    init(title:String, cost:Float,type:String,paid:Bool) {
-        //Get the current time
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "MM/dd HH:mm:ss"
-        let formattedDate = format.string(from: date)
+    
+    
+    init(_ title:String,_ cost:Float, _ type:String, _ paid:Bool, _ at:String) {
         
         self.title = title
         self.cost = cost
         self.type = type
         self.paid = paid
-        self.at = formattedDate
+        if(at == "auto"){
+            self.at = getDate()
+        }else{
+            self.at = at
+        }
+
     }
+    
+    
+    func getDate()->String{
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "MM/dd HH:mm:ss"
+        let formattedDate = format.string(from: date)
+        return formattedDate
+    }
+    
     
     func getID()->String{
         return Auth.auth().currentUser!.uid
     }
 
     func payPayment(cost:Float){
-        db.collection("user").document(getID()).getDocument { (DocumentSnapshot, Error) in
+        db.collection("budgets").document(Calendar.getBudgetId()).getDocument { (DocumentSnapshot, Error) in
                       let data =  DocumentSnapshot!.data()
-                       let budget = data!["Budget"] as! Float - cost
-                       let newData = ["Budget":budget]
-                       self.db.collection("user").document(self.getID()).updateData(newData)
-                       //Reload the page in the HomeViewController
-                       NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                       let budget = data!["Current Amount"] as! Float - cost
+                       let newData = ["Current Amount":budget]
+            self.db.collection("budgets").document(Calendar.getBudgetId()).updateData(newData)
                    }
     }
     
     
     func deletePayment(id:String){
+        print(id)
         db.collection("uppayment").whereField("At", isEqualTo: id)
                      .getDocuments() { (querySnapshot, err) in
                          if let err = err {

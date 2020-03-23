@@ -11,197 +11,123 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import UICircularProgressRing
-import Charts
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+
+class HomeViewController: UITableViewController{
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                //Take the payments one by one from the array
-        let payment = self.unpaidList[indexPath.row]
-        //Split it into cost, title, and paid
-        let splitedString = payment.components(separatedBy: ",")
-        let cost = splitedString[1]
-        let title = splitedString[0]
-        let ats = splitedString[3]
-        let type = splitedString[2]
-        //Confgiuer Cell
-         let cell = Bundle.main.loadNibNamed("StatByCategory", owner: self, options: nil)?.first as! StatByCategory
-        cell.lbl_cost.text = "SAR "+cost
-        cell.lbl_title.text = title
-        return cell
+    
+    
+    //MARK: -Main Storyboard vars
+    //Bottom View
+    @IBOutlet weak var myTableView: UITableView!
+    
+    //MARK: -Instance vars
+    var unpaidPaymentsList = [Payment]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        closeKeyboard()
+        //Seting up the delegate
+        let dataSourceDelivery = DataSource(type: "uppayment")
+        dataSourceDelivery.dataSourceDelegate = self
     }
     
-     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //MARK:- TableView Configuraion
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //Confgiuer Cells
+        if(indexPath.section == 0){
+            let cell = Bundle.main.loadNibNamed("HomeCell", owner: self, options: nil)?.first as! HomeCell
+            cell.delegate = self
+            return cell
+        }else{
+            //Take the payments one by one from the array
+           let payment = self.unpaidPaymentsList[indexPath.row]
+           let cost = payment.cost
+           let title = payment.title
+           let ats = payment.at
+           let type = payment.type
+            if(type == "فواتير"){
+                let cell1 = Bundle.main.loadNibNamed("BillCell", owner: self, options: nil)?.first as! BillCell
+                cell1.lbl_cost.text = "SAR "+String(cost)
+                cell1.lbl_title.text = title
+                cell1.paymentType = type
+                cell1.paymentDate = ats
+                return cell1
+            }else{
+                let cell1 = Bundle.main.loadNibNamed("UnpaidCell", owner: self, options: nil)?.first as! UnpaidCell
+                cell1.lbl_cost.text = "SAR "+String(cost)
+                cell1.lbl_title.text = title
+                cell1.paymentType = type
+                cell1.paymentDate = ats
+                return cell1
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the Title of the Table
         let label = UILabel()
-        let str = " لديك " + String(self.unpaidList.count) + " من المصروفات غير مدفوعة"
-        label.text = str
+        let str = " لديك " + String(self.unpaidPaymentsList.count) + " من المصروفات غير مدفوعة"
+        let sectionsNames = ["",str]
+        label.text = sectionsNames[section]
         label.font = UIFont.init(name: "JF Flat", size: 18)
         label.textAlignment = NSTextAlignment.center
+        label.textColor = .gray
+        label.alpha = 0.7
         return label
     }
     
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return unpaidList.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
-    
-    var unpaidList = [String]()
-
-    
-    @IBOutlet weak var prog_view: UICircularProgressRing!
-    @IBOutlet weak var bottom_view: GradientView!
-    
-    
-    //Top View
-    @IBOutlet weak var btn_add: RoundButton!
-    @IBOutlet weak var lbl_budget: UILabel!
-    
-    //Bottom View
-    @IBOutlet weak var myTableView: UITableView!
-    
-    let db = Firestore.firestore()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        closeKeyboard()
-
-        bottom_view.layer.shadowOffset = .zero
-        bottom_view.layer.shadowRadius = 5
-        bottom_view.layer.shadowOpacity = 0.6
-        bottom_view.layer.masksToBounds = false
-        
-        btn_add.layer.shadowOffset = .zero
-        btn_add.layer.shadowRadius = 5
-        btn_add.layer.shadowOpacity = 0.8
-        btn_add.layer.masksToBounds = false
-        
-        
-        prog_view.style = .dashed(pattern: [7.0, 7.0])
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        updateData()
-        
-        
-        myTableView.dataSource = self
-        myTableView.delegate = self
-    }
-
-
-
-    func getData(){
-      db.collection("uppayment").whereField("uid", isEqualTo: getID())
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                  self.clearArray()
-                    for document in querySnapshot!.documents {
-                        self.unpaidList = (self.toArray(data: document.data()))
-                      self.myTableView.reloadData()
-                    }
-                }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 0){
+            return 1
+        }else{
+            return unpaidPaymentsList.count
         }
     }
     
-    
-    func toArray(data:[String:Any])->[String]{
-        //This method convert a Dictionary from the DataBase to array
-        var costs = [String]()
-        var titles = [String]()
-        var ats = [String]()
-        var types = [String]()
-        
-        for i in data{
-            let key = i.key
-            let value = i.value
-                    if key == "Cost"{
-                        let q = value as? NSNumber
-                        costs.append("\(q!.stringValue)")
-                    }else if key == "Title"{
-                        titles.append("\((value as? String)!)")
-                    }else if key == "At"{
-                        ats.append("\((value as? String)!)")
-                    }else if key == "Type"{
-                        types.append("\((value as? String)!)")
-                    }else if key == "Paid"{}
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 0){
+            return 356
+        }else{
+            return 80
         }
-        for i in 0...costs.count-1{
-            unpaidList.append(titles[i]+","+costs[i]+","+types[i]+","+ats[i])
-        }
-        return unpaidList
     }
     
-    
-    
-    @objc func loadList(notification: NSNotification){
-        //load data here after adding payment
-        updateData()
-        clearArray()
-        getData()
-    }
-    
-    
-     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           updateData()
-            clearArray()
-            getData()
-       }
-    
-    func updateData(){
-        db.collection("user").document(getID()).getDocument { (DocumentSnapshot, Error) in
-           let data =  DocumentSnapshot!.data()
-            self.lbl_budget.text = String(data!["Budget"] as! Float)
-//            self.lbl_savings.text = String("مدخراتك: "+String(data!["Savings"] as! Float))
-            let budget = data!["Budget"] as! Float
-            print(budget)
-            let savings = data!["Savings"] as! Float
-            let percent = (100 * budget)/5000
-            self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {
-              print("Done animating!")
-              // Do anything your heart desires...
-            }
-            
-        }
-        
-        
-        
-    }
-    
-    func clearArray(){
-        unpaidList.removeAll()
-    }
-    
-
-    func getID()->String{
-        return Auth.auth().currentUser!.uid
-    }
-    
-   
-    
+    //MARK:- Kb closing
     func closeKeyboard(){
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
-    
-    
-   
-    
-
-    
-
 }
-
+//MARK:- Delegate and protocol overriding
+extension HomeViewController: DataSourceProtocol{
+    func getCosts(costs: [Float]) {}
+    func getMonths(months: [String]) {}
+    func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here
+    func userDataUpdated(data: [String : Any], which: String) {}
+    
+    //This method will be excuted when any updates happens to "uppayments"
+    func unpaidDataUpdated(data: [Payment]) {
+        unpaidPaymentsList = data
+        self.myTableView.reloadData()
+    }
+    
+    
+}
+extension HomeViewController: HomeCellProtocol{
+    func transitions() {
+        self.performSegue(withIdentifier: "moveToAddPayment", sender: self)
+    }
+    
+    
+    
+}
 
