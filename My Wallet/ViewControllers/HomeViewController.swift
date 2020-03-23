@@ -45,12 +45,15 @@ class HomeViewController: UITableViewController{
            let title = payment.title
            let ats = payment.at
            let type = payment.type
+            let day = payment.day
+            
             if(type == "فواتير"){
                 let cell1 = Bundle.main.loadNibNamed("BillCell", owner: self, options: nil)?.first as! BillCell
                 cell1.lbl_cost.text = "SAR "+String(cost)
                 cell1.lbl_title.text = title
                 cell1.paymentType = type
                 cell1.paymentDate = ats
+                cell1.billDay = day
                 return cell1
             }else{
                 let cell1 = Bundle.main.loadNibNamed("UnpaidCell", owner: self, options: nil)?.first as! UnpaidCell
