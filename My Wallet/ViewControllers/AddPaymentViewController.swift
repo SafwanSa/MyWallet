@@ -34,7 +34,7 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return PickerData[row]
     }
-    private let PickerData = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"]
+    private let PickerData = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
     private var type = UIPickerView()
     private var paidOrNot = false
     let db = Firestore.firestore()

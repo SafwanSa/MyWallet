@@ -297,7 +297,7 @@
                                         <segment title="مواصلات"/>
                                         <segment title="طعام"/>
                                         <segment title="تسوق"/>
-                                        <segment title="وقود"/>
+                                        <segment title="فواتير"/>
                                     </segments>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="selectedSegmentTintColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -33,7 +33,7 @@ class StatTypeCell: UITableViewCell {
         }else if(type == "cost"){
              values = Calculations.getCostForEachType(payments: payments)
         }
-        let labels = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"]
+        let labels = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
         var entries = [PieChartDataEntry]()
         for (index, value) in values.enumerated() {
             if(value != 0){

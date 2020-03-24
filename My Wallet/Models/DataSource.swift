@@ -123,7 +123,7 @@ class DataSource{
                         paidPaymentsList[4].append(payment)
                     }else if types[i] == "تسوق"{
                         paidPaymentsList[5].append(payment)
-                    }else if types[i] == "وقود"{
+                    }else if types[i] == "فواتير"{
                         paidPaymentsList[6].append(payment)
                     }
             }
