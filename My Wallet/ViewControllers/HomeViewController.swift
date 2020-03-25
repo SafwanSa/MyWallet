@@ -40,11 +40,11 @@ class HomeViewController: UITableViewController{
             return cell
         }else{
             //Take the payments one by one from the array
-           let payment = self.unpaidPaymentsList[indexPath.row]
-           let cost = payment.cost
-           let title = payment.title
-           let ats = payment.at
-           let type = payment.type
+            let payment = self.unpaidPaymentsList[indexPath.row]
+            let cost = payment.cost
+            let title = payment.title
+            let ats = payment.at
+            let type = payment.type
             let day = payment.day
             if(type == "فواتير"){
                 let cell1 = Bundle.main.loadNibNamed("BillCell2", owner: self, options: nil)?.first as! BillCell2
@@ -65,6 +65,60 @@ class HomeViewController: UITableViewController{
         }
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if(indexPath.section == 0){return false} else{return true}
+    }
+    
+    func isBill(index: Int) -> Bool {
+        return self.unpaidPaymentsList[index].type == "فواتير"
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+           let index = indexPath.row
+           let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
+            if(self.isBill(index: index)){
+                    let bill = self.unpaidPaymentsList[index] as! Bill
+                    let cost = bill.cost
+                    //Add the bill in the paidList
+                    bill.addBillToPaidList()
+                    //Update the "last update" for a bill
+                    bill.updateBillLastUpdate(id: bill.at ,lastUpdate: Calendar.getFullDate())
+                    //Subtract the cost from the budget
+                    bill.payPayment(cost: cost)
+                }else{
+                    let p = self.unpaidPaymentsList[index]
+                    //Delete the payment from unpaid list
+                    p.deletePayment(id: p.at)
+                    let payment = Payment(p.title,p.cost,p.type,true, "auto")
+                    let cost = payment.cost
+                    //Subtract the cost from the budget
+                    payment.payPayment(cost: cost)
+                    //Add the payment in the paid list
+                    payment.addPayemnt()
+                }
+            self.unpaidPaymentsList.remove(at: index)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+               }
+        
+           let deleteButton = UITableViewRowAction(style: .destructive, title: "احذف") { (rowAction, indexPath) in
+            if(self.isBill(index: index)){
+                    let bill = self.unpaidPaymentsList[index] as! Bill
+                    bill.updateBillLastUpdate(id: bill.at ,lastUpdate: Calendar.getFullDate())
+                }else{
+                    let payment = self.unpaidPaymentsList[index]
+                    payment.deletePayment(id: payment.at)
+                }
+            self.unpaidPaymentsList.remove(at: index)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+               }
+            setUpActionsButtons(delete: deleteButton, pay: payButton)
+            return [deleteButton, payButton]
+       }
+    
+    func setUpActionsButtons(delete: UITableViewRowAction, pay: UITableViewRowAction){
+        pay.backgroundColor = UIColor.darkGray
+        //Here set up tha imgaes, remove the titles
+    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the Title of the Table
