@@ -34,7 +34,7 @@ class ProfileViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section == 0){
-            return 112
+            return 120
         }else{
             return 44
         }

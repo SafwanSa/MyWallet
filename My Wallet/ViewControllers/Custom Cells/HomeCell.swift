@@ -67,7 +67,6 @@ extension HomeCell: DataSourceProtocol{
     func getCosts(costs: [Float]) {}
     func getMonths(months: [String]) {}
     func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here
-    
     //This will be excuted when any updates happens to userInfo
     func userDataUpdated(data: [String : Any], which: String) {
         if(which == "budgets"){

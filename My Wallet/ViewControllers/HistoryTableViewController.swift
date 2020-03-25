@@ -117,9 +117,7 @@ class HistoryTableViewController: UITableViewController {
 
 extension HistoryTableViewController: DataSourceProtocol{
     func getCosts(costs: [Float]) {}
-    
     func getMonths(months: [String]) {}
-    
     func paidDataUpdated(data: [[Payment]]) {
         allPayments = data
         self.tableView.reloadData()
