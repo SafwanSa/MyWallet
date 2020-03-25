@@ -48,7 +48,7 @@ class BillMngTableViewController: UITableViewController {
      }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if(indexPath.section == 0){return false}else{return true}
+        if(indexPath.section == 0){return false} else{return true}
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -104,7 +104,7 @@ class BillMngTableViewController: UITableViewController {
             let cell = Bundle.main.loadNibNamed("AddBillCell", owner: self, options: nil)?.first as! AddBillCell
             return cell
         }else{
-            let payment = self.bills[indexPath.row] as! Bill
+            let payment = self.bills[indexPath.row]
             let cost = payment.cost
             let title = payment.title
             let ats = payment.at
@@ -139,6 +139,13 @@ extension BillMngTableViewController: DataSourceProtocol{
     func paidDataUpdated(data: [[Payment]]) {}
     func unpaidDataUpdated(data: [Payment]) {
         self.bills = data
+        self.bills.removeAll { (payment) -> Bool in
+            if(payment.type != "فواتير"){
+                return true
+            }else{
+                return false
+            }
+        }
         self.tableView.reloadData()
     }
     func userDataUpdated(data: [String : Any], which:String) {} //Nothing will happend here

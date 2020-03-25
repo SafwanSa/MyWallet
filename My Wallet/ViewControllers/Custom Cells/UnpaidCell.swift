@@ -18,15 +18,23 @@ class UnpaidCell: UITableViewCell{
     @IBOutlet weak var lbl_cost: UILabel!
     @IBOutlet weak var lbl_title: UILabel!
     
-    @IBOutlet weak var btn_pay: RoundButton!
-    
-    @IBOutlet weak var btn_dellete: RoundButton!
-    
     var paymentDate = ""
     var paymentType = ""
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        // Initialization code
+        backGroundView.layer.shadowOpacity = 0.6
+        backGroundView.layer.shadowRadius = 2
+        backGroundView.layer.shadowOffset = .zero
+        backGroundView.layer.masksToBounds = false
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
     
@@ -46,11 +54,6 @@ class UnpaidCell: UITableViewCell{
               p.deletePayment(id: paymentDate)
         }
 
-    }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        
     }
     
 }
