@@ -22,6 +22,7 @@ class BillMngTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        closeKeyboard()
         dataSourceDelivery = DataSource(type: "uppayment")
         dataSourceDelivery?.dataSourceDelegate = self
     }
@@ -96,7 +97,10 @@ class BillMngTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func closeKeyboard(){
+              let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+              view.addGestureRecognizer(tap)
+          }
 }
 extension BillMngTableViewController: DataSourceProtocol{
     func getCosts(costs: [Float]) {}
