@@ -55,6 +55,8 @@
 		17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B42951233ACA4C004F2436 /* MyRoundedView.swift */; };
 		17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */; };
 		17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */; };
+		17EEB281242BA759002B2621 /* BillCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEB27F242BA759002B2621 /* BillCell2.swift */; };
+		17EEB282242BA759002B2621 /* BillCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EEB280242BA759002B2621 /* BillCell2.xib */; };
 		17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */; };
 		17FB6F6C233E103800A039EC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB6F6B233E103800A039EC /* Payment.swift */; };
 		5B704A0CDAA0623865DFD0C6 /* Pods_My_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */; };
@@ -111,6 +113,8 @@
 		17B42951233ACA4C004F2436 /* MyRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedView.swift; sourceTree = "<group>"; };
 		17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
+		17EEB27F242BA759002B2621 /* BillCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell2.swift; sourceTree = "<group>"; };
+		17EEB280242BA759002B2621 /* BillCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell2.xib; sourceTree = "<group>"; };
 		17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		17FB6F6B233E103800A039EC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		2DB5E2554933876A97E21DD4 /* Pods-My Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.release.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				1767B4FC242AC0DD008ECDDE /* AccountCell.xib */,
 				1767B509242AE249008ECDDE /* AddBillCell.swift */,
 				1767B50A242AE249008ECDDE /* AddBillCell.xib */,
+				17EEB27F242BA759002B2621 /* BillCell2.swift */,
+				17EEB280242BA759002B2621 /* BillCell2.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */,
 				1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */,
 				171029CB2415B25800D0D697 /* HistoryCell.xib in Resources */,
+				17EEB282242BA759002B2621 /* BillCell2.xib in Resources */,
 				171D5D5F2333B01200EA774D /* JF Flat regular.ttf in Resources */,
 				1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */,
 				170E79C723F9C029007A894C /* Assets.xcassets in Resources */,
@@ -421,6 +428,7 @@
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,
 				1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */,
 				171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */,
+				17EEB281242BA759002B2621 /* BillCell2.swift in Sources */,
 				171029CD2415B27B00D0D697 /* HistoryCell.swift in Sources */,
 				1767B502242ACEEA008ECDDE /* FinanceViewController.swift in Sources */,
 				1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */,

@@ -47,6 +47,31 @@ class BillMngTableViewController: UITableViewController {
          return label
      }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if(indexPath.section == 0){return false}else{return true}
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
+                print("pay")//TODO
+            }
+        let deleteButton = UITableViewRowAction(style: .destructive, title: "احذف") { (rowAction, indexPath) in
+                let index = indexPath.row
+                let bill = self.bills[index] as! Bill
+                self.bills.remove(at: index)
+                let id = bill.at
+                bill.deletePayment(id: id)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        setUpActionsButtons(delete: deleteButton, pay: payButton)
+            return [deleteButton, payButton]
+    }
+    
+    func setUpActionsButtons(delete: UITableViewRowAction, pay: UITableViewRowAction){
+        pay.backgroundColor = UIColor.darkGray
+        //Here set up tha imgaes, remove the titles
+    }
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
@@ -64,7 +89,7 @@ class BillMngTableViewController: UITableViewController {
         if(indexPath.section == 0){
             return 321
         }else{
-            return 80
+            return 121
         }
     }
     
@@ -79,7 +104,7 @@ class BillMngTableViewController: UITableViewController {
             let ats = payment.at
             let type = payment.type
              let day = payment.day
-            let cell = Bundle.main.loadNibNamed("BillCell", owner: self, options: nil)?.first as! BillCell
+            let cell = Bundle.main.loadNibNamed("BillCell2", owner: self, options: nil)?.first as! BillCell2
             cell.lbl_cost.text = "SAR "+String(cost)
             cell.lbl_title.text = title
             cell.paymentDate = ats

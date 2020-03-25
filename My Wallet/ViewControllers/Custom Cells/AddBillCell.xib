@@ -107,7 +107,7 @@
                                 <color key="value" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                <real key="value" value="30"/>
+                                <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
