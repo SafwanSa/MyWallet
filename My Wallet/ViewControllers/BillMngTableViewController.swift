@@ -12,7 +12,7 @@ class BillMngTableViewController: UITableViewController {
 
     
     var dataSourceDelivery: DataSource?
-    var bills = [Bill]()
+    var bills = [Payment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +72,7 @@ class BillMngTableViewController: UITableViewController {
             let cell = Bundle.main.loadNibNamed("AddBillCell", owner: self, options: nil)?.first as! AddBillCell
             return cell
         }else{
-            let payment = self.bills[indexPath.row]
+            let payment = self.bills[indexPath.row] as! Bill
             let cost = payment.cost
             let title = payment.title
             let ats = payment.at
@@ -99,13 +99,12 @@ class BillMngTableViewController: UITableViewController {
 
 }
 extension BillMngTableViewController: DataSourceProtocol{
-    func getAllBills(data: [Bill]) {
-        self.bills = data
-        self.tableView.reloadData()
-    }
     func getCosts(costs: [Float]) {}
     func getMonths(months: [String]) {}
     func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
+    func unpaidDataUpdated(data: [Payment]) {
+        self.bills = data
+        self.tableView.reloadData()
+    }
     func userDataUpdated(data: [String : Any], which:String) {} //Nothing will happend here
 }
