@@ -10,7 +10,10 @@ import UIKit
 
 class Bill: Payment{
     
-    init(_ title: String, _ cost: Float, _ day: String, _ at: String) {
+    var lastUpdate: String
+    
+    init(_ title: String, _ cost: Float, _ day: String, _ at: String, lastUpd: String) {
+        self.lastUpdate = lastUpd
         super.init(title, cost, "فواتير", false, at)
         self.day = day
     }
@@ -20,9 +23,22 @@ class Bill: Payment{
     }
     
     
+    func updateBillLastUpdate(id: String, lastUpdate: String){
+        db.collection("uppayment").whereField("At", isEqualTo: id)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        self.db.collection("uppayment").document(document.documentID).updateData(["Last Updated": lastUpdate, "Paid": true])
+                    }
+                }
+        }
+    }
     
-    
-    
+    func addBillToPaidList() {
+        db.collection("ppayment").document().setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid": true,"Day":self.day,"uid":getID()])
+    }
     
     
 }

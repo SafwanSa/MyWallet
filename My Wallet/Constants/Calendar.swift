@@ -27,6 +27,13 @@ class Calendar{
         return Auth.auth().currentUser!.uid
     }
     
+    static func getFullDate()->String{
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "MM/dd HH:mm:ss"
+        let formattedDate = format.string(from: date)
+        return formattedDate
+    }
     
     static func getDate()->String{
            let date = Date()

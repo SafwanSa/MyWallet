@@ -26,13 +26,20 @@
 		171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D592333AACB00EA774D /* SignupViewController.swift */; };
 		171D5D5F2333B01200EA774D /* JF Flat regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 171D5D5E2333B01200EA774D /* JF Flat regular.ttf */; };
 		171D5D612333B39F00EA774D /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D602333B39F00EA774D /* MyButton.swift */; };
-		1745A89C233637F800BECDD9 /* StartBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A89B233637F800BECDD9 /* StartBudgetViewController.swift */; };
 		1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745E11A24199CC5003C697A /* MonthsTableViewController.swift */; };
 		1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED372333A1400052CE54 /* AppDelegate.swift */; };
 		1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED392333A1400052CE54 /* ViewController.swift */; };
 		1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED3B2333A1410052CE54 /* Main.storyboard */; };
 		1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED402333A1420052CE54 /* LaunchScreen.storyboard */; };
 		1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED492333A2770052CE54 /* GoogleService-Info.plist */; };
+		1767B4FA242AB927008ECDDE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B4F9242AB927008ECDDE /* ProfileViewController.swift */; };
+		1767B4FD242AC0DD008ECDDE /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B4FB242AC0DD008ECDDE /* AccountCell.swift */; };
+		1767B4FE242AC0DD008ECDDE /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B4FC242AC0DD008ECDDE /* AccountCell.xib */; };
+		1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B4FF242AC55F008ECDDE /* HSUnderLineTextField.swift */; };
+		1767B502242ACEEA008ECDDE /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B501242ACEEA008ECDDE /* FinanceViewController.swift */; };
+		1767B508242AE1F8008ECDDE /* BillMngTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */; };
+		1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B509242AE249008ECDDE /* AddBillCell.swift */; };
+		1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B50A242AE249008ECDDE /* AddBillCell.xib */; };
 		178EF38E241273520082901F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EF38D241273520082901F /* DataSource.swift */; };
 		179B74E62426B66800471439 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E52426B66800471439 /* Bill.swift */; };
 		179B74E82426C03500471439 /* AddBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E72426C03500471439 /* AddBillViewController.swift */; };
@@ -48,6 +55,8 @@
 		17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B42951233ACA4C004F2436 /* MyRoundedView.swift */; };
 		17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */; };
 		17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */; };
+		17EEB281242BA759002B2621 /* BillCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEB27F242BA759002B2621 /* BillCell2.swift */; };
+		17EEB282242BA759002B2621 /* BillCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EEB280242BA759002B2621 /* BillCell2.xib */; };
 		17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */; };
 		17FB6F6C233E103800A039EC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB6F6B233E103800A039EC /* Payment.swift */; };
 		5B704A0CDAA0623865DFD0C6 /* Pods_My_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */; };
@@ -73,7 +82,6 @@
 		171D5D592333AACB00EA774D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		171D5D5E2333B01200EA774D /* JF Flat regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JF Flat regular.ttf"; sourceTree = "<group>"; };
 		171D5D602333B39F00EA774D /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
-		1745A89B233637F800BECDD9 /* StartBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBudgetViewController.swift; sourceTree = "<group>"; };
 		1745E11A24199CC5003C697A /* MonthsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewController.swift; sourceTree = "<group>"; };
 		1752ED342333A1400052CE54 /* My Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1752ED372333A1400052CE54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +90,14 @@
 		1752ED412333A1420052CE54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1752ED432333A1420052CE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1752ED492333A2770052CE54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1767B4F9242AB927008ECDDE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1767B4FB242AC0DD008ECDDE /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		1767B4FC242AC0DD008ECDDE /* AccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
+		1767B4FF242AC55F008ECDDE /* HSUnderLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUnderLineTextField.swift; sourceTree = "<group>"; };
+		1767B501242ACEEA008ECDDE /* FinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceViewController.swift; sourceTree = "<group>"; };
+		1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillMngTableViewController.swift; sourceTree = "<group>"; };
+		1767B509242AE249008ECDDE /* AddBillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillCell.swift; sourceTree = "<group>"; };
+		1767B50A242AE249008ECDDE /* AddBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBillCell.xib; sourceTree = "<group>"; };
 		178EF38D241273520082901F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		179B74E52426B66800471439 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		179B74E72426C03500471439 /* AddBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +113,8 @@
 		17B42951233ACA4C004F2436 /* MyRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedView.swift; sourceTree = "<group>"; };
 		17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
+		17EEB27F242BA759002B2621 /* BillCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell2.swift; sourceTree = "<group>"; };
+		17EEB280242BA759002B2621 /* BillCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell2.xib; sourceTree = "<group>"; };
 		17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		17FB6F6B233E103800A039EC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		2DB5E2554933876A97E21DD4 /* Pods-My Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.release.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +140,7 @@
 				17B42951233ACA4C004F2436 /* MyRoundedView.swift */,
 				17012FF124027E08000B840A /* GradientView.swift */,
 				171D5D602333B39F00EA774D /* MyButton.swift */,
+				1767B4FF242AC55F008ECDDE /* HSUnderLineTextField.swift */,
 			);
 			path = "Designed Classes";
 			sourceTree = "<group>";
@@ -145,6 +164,12 @@
 				170D23C2241EAF2B007A69D9 /* HomeCell.xib */,
 				179B74E92426E99500471439 /* BillCell.swift */,
 				179B74EA2426E99500471439 /* BillCell.xib */,
+				1767B4FB242AC0DD008ECDDE /* AccountCell.swift */,
+				1767B4FC242AC0DD008ECDDE /* AccountCell.xib */,
+				1767B509242AE249008ECDDE /* AddBillCell.swift */,
+				1767B50A242AE249008ECDDE /* AddBillCell.xib */,
+				17EEB27F242BA759002B2621 /* BillCell2.swift */,
+				17EEB280242BA759002B2621 /* BillCell2.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -158,10 +183,12 @@
 				171D5D552333AAA800EA774D /* HomeViewController.swift */,
 				171D5D572333AABF00EA774D /* LoginViewController.swift */,
 				171D5D592333AACB00EA774D /* SignupViewController.swift */,
-				1745A89B233637F800BECDD9 /* StartBudgetViewController.swift */,
+				1767B4F9242AB927008ECDDE /* ProfileViewController.swift */,
+				1767B501242ACEEA008ECDDE /* FinanceViewController.swift */,
 				17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */,
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				179B74E72426C03500471439 /* AddBillViewController.swift */,
+				1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
 			);
 			path = ViewControllers;
@@ -321,6 +348,7 @@
 				1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */,
 				1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */,
 				171029CB2415B25800D0D697 /* HistoryCell.xib in Resources */,
+				17EEB282242BA759002B2621 /* BillCell2.xib in Resources */,
 				171D5D5F2333B01200EA774D /* JF Flat regular.ttf in Resources */,
 				1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */,
 				170E79C723F9C029007A894C /* Assets.xcassets in Resources */,
@@ -328,7 +356,9 @@
 				17012FF824032966000B840A /* UnpaidCell.xib in Resources */,
 				179B74EC2426E99500471439 /* BillCell.xib in Resources */,
 				179DBE2A241D431C0009C763 /* StatAvgCell.xib in Resources */,
+				1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */,
 				170E8404241E6C3700A68971 /* StatTypeCell.xib in Resources */,
+				1767B4FE242AC0DD008ECDDE /* AccountCell.xib in Resources */,
 				170D23C4241EAF2B007A69D9 /* HomeCell.xib in Resources */,
 				17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */,
 			);
@@ -391,13 +421,17 @@
 				179B74E62426B66800471439 /* Bill.swift in Sources */,
 				179B74EB2426E99500471439 /* BillCell.swift in Sources */,
 				171D5D612333B39F00EA774D /* MyButton.swift in Sources */,
+				1767B508242AE1F8008ECDDE /* BillMngTableViewController.swift in Sources */,
 				17012FFA24032990000B840A /* UnpaidCell.swift in Sources */,
-				1745A89C233637F800BECDD9 /* StartBudgetViewController.swift in Sources */,
 				17FB6F6C233E103800A039EC /* Payment.swift in Sources */,
+				1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */,
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,
 				1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */,
 				171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */,
+				17EEB281242BA759002B2621 /* BillCell2.swift in Sources */,
 				171029CD2415B27B00D0D697 /* HistoryCell.swift in Sources */,
+				1767B502242ACEEA008ECDDE /* FinanceViewController.swift in Sources */,
+				1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */,
 				179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */,
 				17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */,
 				179DBE2E241D6A9A0009C763 /* MaxTypeCell.swift in Sources */,
@@ -408,7 +442,9 @@
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
 				171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */,
 				170D23C3241EAF2B007A69D9 /* HomeCell.swift in Sources */,
+				1767B4FD242AC0DD008ECDDE /* AccountCell.swift in Sources */,
 				1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */,
+				1767B4FA242AB927008ECDDE /* ProfileViewController.swift in Sources */,
 				170E8403241E6C3700A68971 /* StatTypeCell.swift in Sources */,
 				179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */,
 				179DBE22241D16CB0009C763 /* Budget.swift in Sources */,

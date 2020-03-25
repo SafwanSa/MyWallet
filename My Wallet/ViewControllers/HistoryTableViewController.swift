@@ -70,7 +70,7 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the sections
-        let sectionsNames = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","وقود"]
+        let sectionsNames = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
         let label = UILabel()
         label.text = sectionsNames[typesIndex]
         label.font = UIFont.init(name: "JF Flat", size: 19)
@@ -117,9 +117,7 @@ class HistoryTableViewController: UITableViewController {
 
 extension HistoryTableViewController: DataSourceProtocol{
     func getCosts(costs: [Float]) {}
-    
     func getMonths(months: [String]) {}
-    
     func paidDataUpdated(data: [[Payment]]) {
         allPayments = data
         self.tableView.reloadData()

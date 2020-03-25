@@ -1,16 +1,15 @@
 //
-//  AddBillViewController.swift
+//  AddBillTableViewCell.swift
 //  My Wallet
 //
-//  Created by Safwan Saigh on 22/03/2020.
+//  Created by Safwan Saigh on 25/03/2020.
 //  Copyright © 2020 Safwan Saigh. All rights reserved.
 //
 
 import UIKit
 
-class AddBillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
-    
-    
+class AddBillCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+
     @IBOutlet weak var txt_title: UITextField!
     @IBOutlet weak var txt_cost: UITextField!
     @IBOutlet weak var txt_date: UITextField!
@@ -31,14 +30,19 @@ class AddBillViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
            return days[row]
        }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        closeKeyboard()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
         date.dataSource = self
         date.delegate = self
         txt_date.inputView = date
         self.days = Calendar.genetrateDays()
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
     }
     
     func validation()->String{
@@ -64,37 +68,29 @@ class AddBillViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func btnAddPressed(_ sender: Any) {
-        //Initilizing default
-        var title = "No Title"
-        var cost = Float(0.0)
-        var day = ""
-        if(validation() != ""){
-            print(validation())
-            //TODO show this in the error label
-        }else{
-            //No errors
-            title = txt_title.text!
-            cost = Float(txt_cost.text!)!
-            day = txt_date.text!
-            //Create a bill obj
-            let bill = Bill(title, cost, day, "auto", lastUpd: "")
-            //Add the bill in the data base (as unpaid payment)
-            bill.addPayemnt()
-            //Readjust the fields of adding payments
-            txt_cost.text = ""
-            txt_title.text = ""
-            txt_date.text = ""
-            //TODO use phdprogress
-            self.dismiss(animated: true, completion: nil)
-        }
-        
-    }
-    
-    
-    
-    
-    func closeKeyboard(){
-              let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-              view.addGestureRecognizer(tap)
+          //Initilizing default
+          var title = "No Title"
+          var cost = Float(0.0)
+          var day = ""
+          if(validation() != ""){
+              print(validation())
+              //TODO show this in the error label
+          }else{
+              //No errors
+              title = txt_title.text!
+              cost = Float(txt_cost.text!)!
+              day = txt_date.text!
+              //Create a bill obj
+            let bill = Bill(title, cost, day, "auto",lastUpd: "")
+              //Add the bill in the data base (as unpaid payment)
+              bill.addPayemnt()
+              //Readjust the fields of adding payments
+              txt_cost.text = ""
+              txt_title.text = ""
+              txt_date.text = ""
+              //TODO use phdprogress
           }
+          
+      }
+    
 }

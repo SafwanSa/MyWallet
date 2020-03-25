@@ -1,48 +1,36 @@
 //
-//  StartBudgetViewController.swift
+//  FinanceViewController.swift
 //  My Wallet
 //
-//  Created by Safwan Saigh on 21/09/2019.
-//  Copyright © 2019 Safwan Saigh. All rights reserved.
+//  Created by Safwan Saigh on 25/03/2020.
+//  Copyright © 2020 Safwan Saigh. All rights reserved.
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseFirestore
 
-class StartBudgetViewController: UIViewController {
-    
-    //MARK: -UI vars related
+class FinanceViewController: UIViewController {
+
     @IBOutlet weak var bottomView: GradientView!
-    @IBOutlet weak var topView: GradientView!
-    @IBOutlet weak var txt_fname: UITextField!
-    @IBOutlet weak var txt_lname: UITextField!
-    @IBOutlet weak var txt_email: UITextField!
-    
-    
     @IBOutlet weak var lbl_savings: UILabel!
     @IBOutlet weak var lbl_budget: UILabel!
 
     
     @IBOutlet weak var sldr_budget_out: UISlider!
     @IBOutlet weak var sldr_savings_out: UISlider!
-
+    
+    
     //MARK:- Intsance Vars
     var dataSourceDelivery : DataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        closeKeyboard()
         dataSourceDelivery = DataSource()
         dataSourceDelivery?.dataSourceDelegate = self
         bottomView.layer.shadowOpacity = 0.6
         bottomView.layer.shadowRadius = 5
         bottomView.layer.shadowOffset = .zero
         bottomView.layer.masksToBounds = false
-        topView.layer.shadowOpacity = 0.6
-        topView.layer.shadowRadius = 5
-        topView.layer.shadowOffset = .zero
-        topView.layer.masksToBounds = false
+        // Do any additional setup after loading the view.
     }
     
     //MARK:- Updating the sliders
@@ -50,6 +38,15 @@ class StartBudgetViewController: UIViewController {
         self.lbl_budget.text = String(Int(sldr_budget_out.value))+".0"
         self.lbl_savings.text = String(Int(sldr_savings_out.value))+".0"
         sldr_savings_out.maximumValue = Float(lbl_budget.text!)!
+    }
+    
+    //MARK:- Sliders actions
+    @IBAction func slideBudgetSlider(_ sender: UISlider) {
+        //Fix the incremen to be by 50
+        let steps: Float = 50
+        let roundedValue = round(sender.value / steps) * steps
+        sender.value = roundedValue
+        updateSliders()
     }
     
     //MARK:- Update Button Pressed function
@@ -60,36 +57,28 @@ class StartBudgetViewController: UIViewController {
         let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
         //Update the database
         dataSourceDelivery?.updateUserInformation(data: newData as! [String : Float])
-            
     }
-    //MARK:- Sliders actions
-    @IBAction func slideBudgetSlider(_ sender: UISlider) {
-        //Fix the incremen to be by 50
-        let steps: Float = 50
-        let roundedValue = round(sender.value / steps) * steps
-        sender.value = roundedValue
-        updateSliders()
-    }
+    
+    
+    /*
+    // MARK: - Navigation
 
-    func closeKeyboard(){
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        view.addGestureRecognizer(tap)
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
+
 }
-
-//MARK:- Delegate and protocol overriding
-extension StartBudgetViewController: DataSourceProtocol{
+extension FinanceViewController: DataSourceProtocol{
     func getCosts(costs: [Float]) {}
     func getMonths(months: [String]) {}
     func paidDataUpdated(data: [[Payment]]) {}
     func unpaidDataUpdated(data: [Payment]) {}
     
     func userDataUpdated(data: [String : Any], which:String) {
-        if(which == "user"){
-            txt_email.text = data["Email"] as? String
-            txt_fname.text = data["First Name"] as? String
-            txt_lname.text = data["Last Name"] as? String
-        }else{
+        if(which == "budgets"){
             sldr_budget_out.value = (data["Current Amount"] as? Float)!
             lbl_budget.text = String((data["Current Amount"] as? Float)!)
             sldr_savings_out.value = (data["Savings"] as? Float)!

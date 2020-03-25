@@ -62,6 +62,7 @@ class DataSource{
         var types = [String]()
         var paids = [Bool]()
         var days = [String]()
+        var lastUpdates = [String]()
         for i in data{
             let key = i.key
             let value = i.value
@@ -79,17 +80,19 @@ class DataSource{
                         paids.append((value as? Bool)!)
                     }else if key == "Day"{
                         days.append("\((value as? String)!)")
+                    }else if key == "Last Updated"{
+                        lastUpdates.append("\((value as? String)!)")
             }
         }
         if(type == "uppayment"){
             for i in 0...costs.count-1{
-                //If it is a bill
                 if(types[i] == "فواتير"){
-                        let currentDay = Calendar.getFormatedDate(by: "day", date: Calendar.getDate())
-                        //If it is in this day
-                        if(days[i] == currentDay){
-                            let bill = Bill(titles[i], Float(costs[i])!,days[i], ats[i])
-                            unpaidPaymentsList.append(bill)
+                    if(lastUpdates.count>0){
+                        let bill = Bill(titles[i], Float(costs[i])!, days[i], ats[i], lastUpd: lastUpdates[i])
+                        unpaidPaymentsList.append(bill)
+                    }else{
+                        let bill = Bill(titles[i], Float(costs[i])!, days[i], ats[i], lastUpd: "")
+                        unpaidPaymentsList.append(bill)
                     }
                 }else{
                     let payment = Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i])
@@ -114,7 +117,7 @@ class DataSource{
                         paidPaymentsList[4].append(payment)
                     }else if types[i] == "تسوق"{
                         paidPaymentsList[5].append(payment)
-                    }else if types[i] == "وقود"{
+                    }else if types[i] == "فواتير"{
                         paidPaymentsList[6].append(payment)
                     }
             }

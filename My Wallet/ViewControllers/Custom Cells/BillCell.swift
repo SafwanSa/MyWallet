@@ -22,6 +22,8 @@ class BillCell: UITableViewCell{
     
     var paymentDate = ""
     var paymentType = ""
+    var billDay = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     
@@ -31,17 +33,17 @@ class BillCell: UITableViewCell{
     @IBAction func btn_payAction(_ sender: RoundButton) {
         let cost = Float(lbl_cost.text!.split(separator: " ")[1])!
         let title = lbl_title.text!
-        let p = Payment(title,cost,paymentType,true, "auto")
+        let bill = Bill(title, cost, billDay, "auto",lastUpd: "")
         if (sender.tag == 0){
-              //Show a message
-              p.addPayemnt()
-              //Delete the payment from unpaid list
-              p.deletePayment(id: paymentDate)
-              //Subtract the cost from the budget
-              p.payPayment(cost: cost)
+            //Add the bill in the paidList
+            bill.addBillToPaidList()
+            //Update the "last update" for a bill
+            bill.updateBillLastUpdate(id: paymentDate ,lastUpdate: bill.at)
+            //Subtract the cost from the budget
+            bill.payPayment(cost: cost)
         }else{
-            //Delete the payment from unpaid list
-              p.deletePayment(id: paymentDate)
+            //Update the "last update" for a bill
+            bill.updateBillLastUpdate(id: paymentDate ,lastUpdate: bill.at)
         }
 
     }
