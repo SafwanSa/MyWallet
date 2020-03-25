@@ -52,19 +52,25 @@ class BillMngTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let index = indexPath.row
+        let bill = self.bills[index] as! Bill
         let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
-                print("pay")//TODO
+                let cost = bill.cost
+                //Add the bill in the paidList
+                bill.addBillToPaidList()
+                //Update the "last update" for a bill
+                bill.updateBillLastUpdate(id: bill.at ,lastUpdate: Calendar.getFullDate())
+                //Subtract the cost from the budget
+                bill.payPayment(cost: cost)
             }
         let deleteButton = UITableViewRowAction(style: .destructive, title: "احذف") { (rowAction, indexPath) in
-                let index = indexPath.row
-                let bill = self.bills[index] as! Bill
                 self.bills.remove(at: index)
                 let id = bill.at
                 bill.deletePayment(id: id)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         setUpActionsButtons(delete: deleteButton, pay: payButton)
-            return [deleteButton, payButton]
+        return [deleteButton, payButton]
     }
     
     func setUpActionsButtons(delete: UITableViewRowAction, pay: UITableViewRowAction){
@@ -103,13 +109,13 @@ class BillMngTableViewController: UITableViewController {
             let title = payment.title
             let ats = payment.at
             let type = payment.type
-             let day = payment.day
+            let day = payment.day
             let cell = Bundle.main.loadNibNamed("BillCell2", owner: self, options: nil)?.first as! BillCell2
             cell.lbl_cost.text = "SAR "+String(cost)
             cell.lbl_title.text = title
             cell.paymentDate = ats
             cell.paymentType = type
-            cell.billDay = day
+            cell.lbl_day.text = day
             return cell
         }
     }
