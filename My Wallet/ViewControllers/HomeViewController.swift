@@ -46,7 +46,6 @@ class HomeViewController: UITableViewController{
            let ats = payment.at
            let type = payment.type
             let day = payment.day
-            
             if(type == "فواتير"){
                 let cell1 = Bundle.main.loadNibNamed("BillCell", owner: self, options: nil)?.first as! BillCell
                 cell1.lbl_cost.text = "SAR "+String(cost)
@@ -65,6 +64,7 @@ class HomeViewController: UITableViewController{
             }
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the Title of the Table
@@ -119,7 +119,29 @@ extension HomeViewController: DataSourceProtocol{
     
     //This method will be excuted when any updates happens to "uppayments"
     func unpaidDataUpdated(data: [Payment]) {
+        var showBill = false
         unpaidPaymentsList = data
+        //Remove the bills that is not on its time
+        unpaidPaymentsList.removeAll { (payment) -> Bool in
+            if(payment.type == "فواتير"){
+                let bill = payment as! Bill
+                let lastUpdate = bill.lastUpdate
+                let currentDay = Calendar.getFormatedDate(by: "day", date: Calendar.getDate())
+                    let currentMonth = Calendar.getFormatedDate(by: "month", date: Calendar.getDate())
+                let isBillTime = bill.day == currentDay
+                    var didPaidBefore = false
+                    if(lastUpdate != ""){
+                        didPaidBefore = Calendar.getFormatedDate(by: "month", date: lastUpdate) == currentMonth
+                    }
+                    //If it is in this day and in the last updated was in a previous month
+                    if(isBillTime && !didPaidBefore){
+                        showBill = false
+                    }else{
+                        showBill = true
+                }
+            }
+            return showBill
+        }
         self.myTableView.reloadData()
     }
     

@@ -10,7 +10,10 @@ import UIKit
 
 class Bill: Payment{
     
-    init(_ title: String, _ cost: Float, _ day: String, _ at: String) {
+    var lastUpdate: String
+    
+    init(_ title: String, _ cost: Float, _ day: String, _ at: String, lastUpd: String) {
+        self.lastUpdate = lastUpd
         super.init(title, cost, "فواتير", false, at)
         self.day = day
     }

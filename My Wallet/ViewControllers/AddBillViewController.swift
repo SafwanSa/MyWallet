@@ -77,7 +77,7 @@ class AddBillViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             cost = Float(txt_cost.text!)!
             day = txt_date.text!
             //Create a bill obj
-            let bill = Bill(title, cost, day, "auto")
+            let bill = Bill(title, cost, day, "auto", lastUpd: "")
             //Add the bill in the data base (as unpaid payment)
             bill.addPayemnt()
             //Readjust the fields of adding payments

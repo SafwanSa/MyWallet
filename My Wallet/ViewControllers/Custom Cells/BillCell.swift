@@ -33,7 +33,7 @@ class BillCell: UITableViewCell{
     @IBAction func btn_payAction(_ sender: RoundButton) {
         let cost = Float(lbl_cost.text!.split(separator: " ")[1])!
         let title = lbl_title.text!
-        let bill = Bill(title, cost, billDay, "auto")
+        let bill = Bill(title, cost, billDay, "auto",lastUpd: "")
         if (sender.tag == 0){
             //Add the bill in the paidList
             bill.addBillToPaidList()

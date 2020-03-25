@@ -20,7 +20,6 @@ class Payment{
     var paid : Bool
     var at = ""
     var day = ""
-    var lastUpdate = ""
     
     
     

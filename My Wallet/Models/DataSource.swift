@@ -86,19 +86,13 @@ class DataSource{
         }
         if(type == "uppayment"){
             for i in 0...costs.count-1{
-                //If it is a bill
                 if(types[i] == "فواتير"){
-                    let currentDay = Calendar.getFormatedDate(by: "day", date: Calendar.getDate())
-                    let currentMonth = Calendar.getFormatedDate(by: "month", date: Calendar.getDate())
-                    let isBillTime = days[i] == currentDay
-                    var didPaidBefore = false
-                    if(lastUpdates.count > 0){
-                        didPaidBefore = Calendar.getFormatedDate(by: "month", date: lastUpdates[i]) == currentMonth
-                    }
-                        //If it is in this day and in the last updated was in a previous month
-                        if(isBillTime && !didPaidBefore){
-                            let bill = Bill(titles[i], Float(costs[i])!,days[i], ats[i])
-                            unpaidPaymentsList.append(bill)
+                    if(lastUpdates.count>0){
+                        let bill = Bill(titles[i], Float(costs[i])!, days[i], ats[i], lastUpd: lastUpdates[i])
+                        unpaidPaymentsList.append(bill)
+                    }else{
+                        let bill = Bill(titles[i], Float(costs[i])!, days[i], ats[i], lastUpd: "")
+                        unpaidPaymentsList.append(bill)
                     }
                 }else{
                     let payment = Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i])
