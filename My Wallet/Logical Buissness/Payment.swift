@@ -46,6 +46,12 @@ class Payment{
         return formattedDate
     }
     
+    func getPaymentID(id: String)->String{
+        let a = Calendar.getFormatedDate(by: "day", date: id)
+        let b = Calendar.getFormatedDate(by: "month", date: id)
+        let c = Calendar.getFormatedDate(by: "time", date: id)
+           return a+"_"+b+"_"+c+"_"+getID()
+       }
     
     func getID()->String{
         return Auth.auth().currentUser!.uid
@@ -62,15 +68,11 @@ class Payment{
     
     
     func deletePayment(id:String){
-        print(id)
-        db.collection("uppayment").whereField("At", isEqualTo: id)
-                     .getDocuments() { (querySnapshot, err) in
+        db.collection("uppayment").document(getPaymentID(id: id)).getDocument() { (querySnapshot, err) in
                          if let err = err {
                              print("Error getting documents: \(err)")
                          } else {
-                             for document in querySnapshot!.documents {
-                            self.db.collection("uppayment").document(document.documentID).delete()
-                             }
+                            self.db.collection("uppayment").document(querySnapshot!.documentID).delete()
                          }
                  }
     }
@@ -78,9 +80,9 @@ class Payment{
     
     func addPayemnt(){
         if(paid){
-            db.collection("ppayment").document().setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid":self.paid,"uid":getID()])
+            db.collection("ppayment").document(getPaymentID(id: self.at)).setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid":self.paid,"uid":getID()])
         }else{
-            db.collection("uppayment").document().setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid":self.paid,"uid":getID()])
+            db.collection("uppayment").document(getPaymentID(id: self.at)).setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid":self.paid,"uid":getID()])
         }
     }
     
