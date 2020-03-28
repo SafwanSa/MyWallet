@@ -51,10 +51,10 @@ class DataSource{
     }
     
         func getPaymentID(id: String)->String{
-        let a = Calendar.getFormatedDate(by: "day", date: id)
-        let b = Calendar.getFormatedDate(by: "month", date: id)
-        let c = Calendar.getFormatedDate(by: "time", date: id)
-           return a+"_"+b+"_"+c+"_"+getID()
+            let a = Calendar.getFormatedDate(by: "day", date: id)
+            let b = Calendar.getFormatedDate(by: "month", date: id)
+            let c = Calendar.getFormatedDate(by: "time", date: id)
+            return a+"_"+b+"_"+c+"_"+getID()
        }
     
     func getID()->String{
