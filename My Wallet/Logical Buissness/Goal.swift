@@ -45,17 +45,16 @@ class Goal{
         return budget_amount < 0
     }
     
-    func checkHighExpenses(payment_cost: Float, budget_amount: Float)->Bool{
-        //Call this from the HomeCell
-        if budget_amount > 0{
-            if (payment_cost * 100) / budget_amount > 40{return true}
+    func checkHighExpenses(payment_cost: Float)->Bool{
+         //Call this from the addPayment, addbill, pay any thing
+        if self.budget_amount > 0{
+            if (payment_cost * 100) / self.budget_amount > 40{return true}
         }
         return false
     }
     
     func checkSavings()->Bool{
-        //Call this from the HomeCell
-        print(budget_amount)
+        //Call this from the addPayment, addbill, pay any thing
         if self.budget_amount < self.savings{
             return true
         }else{
@@ -101,12 +100,12 @@ extension Goal: DataSourceProtocol{
             self.budget_amount = data["Current Amount"] as! Float
             self.start_amount = data["Start Amount"] as! Float
             self.savings = (data["Savings"] as! Float)
-              }
+        }
     }
     
     func getMonths(months: [String]) {}//No use of this
     
-    func getCosts(costs: [Float]) {self.types_cost = costs}
+    func getCosts(costs: [Float]) {self.types_cost? = costs}
     
     
 }

@@ -84,8 +84,5 @@ extension FinanceViewController: DataSourceProtocol{
             sldr_savings_out.value = (data["Savings"] as? Float)!
             lbl_savings.text = String((data["Savings"] as? Float)!)
         }
-
     }
-    
-    
 }
