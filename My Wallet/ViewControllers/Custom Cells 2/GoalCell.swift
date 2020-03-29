@@ -1,5 +1,5 @@
 //
-//  DailyWeeklyCell.swift
+//  MaxCostGoalCell.swift
 //  My Wallet
 //
 //  Created by Safwan Saigh on 29/03/2020.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class DailyWeeklyCell: UITableViewCell {
+class GoalCell: UITableViewCell {
 
-    @IBOutlet weak var txt_weeklyCost: UITextField!
-    @IBOutlet weak var txt_dailyCost: UITextField!
-    
+    @IBOutlet weak var lbl_cellTitle: UILabel!
+    @IBOutlet weak var lbl_cost: HSUnderLineTextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

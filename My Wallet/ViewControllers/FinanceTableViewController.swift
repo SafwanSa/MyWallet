@@ -29,13 +29,29 @@ class FinanceTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionNames = ["حدد الميزانية والمدخرات","  مقدار الصرف","   حد الصرف لكل تصنيف  "]
+        let title = UILabel()
+        view.addSubview(title)
+        title.text = sectionNames[section]
+        title.textAlignment = .init(CTTextAlignment.right)
+        title.font = UIFont(name: "JF Flat", size: 16)
+        title.textColor = .lightGray
+        return title
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if section == 2{
+            return 6
+        } else if section == 1{
+            return 2
+        }
         return 1
     }
 
@@ -47,19 +63,29 @@ class FinanceTableViewController: UITableViewController {
             self.budget = Float(cell.lbl_budget.text!)!
             self.savings = Float(cell.lbl_savings.text!)!
             return cell
-        }else{
-            let cell = Bundle.main.loadNibNamed("DailyWeeklyCell", owner: self, options: nil)?.first as! DailyWeeklyCell
+        }else if indexPath.section == 1{
+            let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
+            if indexPath.row == 0 {cell.lbl_cellTitle.text = "اليومي"} else{cell.lbl_cellTitle.text = "الأسبوعي"}
             //Config the cell
-            
+            return cell
+        }else{
+            let types = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق"]
+            let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
+            cell.lbl_cellTitle.text = types[indexPath.row]
+            //Config the cell
             return cell
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.section == 1){
-            return 100
-        }else{
+        if indexPath.section == 0{
             return 220
+        }else{
+            return 74
         }
     }
 
