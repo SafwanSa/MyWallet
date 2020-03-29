@@ -746,13 +746,13 @@
         <scene sceneID="mFH-WB-OnP">
             <objects>
                 <tableViewController id="wGQ-zZ-K7y" customClass="FinanceTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fc0-mL-wX2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="right" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Fc0-mL-wX2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uOV-ih-74I">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uOV-ih-74I" id="gou-Vr-4D3">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1029,7 +1029,6 @@
         <!--Item-->
         <scene sceneID="x27-ff-JtR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LPA-YO-BWX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="1zn-Py-Fkz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fqL-JP-Dtm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9yP-Ae-2Vk">
@@ -1040,6 +1039,7 @@
                         <segue destination="thc-tz-GrI" kind="relationship" relationship="rootViewController" id="IDJ-i0-WRW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LPA-YO-BWX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5135" y="-609"/>
         </scene>

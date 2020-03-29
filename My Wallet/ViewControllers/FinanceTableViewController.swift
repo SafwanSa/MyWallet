@@ -31,7 +31,7 @@ class FinanceTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,14 +41,27 @@ class FinanceTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("BdgSavCell", owner: self, options: nil)?.first as! BdgSavCell
-        //Config the cell
-        self.budget = Float(cell.lbl_budget.text!)!
-        self.savings = Float(cell.lbl_savings.text!)!
-        return cell
+        if(indexPath.section == 0){
+            let cell = Bundle.main.loadNibNamed("BdgSavCell", owner: self, options: nil)?.first as! BdgSavCell
+            //Config the cell
+            self.budget = Float(cell.lbl_budget.text!)!
+            self.savings = Float(cell.lbl_savings.text!)!
+            return cell
+        }else{
+            let cell = Bundle.main.loadNibNamed("DailyWeeklyCell", owner: self, options: nil)?.first as! DailyWeeklyCell
+            //Config the cell
+            
+            return cell
+        }
     }
     
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 1){
+            return 100
+        }else{
+            return 220
+        }
+    }
 
     @IBAction func updateButtonPressed(_ sender: UIButton) {
         print("Update")
