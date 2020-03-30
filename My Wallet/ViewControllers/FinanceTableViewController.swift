@@ -18,19 +18,21 @@ class FinanceTableViewController: UITableViewController {
     var savings: Float = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         dataSourceDelivery = DataSource()
         dataSourceDelivery?.dataSourceDelegate = self
+        
+        SuperNavigationController.setTitle(title: "معلومات مالية", nv: self)
+        setupNavigationRightButton()
     }
 
+    func setupNavigationRightButton(){
+        let saveButton = UIBarButtonItem(title: "حفظ", style: .plain, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItems = [saveButton]
+    }
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionNames = ["حدد الميزانية والمدخرات","  مقدار الصرف","   حد الصرف لكل تصنيف  "]
+        let sectionNames = ["حدد الميزانية والمدخرات","  مقدار الصرف"]
         let title = UILabel()
         view.addSubview(title)
         title.text = sectionNames[section]
@@ -40,19 +42,24 @@ class FinanceTableViewController: UITableViewController {
         return title
     }
     
+    @objc func save(){
+        print("Update")
+//        //Update the database
+//        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
+//        //Update the database
+//        dataSourceDelivery?.updateUserInformation(data: newData)
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 2{
-            return 6
-        } else if section == 1{
+        if section == 0{
+            return 1
+        }else{
             return 2
         }
-        return 1
     }
 
     
@@ -63,15 +70,9 @@ class FinanceTableViewController: UITableViewController {
             self.budget = Float(cell.lbl_budget.text!)!
             self.savings = Float(cell.lbl_savings.text!)!
             return cell
-        }else if indexPath.section == 1{
+        }else{
             let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
             if indexPath.row == 0 {cell.lbl_cellTitle.text = "اليومي"} else{cell.lbl_cellTitle.text = "الأسبوعي"}
-            //Config the cell
-            return cell
-        }else{
-            let types = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق"]
-            let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
-            cell.lbl_cellTitle.text = types[indexPath.row]
             //Config the cell
             return cell
         }
@@ -97,16 +98,6 @@ class FinanceTableViewController: UITableViewController {
         dataSourceDelivery?.updateUserInformation(data: newData)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 extension FinanceTableViewController: DataSourceProtocol{
     func getCosts(costs: [Float]) {}

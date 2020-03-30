@@ -30,6 +30,8 @@ class StatTableViewController: UITableViewController{
         super.viewDidLoad()
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self
+        
+        SuperNavigationController.setTitle(title: "إحصائيات", nv: self)
     }
     
     //MARK:- TableView Methods

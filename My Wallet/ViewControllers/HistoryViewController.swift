@@ -18,6 +18,8 @@ class HistoryViewController: UITableViewController{
         super.viewDidLoad()
         month = Calendar.getMonthInAr(m: "auto")
         lbl_month.text =  " الشهر الحالي : " + month
+        
+        SuperNavigationController.setTitle(title: "ملخص المدفوعات", nv: self)
     }
     
    

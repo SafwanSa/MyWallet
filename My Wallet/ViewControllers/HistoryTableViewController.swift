@@ -27,9 +27,8 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "مشترياتك"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "JF Flat", size: 19)!]
+        
+        SuperNavigationController.setTitle(title: "مشترياتك", nv: self)
             
         let font = UIFont.init(name: "JF Flat", size: 11)
         sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)

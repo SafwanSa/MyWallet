@@ -24,9 +24,7 @@ class MonthsTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "الشهور الماضية"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "JF Flat", size: 19)!]
+        SuperNavigationController.setTitle(title: "الشهور الماضية", nv: self)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
