@@ -12,5 +12,7 @@ class SuperNavigationController {
     static func setTitle(title : String, nv: UIViewController){
         nv.navigationItem.title = title
         nv.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "JF Flat", size: 23)!]
+        nv.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "JF Flat", size: 32)!]
+        nv.navigationController?.navigationBar.subviews[1].semanticContentAttribute = .forceRightToLeft
     }
 }
