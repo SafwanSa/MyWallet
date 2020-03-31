@@ -7,21 +7,20 @@
 //
 
 import Foundation
-
+import Firebase
 enum GoalType {
-    case dailyCost
-    case weeklyCost
-    case maxCost
-    case trackExpenses
-    case savings
-    case belowBudget
-    case importantList
+    case dailyCostGoal
+    case weeklyCostGoal
+    case trackExpensesGoal
+    case savingGoal
+    case belowBudgetGoal
+    case importantListGoal
 }
 
 class Goal{
     
-    var type: GoalType
-    var value: Float?
+    var type: String = ""
+    var value: Float = 0.0
     private var paidPayments: [[Payment]]?
     private var unpaidPayments: [Payment]?
     private var budget_amount: Float = 0.0
@@ -30,9 +29,10 @@ class Goal{
     private var types_cost: [Float]?
     
     var dataSourceDeleviry: DataSource?
+    var db = Firestore.firestore()
     
     init(type: GoalType) {
-        self.type = type
+        self.type = self.converter(type)
         self.dataSourceDeleviry = DataSource(type: "ppayment")
         self.dataSourceDeleviry?.dataSourceDelegate = self
     }
@@ -62,16 +62,6 @@ class Goal{
         }
     }
     
-    func setMaxCost(types_costs: [String:Float]){
-        //Set it in the database
-        _ = ["bills": 400, "food": 200]
-    }
-    
-    func checkMaxCost()->[String:Float]{
-        //Take the data from the database
-        //Run an alogorithm that calculates the >
-        return ["":0.0]
-    }
     
     func checkDailyCost()->Bool{
         //Take the daily cost form the database
@@ -86,8 +76,33 @@ class Goal{
         return false
     }
     
+    func addGoal(){
+        let data:[String:Any] = ["Type": type, "Vaue": value]
+        db.collection("goals").document(getGoalID()).setData(data)
+    }
     
+    func getGoalID()->String{
+        return Auth.auth().currentUser!.uid+"_"+type
+    }
     
+    func converter(_ type: GoalType)->String{
+        var strType = ""
+        switch type {
+        case GoalType.savingGoal:
+            strType = "savingGoal";
+        case GoalType.dailyCostGoal:
+            strType = "dailyCostGoal";
+        case GoalType.weeklyCostGoal:
+            strType = "weeklyCostGoal"
+        case GoalType.belowBudgetGoal:
+            strType = "belowBudgetGoal"
+        case GoalType.trackExpensesGoal:
+            strType = "trackExpensesGoal"
+        case GoalType.importantListGoal:
+            strType = "importantListGoal"
+        }
+        return strType
+    }
     
 }
 extension Goal: DataSourceProtocol{
