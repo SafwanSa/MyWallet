@@ -16,6 +16,9 @@ class FinanceTableViewController: UITableViewController {
     var userBudget = [String:Any]()
     var budget: Float = 0.0
     var savings: Float = 0.0
+    var dailyCost: Float = 0.0
+    var weeklyCost: Float = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSourceDelivery = DataSource()
@@ -44,10 +47,6 @@ class FinanceTableViewController: UITableViewController {
     
     @objc func save(){
         print("Update")
-//        //Update the database
-//        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
-//        //Update the database
-//        dataSourceDelivery?.updateUserInformation(data: newData)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,7 +72,7 @@ class FinanceTableViewController: UITableViewController {
         }else{
             let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
             if indexPath.row == 0 {cell.lbl_cellTitle.text = "اليومي"} else{cell.lbl_cellTitle.text = "الأسبوعي"}
-            //Config the cell
+            if indexPath.row == 0 {dailyCost = Float(cell.lbl_cost.text!)!} else{weeklyCost = Float(cell.lbl_cost.text!)!}
             return cell
         }
     }
@@ -90,13 +89,6 @@ class FinanceTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func updateButtonPressed(_ sender: UIButton) {
-        print("Update")
-        //Update the database
-        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
-        //Update the database
-        dataSourceDelivery?.updateUserInformation(data: newData)
-    }
     
 }
 extension FinanceTableViewController: DataSourceProtocol{

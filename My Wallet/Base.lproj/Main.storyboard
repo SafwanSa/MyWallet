@@ -1031,8 +1031,8 @@
             <objects>
                 <navigationController id="1zn-Py-Fkz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fqL-JP-Dtm"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9yP-Ae-2Vk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9yP-Ae-2Vk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1066,7 +1066,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="84H-EC-cd9"/>
-                    <navigationItem key="navigationItem" id="p1s-OH-tSi"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="p1s-OH-tSi"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFV-vQ-LdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1095,12 +1095,12 @@
         <!--Navigation Controller-->
         <scene sceneID="ytM-wv-gRe">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="deO-By-FK2" sceneMemberID="viewController">
+                <navigationController id="deO-By-FK2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="doc.text.fill" catalog="system" id="a3G-l2-hqg"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="XaZ-ZE-HEz"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hUx-z9-Esj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hUx-z9-Esj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

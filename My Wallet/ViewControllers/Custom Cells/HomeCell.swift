@@ -54,7 +54,8 @@ class HomeCell: UITableViewCell {
         let budget = data["Current Amount"] as! Float
         let savings = data["Savings"] as! Float
         let startBudget = data["Start Amount"] as! Float
-        let percent = (100 * budget)/startBudget
+        var percent: Float = 0.0
+        if startBudget != 0{percent = (100 * budget)/startBudget}
         let totalCosts = startBudget - budget
         
         self.lbl_totalPaymentsCost.text = "مصروفات "+String(totalCosts)+" SAR "
