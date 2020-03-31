@@ -164,16 +164,20 @@ class HomeViewController: UITableViewController{
         view.addGestureRecognizer(tap)
     }
     
-    func isValidBill(day: String,lastUpdate: String)->Bool{
-        let billDay = Int(day)!//26
-        let currentDay = Int(Calendar.getFormatedDate(by: "day", date: Calendar.getDate()))!//25
-        let currentMonth = Int(Calendar.getFormatedDate(by: "month", date: Calendar.getDate()))!//03
+    func isValidBill(day: String,lastUpdate: String, billAt: String)->Bool{
+        let billDay = Int(day)!//30
+        let currentDay = Int(Calendar.getFormatedDate(by: "day", date: Calendar.getDate()))!//1
+        let currentMonth = Int(Calendar.getFormatedDate(by: "month", date: Calendar.getDate()))!//04
         var lastUpdateMonth = 0
         var showBill = false
         var validUpdate = false
         
         if lastUpdate == ""{
-            if(currentDay >= billDay){return true}
+            lastUpdateMonth = Int(Calendar.getFormatedDate(by: "month", date: billAt))!//03
+            if lastUpdateMonth == currentMonth{
+                if(currentDay >= billDay){return true}
+            }else{return true}
+           
         }else{
             lastUpdateMonth = Int(Calendar.getFormatedDate(by: "month", date: lastUpdate))!
             if lastUpdateMonth != currentMonth{
@@ -209,7 +213,7 @@ extension HomeViewController: DataSourceProtocol{
             var remove = false
             if(payment.type == "فواتير"){
                 let bill = payment as! Bill
-                remove = !isValidBill(day: bill.day, lastUpdate: bill.lastUpdate)
+                remove = !isValidBill(day: bill.day, lastUpdate: bill.lastUpdate, billAt: bill.at)
             }
             return remove
         }
