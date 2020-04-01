@@ -61,6 +61,7 @@ class DataSource{
         return Auth.auth().currentUser!.uid
     }
     
+    
     func dataCleaner(data:[String:Any], _ type: String)-> Any{
         //This method convert a Dictionary from the DataBase to array
         var costs = [String]()
@@ -185,11 +186,13 @@ class DataSource{
     
     
     func getUserInfoWhenUpdated(){
-        let info = ["budgets","user"]
+        let info = ["budgets","user","goals"]
         var doc = getID()
         for dt in info{
             if(dt == "budgets"){
                 doc = Calendar.getBudgetId()
+            }else if dt == "user"{
+                doc = getID()
             }else{
                 doc = getID()
             }
@@ -208,8 +211,11 @@ class DataSource{
         }
     }
     
-    func updateUserInformation(data: [String:Float]){
-        db.collection("budgets").document(Calendar.getBudgetId()).updateData(data)
+    func updateUserInformation(data: [String:Any]){
+        var newData = data
+        newData["uid"] = getID() as String
+        newData["bid"] = Calendar.getBudgetId() as String
+        db.collection("budgets").document(Calendar.getBudgetId()).setData(newData)
     }
     
     

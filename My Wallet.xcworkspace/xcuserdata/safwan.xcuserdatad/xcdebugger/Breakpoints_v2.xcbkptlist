@@ -30,8 +30,8 @@
             filePath = "My Wallet/Models/DataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "getMonthsData()"
             landmarkType = "7">
          </BreakpointContent>

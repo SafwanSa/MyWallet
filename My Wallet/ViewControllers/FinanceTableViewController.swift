@@ -45,9 +45,34 @@ class FinanceTableViewController: UITableViewController {
         return title
     }
     
-    @objc func save(){
-        print("Update")
+    func takeValues(){
+        let cell1 = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! BdgSavCell
+        let cell2 = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! GoalCell
+        let cell3 = self.tableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! GoalCell
+        self.budget = Float(cell1.lbl_budget.text!)!
+        self.savings = Float(cell1.lbl_savings.text!)!
+        self.dailyCost = Float(cell2.lbl_cost.text!)!
+        self.weeklyCost = Float(cell3.lbl_cost.text!)!
     }
+    
+    @objc func save(){
+        //Taking the values from the cells
+        takeValues()
+        print(budget, savings, dailyCost, weeklyCost)
+        //Create a Budget
+        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
+        //Creating goals
+        let goal1 = Goal(type: .dailyCostGoal, value: dailyCost)
+        let goal2 = Goal(type: .weeklyCostGoal, value: weeklyCost)
+        //Add them in the data base
+        goal1.addGoal()
+        goal2.addGoal()
+        //Update the database
+        dataSourceDelivery?.updateUserInformation(data: newData)
+        //Dismiss
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -62,17 +87,15 @@ class FinanceTableViewController: UITableViewController {
     }
 
     
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
             let cell = Bundle.main.loadNibNamed("BdgSavCell", owner: self, options: nil)?.first as! BdgSavCell
             //Config the cell
-            self.budget = Float(cell.lbl_budget.text!)!
-            self.savings = Float(cell.lbl_savings.text!)!
             return cell
         }else{
             let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
             if indexPath.row == 0 {cell.lbl_cellTitle.text = "اليومي"} else{cell.lbl_cellTitle.text = "الأسبوعي"}
-            if indexPath.row == 0 {dailyCost = Float(cell.lbl_cost.text!)!} else{weeklyCost = Float(cell.lbl_cost.text!)!}
             return cell
         }
     }

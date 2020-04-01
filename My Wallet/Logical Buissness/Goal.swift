@@ -31,8 +31,9 @@ class Goal{
     var dataSourceDeleviry: DataSource?
     var db = Firestore.firestore()
     
-    init(type: GoalType) {
+    init(type: GoalType, value: Float) {
         self.type = self.converter(type)
+        self.value = value
         self.dataSourceDeleviry = DataSource(type: "ppayment")
         self.dataSourceDeleviry?.dataSourceDelegate = self
     }
@@ -77,12 +78,12 @@ class Goal{
     }
     
     func addGoal(){
-        let data:[String:Any] = ["Type": type, "Vaue": value]
-        db.collection("goals").document(getGoalID()).setData(data)
+        let data:[String:Any] = [type : value]
+        db.collection("goals").document(getID()).updateData(data)
     }
     
-    func getGoalID()->String{
-        return Auth.auth().currentUser!.uid+"_"+type
+    func getID()->String{
+        return Auth.auth().currentUser!.uid
     }
     
     func converter(_ type: GoalType)->String{
