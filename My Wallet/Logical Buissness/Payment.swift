@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class Payment{
+@objc class Payment: NSObject{
     
     let db = Firestore.firestore()
     var title :String
@@ -23,18 +23,17 @@ class Payment{
     
     
     
-    init(_ title:String,_ cost:Float, _ type:String, _ paid:Bool, _ at:String) {
-        
+     init(_ title:String,_ cost:Float, _ type:String, _ paid:Bool, _ at:String) {
         self.title = title
         self.cost = cost
         self.type = type
         self.paid = paid
+        super.init()
         if(at == "auto"){
-            self.at = getDate()
+            self.at = self.getDate()
         }else{
             self.at = at
         }
-
     }
     
     

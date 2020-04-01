@@ -48,11 +48,7 @@ class BdgSavCell: UITableViewCell {
     
 }
 extension BdgSavCell: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
-    
+
     func userDataUpdated(data: [String : Any], which:String) {
         if(which == "budgets"){
             sldr_budget.value = (data["Current Amount"] as? Float)!

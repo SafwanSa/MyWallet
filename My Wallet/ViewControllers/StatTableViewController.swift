@@ -77,14 +77,12 @@ extension StatTableViewController: DataSourceProtocol{
         self.allPayments = data
         self.myTableView.reloadData()
     }
-    func unpaidDataUpdated(data: [Payment]) {}
     func userDataUpdated(data: [String : Any], which: String) {
         if(which == "budgets"){
             self.userData = data
             self.myTableView.reloadData()
         }
     }
-    func getMonths(months: [String]) {}
     func getCosts(costs: [Float]) {
         self.costs = costs
         self.myTableView.reloadData()

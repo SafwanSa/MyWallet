@@ -29,11 +29,7 @@ class GoalCell: UITableViewCell {
     
 }
 extension GoalCell: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
-    
+
     func userDataUpdated(data: [String : Any], which:String) {
         if(which == "goals"){
             if (lbl_cellTitle.text == "اليومي"){

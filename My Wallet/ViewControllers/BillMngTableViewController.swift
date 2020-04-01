@@ -130,9 +130,7 @@ class BillMngTableViewController: UITableViewController {
           }
 }
 extension BillMngTableViewController: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
+
     func unpaidDataUpdated(data: [Payment]) {
         self.bills = data
         self.bills.removeAll { (payment) -> Bool in
@@ -144,5 +142,4 @@ extension BillMngTableViewController: DataSourceProtocol{
         }
         self.tableView.reloadData()
     }
-    func userDataUpdated(data: [String : Any], which:String) {} //Nothing will happend here
 }

@@ -61,14 +61,8 @@ class MonthsTableViewController: UITableViewController{
     
 }
 extension MonthsTableViewController: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
-    func userDataUpdated(data: [String : Any], which:String) {}
     func getMonths(months: [String]) {
         self.months = months
         self.myTableView.reloadData()
     }
-    
-    
 }

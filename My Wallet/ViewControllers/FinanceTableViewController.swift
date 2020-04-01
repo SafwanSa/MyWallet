@@ -115,6 +115,7 @@ class FinanceTableViewController: UITableViewController {
     
 }
 extension FinanceTableViewController: DataSourceProtocol{
+    //Remove these
     func getCosts(costs: [Float]) {}
     func getMonths(months: [String]) {}
     func paidDataUpdated(data: [[Payment]]) {}
