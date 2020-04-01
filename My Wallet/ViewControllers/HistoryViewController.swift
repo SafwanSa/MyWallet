@@ -67,6 +67,7 @@ extension HistoryViewController: HistoryCellProtocol{
                 self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
             }else{
                 self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
+                Calendar.side = side
                 Calendar.categ = ""
             }
         }else{
@@ -76,6 +77,7 @@ extension HistoryViewController: HistoryCellProtocol{
                 self.performSegue(withIdentifier: "goToStatClass", sender: self)
             }else{
                 self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
+                Calendar.side = side
                 Calendar.categ = ""
             }
         }

@@ -106,6 +106,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="b7i-7x-EQA"/>
+                    <connections>
+                        <segue destination="M85-wA-YG9" kind="push" identifier="logedIn" animates="NO" id="OQ9-H0-hYY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,7 +271,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68m-Jg-G3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5718" y="1093"/>
+            <point key="canvasLocation" x="5748" y="1158"/>
         </scene>
         <!--History Table View Controller-->
         <scene sceneID="a5J-tV-ysX">
@@ -364,7 +367,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4q9-7y-UPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4969" y="1420"/>
+            <point key="canvasLocation" x="4929" y="1622"/>
         </scene>
         <!--Months Table View Controller-->
         <scene sceneID="JM7-BT-J9m">
@@ -573,6 +576,25 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="logout" textLabel="a0R-2O-X04" style="IBUITableViewCellStyleDefault" id="Cnh-RO-7Db">
+                                <rect key="frame" x="0.0" y="142.5" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cnh-RO-7Db" id="1SH-3e-dzi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="تسجيل الخروج" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a0R-2O-X04">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1077,6 +1099,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NWe-vy-cXs" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kMk-97-MJu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TpN-qs-w0g">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1122,7 +1145,7 @@
         <image name="transLogo" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="erF-3g-8gi"/>
+        <segue reference="OQ9-H0-hYY"/>
         <segue reference="V7c-Ve-NWA"/>
         <segue reference="GkP-Fr-Hdb"/>
     </inferredMetricsTieBreakers>

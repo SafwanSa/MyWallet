@@ -7,16 +7,27 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class ViewController: UIViewController {
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if Auth.auth().currentUser != nil {
+               // User is signed in.
+               // ...
+               performSegue(withIdentifier: "logedIn", sender: self)
+           } else {
+               // No user is signed in.
+               // ...
+               print("is not in")
+           }
     }
 
-    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+   }
     
 
 }

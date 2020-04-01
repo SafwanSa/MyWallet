@@ -53,7 +53,7 @@ class MonthsTableViewController: UITableViewController{
         if(Calendar.side == 0){
             self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
         }else if(Calendar.side == 1){
-            self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
+            self.performSegue(withIdentifier: "goToStatClass", sender: self)
         }
 
     }
