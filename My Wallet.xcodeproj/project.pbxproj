@@ -184,6 +184,7 @@
 		171D5D542333AA6400EA774D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1752ED392333A1400052CE54 /* ViewController.swift */,
 				179DBE23241D426E0009C763 /* StatTableViewController.swift */,
 				1745E11A24199CC5003C697A /* MonthsTableViewController.swift */,
 				171029C82415AF8700D0D697 /* HistoryViewController.swift */,
@@ -246,7 +247,6 @@
 				171D5D542333AA6400EA774D /* ViewControllers */,
 				1752ED372333A1400052CE54 /* AppDelegate.swift */,
 				17FB6F6D233E104600A039EC /* Logical Buissness */,
-				1752ED392333A1400052CE54 /* ViewController.swift */,
 				1752ED3B2333A1410052CE54 /* Main.storyboard */,
 				1752ED402333A1420052CE54 /* LaunchScreen.storyboard */,
 				1752ED432333A1420052CE54 /* Info.plist */,

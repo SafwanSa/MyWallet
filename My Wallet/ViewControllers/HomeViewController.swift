@@ -203,7 +203,11 @@ extension HomeViewController: DataSourceProtocol{
     func getCosts(costs: [Float]) {}
     func getMonths(months: [String]) {}
     func paidDataUpdated(data: [[Payment]]) {} // Nothing happens here
-    func userDataUpdated(data: [String : Any], which: String) {}
+    func userDataUpdated(data: [String : Any], which: String) {
+        if which == "budgets"{
+            print(data.count, "jfjfjfjjfjfjfjfjfjjf")
+        }
+    }
     
     //This method will be excuted when any updates happens to "uppayments"
     func unpaidDataUpdated(data: [Payment]) {

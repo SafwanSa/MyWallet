@@ -204,6 +204,9 @@ class DataSource{
               }
               guard let data = document.data() else {
                 print("Document data was empty.")
+                //Fire a delegate that tells every one that the user has not have a budget
+                let budget = Budget(amount: 0, savings: 0)
+                budget.setBudgetData()
                 return
               }
                 self.dataSourceDelegate?.userDataUpdated(data: data, which: dt)
