@@ -51,9 +51,10 @@ class BillMngTableViewController: UITableViewController {
         let index = indexPath.row
         let bill = self.bills[index] as! Bill
         let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
+                let newBill = Bill(bill.title, bill.cost, bill.day, "auto", lastUpd: "")
                 let cost = bill.cost
                 //Add the bill in the paidList
-                bill.addBillToPaidList()
+                newBill.addBillToPaidList()
                 //Update the "last update" for a bill
                 bill.updateBillLastUpdate(id: bill.at ,lastUpdate: Calendar.getFullDate())
                 //Subtract the cost from the budget
