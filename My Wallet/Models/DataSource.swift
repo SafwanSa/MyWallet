@@ -185,6 +185,23 @@ class DataSource{
     }
     
     
+    func addPreviuosInfo(){
+        //If the previuos was 12 !!!?. Look at the current year
+        var prevMonth = String(Int(Calendar.getCurrentMonth())! - 1)
+        if prevMonth.count == 1{
+            prevMonth = "0"+prevMonth
+        }
+        let budget = getID()+"_Budget_"+prevMonth+"_"+Calendar.getCurrentYear()
+        db.collection("budgets").document(budget).getDocument { (DocumentSnapshot, Error) in
+            guard let previuosBudget = DocumentSnapshot?.data() else{
+                print("He has no previuos budgets... never happens", budget)
+                return
+            }
+            let budget = Budget(amount: previuosBudget["Start Amount"]! as! Float, savings: previuosBudget["Savings"]! as! Float)
+            budget.setBudgetData()
+        }
+    }
+    
     func getUserInfoWhenUpdated(){
         let info = ["budgets","user","goals"]
         var doc = getID()
@@ -204,9 +221,10 @@ class DataSource{
                     }
                     guard let data = document.data() else {
                         print("Document data was empty.")
-                        //Fire a delegate that tells every one that the user has not have a budget
-                        let budget = Budget(amount: 0, savings: 0)
-                        budget.setBudgetData()
+                        print("No info")
+                        if dt == "budgets"{
+                            self.addPreviuosInfo()
+                        }
                         return
                     }
                     self.dataSourceDelegate?.userDataUpdated?(data: data, which: dt)

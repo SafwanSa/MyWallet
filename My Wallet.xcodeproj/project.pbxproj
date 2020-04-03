@@ -34,11 +34,11 @@
 		1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED3B2333A1410052CE54 /* Main.storyboard */; };
 		1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED402333A1420052CE54 /* LaunchScreen.storyboard */; };
 		1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED492333A2770052CE54 /* GoogleService-Info.plist */; };
+		1757705D2437178B00348144 /* NewMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1757705C2437178B00348144 /* NewMonthViewController.swift */; };
 		1767B4FA242AB927008ECDDE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B4F9242AB927008ECDDE /* ProfileViewController.swift */; };
 		1767B4FD242AC0DD008ECDDE /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B4FB242AC0DD008ECDDE /* AccountCell.swift */; };
 		1767B4FE242AC0DD008ECDDE /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B4FC242AC0DD008ECDDE /* AccountCell.xib */; };
 		1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B4FF242AC55F008ECDDE /* HSUnderLineTextField.swift */; };
-		1767B502242ACEEA008ECDDE /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B501242ACEEA008ECDDE /* FinanceViewController.swift */; };
 		1767B508242AE1F8008ECDDE /* BillMngTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */; };
 		1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B509242AE249008ECDDE /* AddBillCell.swift */; };
 		1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B50A242AE249008ECDDE /* AddBillCell.xib */; };
@@ -96,11 +96,11 @@
 		1752ED412333A1420052CE54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1752ED432333A1420052CE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1752ED492333A2770052CE54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1757705C2437178B00348144 /* NewMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMonthViewController.swift; sourceTree = "<group>"; };
 		1767B4F9242AB927008ECDDE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1767B4FB242AC0DD008ECDDE /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		1767B4FC242AC0DD008ECDDE /* AccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
 		1767B4FF242AC55F008ECDDE /* HSUnderLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUnderLineTextField.swift; sourceTree = "<group>"; };
-		1767B501242ACEEA008ECDDE /* FinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceViewController.swift; sourceTree = "<group>"; };
 		1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillMngTableViewController.swift; sourceTree = "<group>"; };
 		1767B509242AE249008ECDDE /* AddBillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillCell.swift; sourceTree = "<group>"; };
 		1767B50A242AE249008ECDDE /* AddBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBillCell.xib; sourceTree = "<group>"; };
@@ -185,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				1752ED392333A1400052CE54 /* ViewController.swift */,
+				1757705C2437178B00348144 /* NewMonthViewController.swift */,
 				179DBE23241D426E0009C763 /* StatTableViewController.swift */,
 				1745E11A24199CC5003C697A /* MonthsTableViewController.swift */,
 				171029C82415AF8700D0D697 /* HistoryViewController.swift */,
@@ -192,7 +193,6 @@
 				171D5D572333AABF00EA774D /* LoginViewController.swift */,
 				171D5D592333AACB00EA774D /* SignupViewController.swift */,
 				1767B4F9242AB927008ECDDE /* ProfileViewController.swift */,
-				1767B501242ACEEA008ECDDE /* FinanceViewController.swift */,
 				17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */,
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */,
@@ -241,12 +241,12 @@
 		1752ED362333A1400052CE54 /* My Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				17FB6F6D233E104600A039EC /* Logical Buissness */,
 				178EF38C241273360082901F /* Models */,
 				171D5D6223344A2400EA774D /* Constants */,
 				171D5D5D2333B00200EA774D /* Fonts */,
 				171D5D542333AA6400EA774D /* ViewControllers */,
 				1752ED372333A1400052CE54 /* AppDelegate.swift */,
-				17FB6F6D233E104600A039EC /* Logical Buissness */,
 				1752ED3B2333A1410052CE54 /* Main.storyboard */,
 				1752ED402333A1420052CE54 /* LaunchScreen.storyboard */,
 				1752ED432333A1420052CE54 /* Info.plist */,
@@ -450,12 +450,12 @@
 				17CFCE45242C2D2100452242 /* Goal.swift in Sources */,
 				17EEB281242BA759002B2621 /* BillCell2.swift in Sources */,
 				171029CD2415B27B00D0D697 /* HistoryCell.swift in Sources */,
-				1767B502242ACEEA008ECDDE /* FinanceViewController.swift in Sources */,
 				1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */,
 				179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */,
 				17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */,
 				179DBE2E241D6A9A0009C763 /* MaxTypeCell.swift in Sources */,
 				179DBE32241D756C0009C763 /* Calculation.swift in Sources */,
+				1757705D2437178B00348144 /* NewMonthViewController.swift in Sources */,
 				17BC79F8242FE24C00884D75 /* BdgSavCell.swift in Sources */,
 				17E97A192432B0AD008D6A3B /* SuperNavigationController.swift in Sources */,
 				172820EB2431389300D069F1 /* GoalCell.swift in Sources */,
