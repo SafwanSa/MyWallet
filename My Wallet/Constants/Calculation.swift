@@ -78,16 +78,32 @@ class Calculations{
         return result
     }
     
-    static func getMaxCostForType(typesAndCost: [Int:Double])->Double{
-        var max: Double = 0.0
-        for data in typesAndCost{
-            let value = data.value
-            if(value > max){
-                max = value
+    static func getMaxCost(payments: [[Payment]])->Float{
+        var max: Float = 0.0
+        for i in 0..<payments.count{
+            for j in 0..<payments[i].count{
+                let value = payments[i][j].cost
+                if(value > max){
+                    max = value
+                }
             }
         }
-        if(max > 0){return max} else {return 1000}
-
+        return max
+    }
+    
+    static func getCostInCurrentDay(payments: [[Payment]])->Float{
+        var cost: Float = 0.0
+        for i in 0..<payments.count{
+            for j in 0..<payments[i].count{
+                let value = payments[i][j].cost
+                let day = Calendar.getFormatedDate(by: "day", date: payments[i][j].at)
+                let currentDay = Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate())
+                if(day == currentDay ){
+                    cost+=value
+                }
+            }
+        }
+        return cost
     }
     
 }
