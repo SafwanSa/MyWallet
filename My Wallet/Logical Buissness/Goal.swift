@@ -70,10 +70,10 @@ class Goal{
         return false
     }
     
-    func checkWeeklyCost()->Bool{
-        //Take the weekly cost form the database
-        //Get the total cost in the current week, and then see if it is > DC
-        //Get the date of Sunday add 
+    func checkWeeklyCost(payments: [[Payment]], weeklyCost: Float)->Bool{
+        let wcost = Calculations.getCostForWeek(payments: payments)
+        print(wcost)
+        if wcost > weeklyCost{return true}
         return false
     }
     

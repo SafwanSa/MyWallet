@@ -91,6 +91,23 @@ class Calculations{
         return max
     }
     
+    static func getCostForWeek(payments: [[Payment]])->Float{
+        var cost: Float = 0.0
+        for i in 0..<payments.count{
+            for j in 0..<payments[i].count{
+                let value = payments[i][j].cost
+                let day = Calendar.getFormatedDate(by: "day", date: payments[i][j].at)
+                if(Calendar.isInWeek(day: day)){
+                    print(payments[i][j].at)
+                    cost+=value
+                }
+            }
+        }
+        print(cost)
+        return cost
+    }
+    
+    
     static func getCostInCurrentDay(payments: [[Payment]])->Float{
         var cost: Float = 0.0
         for i in 0..<payments.count{

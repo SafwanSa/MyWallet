@@ -82,8 +82,7 @@ class HomeCell: UITableViewCell {
         let savingsCheck = goal.checkSavings()
         let blwBudget = goal.checkBelowBudget()
         let dailyCost = goal.checkDailyCost(payemnts: allPayments, dailyCost: self.userGloas["dailyCostGoal"] as! Float)
-//        let weeklyCost = goal.checkWeeklyCost()
-        print(self.userGloas)
+        let weeklyCost = goal.checkWeeklyCost(payments: allPayments, weeklyCost:  self.userGloas["weeklyCostGoal"] as! Float)
         let expensesCheck = goal.checkHighExpenses(payments: self.allPayments)
         if savingsCheck{
             lbl_blwSavings.textColor = .red
@@ -110,6 +109,13 @@ class HomeCell: UITableViewCell {
         }else{
             lbl_dcost.textColor = .white
             dcostLabelView.backgroundColor = .white
+        }
+        if weeklyCost{
+            lbl_wcost.textColor = .red
+            wcostLabelView.backgroundColor = .red
+        }else{
+            lbl_wcost.textColor = .white
+            wcostLabelView.backgroundColor = .white
         }
     }
     

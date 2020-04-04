@@ -124,6 +124,52 @@ class Calendar{
         return days.upperBound-1
     }
     
+    static func getWeekRange()->[String]{
+        var results = [String]()
+        let dt = getCurrentYear()+"-"+getCurrentMonth()+"-"
+        let maxDay = getMaxDayInCurrentMonth()
+        var sundays = [Int]()
+        var saturdays = [Int]()
+        var d = ""
+        for i in 1...maxDay{
+            if i < 10{d = dt+"0"+String(i)}
+            else{d = dt+String(i)}
+            if getDayNameBy(stringDate: d) == "Sunday"{
+                sundays.append(i)
+            }else if getDayNameBy(stringDate: d) == "Saturday"{
+                if i >= 7{saturdays.append(i)}
+            }
+        }
+        var min = saturdays.count
+        if sundays.count < saturdays.count{min = sundays.count}
+        for i in 0 ..< min{results.append(String(sundays[i])+","+String(saturdays[i]))}
+        return results
+    }
+    
+    static func isInWeek(day: String)->Bool{
+        let dayInt = Int(day)
+        var rangee = getWeekRange()
+        rangee.append("01,"+rangee[0].split(separator: ",")[0])
+        var inRange = false
+        for i in rangee{
+            inRange = false
+            let sun = Int(i.split(separator: ",")[0])!
+            let sat = Int(i.split(separator: ",")[1])!
+            if dayInt! >= sun && dayInt! <= sat{
+                inRange = true
+            }
+        }
+        return inRange
+    }
+    
+    static func getDayNameBy(stringDate: String) -> String
+    {
+        let df  = DateFormatter()
+        df.dateFormat = "YYYY-MM-dd"
+        let date = df.date(from: stringDate)!
+        df.dateFormat = "EEEE"
+        return df.string(from: date);
+    }
     
     static func getTheDayOfBill(day: String)->String{
         let dayInt:Int = Int(day)!
@@ -140,3 +186,5 @@ class Calendar{
     }
     
 }
+
+
