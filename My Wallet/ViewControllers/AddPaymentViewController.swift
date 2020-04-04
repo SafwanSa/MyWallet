@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 import UIKit
-import FirebaseFirestore
 import FirebaseAuth
 
 class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource{
@@ -37,7 +36,7 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
     private let PickerData = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق"]
     private var type = UIPickerView()
     private var paidOrNot = false
-    let db = Firestore.firestore()
+
     
     
     
@@ -56,7 +55,7 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
         topView.layer.masksToBounds = false
         
         let font = UIFont(name: "JF Flat", size: 11)
-        sgmnt_paid.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        sgmnt_paid.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], for: .normal)
 
         
     }

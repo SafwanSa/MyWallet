@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import FirebaseAuth
+
 
 class HistoryTableViewController: UITableViewController {
     @IBOutlet weak var sgmnt_types: UISegmentedControl!
@@ -31,7 +30,7 @@ class HistoryTableViewController: UITableViewController {
         SuperNavigationController.setTitle(title: "مشترياتك", nv: self)
             
         let font = UIFont.init(name: "JF Flat", size: 11)
-        sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], for: .normal)
         
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self

@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 enum GoalType {
     case dailyCostGoal
     case weeklyCostGoal

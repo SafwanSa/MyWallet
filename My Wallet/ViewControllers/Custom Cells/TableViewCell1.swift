@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
+
 class TableViewCell1: UITableViewCell {
 
 
