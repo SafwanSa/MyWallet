@@ -751,36 +751,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Oft-Kz-PvM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="l2Z-d5-WMV" customClass="GradientView" customModule="My_Wallet" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الشهر الحالي : " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PgD-xI-uV4">
-                                    <rect key="frame" x="99" y="9" width="176" height="56"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                    <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                    <color key="value" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                    <real key="value" value="15"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="i0J-bd-nYj" id="V48-VG-sdd"/>
@@ -789,7 +762,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="A0f-8I-e56"/>
                     <connections>
-                        <outlet property="lbl_month" destination="PgD-xI-uV4" id="HnO-cG-osl"/>
                         <segue destination="VmY-2Z-DH7" kind="show" identifier="goToCurrentMonthHistory" id="W5A-zB-jkd"/>
                         <segue destination="nvo-ar-cdV" kind="show" identifier="goToMonthsClass" id="aYW-DP-pcP"/>
                         <segue destination="FCZ-t8-D1f" kind="show" identifier="goToStatClass" id="0S5-Hy-7db"/>
@@ -1069,8 +1041,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OQ9-H0-hYY"/>
-        <segue reference="V7c-Ve-NWA"/>
-        <segue reference="GkP-Fr-Hdb"/>
+        <segue reference="W5A-zB-jkd"/>
+        <segue reference="0S5-Hy-7db"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="creditcard.fill" catalog="system" width="128" height="91"/>
