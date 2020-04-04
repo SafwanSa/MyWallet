@@ -11,13 +11,12 @@ class HistoryViewController: UITableViewController{
     
     
     
-    @IBOutlet weak var lbl_month: UILabel!
     var month = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        month = Calendar.getMonthInAr(m: "auto")
-        lbl_month.text =  " الشهر الحالي : " + month
+        navigationController?.navigationBar.prefersLargeTitles = false
+        SuperNavigationController.setTitle(title: "الملخص", nv: self)
     }
     
    
@@ -31,21 +30,30 @@ class HistoryViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 242
+        return 160
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 60
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //Styling the sections
+        let sectionsNames = ["إحصائيات الشهر الحالي", "إحصائيات الشهور الماضية"]
+        let label = UILabel()
+        label.text = sectionsNames[section]
+        label.font = UIFont.init(name: "JF Flat", size: 19)
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = .lightGray
+        return label
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Take the cell from HistoryCell
         let cell = Bundle.main.loadNibNamed("HistoryCell", owner: self, options: nil)?.first as! HistoryCell
         if(indexPath == IndexPath.init(item: 0, section: 0)){
-            cell.lbl_CellTitle.text = "إحصائيات الشهر الحالي"
             cell.category = "Current Month"
         }else{
-            cell.lbl_CellTitle.text = "إحصائيات الشهور الماضية"
             cell.category = "Other Months"
         }
             cell.delegate = self
@@ -65,6 +73,7 @@ extension HistoryViewController: HistoryCellProtocol{
                 self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
             }else{
                 self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
+                Calendar.side = side
                 Calendar.categ = ""
             }
         }else{
@@ -74,6 +83,7 @@ extension HistoryViewController: HistoryCellProtocol{
                 self.performSegue(withIdentifier: "goToStatClass", sender: self)
             }else{
                 self.performSegue(withIdentifier: "goToMonthsClass", sender: self)
+                Calendar.side = side
                 Calendar.categ = ""
             }
         }

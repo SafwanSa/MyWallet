@@ -31,10 +31,7 @@ class AccountCell: UITableViewCell {
     
 }
 extension AccountCell: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
+
     func userDataUpdated(data: [String : Any], which:String) {
         if(which == "user"){
             txt_email.text = data["Email"] as? String

@@ -24,9 +24,7 @@ class MonthsTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "الشهور الماضية"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "JF Flat", size: 19)!]
+        SuperNavigationController.setTitle(title: "الشهور الماضية", nv: self)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +53,7 @@ class MonthsTableViewController: UITableViewController{
         if(Calendar.side == 0){
             self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
         }else if(Calendar.side == 1){
-            self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
+            self.performSegue(withIdentifier: "goToStatClass", sender: self)
         }
 
     }
@@ -63,14 +61,8 @@ class MonthsTableViewController: UITableViewController{
     
 }
 extension MonthsTableViewController: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
-    func userDataUpdated(data: [String : Any], which:String) {}
     func getMonths(months: [String]) {
         self.months = months
         self.myTableView.reloadData()
     }
-    
-    
 }

@@ -7,15 +7,16 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 
-protocol DataSourceProtocol{
-    func paidDataUpdated(data:[[Payment]])
-    func unpaidDataUpdated(data: [Payment])
-    func userDataUpdated(data: [String:Any], which: String)
-    func getMonths(months: [String])
-    func getCosts(costs: [Float])
+@objc protocol DataSourceProtocol{
+    @objc optional func paidDataUpdated(data:[[Payment]])
+    @objc optional func unpaidDataUpdated(data: [Payment])
+    @objc optional func userDataUpdated(data: [String:Any], which: String)
+    @objc optional func getMonths(months: [String])
+    @objc optional func getCosts(costs: [Float])
 }
 
 
@@ -50,9 +51,17 @@ class DataSource{
         }
     }
     
+    func getPaymentID(id: String)->String{
+        let a = Calendar.getFormatedDate(by: "day", date: id)
+        let b = Calendar.getFormatedDate(by: "month", date: id)
+        let c = Calendar.getFormatedDate(by: "time", date: id)
+        return a+"_"+b+"_"+c+"_"+getID()
+    }
+    
     func getID()->String{
         return Auth.auth().currentUser!.uid
     }
+    
     
     func dataCleaner(data:[String:Any], _ type: String)-> Any{
         //This method convert a Dictionary from the DataBase to array
@@ -66,22 +75,22 @@ class DataSource{
         for i in data{
             let key = i.key
             let value = i.value
-                    if key == "Cost"{
-                        let q = value as? NSNumber
-                        costs.append("\(q!.stringValue)")
-                        self.costs.append(Float(truncating: q!))
-                    }else if key == "Title"{
-                        titles.append("\((value as? String)!)")
-                    }else if key == "At"{
-                        ats.append("\((value as? String)!)")
-                    }else if key == "Type"{
-                        types.append("\((value as? String)!)")
-                    }else if key == "Paid"{
-                        paids.append((value as? Bool)!)
-                    }else if key == "Day"{
-                        days.append("\((value as? String)!)")
-                    }else if key == "Last Updated"{
-                        lastUpdates.append("\((value as? String)!)")
+            if key == "Cost"{
+                let q = value as? NSNumber
+                costs.append("\(q!.stringValue)")
+                self.costs.append(Float(truncating: q!))
+            }else if key == "Title"{
+                titles.append("\((value as? String)!)")
+            }else if key == "At"{
+                ats.append("\((value as? String)!)")
+            }else if key == "Type"{
+                types.append("\((value as? String)!)")
+            }else if key == "Paid"{
+                paids.append((value as? Bool)!)
+            }else if key == "Day"{
+                days.append("\((value as? String)!)")
+            }else if key == "Last Updated"{
+                lastUpdates.append("\((value as? String)!)")
             }
         }
         if(type == "uppayment"){
@@ -105,21 +114,21 @@ class DataSource{
         }else{
             for i in 0...costs.count-1{
                 let payment = Payment(titles[i], Float(costs[i])!, types[i], paids[i], ats[i])
-                    if types[i] == "أخرى"{
-                        paidPaymentsList[0].append(payment)
-                    }else if types[i] == "صحة"{
-                        paidPaymentsList[1].append(payment)
-                    }else if types[i] == "ترفيه"{
-                        paidPaymentsList[2].append(payment)
-                    }else if types[i] == "مواصلات"{
-                        paidPaymentsList[3].append(payment)
-                    }else if types[i] == "طعام"{
-                        paidPaymentsList[4].append(payment)
-                    }else if types[i] == "تسوق"{
-                        paidPaymentsList[5].append(payment)
-                    }else if types[i] == "فواتير"{
-                        paidPaymentsList[6].append(payment)
-                    }
+                if types[i] == "أخرى"{
+                    paidPaymentsList[0].append(payment)
+                }else if types[i] == "صحة"{
+                    paidPaymentsList[1].append(payment)
+                }else if types[i] == "ترفيه"{
+                    paidPaymentsList[2].append(payment)
+                }else if types[i] == "مواصلات"{
+                    paidPaymentsList[3].append(payment)
+                }else if types[i] == "طعام"{
+                    paidPaymentsList[4].append(payment)
+                }else if types[i] == "تسوق"{
+                    paidPaymentsList[5].append(payment)
+                }else if types[i] == "فواتير"{
+                    paidPaymentsList[6].append(payment)
+                }
             }
             //If category == current month, remove evrey thing not in that month
             for i in 0..<paidPaymentsList.count{
@@ -134,7 +143,7 @@ class DataSource{
             for i in 0..<paidPaymentsList.count{
                 paidPaymentsList[i].sort(by: { $0.at.compare($1.at) == .orderedDescending })
             }
-            dataSourceDelegate?.getCosts(costs: self.costs)
+            dataSourceDelegate?.getCosts?(costs: self.costs)
             return paidPaymentsList
         }
     }
@@ -152,57 +161,83 @@ class DataSource{
     
     func getData(_ type: String){
         db.collection(type).whereField("uid", isEqualTo: getID())
-        .addSnapshotListener { documentSnapshot, error in
-            guard let documents = documentSnapshot?.documents else {
-            print("Error fetching document: \(error!)")
-            return
-          }
-            self.clearArray()
-            if(type == "uppayment"){
-                for doc in documents{
-                    self.unpaidPaymentsList = self.dataCleaner(data: doc.data(), type) as! [Payment]
+            .addSnapshotListener { documentSnapshot, error in
+                guard let documents = documentSnapshot?.documents else {
+                    print("Error fetching document: \(error!)")
+                    return
                 }
-                if self.unpaidPaymentsList.capacity>=0{
-                    self.dataSourceDelegate?.unpaidDataUpdated(data: self.unpaidPaymentsList)
+                self.clearArray()
+                if(type == "uppayment"){
+                    for doc in documents{
+                        self.unpaidPaymentsList = self.dataCleaner(data: doc.data(), type) as! [Payment]
+                    }
+                    if self.unpaidPaymentsList.capacity>=0{
+                        self.dataSourceDelegate?.unpaidDataUpdated?(data: self.unpaidPaymentsList)
+                    }
+                }else if(type == "ppayment"){
+                    for doc in documents{
+                        self.paidPaymentsList = self.dataCleaner(data: doc.data(), type) as! [[Payment]]
+                    }
+                    if self.paidPaymentsList.capacity>=0{
+                        self.dataSourceDelegate?.paidDataUpdated?(data: self.paidPaymentsList)
+                    }
                 }
-            }else if(type == "ppayment"){
-                for doc in documents{
-                    self.paidPaymentsList = self.dataCleaner(data: doc.data(), type) as! [[Payment]]
-                }
-                if self.paidPaymentsList.capacity>=0{
-                    self.dataSourceDelegate?.paidDataUpdated(data: self.paidPaymentsList)
-                }
-            }
         }
     }
     
     
+    func addPreviuosInfo(){
+        //If the previuos was 12 !!!?. Look at the current year
+        var prevMonth = String(Int(Calendar.getCurrentMonth())! - 1)
+        if prevMonth.count == 1{
+            prevMonth = "0"+prevMonth
+        }
+        let budget = getID()+"_Budget_"+prevMonth+"_"+Calendar.getCurrentYear()
+        db.collection("budgets").document(budget).getDocument { (DocumentSnapshot, Error) in
+            guard let previuosBudget = DocumentSnapshot?.data() else{
+                print("He has no previuos budgets... never happens", budget)
+                return
+            }
+            let budget = Budget(amount: previuosBudget["Start Amount"]! as! Float, savings: previuosBudget["Savings"]! as! Float)
+            budget.setBudgetData()
+        }
+    }
+    
     func getUserInfoWhenUpdated(){
-        let info = ["budgets","user"]
+        let info = ["budgets","user","goals"]
         var doc = getID()
         for dt in info{
             if(dt == "budgets"){
                 doc = Calendar.getBudgetId()
+            }else if dt == "user"{
+                doc = getID()
             }else{
                 doc = getID()
             }
             db.collection(dt).document(doc)
-            .addSnapshotListener { documentSnapshot, error in
-              guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-              }
-              guard let data = document.data() else {
-                print("Document data was empty.")
-                return
-              }
-                self.dataSourceDelegate?.userDataUpdated(data: data, which: dt)
+                .addSnapshotListener { documentSnapshot, error in
+                    guard let document = documentSnapshot else {
+                        print("Error fetching document: \(error!)")
+                        return
+                    }
+                    guard let data = document.data() else {
+                        print("Document data was empty.")
+                        print("No info")
+                        if dt == "budgets"{
+                            self.addPreviuosInfo()
+                        }
+                        return
+                    }
+                    self.dataSourceDelegate?.userDataUpdated?(data: data, which: dt)
             }
         }
     }
     
-    func updateUserInformation(data: [String:Float]){
-        db.collection("budgets").document(Calendar.getBudgetId()).updateData(data)
+    func updateUserInformation(data: [String:Any]){
+        var newData = data
+        newData["uid"] = getID() as String
+        newData["bid"] = Calendar.getBudgetId() as String
+        db.collection("budgets").document(Calendar.getBudgetId()).setData(newData)
     }
     
     
@@ -225,17 +260,17 @@ class DataSource{
     
     func getMonthsData(){
         db.collection("ppayment").whereField("uid", isEqualTo: getID())
-        .addSnapshotListener { documentSnapshot, error in
-            guard let documents = documentSnapshot?.documents else {
-            print("Error fetching document: \(error!)")
-            return
-          }
-            self.clearArray()
+            .addSnapshotListener { documentSnapshot, error in
+                guard let documents = documentSnapshot?.documents else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                self.clearArray()
                 for doc in documents{
                     self.months = self.getPaymentsMonths(data: self.dataCleaner(data: doc.data(), "ppayment") as! [[Payment]])
                 }
                 if self.months.capacity>=0{
-                    self.dataSourceDelegate?.getMonths(months: self.months)
+                    self.dataSourceDelegate?.getMonths?(months: self.months)
                 }
         }
     }
@@ -244,17 +279,17 @@ class DataSource{
 extension Array where Element: Hashable {
     func removingDuplicates() -> [Element] {
         var addedDict = [Element: Bool]()
-
+        
         return filter {
             addedDict.updateValue(true, forKey: $0) == nil
         }
     }
-
+    
     mutating func removeDuplicates() {
         self = self.removingDuplicates()
     }
     
-  
+    
     
     
 }

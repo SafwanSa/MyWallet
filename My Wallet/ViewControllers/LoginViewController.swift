@@ -58,8 +58,8 @@ class LoginViewController: UIViewController {
             SVProgressHUD.dismiss()
         }else{
             //Login the user.
-            let email = txt_email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = txt_password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//            let email = txt_email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+//            let password = txt_password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             Auth.auth().signIn(withEmail: em, password: ps) { (result, err) in
                 if err != nil{
                     //Couldn't sign in

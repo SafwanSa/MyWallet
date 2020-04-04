@@ -37,7 +37,7 @@ class UserInfo{
     }
         
     func createBudget(amount: Float, savings: Float)->Budget{
-        return Budget(amount: amount, savings: savings, user: self)
+        return Budget(amount: amount, savings: savings)
     }
     
 }

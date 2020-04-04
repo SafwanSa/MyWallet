@@ -16,15 +16,11 @@ class BillMngTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         closeKeyboard()
         dataSourceDelivery = DataSource(type: "uppayment")
         dataSourceDelivery?.dataSourceDelegate = self
+        
+        SuperNavigationController.setTitle(title: "إدارة الفواتير", nv: self)
     }
 
     // MARK: - Table view data source
@@ -55,9 +51,10 @@ class BillMngTableViewController: UITableViewController {
         let index = indexPath.row
         let bill = self.bills[index] as! Bill
         let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
+                let newBill = Bill(bill.title, bill.cost, bill.day, "auto", lastUpd: "")
                 let cost = bill.cost
                 //Add the bill in the paidList
-                bill.addBillToPaidList()
+                newBill.addBillToPaidList()
                 //Update the "last update" for a bill
                 bill.updateBillLastUpdate(id: bill.at ,lastUpdate: Calendar.getFullDate())
                 //Subtract the cost from the budget
@@ -134,9 +131,7 @@ class BillMngTableViewController: UITableViewController {
           }
 }
 extension BillMngTableViewController: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
+
     func unpaidDataUpdated(data: [Payment]) {
         self.bills = data
         self.bills.removeAll { (payment) -> Bool in
@@ -148,5 +143,4 @@ extension BillMngTableViewController: DataSourceProtocol{
         }
         self.tableView.reloadData()
     }
-    func userDataUpdated(data: [String : Any], which:String) {} //Nothing will happend here
 }

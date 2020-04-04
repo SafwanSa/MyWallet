@@ -7,24 +7,20 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        SuperNavigationController.setTitle(title: "الحساب", nv: self)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,8 +43,11 @@ class ProfileViewController: UITableViewController {
         }else if(indexPath.section == 1){
             let cell = tableView.dequeueReusableCell(withIdentifier: "financeInfo", for: indexPath)
             return cell
-        }else{
+        }else if indexPath.section == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: "billMng", for: indexPath)
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "logout", for: indexPath)
             return cell
         }
     }
@@ -58,6 +57,19 @@ class ProfileViewController: UITableViewController {
             self.performSegue(withIdentifier: "goToFinance", sender: self)
         }else if(indexPath.section == 2){
             self.performSegue(withIdentifier: "goToBillMng", sender: self)
+        }else if indexPath.section == 3{
+            //Logout
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+            }
+            //Sucssefuly loged out, now segue to base view
+            let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let centerVC = mainStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            appDel.window!.rootViewController = centerVC
+            appDel.window!.makeKeyAndVisible()
         }
     }
 

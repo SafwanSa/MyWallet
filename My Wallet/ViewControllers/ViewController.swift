@@ -7,16 +7,32 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class ViewController: UIViewController {
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            if Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate()) == "01"{
+                let dataSource = DataSource()
+                dataSource.addPreviuosInfo()
+                performSegue(withIdentifier: "goToNewMonth", sender: self)
+            }else{
+                performSegue(withIdentifier: "logedIn", sender: self)
+            }
+           } else {
+               // No user is signed in.
+               // ...
+               print("is not in")
+           }
     }
 
-    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+   }
     
 
 }

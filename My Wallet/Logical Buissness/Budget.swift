@@ -16,13 +16,16 @@ class Budget{
     var current_amount: Float
     var savings: Float
     var start_amount: Float
-    var userId: String
-    init(amount: Float, savings: Float, user: UserInfo) {
+    var userId: String = ""
+    
+    var db = Firestore.firestore()
+    
+    init(amount: Float, savings: Float) {
         self.bid = Calendar.getBudgetId()
         self.start_amount = amount
         self.current_amount = amount
         self.savings = savings
-        self.userId = user.id
+        self.userId = getID()
     }
     
     
@@ -30,8 +33,9 @@ class Budget{
         return Auth.auth().currentUser!.uid
     }
     
-    func setBudgetData() -> [String:Any]{
-        return ["bid": bid,"Start Amount":start_amount, "Current Amount":current_amount, "Savings":savings, "uid":userId]
+    func setBudgetData(){
+        let data = ["bid": bid,"Start Amount":start_amount, "Current Amount":current_amount, "Savings":savings, "uid":userId] as [String : Any]
+         db.collection("budgets").document(Calendar.getBudgetId()).setData(data)
     }
     
     

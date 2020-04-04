@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import FirebaseAuth
+
 
 class HistoryTableViewController: UITableViewController {
     @IBOutlet weak var sgmnt_types: UISegmentedControl!
@@ -27,12 +26,11 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "مشترياتك"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "JF Flat", size: 19)!]
+        
+        SuperNavigationController.setTitle(title: "مشترياتك", nv: self)
             
         let font = UIFont.init(name: "JF Flat", size: 11)
-        sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], for: .normal)
         
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self
@@ -116,12 +114,9 @@ class HistoryTableViewController: UITableViewController {
 }
 
 extension HistoryTableViewController: DataSourceProtocol{
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
+    
     func paidDataUpdated(data: [[Payment]]) {
         allPayments = data
         self.tableView.reloadData()
     }
-    func unpaidDataUpdated(data: [Payment]) {} //Nothing will happend here
-    func userDataUpdated(data: [String : Any], which:String) {} //Nothing will happend here
 }

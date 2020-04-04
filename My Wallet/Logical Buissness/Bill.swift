@@ -19,25 +19,22 @@ class Bill: Payment{
     }
     
     override func addPayemnt() {
-        db.collection("uppayment").document().setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid":self.paid,"Day":self.day,"uid":getID()])
+        db.collection("uppayment").document(getPaymentID(id: self.at)).setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid":self.paid,"Day":self.day,"uid":getID()])
     }
     
     
     func updateBillLastUpdate(id: String, lastUpdate: String){
-        db.collection("uppayment").whereField("At", isEqualTo: id)
-            .getDocuments() { (querySnapshot, err) in
+        db.collection("uppayment").document(getPaymentID(id: id)).getDocument() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    for document in querySnapshot!.documents {
-                        self.db.collection("uppayment").document(document.documentID).updateData(["Last Updated": lastUpdate, "Paid": true])
-                    }
+                        self.db.collection("uppayment").document(querySnapshot!.documentID).updateData(["Last Updated": lastUpdate, "Paid": true])
                 }
         }
     }
     
     func addBillToPaidList() {
-        db.collection("ppayment").document().setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid": true,"Day":self.day,"uid":getID()])
+        db.collection("ppayment").document(getPaymentID(id: self.at)).setData(["Title":self.title, "Cost":self.cost, "At":self.at,"Type":self.type, "Paid": true,"Day":self.day,"uid":getID()])
     }
     
     
