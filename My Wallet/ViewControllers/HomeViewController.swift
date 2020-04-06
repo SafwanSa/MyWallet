@@ -71,14 +71,14 @@ class HomeViewController: UITableViewController{
             let ats = payment.at
             //Take the cell from TableViewCell1
             let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
-                //Giving each cell an id (the date the time) Configure the cell...
+            //Giving each cell an id (the date the time) Configure the cell...
             let day = Calendar.getFormatedDate(by: "day", date: ats)
             let time = Calendar.getFormatedDate(by: "time", date: ats)
-                cell.lbl_day.text = "يوم: "+day
-                cell.lbl_time.text = "الوقت: "+time
-                cell.lbl_title.text = String(title)
-                cell.setPaidCell(cost: String(cost))
-                return cell
+            cell.lbl_day.text = "يوم: "+day
+            cell.lbl_time.text = "الوقت: "+time
+            cell.lbl_title.text = String(title)
+            cell.setPaidCell(cost: String(cost))
+            return cell
         }
     }
     
@@ -96,25 +96,19 @@ class HomeViewController: UITableViewController{
             if(self.isBill(index: index)){
                     let bill = self.unpaidPaymentsList[index] as! Bill
                     let cost = bill.cost
-                    //Add the bill in the paidList
                     bill.addBillToPaidList()
-                    //Update the "last update" for a bill
                     bill.updateBillLastUpdate(id: bill.at ,lastUpdate: Calendar.getFullDate())
-                    //Subtract the cost from the budget
                     bill.payPayment(cost: cost)
                 }else{
-                    let p = self.unpaidPaymentsList[index]
-                    //Delete the payment from unpaid list
-                    p.deletePayment(id: p.at)
-                    let payment = Payment(p.title,p.cost,p.type,true, "auto")
-                    let cost = payment.cost
-                    //Subtract the cost from the budget
-                    payment.payPayment(cost: cost)
-                    //Add the payment in the paid list
-                    payment.addPayemnt()
+                    let payment = self.unpaidPaymentsList[index]
+                    payment.deletePayment(id: payment.at)
+                    let newPayment = Payment(payment.title,payment.cost,payment.type,true, "auto")
+                    let cost = newPayment.cost
+                    newPayment.payPayment(cost: cost)
+                    newPayment.addPayemnt()
                 }
             self.unpaidPaymentsList.remove(at: index)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .top)
                }
         
            let deleteButton = UITableViewRowAction(style: .destructive, title: "احذف") { (rowAction, indexPath) in
@@ -126,7 +120,7 @@ class HomeViewController: UITableViewController{
                     payment.deletePayment(id: payment.at)
                 }
             self.unpaidPaymentsList.remove(at: index)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .top)
                }
             setUpActionsButtons(delete: deleteButton, pay: payButton)
             return [deleteButton, payButton]
@@ -143,14 +137,15 @@ class HomeViewController: UITableViewController{
         let label = UILabel()
         let str = " لديك " + String(self.unpaidPaymentsList.count) + " من المصروفات غير مدفوعة"
         let sectionsNames = ["",str,"اخر المدفوعات"]
-        label.text = sectionsNames[section]
-        label.font = UIFont.init(name: "JF Flat", size: 18)
+        if section == 1 && paidPaymentsList.count == 0{
+            label.text = ""
+        }else {label.text = sectionsNames[section]}
+        label.font = UIFont.init(name: "JF Flat", size: 16)
         label.textAlignment = NSTextAlignment.center
         label.textColor = .gray
-        label.alpha = 0.7
+        label.alpha = 0.6
         return label
     }
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -161,62 +156,18 @@ class HomeViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0){
-            return 1
-        }else if section == 1{
-            return unpaidPaymentsList.count
-        }else{
-            return paidPaymentsList.count
-        }
+        if(section == 0){return 1}else if section == 1{return unpaidPaymentsList.count}
+        else{return paidPaymentsList.count}
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.section == 0){
-            return 356
-        }else if indexPath.section == 1{
-            return 121
-        }else{
-            return 118
-        }
+        if(indexPath.section == 0){return 356}else if indexPath.section == 1{return 121}else{return 118}
     }
     
     //MARK:- Kb closing
     func closeKeyboard(){
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
-    }
-    
-    func isValidBill(day: String,lastUpdate: String, billAt: String)->Bool{
-        let billDay = Int(day)!//30
-        let currentDay = Int(Calendar.getFormatedDate(by: "day", date: Calendar.getDate()))!//1
-        let currentMonth = Int(Calendar.getFormatedDate(by: "month", date: Calendar.getDate()))!//04
-        var lastUpdateMonth = 0
-        var showBill = false
-        var validUpdate = false
-        
-        if lastUpdate == ""{
-            lastUpdateMonth = Int(Calendar.getFormatedDate(by: "month", date: billAt))!//03
-            if lastUpdateMonth == currentMonth{
-                if(currentDay >= billDay){return true}
-            }else{return true}
-           
-        }else{
-            lastUpdateMonth = Int(Calendar.getFormatedDate(by: "month", date: lastUpdate))!
-            if lastUpdateMonth != currentMonth{
-                validUpdate = true
-            }
-        }
-        if validUpdate{
-            if currentDay >= billDay{
-                showBill = true
-            }else if(currentDay < billDay){
-                if(currentMonth - lastUpdateMonth) > 1{
-                    showBill = true
-                }
-            }
-        }
-        
-        return showBill
     }
     
 }
@@ -231,13 +182,11 @@ extension HomeViewController: DataSourceProtocol{
         }
         //Sorting thr array by date
         self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
-        
         if paidPaymentsList.count>3{
             paidPaymentsList = [paidPaymentsList[0], paidPaymentsList[1], paidPaymentsList[2]]
         }
         myTableView.reloadData()
     }
-    
     func unpaidDataUpdated(data: [Payment]) {
         unpaidPaymentsList = data
         //Remove the bills that is not on its time
@@ -245,7 +194,7 @@ extension HomeViewController: DataSourceProtocol{
             var remove = false
             if(payment.type == "فواتير"){
                 let bill = payment as! Bill
-                remove = !isValidBill(day: bill.day, lastUpdate: bill.lastUpdate, billAt: bill.at)
+                remove = !Calendar.isValidBill(day: bill.day, lastUpdate: bill.lastUpdate, billAt: bill.at)
             }
             return remove
         }
