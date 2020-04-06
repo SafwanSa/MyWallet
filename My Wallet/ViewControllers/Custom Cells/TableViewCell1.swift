@@ -16,10 +16,15 @@ class TableViewCell1: UITableViewCell {
     @IBOutlet weak var lbl_day: UILabel!
     @IBOutlet weak var lbl_time: UILabel!
     
+    @IBOutlet weak var backGroundView: GradientView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backGroundView.layer.shadowOpacity = 0.6
+        backGroundView.layer.shadowRadius = 2
+        backGroundView.layer.shadowOffset = .zero
+        backGroundView.layer.masksToBounds = false
     }
     
     

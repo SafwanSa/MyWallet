@@ -22,13 +22,14 @@ class HomeViewController: UITableViewController{
     
     //MARK: -Instance vars
     var unpaidPaymentsList = [Payment]()
-    
+    var paidPaymentsList = [Payment]()
+    var dataSourceDelivery: DataSource?
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
         //Seting up the delegate
-        let dataSourceDelivery = DataSource(type: "uppayment")
-        dataSourceDelivery.dataSourceDelegate = self
+        dataSourceDelivery = DataSource(type: "uppayment")
+        dataSourceDelivery?.dataSourceDelegate = self
     }
     
     //MARK:- TableView Configuraion
@@ -38,7 +39,7 @@ class HomeViewController: UITableViewController{
             let cell = Bundle.main.loadNibNamed("HomeCell", owner: self, options: nil)?.first as! HomeCell
             cell.delegate = self
             return cell
-        }else{
+        }else if indexPath.section == 1{
             //Take the payments one by one from the array
             let payment = self.unpaidPaymentsList[indexPath.row]
             let cost = payment.cost
@@ -62,11 +63,27 @@ class HomeViewController: UITableViewController{
                 cell1.paymentDate = ats
                 return cell1
             }
+        }else{
+            //Take the payments one by one from the array
+            let payment = self.paidPaymentsList[indexPath.row]
+            let cost = payment.cost
+            let title = payment.title
+            let ats = payment.at
+            //Take the cell from TableViewCell1
+            let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
+                //Giving each cell an id (the date the time) Configure the cell...
+            let day = Calendar.getFormatedDate(by: "day", date: ats)
+            let time = Calendar.getFormatedDate(by: "time", date: ats)
+                cell.lbl_day.text = "يوم: "+day
+                cell.lbl_time.text = "الوقت: "+time
+                cell.lbl_title.text = String(title)
+                cell.setPaidCell(cost: String(cost))
+                return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if(indexPath.section == 0){return false} else{return true}
+        if(indexPath.section == 0 || indexPath.section == 2){return false} else{return true}
     }
     
     func isBill(index: Int) -> Bool {
@@ -113,7 +130,8 @@ class HomeViewController: UITableViewController{
                }
             setUpActionsButtons(delete: deleteButton, pay: payButton)
             return [deleteButton, payButton]
-       }
+        
+    }
     
     func setUpActionsButtons(delete: UITableViewRowAction, pay: UITableViewRowAction){
         pay.backgroundColor = UIColor.darkGray
@@ -124,7 +142,7 @@ class HomeViewController: UITableViewController{
         //Styling the Title of the Table
         let label = UILabel()
         let str = " لديك " + String(self.unpaidPaymentsList.count) + " من المصروفات غير مدفوعة"
-        let sectionsNames = ["",str]
+        let sectionsNames = ["",str,"اخر المدفوعات"]
         label.text = sectionsNames[section]
         label.font = UIFont.init(name: "JF Flat", size: 18)
         label.textAlignment = NSTextAlignment.center
@@ -135,7 +153,7 @@ class HomeViewController: UITableViewController{
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -145,16 +163,20 @@ class HomeViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0){
             return 1
-        }else{
+        }else if section == 1{
             return unpaidPaymentsList.count
+        }else{
+            return paidPaymentsList.count
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section == 0){
             return 356
-        }else{
+        }else if indexPath.section == 1{
             return 121
+        }else{
+            return 118
         }
     }
     
@@ -200,6 +222,21 @@ class HomeViewController: UITableViewController{
 }
 //MARK:- Delegate and protocol overriding
 extension HomeViewController: DataSourceProtocol{
+    func paidDataUpdated(data: [[Payment]]) {
+        paidPaymentsList.removeAll()
+        for i in 0..<data.count{
+            for j in 0..<data[i].count{
+                paidPaymentsList.append(data[i][j])
+            }
+        }
+        //Sorting thr array by date
+        self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
+        
+        if paidPaymentsList.count>3{
+            paidPaymentsList = [paidPaymentsList[0], paidPaymentsList[1], paidPaymentsList[2]]
+        }
+        myTableView.reloadData()
+    }
     
     func unpaidDataUpdated(data: [Payment]) {
         unpaidPaymentsList = data
@@ -212,7 +249,8 @@ extension HomeViewController: DataSourceProtocol{
             }
             return remove
         }
-        self.myTableView.reloadData()
+        dataSourceDelivery = DataSource(type: "ppayment")
+        dataSourceDelivery?.dataSourceDelegate = self
     }
 }
 extension HomeViewController: HomeCellProtocol{

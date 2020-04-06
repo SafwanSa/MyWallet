@@ -98,12 +98,10 @@ class Calculations{
                 let value = payments[i][j].cost
                 let day = Calendar.getFormatedDate(by: "day", date: payments[i][j].at)
                 if(Calendar.isInWeek(day: day)){
-                    print(payments[i][j].at)
                     cost+=value
                 }
             }
         }
-        print(cost)
         return cost
     }
     
