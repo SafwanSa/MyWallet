@@ -185,6 +185,37 @@ class Calendar{
         return validDay
     }
     
+    static func isValidBill(day: String,lastUpdate: String, billAt: String)->Bool{
+        let billDay = Int(day)!//30
+              let currentDay = Int(getFormatedDate(by: "day", date: getDate()))!//1
+              let currentMonth = Int(getFormatedDate(by: "month", date: getDate()))!//04
+              var lastUpdateMonth = 0
+              var showBill = false
+              var validUpdate = false
+              if lastUpdate == ""{
+                  lastUpdateMonth = Int(getFormatedDate(by: "month", date: billAt))!//03
+                  if lastUpdateMonth == currentMonth{
+                      if(currentDay >= billDay){return true}
+                  }else{return true}
+                 
+              }else{
+                  lastUpdateMonth = Int(getFormatedDate(by: "month", date: lastUpdate))!
+                  if lastUpdateMonth != currentMonth{
+                      validUpdate = true
+                  }
+              }
+              if validUpdate{
+                  if currentDay >= billDay{
+                      showBill = true
+                  }else if(currentDay < billDay){
+                      if(currentMonth - lastUpdateMonth) > 1{
+                          showBill = true
+                      }
+                  }
+              }
+              return showBill
+    }
+    
 }
 
 
