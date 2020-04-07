@@ -11,6 +11,7 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     @IBOutlet weak var sgmnt_types: UISegmentedControl!
+    @IBOutlet weak var sgmnt_sp: UISegmentedControl!
     
     var allPayments = [
         [Payment](),
@@ -21,8 +22,10 @@ class HistoryTableViewController: UITableViewController {
         [Payment](),
         [Payment]()
     ]
+    var paidPaymentsList = [Payment]()
     var typesIndex = 0
     var category = ""
+    var showAll = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,8 @@ class HistoryTableViewController: UITableViewController {
             
         let font = UIFont.init(name: "JF Flat", size: 11)
         sgmnt_types.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], for: .normal)
+        sgmnt_sp.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], for: .normal)
+        sgmnt_types.alpha = 0
         
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self
@@ -44,7 +49,23 @@ class HistoryTableViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
     
-
+    @IBAction func sgmn_sp(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0{
+            UIView.animate(withDuration: 0.4) {
+                self.sgmnt_types.alpha = 0
+            }
+            showAll = 0
+        }else{
+            //Show sgmnt_types
+            UIView.animate(withDuration: 0.4) {
+                self.sgmnt_types.alpha = 1
+            }
+            showAll = 1
+            typesIndex = 0
+        }
+        tableView.reloadData()
+    }
+    
     @IBAction func sgmnt_types(_ sender: UISegmentedControl) {
         if(sender.selectedSegmentIndex == 0){
             typesIndex = 0
@@ -70,7 +91,11 @@ class HistoryTableViewController: UITableViewController {
         //Styling the sections
         let sectionsNames = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
         let label = UILabel()
-        label.text = sectionsNames[typesIndex]
+        if showAll == 1{
+            label.text = sectionsNames[typesIndex]
+        }else{
+            label.text = "الكل"
+        }
         label.font = UIFont.init(name: "JF Flat", size: 19)
         label.textAlignment = NSTextAlignment.center
         return label
@@ -90,25 +115,33 @@ class HistoryTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if showAll == 0{
+            return paidPaymentsList.count
+        }
         return allPayments[typesIndex].count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Take the payments one by one from the array
-        let payment = self.allPayments[typesIndex][indexPath.row]
-        let cost = payment.cost
-        let title = payment.title
-        let ats = payment.at
+        var payment: Payment?
+        if showAll == 0{
+            payment = self.paidPaymentsList[indexPath.row]
+        }else{
+            payment = self.allPayments[typesIndex][indexPath.row]
+        }
+        let cost = payment?.cost
+        let title = payment?.title
+        let ats = payment?.at
         //Take the cell from TableViewCell1
         let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
             //Giving each cell an id (the date the time) Configure the cell...
-        let day = Calendar.getFormatedDate(by: "day", date: ats)
-        let time = Calendar.getFormatedDate(by: "time", date: ats)
+        let day = Calendar.getFormatedDate(by: "day", date: ats!)
+        let time = Calendar.getFormatedDate(by: "time", date: ats!)
             cell.lbl_day.text = "يوم: "+day
             cell.lbl_time.text = "الوقت: "+time
-            cell.lbl_title.text = String(title)
-            cell.setPaidCell(cost: String(cost))
+            cell.lbl_title.text = String(title!)
+            cell.setPaidCell(cost: String(cost!))
             return cell
     }
 }
@@ -117,6 +150,13 @@ extension HistoryTableViewController: DataSourceProtocol{
     
     func paidDataUpdated(data: [[Payment]]) {
         allPayments = data
+        for i in 0..<data.count{
+            for j in 0..<data[i].count{
+                paidPaymentsList.append(data[i][j])
+            }
+        }
+        //Sorting thr array by date
+        self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
         self.tableView.reloadData()
     }
 }
