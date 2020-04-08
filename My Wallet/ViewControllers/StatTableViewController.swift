@@ -14,23 +14,9 @@ class StatTableViewController: UITableViewController{
     
     //MARK:- Vars Declaration
     var costs = [Float]()
-    var chart: PieChartView!
-    var userData = [String:Any]()
-    var allPayments = [
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment]()
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataSourceDelivery = DataSource(type: "ppayment")
-        dataSourceDelivery.dataSourceDelegate = self
-        
         SuperNavigationController.setTitle(title: "إحصائيات", nv: self)
     }
     
@@ -46,47 +32,48 @@ class StatTableViewController: UITableViewController{
         return 30
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 2 || indexPath.section == 3{
+            return 247
+        }else{
+            return 168
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //Styling the Title of the Table
+        let label = UILabel()
+        let title1 = "متوسط الصرف"
+        let title2 = "هدفك لمقدار الصرف"
+        let title3 = "قيمة كل تصنيف من مجموع المصاريف"
+        let title4 = "نسبة كل تصنيف من الميزانية"
+        let sectionsNames = [title1,title2,title3,title4]
+        label.text = sectionsNames[section]
+        label.font = UIFont.init(name: "JF Flat", size: 16)
+        label.textAlignment = NSTextAlignment.right
+        label.textColor = .gray
+        label.alpha = 0.6
+        return label
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //If it is the first section, then display the (StatAvgCell)
         if(indexPath.section == 0){
             let cell = Bundle.main.loadNibNamed("StatAvgCell", owner: self, options: nil)?.first as! StatAvgCell
-            //Cell configuration
-            cell.setUpAverage(costs: self.costs)
             return cell
-        //If it is the second section, then display the (MaxTypeCell)
+        //If it is the second section, then display the (StatGoalCell)
         }else if(indexPath.section == 1){
-            let cell = Bundle.main.loadNibNamed("MaxTypeCell", owner: self, options: nil)?.first as! MaxTypeCell
+            let cell = Bundle.main.loadNibNamed("StatGoalCell", owner: self, options: nil)?.first as! StatGoalCell
             return cell
         //If it is the third section, then display the (StatTypeCell)
         }else if(indexPath.section == 2){
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            cell.updateChartData(payments: self.allPayments, userData: self.userData, type: "cost")
-            cell.lbl_cellTitle.text = "قيمة كل تصنيف من مجموع المصاريف"
+            cell.StatType = "cost"
             return cell
         }else{
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            cell.updateChartData(payments: self.allPayments, userData: self.userData, type: "percent")
-            cell.lbl_cellTitle.text = "نسبة كل تصنيف من الميزانية"
+            cell.StatType = "percent"
             return cell
         }
     }
-}
-//MARK:- Delegate and protocol overriding
-extension StatTableViewController: DataSourceProtocol{
-    func paidDataUpdated(data: [[Payment]]) {
-        self.allPayments = data
-        self.myTableView.reloadData()
-    }
-    func userDataUpdated(data: [String : Any], which: String) {
-        if(which == "budgets"){
-            self.userData = data
-            self.myTableView.reloadData()
-        }
-    }
-    func getCosts(costs: [Float]) {
-        self.costs = costs
-        self.myTableView.reloadData()
-    }
-    
-    
 }

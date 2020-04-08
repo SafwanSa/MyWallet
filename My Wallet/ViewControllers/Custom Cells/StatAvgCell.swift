@@ -19,6 +19,8 @@ class StatAvgCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let dataSourceDelivery = DataSource(type: "ppayment")
+        dataSourceDelivery.dataSourceDelegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,7 +29,7 @@ class StatAvgCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUpAverage(costs:[Float]){
+    func setupAverage(costs:[Float]){
         let avgCostByDay = String(Calculations.getAverageCosts(costs: costs, by: "day"))
         let avgCountByDay = String(Calculations.getAverageCounts(costs: costs, by: "day"))
         let avgCostByWeek = String(Calculations.getAverageCosts(costs: costs, by: "week"))
@@ -38,4 +40,9 @@ class StatAvgCell: UITableViewCell {
         lbl_count_byWeek.text = avgCountByWeek+" مصروفات"
     }
 
+}
+extension StatAvgCell: DataSourceProtocol{
+        func getCosts(costs: [Float]) {
+            setupAverage(costs: costs)
+    }
 }

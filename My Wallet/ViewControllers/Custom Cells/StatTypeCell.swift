@@ -15,9 +15,13 @@ class StatTypeCell: UITableViewCell {
     @IBOutlet weak var lbl_cellTitle: UILabel!
     @IBOutlet weak var pieView: PieChartView!
 
+    var allPayments = [[Payment]]()
+    var StatType: String?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let dataSourceDelivery = DataSource(type: "ppayment")
+        dataSourceDelivery.dataSourceDelegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -88,4 +92,16 @@ class StatTypeCell: UITableViewCell {
     }
     
     
+}
+//MARK:- Delegate and protocol overriding
+extension StatTypeCell: DataSourceProtocol{
+    func paidDataUpdated(data: [[Payment]]) {
+        self.allPayments = data
+    }
+    func userDataUpdated(data: [String : Any], which: String) {
+        if(which == "budgets"){
+            updateChartData(payments: self.allPayments, userData: data, type: self.StatType!)
+        }
+    }
+
 }

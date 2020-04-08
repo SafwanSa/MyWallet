@@ -48,8 +48,8 @@
 		179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE23241D426E0009C763 /* StatTableViewController.swift */; };
 		179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE25241D42D80009C763 /* StatAvgCell.swift */; };
 		179DBE2A241D431C0009C763 /* StatAvgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179DBE29241D431C0009C763 /* StatAvgCell.xib */; };
-		179DBE2E241D6A9A0009C763 /* MaxTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE2D241D6A9A0009C763 /* MaxTypeCell.swift */; };
-		179DBE30241D6AA80009C763 /* MaxTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179DBE2F241D6AA80009C763 /* MaxTypeCell.xib */; };
+		179DBE2E241D6A9A0009C763 /* StatGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE2D241D6A9A0009C763 /* StatGoalCell.swift */; };
+		179DBE30241D6AA80009C763 /* StatGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179DBE2F241D6AA80009C763 /* StatGoalCell.xib */; };
 		179DBE32241D756C0009C763 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE31241D756C0009C763 /* Calculation.swift */; };
 		17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B42951233ACA4C004F2436 /* MyRoundedView.swift */; };
 		17BC79F8242FE24C00884D75 /* BdgSavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC79F6242FE24C00884D75 /* BdgSavCell.swift */; };
@@ -110,8 +110,8 @@
 		179DBE23241D426E0009C763 /* StatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
 		179DBE25241D42D80009C763 /* StatAvgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatAvgCell.swift; sourceTree = "<group>"; };
 		179DBE29241D431C0009C763 /* StatAvgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatAvgCell.xib; sourceTree = "<group>"; };
-		179DBE2D241D6A9A0009C763 /* MaxTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxTypeCell.swift; sourceTree = "<group>"; };
-		179DBE2F241D6AA80009C763 /* MaxTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaxTypeCell.xib; sourceTree = "<group>"; };
+		179DBE2D241D6A9A0009C763 /* StatGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatGoalCell.swift; sourceTree = "<group>"; };
+		179DBE2F241D6AA80009C763 /* StatGoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatGoalCell.xib; sourceTree = "<group>"; };
 		179DBE31241D756C0009C763 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		17B42951233ACA4C004F2436 /* MyRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedView.swift; sourceTree = "<group>"; };
 		17BC79F6242FE24C00884D75 /* BdgSavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BdgSavCell.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 				171029CC2415B27B00D0D697 /* HistoryCell.swift */,
 				179DBE25241D42D80009C763 /* StatAvgCell.swift */,
 				179DBE29241D431C0009C763 /* StatAvgCell.xib */,
-				179DBE2D241D6A9A0009C763 /* MaxTypeCell.swift */,
-				179DBE2F241D6AA80009C763 /* MaxTypeCell.xib */,
+				179DBE2D241D6A9A0009C763 /* StatGoalCell.swift */,
+				179DBE2F241D6AA80009C763 /* StatGoalCell.xib */,
 				170E8401241E6C3700A68971 /* StatTypeCell.swift */,
 				170E8402241E6C3700A68971 /* StatTypeCell.xib */,
 				170D23C1241EAF2B007A69D9 /* HomeCell.swift */,
@@ -374,7 +374,7 @@
 				1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */,
 				17BC79F9242FE24C00884D75 /* BdgSavCell.xib in Resources */,
 				170E79C723F9C029007A894C /* Assets.xcassets in Resources */,
-				179DBE30241D6AA80009C763 /* MaxTypeCell.xib in Resources */,
+				179DBE30241D6AA80009C763 /* StatGoalCell.xib in Resources */,
 				17012FF824032966000B840A /* UnpaidCell.xib in Resources */,
 				179DBE2A241D431C0009C763 /* StatAvgCell.xib in Resources */,
 				1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */,
@@ -453,7 +453,7 @@
 				1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */,
 				179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */,
 				17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */,
-				179DBE2E241D6A9A0009C763 /* MaxTypeCell.swift in Sources */,
+				179DBE2E241D6A9A0009C763 /* StatGoalCell.swift in Sources */,
 				179DBE32241D756C0009C763 /* Calculation.swift in Sources */,
 				1757705D2437178B00348144 /* NewMonthViewController.swift in Sources */,
 				17BC79F8242FE24C00884D75 /* BdgSavCell.swift in Sources */,
