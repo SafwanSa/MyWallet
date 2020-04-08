@@ -29,6 +29,8 @@
 		172820EB2431389300D069F1 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172820E92431389300D069F1 /* GoalCell.swift */; };
 		172820EC2431389300D069F1 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172820EA2431389300D069F1 /* GoalCell.xib */; };
 		1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745E11A24199CC5003C697A /* MonthsTableViewController.swift */; };
+		174CFAB2243E65270026250B /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174CFAB0243E65270026250B /* BarChartCell.swift */; };
+		174CFAB3243E65270026250B /* BarChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174CFAB1243E65270026250B /* BarChartCell.xib */; };
 		1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED372333A1400052CE54 /* AppDelegate.swift */; };
 		1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED392333A1400052CE54 /* ViewController.swift */; };
 		1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED3B2333A1410052CE54 /* Main.storyboard */; };
@@ -89,6 +91,8 @@
 		172820E92431389300D069F1 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		172820EA2431389300D069F1 /* GoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalCell.xib; sourceTree = "<group>"; };
 		1745E11A24199CC5003C697A /* MonthsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewController.swift; sourceTree = "<group>"; };
+		174CFAB0243E65270026250B /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		174CFAB1243E65270026250B /* BarChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartCell.xib; sourceTree = "<group>"; };
 		1752ED342333A1400052CE54 /* My Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1752ED372333A1400052CE54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1752ED392333A1400052CE54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */,
 				17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */,
+				174CFAAF243E64FB0026250B /* New Group */,
 				17CFCE43242C2BAB00452242 /* Custom Cells 2 */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
 			);
@@ -218,6 +223,15 @@
 				179DBE31241D756C0009C763 /* Calculation.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		174CFAAF243E64FB0026250B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				174CFAB0243E65270026250B /* BarChartCell.swift */,
+				174CFAB1243E65270026250B /* BarChartCell.xib */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		1752ED2B2333A1400052CE54 = {
@@ -377,6 +391,7 @@
 				179DBE30241D6AA80009C763 /* StatGoalCell.xib in Resources */,
 				17012FF824032966000B840A /* UnpaidCell.xib in Resources */,
 				179DBE2A241D431C0009C763 /* StatAvgCell.xib in Resources */,
+				174CFAB3243E65270026250B /* BarChartCell.xib in Resources */,
 				1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */,
 				170E8404241E6C3700A68971 /* StatTypeCell.xib in Resources */,
 				1767B4FE242AC0DD008ECDDE /* AccountCell.xib in Resources */,
@@ -470,6 +485,7 @@
 				1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */,
 				1767B4FA242AB927008ECDDE /* ProfileViewController.swift in Sources */,
 				170E8403241E6C3700A68971 /* StatTypeCell.swift in Sources */,
+				174CFAB2243E65270026250B /* BarChartCell.swift in Sources */,
 				179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */,
 				179DBE22241D16CB0009C763 /* Budget.swift in Sources */,
 				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,

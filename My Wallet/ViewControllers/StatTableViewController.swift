@@ -57,22 +57,17 @@ class StatTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //If it is the first section, then display the (StatAvgCell)
         if(indexPath.section == 0){
             let cell = Bundle.main.loadNibNamed("StatAvgCell", owner: self, options: nil)?.first as! StatAvgCell
             return cell
-        //If it is the second section, then display the (StatGoalCell)
         }else if(indexPath.section == 1){
             let cell = Bundle.main.loadNibNamed("StatGoalCell", owner: self, options: nil)?.first as! StatGoalCell
             return cell
-        //If it is the third section, then display the (StatTypeCell)
         }else if(indexPath.section == 2){
-            let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            cell.StatType = "cost"
+            let cell = Bundle.main.loadNibNamed("BarChartCell", owner: self, options: nil)?.first as! BarChartCell
             return cell
         }else{
             let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            cell.StatType = "percent"
             return cell
         }
     }
