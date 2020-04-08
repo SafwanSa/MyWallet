@@ -69,11 +69,13 @@ class HomeViewController: UITableViewController{
             let cost = payment.cost
             let title = payment.title
             let ats = payment.at
+            let type = payment.type
             //Take the cell from TableViewCell1
             let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
             //Giving each cell an id (the date the time) Configure the cell...
             let day = Calendar.getFormatedDate(by: "day", date: ats)
             let time = Calendar.getFormatedDate(by: "time", date: ats)
+            cell.lbl_type.text = type
             cell.lbl_day.text = "يوم: "+day
             cell.lbl_time.text = "الوقت: "+time
             cell.lbl_title.text = String(title)

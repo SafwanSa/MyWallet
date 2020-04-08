@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الذهاب للعطلة مع الاأصدقا" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETR-dJ-G8z">
-                                <rect key="frame" x="125" y="11" width="148.5" height="14"/>
+                                <rect key="frame" x="94.5" y="11" width="148.5" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="148.5" id="uSG-XH-UQC"/>
                                 </constraints>
@@ -60,15 +60,46 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjh-rq-h3V" customClass="GradientView" customModule="My_Wallet" customModuleProvider="target">
+                                <rect key="frame" x="243" y="34" width="52" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مواصلات" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd2-so-J6g">
+                                        <rect key="frame" x="7" y="13.5" width="38" height="11"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="10"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="DT6-KL-8lG"/>
+                                    <constraint firstItem="sd2-so-J6g" firstAttribute="centerY" secondItem="fjh-rq-h3V" secondAttribute="centerY" id="cNm-V4-Kv9"/>
+                                    <constraint firstItem="sd2-so-J6g" firstAttribute="centerX" secondItem="fjh-rq-h3V" secondAttribute="centerX" id="mku-qM-yIq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" red="0.2092112049" green="0.57561863369999999" blue="0.70981729029999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="fjh-rq-h3V" firstAttribute="top" secondItem="ajp-YM-R73" secondAttribute="top" constant="34" id="82l-dz-OSp"/>
                             <constraint firstItem="moR-Bu-9Lr" firstAttribute="top" secondItem="ajp-YM-R73" secondAttribute="top" constant="10" id="9Bh-n3-WTW"/>
                             <constraint firstItem="moR-Bu-9Lr" firstAttribute="leading" secondItem="ajp-YM-R73" secondAttribute="leading" constant="16" id="9KN-eX-56a"/>
                             <constraint firstItem="ETR-dJ-G8z" firstAttribute="top" secondItem="ajp-YM-R73" secondAttribute="top" constant="11" id="Al3-qe-hZu"/>
-                            <constraint firstAttribute="trailing" secondItem="ETR-dJ-G8z" secondAttribute="trailing" constant="8.5" id="NpY-oH-ckn"/>
+                            <constraint firstAttribute="bottom" secondItem="fjh-rq-h3V" secondAttribute="bottom" constant="35" id="NHU-XC-bI6"/>
+                            <constraint firstAttribute="trailing" secondItem="ETR-dJ-G8z" secondAttribute="trailing" constant="39" id="NpY-oH-ckn"/>
                             <constraint firstAttribute="bottom" secondItem="kru-cC-oaP" secondAttribute="bottom" constant="5" id="R9s-xx-Nke"/>
                             <constraint firstAttribute="trailing" secondItem="Px0-nL-Xbc" secondAttribute="trailing" constant="30" id="alw-HT-Q3i"/>
+                            <constraint firstAttribute="trailing" secondItem="fjh-rq-h3V" secondAttribute="trailing" constant="-13" id="kMr-81-0EN"/>
                             <constraint firstItem="kru-cC-oaP" firstAttribute="leading" secondItem="ajp-YM-R73" secondAttribute="leading" constant="20" id="se9-ne-bHU"/>
                             <constraint firstAttribute="bottom" secondItem="Px0-nL-Xbc" secondAttribute="bottom" constant="5" id="udB-vF-wfg"/>
                         </constraints>
@@ -105,6 +136,8 @@
                 <outlet property="lbl_day" destination="Px0-nL-Xbc" id="gM4-sa-MAc"/>
                 <outlet property="lbl_time" destination="kru-cC-oaP" id="EL9-HM-pE8"/>
                 <outlet property="lbl_title" destination="ETR-dJ-G8z" id="byT-5E-dKe"/>
+                <outlet property="lbl_type" destination="sd2-so-J6g" id="WSu-cD-9h6"/>
+                <outlet property="typeView" destination="fjh-rq-h3V" id="32X-JU-OiK"/>
             </connections>
             <point key="canvasLocation" x="111.59420289855073" y="52.232142857142854"/>
         </tableViewCell>
