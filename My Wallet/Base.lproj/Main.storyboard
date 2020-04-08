@@ -288,12 +288,28 @@
                         <color key="sectionIndexBackgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="nmo-JC-9GX">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4iG-Pc-Arz">
-                                    <rect key="frame" x="8" y="19" width="398" height="32"/>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0ao-l1-AH3">
+                                    <rect key="frame" x="8" y="8" width="398" height="32"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <segments>
+                                        <segment title="الكل"/>
+                                        <segment title="مخصص"/>
+                                    </segments>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="selectedSegmentTintColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="sgmn_sp:" destination="VmY-2Z-DH7" eventType="valueChanged" id="UIe-us-Jqg"/>
+                                    </connections>
+                                </segmentedControl>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4iG-Pc-Arz">
+                                    <rect key="frame" x="8" y="53" width="398" height="41"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="YEu-LC-ZTW"/>
+                                    </constraints>
                                     <segments>
                                         <segment title="أخرى"/>
                                         <segment title="صحة"/>
@@ -312,10 +328,13 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="4iG-Pc-Arz" secondAttribute="trailing" constant="8" id="EgG-8s-osU"/>
-                                <constraint firstAttribute="bottom" secondItem="4iG-Pc-Arz" secondAttribute="bottom" constant="19" id="bn3-mq-8nr"/>
-                                <constraint firstItem="4iG-Pc-Arz" firstAttribute="leading" secondItem="nmo-JC-9GX" secondAttribute="leading" constant="8" id="omd-9l-raF"/>
-                                <constraint firstItem="4iG-Pc-Arz" firstAttribute="top" secondItem="nmo-JC-9GX" secondAttribute="top" constant="19" id="qC5-XO-E6A"/>
+                                <constraint firstItem="4iG-Pc-Arz" firstAttribute="leading" secondItem="nmo-JC-9GX" secondAttribute="leading" constant="8" id="5wf-yn-Hot"/>
+                                <constraint firstItem="0ao-l1-AH3" firstAttribute="leading" secondItem="nmo-JC-9GX" secondAttribute="leading" constant="8" id="7TJ-Sg-bMr"/>
+                                <constraint firstItem="4iG-Pc-Arz" firstAttribute="top" secondItem="0ao-l1-AH3" secondAttribute="bottom" constant="14" id="BIm-qd-Abe"/>
+                                <constraint firstAttribute="bottom" secondItem="4iG-Pc-Arz" secondAttribute="bottom" constant="8" id="Qeh-Ty-MQN"/>
+                                <constraint firstItem="0ao-l1-AH3" firstAttribute="top" secondItem="nmo-JC-9GX" secondAttribute="top" constant="8" id="RHI-cp-SkZ"/>
+                                <constraint firstAttribute="trailing" secondItem="0ao-l1-AH3" secondAttribute="trailing" constant="8" id="pZY-0A-rKA"/>
+                                <constraint firstAttribute="trailing" secondItem="4iG-Pc-Arz" secondAttribute="trailing" constant="8" id="wwH-WB-fz1"/>
                             </constraints>
                         </view>
                         <sections/>
@@ -337,9 +356,6 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مشترياتك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gO-W5-hNa">
                                     <rect key="frame" x="-18.666666666666668" y="-11.666666666666666" width="89.333333333333329" height="23.333333333333332"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="23" id="X7y-KJ-uhy"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="22"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -347,18 +363,20 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="6gO-W5-hNa" firstAttribute="centerY" secondItem="LIg-C8-ARf" secondAttribute="centerY" id="H0H-do-uJS"/>
-                                <constraint firstItem="6gO-W5-hNa" firstAttribute="centerX" secondItem="LIg-C8-ARf" secondAttribute="centerX" id="lkt-dS-efO"/>
+                                <constraint firstItem="6gO-W5-hNa" firstAttribute="centerY" secondItem="LIg-C8-ARf" secondAttribute="centerY" id="8IY-i8-txl"/>
+                                <constraint firstItem="6gO-W5-hNa" firstAttribute="centerX" secondItem="LIg-C8-ARf" secondAttribute="centerX" id="UkD-jP-RaA"/>
+                                <constraint firstItem="6gO-W5-hNa" firstAttribute="top" secondItem="LIg-C8-ARf" secondAttribute="top" constant="-11.666666666666666" id="cxe-Se-Fv6"/>
                             </constraints>
                         </view>
                     </navigationItem>
                     <connections>
+                        <outlet property="sgmnt_sp" destination="0ao-l1-AH3" id="amL-jJ-0gm"/>
                         <outlet property="sgmnt_types" destination="4iG-Pc-Arz" id="VP0-86-XUc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4q9-7y-UPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4929" y="1622"/>
+            <point key="canvasLocation" x="4928.985507246377" y="1621.467391304348"/>
         </scene>
         <!--Months Table View Controller-->
         <scene sceneID="JM7-BT-J9m">

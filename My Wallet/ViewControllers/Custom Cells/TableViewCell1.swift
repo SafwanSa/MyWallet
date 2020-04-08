@@ -15,9 +15,11 @@ class TableViewCell1: UITableViewCell {
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_day: UILabel!
     @IBOutlet weak var lbl_time: UILabel!
+    @IBOutlet weak var lbl_type: UILabel!
     
     @IBOutlet weak var backGroundView: GradientView!
     
+    @IBOutlet weak var typeView: GradientView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
