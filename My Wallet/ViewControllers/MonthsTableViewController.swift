@@ -29,8 +29,9 @@ class MonthsTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.myTableView.dequeueReusableCell(withIdentifier: "monthCell", for: indexPath)
-        let month = Calendar.getMonthInAr(m:self.months[indexPath.row])
-        cell.textLabel?.text = month
+        let month = Calendar.getMonthInAr(m:String(self.months[indexPath.row].split(separator: "/")[0]))
+        let year = self.months[indexPath.row].split(separator: "/")[1]
+        cell.textLabel?.text = month + "    " + year
         cell.textLabel?.textAlignment = NSTextAlignment.right
         cell.textLabel?.font = UIFont(name: "JF Flat", size: 13)
         return cell

@@ -16,7 +16,6 @@ import FirebaseFirestore
     @objc optional func unpaidDataUpdated(data: [Payment])
     @objc optional func userDataUpdated(data: [String:Any], which: String)
     @objc optional func getMonths(months: [String])
-    @objc optional func getCosts(costs: [Float])
 }
 
 
@@ -30,7 +29,6 @@ class DataSource{
     var type: String
     var category = ""
     var months = [String]()
-    var costs = [Float]()
     
     init() {
         self.type = ""
@@ -78,7 +76,6 @@ class DataSource{
             if key == "Cost"{
                 let q = value as? NSNumber
                 costs.append("\(q!.stringValue)")
-                self.costs.append(Float(truncating: q!))
             }else if key == "Title"{
                 titles.append("\((value as? String)!)")
             }else if key == "At"{
@@ -134,16 +131,33 @@ class DataSource{
             for i in 0..<paidPaymentsList.count{
                 paidPaymentsList[i].removeAll { (payment) -> Bool in
                     let month = Calendar.getFormatedDate(by: "month", date: payment.at)
-                    let check1 = (month != Calendar.categ)
-                    let check2 = (Calendar.categ != "")
-                    return check1 && check2
+                    let year = Calendar.getFormatedDate(by: "year", date: payment.at)
+                    if(Calendar.categ == ""){return false}
+                    let categMonth = Calendar.categ.split(separator: "/")[0]//03
+                    let categYear = Calendar.categ.split(separator: "/")[1]//2020
+                    if year == categYear{
+                        if month == categMonth{
+                            //Do not remove
+                            return false
+                        }else{
+                            //Remove
+                            return true
+                        }
+                    }else{
+                        if month == categMonth{
+                            //Remove
+                            return true
+                        }else{
+                            //Remove
+                            return true
+                        }
+                    }
                 }
             }
             //Sorting thr array by date
             for i in 0..<paidPaymentsList.count{
                 paidPaymentsList[i].sort(by: { $0.at.compare($1.at) == .orderedDescending })
             }
-            dataSourceDelegate?.getCosts?(costs: self.costs)
             return paidPaymentsList
         }
     }
@@ -246,9 +260,18 @@ class DataSource{
         for i in 0..<data.count-1{
             for j in data[i]{
                 let date = j.at
-                let m = Calendar.getFormatedDate(by: "month", date: date)
-                if(m != Calendar.getCurrentMonth()){
-                    tempArray.append(m)
+                let m = Calendar.getFormatedDate(by: "month", date: date)//03
+                let y = Calendar.getFormatedDate(by: "year", date: date)//2020
+                let currentMonth = Calendar.getCurrentMonth()//03
+                let currentYear = Calendar.getFormatedDate(by: "year", date: Calendar.getFullDate())//2020
+                if y == currentYear{
+                    if m != currentMonth{
+                        //Include
+                        tempArray.append(String(m+"/"+y))
+                    }
+                }else{
+                    //Include
+                    tempArray.append(String(m+"/"+y))
                 }
             }
         }

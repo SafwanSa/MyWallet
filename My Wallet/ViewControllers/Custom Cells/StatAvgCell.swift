@@ -42,7 +42,13 @@ class StatAvgCell: UITableViewCell {
 
 }
 extension StatAvgCell: DataSourceProtocol{
-        func getCosts(costs: [Float]) {
-            setupAverage(costs: costs)
+    func paidDataUpdated(data: [[Payment]]) {
+        var paymentsCosts = [Float]()
+            for i in 0..<data.count{
+                for j in data[i]{
+                    paymentsCosts.append(j.cost)
+                }
+            }
+        setupAverage(costs: paymentsCosts)
     }
 }

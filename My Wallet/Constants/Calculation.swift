@@ -72,7 +72,7 @@ class Calculations{
             for j in payments[i]{
                 sum += Double(j.cost)
             }
-            let value = ((sum*100)/(startBudget)).rounded()
+            let value = Double(sum*100/startBudget)
             result.append(value)
         }
         return result

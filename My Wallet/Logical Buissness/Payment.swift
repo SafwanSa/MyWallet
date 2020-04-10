@@ -40,7 +40,7 @@ import FirebaseAuth
     func getDate()->String{
         let date = Date()
         let format = DateFormatter()
-        format.dateFormat = "MM/dd HH:mm:ss"
+        format.dateFormat = "MM/dd/YYYY HH:mm:ss"
         let formattedDate = format.string(from: date)
         return formattedDate
     }

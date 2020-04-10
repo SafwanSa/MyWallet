@@ -30,8 +30,8 @@
             filePath = "My Wallet/Models/DataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "getMonthsData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -157,6 +157,22 @@
             startingLineNumber = "210"
             endingLineNumber = "210"
             landmarkName = "transitions()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35DB9E7D-2989-4C9F-AD19-B9324C3846B8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "My Wallet/ViewControllers/Custom Cells/StatTypeCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "userDataUpdated(data:which:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

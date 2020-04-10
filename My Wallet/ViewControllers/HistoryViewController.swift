@@ -68,7 +68,7 @@ extension HistoryViewController: HistoryCellProtocol{
         //Get the category and the button's tag to display before transition
         if(side == 0){
             if(category == "Current Month"){
-                Calendar.categ = Calendar.getCurrentMonth()
+                Calendar.categ = Calendar.getCurrentMonth()+"/"+Calendar.getCurrentYear()
                 Calendar.side = side
                 self.performSegue(withIdentifier: "goToCurrentMonthHistory", sender: self)
             }else{
@@ -78,7 +78,7 @@ extension HistoryViewController: HistoryCellProtocol{
             }
         }else{
             if(category == "Current Month"){
-                Calendar.categ = Calendar.getCurrentMonth()
+                Calendar.categ = Calendar.getCurrentMonth()+"/"+Calendar.getCurrentYear()
                 Calendar.side = side
                 self.performSegue(withIdentifier: "goToStatClass", sender: self)
             }else{

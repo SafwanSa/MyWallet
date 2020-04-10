@@ -32,7 +32,7 @@ class StatTypeCell: UITableViewCell {
     }
     
     func updateChartData(payments: [[Payment]], userData: [String:Any])  {
-        var values: [Double]!
+        var values = [Double]()
         values = Calculations.getCostPercentageForTypes(payments: payments, userData: userData)
         let labels = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
         var entries = [PieChartDataEntry]()

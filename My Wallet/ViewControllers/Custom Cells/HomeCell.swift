@@ -60,7 +60,7 @@ class HomeCell: UITableViewCell {
         //Styling the progress bar
         prog_view.style = .dashed(pattern: [7.0, 7.0])
         
-        Calendar.categ = Calendar.getCurrentMonth()
+        Calendar.categ = Calendar.getCurrentMonth()+"/"+Calendar.getCurrentYear()
         let dataSourceDelivery = DataSource(type: "ppayment")
         dataSourceDelivery.dataSourceDelegate = self
     }

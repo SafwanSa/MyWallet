@@ -22,8 +22,6 @@ class FinanceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSourceDelivery = DataSource()
-        dataSourceDelivery?.dataSourceDelegate = self
-        
         SuperNavigationController.setTitle(title: "معلومات مالية", nv: self)
         setupNavigationRightButton()
     }
@@ -58,7 +56,6 @@ class FinanceTableViewController: UITableViewController {
     @objc func save(){
         //Taking the values from the cells
         takeValues()
-        print(budget, savings, dailyCost, weeklyCost)
         //Create a Budget
         let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
         //Creating goals
@@ -113,12 +110,4 @@ class FinanceTableViewController: UITableViewController {
     }
 
     
-}
-extension FinanceTableViewController: DataSourceProtocol{
-    //Remove these
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
-    func userDataUpdated(data: [String : Any], which:String) {}
 }

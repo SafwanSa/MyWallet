@@ -30,7 +30,7 @@ class Calendar{
     static func getFullDate()->String{
         let date = Date()
         let format = DateFormatter()
-        format.dateFormat = "MM/dd HH:mm:ss"
+        format.dateFormat = "MM/dd/YYYY HH:mm:ss"
         let formattedDate = format.string(from: date)
         return formattedDate
     }
@@ -99,13 +99,18 @@ class Calendar{
     }
     
     static func getFormatedDate(by: String, date: String)->String{
+        //"04/10/2020 19:46:09"
         if(by == "month"){
             return String(date.split(separator: "/")[0])
         }
-        let formated = date.split(separator: "/")[1]
         if(by == "day"){
-            return String(formated.split(separator: " ")[0])
-        }else if(by == "time"){
+            return String(date.split(separator: "/")[1])
+        }
+        let formated = date.split(separator: "/")[2]
+        if(by == "year"){
+            return  String(formated.split(separator: " ")[0])
+        }
+        if(by == "time"){
             return String(formated.split(separator: " ")[1])
         }
         return "invalid"
