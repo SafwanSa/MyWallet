@@ -16,6 +16,7 @@ import FirebaseFirestore
     @objc optional func unpaidDataUpdated(data: [Payment])
     @objc optional func userDataUpdated(data: [String:Any], which: String)
     @objc optional func getMonths(months: [String])
+    @objc optional func getPrevBudgets(budgets: [Budget])
 }
 
 
@@ -29,6 +30,7 @@ class DataSource{
     var type: String
     var category = ""
     var months = [String]()
+    var budgets = [Budget]()
     
     init() {
         self.type = ""
@@ -202,6 +204,7 @@ class DataSource{
     
     func addPreviuosInfo(){
         //If the previuos was 12 !!!?. Look at the current year
+        // if 12 preM = 1,
         var prevMonth = String(Int(Calendar.getCurrentMonth())! - 1)
         if prevMonth.count == 1{
             prevMonth = "0"+prevMonth
@@ -214,6 +217,24 @@ class DataSource{
             }
             let budget = Budget(amount: previuosBudget["Start Amount"]! as! Float, savings: previuosBudget["Savings"]! as! Float)
             budget.setBudgetData()
+        }
+    }
+    
+    func getPreviuosBudgets(){
+        db.collection("budgets").whereField("uid", isEqualTo: getID()).getDocuments { (querySnapshot, error) in
+            if let docs = querySnapshot?.documents{
+                for doc in docs{
+                    let data = doc.data()
+                    let budget = Budget(amount: data["Start Amount"] as! Float, savings: data["Savings"] as! Float)
+                    budget.current_amount = data["Current Amount"] as! Float
+                    budget.bid = data["bid"] as! String
+                    self.budgets.append(budget)
+                }
+                self.dataSourceDelegate?.getPrevBudgets?(budgets: self.budgets)
+            }else{
+                //Erorr
+                print("Error")
+            }
         }
     }
     

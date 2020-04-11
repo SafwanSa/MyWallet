@@ -10,7 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-class Budget{
+@objc class Budget: NSObject{
     
     var bid: String
     var current_amount: Float
@@ -25,6 +25,7 @@ class Budget{
         self.start_amount = amount
         self.current_amount = amount
         self.savings = savings
+        super.init()
         self.userId = getID()
     }
     

@@ -45,6 +45,8 @@
 		1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B509242AE249008ECDDE /* AddBillCell.swift */; };
 		1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B50A242AE249008ECDDE /* AddBillCell.xib */; };
 		178EF38E241273520082901F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EF38D241273520082901F /* DataSource.swift */; };
+		1790276D24426DC000631D68 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790276B24426DC000631D68 /* StatusCell.swift */; };
+		1790276E24426DC000631D68 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1790276C24426DC000631D68 /* StatusCell.xib */; };
 		179B74E62426B66800471439 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E52426B66800471439 /* Bill.swift */; };
 		179DBE22241D16CB0009C763 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE21241D16CB0009C763 /* Budget.swift */; };
 		179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE23241D426E0009C763 /* StatTableViewController.swift */; };
@@ -109,6 +111,8 @@
 		1767B509242AE249008ECDDE /* AddBillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillCell.swift; sourceTree = "<group>"; };
 		1767B50A242AE249008ECDDE /* AddBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBillCell.xib; sourceTree = "<group>"; };
 		178EF38D241273520082901F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		1790276B24426DC000631D68 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		1790276C24426DC000631D68 /* StatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
 		179B74E52426B66800471439 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		179DBE21241D16CB0009C763 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		179DBE23241D426E0009C763 /* StatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 				17BC79F7242FE24C00884D75 /* BdgSavCell.xib */,
 				172820E92431389300D069F1 /* GoalCell.swift */,
 				172820EA2431389300D069F1 /* GoalCell.xib */,
+				1790276B24426DC000631D68 /* StatusCell.swift */,
+				1790276C24426DC000631D68 /* StatusCell.xib */,
 			);
 			path = "Custom Cells 2";
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1790276E24426DC000631D68 /* StatusCell.xib in Resources */,
 				1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */,
 				1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */,
 				172820EC2431389300D069F1 /* GoalCell.xib in Resources */,
@@ -449,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1790276D24426DC000631D68 /* StatusCell.swift in Sources */,
 				1705F68323463DF6009C16DF /* UserInfo.swift in Sources */,
 				178EF38E241273520082901F /* DataSource.swift in Sources */,
 				171D5D582333AABF00EA774D /* LoginViewController.swift in Sources */,

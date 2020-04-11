@@ -22,7 +22,7 @@ class StatTableViewController: UITableViewController{
     
     //MARK:- TableView Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,7 +33,7 @@ class StatTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 2 || indexPath.section == 3{
+        if indexPath.section == 3 || indexPath.section == 4{
             return 247
         }else{
             return 168
@@ -43,11 +43,12 @@ class StatTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the Title of the Table
         let label = UILabel()
-        let title1 = "متوسط الصرف"
-        let title2 = "هدفك لمقدار الصرف"
-        let title3 = "قيمة كل تصنيف من مجموع المصاريف"
-        let title4 = "نسبة كل تصنيف من الميزانية"
-        let sectionsNames = [title1,title2,title3,title4]
+        let title1 = ""
+        let title2 = "متوسط الصرف"
+        let title3 = "هدفك لمقدار الصرف"
+        let title4 = "قيمة كل تصنيف من مجموع المصاريف"
+        let title5 = "نسبة كل تصنيف من الميزانية"
+        let sectionsNames = [title1,title2,title3,title4,title5]
         label.text = sectionsNames[section]
         label.font = UIFont.init(name: "JF Flat", size: 16)
         label.textAlignment = NSTextAlignment.right
@@ -57,13 +58,17 @@ class StatTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(indexPath.section == 0){
+        if (indexPath.section == 0){
+            let cell = Bundle.main.loadNibNamed("StatusCell", owner: self, options: nil)?.first as! StatusCell
+            return cell
+        }
+        if(indexPath.section == 1){
             let cell = Bundle.main.loadNibNamed("StatAvgCell", owner: self, options: nil)?.first as! StatAvgCell
             return cell
-        }else if(indexPath.section == 1){
+        }else if(indexPath.section == 2){
             let cell = Bundle.main.loadNibNamed("StatGoalCell", owner: self, options: nil)?.first as! StatGoalCell
             return cell
-        }else if(indexPath.section == 2){
+        }else if(indexPath.section == 3){
             let cell = Bundle.main.loadNibNamed("BarChartCell", owner: self, options: nil)?.first as! BarChartCell
             return cell
         }else{
