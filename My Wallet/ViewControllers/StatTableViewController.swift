@@ -14,17 +14,10 @@ class StatTableViewController: UITableViewController{
     
     //MARK:- Vars Declaration
     var costs = [Float]()
-    var budgets = [Budget]()
-    var totalCost: Double = 0.0
-    let dataSourceDelivery = DataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SuperNavigationController.setTitle(title: "إحصائيات", nv: self)
-        
-
-        dataSourceDelivery.dataSourceDelegate = self
-        self.dataSourceDelivery.getPreviuosBudgets()
     }
     
     //MARK:- TableView Methods
@@ -67,9 +60,6 @@ class StatTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){
             let cell = Bundle.main.loadNibNamed("StatusCell", owner: self, options: nil)?.first as! StatusCell
-            cell.budgets = budgets
-            cell.totalCost = totalCost
-            cell.setupViews()
             return cell
         }
         if(indexPath.section == 1){
@@ -86,24 +76,4 @@ class StatTableViewController: UITableViewController{
             return cell
         }
     }
-}
-extension StatTableViewController: DataSourceProtocol{
-    func getPrevBudgets(budgets: [Budget]) {
-        print("dddddddddd\n\n\n\n\n")
-         self.budgets = budgets
-         let requiredMonth = Calendar.categ.split(separator: "/")[0]
-         let requiredYear = Calendar.categ.split(separator: "/")[1]
-         let requiredBudgetId = Calendar.getID()+"_Budget_"+requiredMonth+"_"+requiredYear
-         self.budgets.removeAll { (bdg) -> Bool in
-             if bdg.bid != requiredBudgetId{
-                 return true
-             }else{
-                 return false
-             }
-         }
-        myTableView.reloadData()
-     }
-     func paidDataUpdated(data: [[Payment]]) {
-         self.totalCost = Calculations.getTotalCost(paymnets: data)
-     }
 }

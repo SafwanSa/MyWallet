@@ -29,7 +29,6 @@ class GoalCell: UITableViewCell {
     
 }
 extension GoalCell: DataSourceProtocol{
-
     func userDataUpdated(data: [String : Any], which:String) {
         if(which == "goals"){
             if (lbl_cellTitle.text == "اليومي"){

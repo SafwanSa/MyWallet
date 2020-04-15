@@ -35,6 +35,7 @@ class DataSource{
     init() {
         self.type = ""
         self.getUserInfoWhenUpdated()
+        self.getPreviuosBudgets()
     }
     
     init(type: String){
@@ -332,8 +333,4 @@ extension Array where Element: Hashable {
     mutating func removeDuplicates() {
         self = self.removingDuplicates()
     }
-    
-    
-    
-    
 }
