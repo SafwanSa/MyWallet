@@ -30,49 +30,29 @@ class StatusCell: UITableViewCell {
         bakGroundView.layer.shadowOpacity = 0.8
         bakGroundView.layer.masksToBounds = false
         progressView.style = .dashed(pattern: [7.0, 7.0])
+        bakGroundView.alpha = 0
         
-        let dataSourceDelovery = DataSource()
-        dataSourceDelovery.dataSourceDelegate = self
-        
-        dataSourceDelovery.getPreviuosBudgets()
     }
     
     
     func setupViews(){
-        let budget = self.budgets[0]
-        let remaining = budget.current_amount
-        let savings = budget.savings
-        let startBudget = budget.start_amount
-        var percent: Float = 0.0
-        if startBudget != 0{percent = (100 * remaining)/startBudget}
-        
-        self.lbl_expenses.text = ": مصروفات "+String(totalCost)+" SAR "
-        self.lbl_savings.text = ": مدخرات "+String(savings)+" SAR "
-        self.lbl_startBudget.text = ": الميزانية "+String(savings)+" SAR "
-        self.lbl_remaining.text = ": المتبقي "+String(remaining)+" SAR "
-        self.progressView.startProgress(to: CGFloat(percent), duration: 0.0) {}
-    }
-    
-    
-    
-}
-extension StatusCell: DataSourceProtocol{
-    func getPrevBudgets(budgets: [Budget]) {
-        self.budgets = budgets
-        let requiredMonth = Calendar.categ.split(separator: "/")[0]
-        let requiredYear = Calendar.categ.split(separator: "/")[1]
-        let requiredBudgetId = Calendar.getID()+"_Budget_"+requiredMonth+"_"+requiredYear
-        self.budgets.removeAll { (bdg) -> Bool in
-            if bdg.bid != requiredBudgetId{
-                return true
-            }else{
-                return false
-            }
-        }
-        setupViews()
-    }
-    func paidDataUpdated(data: [[Payment]]) {
-        self.totalCost = Calculations.getTotalCost(paymnets: data)
-    }
+        if budgets.count != 0{
+            let budget = self.budgets[0]
+            let remaining = budget.current_amount
+            let savings = budget.savings
+            let startBudget = budget.start_amount
+            var percent: Float = 0.0
+            if startBudget != 0{percent = (100 * remaining)/startBudget}
+            
+            self.lbl_expenses.text = ": مصروفات "+String(totalCost)+" SAR "
+            self.lbl_savings.text = ": مدخرات "+String(savings)+" SAR "
+            self.lbl_startBudget.text = ": الميزانية "+String(savings)+" SAR "
+            self.lbl_remaining.text = ": المتبقي "+String(remaining)+" SAR "
+            self.progressView.startProgress(to: CGFloat(percent), duration: 0.0) {self.bakGroundView.alpha = 1}
 
+        }
+    }
+    
+    
+    
 }
