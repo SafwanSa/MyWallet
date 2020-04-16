@@ -19,7 +19,6 @@ import FirebaseAuth
     var type : String
     var paid : Bool
     var at = ""
-    var day = ""
     
     
     

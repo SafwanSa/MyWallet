@@ -20,25 +20,20 @@ class AccountCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        dataSourceDelivery = DataSource()
-        dataSourceDelivery?.dataSourceDelegate = self
+        DataBank.shared.getUserInfo { (user) in
+            self.setupInfo(user: user)
+        }
+    }
+    
+    func setupInfo(user: UserInfo){
+        txt_email.text = user.email
+        txt_fname.text = user.first_name
+        txt_lname.text = user.last_name
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
-}
-extension AccountCell: DataSourceProtocol{
-
-    func userDataUpdated(data: [String : Any], which:String) {
-        if(which == "user"){
-            txt_email.text = data["Email"] as? String
-            txt_fname.text = data["First Name"] as? String
-            txt_lname.text = data["Last Name"] as? String
-        }
-    }
-    
     
 }

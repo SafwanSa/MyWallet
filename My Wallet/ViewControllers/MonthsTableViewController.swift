@@ -18,8 +18,11 @@ class MonthsTableViewController: UITableViewController{
     
     override func loadView() {
         super.loadView()
-        let dataSourceDelivery = DataSource(type: "months")
-        dataSourceDelivery.dataSourceDelegate = self
+        DataBank.shared.getMonths { (months) in
+            self.months = months
+            self.myTableView.reloadData()
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -60,10 +63,4 @@ class MonthsTableViewController: UITableViewController{
     }
     
     
-}
-extension MonthsTableViewController: DataSourceProtocol{
-    func getMonths(months: [String]) {
-        self.months = months
-        self.myTableView.reloadData()
-    }
 }

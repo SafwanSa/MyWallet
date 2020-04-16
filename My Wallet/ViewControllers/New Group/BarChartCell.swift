@@ -20,8 +20,12 @@ class BarChartCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let dataSourceDelivery = DataSource(type: "ppayment")
-        dataSourceDelivery.dataSourceDelegate = self
+        DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            self.allPayments = paidList
+            self.types = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
+            let costs = Calculations.getCostForEachType(payments: paidList)
+            self.setChart(dataPoints: self.types, values: costs)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -65,13 +69,4 @@ class BarChartCell: UITableViewCell {
 
     
     
-}
-//MARK:- Delegate and protocol overriding
-extension BarChartCell: DataSourceProtocol{
-    func paidDataUpdated(data: [[Payment]]) {
-        self.allPayments = data
-        self.types = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
-        let costs = Calculations.getCostForEachType(payments: data)
-        setChart(dataPoints: types, values: costs)
-    }
 }

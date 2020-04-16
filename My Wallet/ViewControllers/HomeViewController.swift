@@ -23,13 +23,36 @@ class HomeViewController: UITableViewController{
     //MARK: -Instance vars
     var unpaidPaymentsList = [Payment]()
     var paidPaymentsList = [Payment]()
-    var dataSourceDelivery: DataSource?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        //Seting up the delegate
-        dataSourceDelivery = DataSource(type: "uppayment")
-        dataSourceDelivery?.dataSourceDelegate = self
+        
+        DataBank.shared.getUnpaidPayemnts { (unpaidList) in
+            self.unpaidPaymentsList = unpaidList
+            self.unpaidPaymentsList.removeAll { (payment) -> Bool in
+                var remove = false
+                if(payment.type == "فواتير"){
+                    let bill = payment as! Bill
+                    remove = !Calendar.isValidBill(day: bill.day, lastUpdate: bill.lastUpdate, billAt: bill.at)
+                }
+                return remove
+            }
+            self.myTableView.reloadData()
+        }
+        DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            for list in paidList{
+                for payemnt in list{
+                    self.paidPaymentsList.append(payemnt)
+                }
+            }
+            self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
+            if self.paidPaymentsList.count>3{
+                self.paidPaymentsList = [self.paidPaymentsList[0], self.paidPaymentsList[1], self.paidPaymentsList[2]]
+            }
+            self.myTableView.reloadData()
+        }
     }
     
     //MARK:- TableView Configuraion
@@ -46,14 +69,15 @@ class HomeViewController: UITableViewController{
             let title = payment.title
             let ats = payment.at
             let type = payment.type
-            let day = payment.day
+
             if(type == "فواتير"){
+                let bill = payment as! Bill
                 let cell1 = Bundle.main.loadNibNamed("BillCell2", owner: self, options: nil)?.first as! BillCell2
                 cell1.lbl_cost.text = "SAR "+String(cost)
                 cell1.lbl_title.text = title
                 cell1.paymentType = type
                 cell1.paymentDate = ats
-                cell1.lbl_day.text = day
+                cell1.lbl_day.text = bill.day
                 return cell1
             }else{
                 let cell1 = Bundle.main.loadNibNamed("UnpaidCell", owner: self, options: nil)?.first as! UnpaidCell
@@ -172,37 +196,6 @@ class HomeViewController: UITableViewController{
         view.addGestureRecognizer(tap)
     }
     
-}
-//MARK:- Delegate and protocol overriding
-extension HomeViewController: DataSourceProtocol{
-    func paidDataUpdated(data: [[Payment]]) {
-        paidPaymentsList.removeAll()
-        for i in 0..<data.count{
-            for j in 0..<data[i].count{
-                paidPaymentsList.append(data[i][j])
-            }
-        }
-        //Sorting thr array by date
-        self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
-        if paidPaymentsList.count>3{
-            paidPaymentsList = [paidPaymentsList[0], paidPaymentsList[1], paidPaymentsList[2]]
-        }
-        myTableView.reloadData()
-    }
-    func unpaidDataUpdated(data: [Payment]) {
-        unpaidPaymentsList = data
-        //Remove the bills that is not on its time
-        unpaidPaymentsList.removeAll { (payment) -> Bool in
-            var remove = false
-            if(payment.type == "فواتير"){
-                let bill = payment as! Bill
-                remove = !Calendar.isValidBill(day: bill.day, lastUpdate: bill.lastUpdate, billAt: bill.at)
-            }
-            return remove
-        }
-        dataSourceDelivery = DataSource(type: "ppayment")
-        dataSourceDelivery?.dataSourceDelegate = self
-    }
 }
 extension HomeViewController: HomeCellProtocol{
     func transitions() {

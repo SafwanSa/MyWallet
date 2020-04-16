@@ -16,8 +16,9 @@ class StatGoalCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let dataSourceDelivery = DataSource()
-        dataSourceDelivery.dataSourceDelegate = self
+        DataBank.shared.getGoals { (goals) in
+            self.setupGoals(goals: goals)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,17 +27,9 @@ class StatGoalCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupGoals(goals: [String:Any]){
-        lbl_dGoal.text = String(goals["dailyCostGoal"] as! Float)
-        lbl_wGoal.text = String(goals["weeklyCostGoal"] as! Float)
+    func setupGoals(goals: [Goal]){
+        lbl_dGoal.text = String(goals[0].value)
+        lbl_wGoal.text = String(goals[1].value)
     }
     
-}
-extension StatGoalCell: DataSourceProtocol{
-    func userDataUpdated(data: [String : Any], which: String) {
-        if(which == "goals"){
-            print(data)
-            setupGoals(goals: data)
-        }
-    }
 }

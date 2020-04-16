@@ -12,7 +12,6 @@ class FinanceTableViewController: UITableViewController {
 
     
     
-    var dataSourceDelivery: DataSource?
     var userBudget = [String:Any]()
     var budget: Float = 0.0
     var savings: Float = 0.0
@@ -21,7 +20,6 @@ class FinanceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSourceDelivery = DataSource()
         SuperNavigationController.setTitle(title: "معلومات مالية", nv: self)
         setupNavigationRightButton()
     }
@@ -65,7 +63,7 @@ class FinanceTableViewController: UITableViewController {
         goal1.addGoal()
         goal2.addGoal()
         //Update the database
-        dataSourceDelivery?.updateUserInformation(data: newData)
+        DataBank.shared.updateBudget(data: newData)
         //Dismiss
         self.navigationController?.popViewController(animated: true)
     }
@@ -82,9 +80,6 @@ class FinanceTableViewController: UITableViewController {
             return 2
         }
     }
-
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
             let cell = Bundle.main.loadNibNamed("BdgSavCell", owner: self, options: nil)?.first as! BdgSavCell

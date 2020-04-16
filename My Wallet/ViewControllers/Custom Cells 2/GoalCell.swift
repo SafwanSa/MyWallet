@@ -17,8 +17,17 @@ class GoalCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        dataDelivery = DataSource()
-        dataDelivery?.dataSourceDelegate = self
+        DataBank.shared.getGoals { (goals) in
+            self.setupInfo(goals: goals)
+        }
+    }
+    
+    func setupInfo(goals: [Goal]){
+        if (lbl_cellTitle.text == "اليومي"){
+            lbl_cost.text = String(goals[0].value)
+        }else{
+            lbl_cost.text = String(goals[1].value)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

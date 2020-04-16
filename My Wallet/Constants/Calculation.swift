@@ -61,11 +61,11 @@ class Calculations{
         return result
     }
     
-    static func getCostPercentageForTypes(payments:[[Payment]], userData: [String:Any]) -> [Double]{
+    static func getCostPercentageForTypes(payments:[[Payment]], userData: Budget) -> [Double]{
         var startBudget: Double = 1
         var result = [Double]()
-        if(userData.count != 0){
-            startBudget = Double(userData["Start Amount"] as! Float)
+        if(userData.start_amount != 0){
+            startBudget = Double(userData.start_amount)
         }
         for i in 0..<payments.count{
             var sum : Double = 0.0

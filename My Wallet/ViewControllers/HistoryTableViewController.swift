@@ -13,15 +13,7 @@ class HistoryTableViewController: UITableViewController {
     @IBOutlet weak var sgmnt_types: UISegmentedControl!
     @IBOutlet weak var sgmnt_sp: UISegmentedControl!
     
-    var allPayments = [
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment]()
-    ]
+    var allPayments = [[Payment]]()
     var paidPaymentsList = [Payment]()
     var typesIndex = 0
     var category = ""
@@ -37,8 +29,16 @@ class HistoryTableViewController: UITableViewController {
         sgmnt_sp.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], for: .normal)
         sgmnt_types.alpha = 0
         
-        let dataSourceDelivery = DataSource(type: "ppayment")
-        dataSourceDelivery.dataSourceDelegate = self
+        DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            self.allPayments = paidList
+            for i in 0..<paidList.count{
+                for j in 0..<paidList[i].count{
+                    self.paidPaymentsList.append(paidList[i][j])
+                }
+            }
+            self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
+            self.tableView.reloadData()
+        }
     }
     
     @objc func loadList(notification: NSNotification){
@@ -146,20 +146,5 @@ class HistoryTableViewController: UITableViewController {
         cell.setPaidCell(cost: String(cost!))
         if showAll == 1{cell.typeView.alpha = 0}
         return cell
-    }
-}
-
-extension HistoryTableViewController: DataSourceProtocol{
-    
-    func paidDataUpdated(data: [[Payment]]) {
-        allPayments = data
-        for i in 0..<data.count{
-            for j in 0..<data[i].count{
-                paidPaymentsList.append(data[i][j])
-            }
-        }
-        //Sorting thr array by date
-        self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
-        self.tableView.reloadData()
     }
 }

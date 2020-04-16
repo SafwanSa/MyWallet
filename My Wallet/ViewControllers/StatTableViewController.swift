@@ -18,6 +18,10 @@ class StatTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         SuperNavigationController.setTitle(title: "إحصائيات", nv: self)
+        myTableView.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "StatusCell")
+        myTableView.register(UINib(nibName: "StatAvgCell", bundle: nil), forCellReuseIdentifier: "StatAvgCell")
+        myTableView.register(UINib(nibName: "BarChartCell", bundle: nil), forCellReuseIdentifier: "BarChartCell")
+        myTableView.register(UINib(nibName: "StatTypeCell", bundle: nil), forCellReuseIdentifier: "StatTypeCell")
     }
     
     //MARK:- TableView Methods
@@ -59,7 +63,7 @@ class StatTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){
-            let cell = Bundle.main.loadNibNamed("StatusCell", owner: self, options: nil)?.first as! StatusCell
+            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatusCell")!
             return cell
         }
         if(indexPath.section == 1){

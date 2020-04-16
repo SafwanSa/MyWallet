@@ -16,13 +16,19 @@ class StatTypeCell: UITableViewCell {
     @IBOutlet weak var pieView: PieChartView!
 
     var allPayments = [[Payment]]()
-
+    var budegt: Budget?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let dataSourceDelivery = DataSource(type: "ppayment")
-        dataSourceDelivery.dataSourceDelegate = self
+        DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            self.allPayments = paidList
+        }
+        DataBank.shared.getCurrentBudget { (bdg) in
+            self.budegt = bdg
+            self.updateChartData()
+        }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,9 +37,9 @@ class StatTypeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateChartData(payments: [[Payment]], userData: [String:Any])  {
+    func updateChartData()  {
         var values = [Double]()
-        values = Calculations.getCostPercentageForTypes(payments: payments, userData: userData)
+        values = Calculations.getCostPercentageForTypes(payments: self.allPayments, userData: self.budegt!)
         let labels = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
         var entries = [PieChartDataEntry]()
         for (index, value) in values.enumerated() {
@@ -87,16 +93,4 @@ class StatTypeCell: UITableViewCell {
     }
     
     
-}
-//MARK:- Delegate and protocol overriding
-extension StatTypeCell: DataSourceProtocol{
-    func paidDataUpdated(data: [[Payment]]) {
-        self.allPayments = data
-    }
-    func userDataUpdated(data: [String : Any], which: String) {
-        if(which == "budgets"){
-            updateChartData(payments: self.allPayments, userData: data)
-        }
-    }
-
 }

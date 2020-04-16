@@ -11,14 +11,23 @@ import UIKit
 class BillMngTableViewController: UITableViewController {
 
     
-    var dataSourceDelivery: DataSource?
+
     var bills = [Payment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        dataSourceDelivery = DataSource(type: "uppayment")
-        dataSourceDelivery?.dataSourceDelegate = self
+        DataBank.shared.getUnpaidPayemnts { (unpaidList) in
+            self.bills = unpaidList
+            self.bills.removeAll { (payment) -> Bool in
+                if(payment.type != "فواتير"){
+                    return true
+                }else{
+                    return false
+                }
+            }
+            self.tableView.reloadData()
+        }
         
         SuperNavigationController.setTitle(title: "إدارة الفواتير", nv: self)
     }
@@ -101,7 +110,7 @@ class BillMngTableViewController: UITableViewController {
             let cell = Bundle.main.loadNibNamed("AddBillCell", owner: self, options: nil)?.first as! AddBillCell
             return cell
         }else{
-            let payment = self.bills[indexPath.row]
+            let payment = self.bills[indexPath.row] as! Bill
             let cost = payment.cost
             let title = payment.title
             let ats = payment.at
@@ -129,18 +138,4 @@ class BillMngTableViewController: UITableViewController {
               let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
               view.addGestureRecognizer(tap)
           }
-}
-extension BillMngTableViewController: DataSourceProtocol{
-
-    func unpaidDataUpdated(data: [Payment]) {
-        self.bills = data
-        self.bills.removeAll { (payment) -> Bool in
-            if(payment.type != "فواتير"){
-                return true
-            }else{
-                return false
-            }
-        }
-        self.tableView.reloadData()
-    }
 }
