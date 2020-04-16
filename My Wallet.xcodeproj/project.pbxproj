@@ -65,6 +65,7 @@
 		17E97A192432B0AD008D6A3B /* SuperNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E97A182432B0AD008D6A3B /* SuperNavigationController.swift */; };
 		17EEB281242BA759002B2621 /* BillCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEB27F242BA759002B2621 /* BillCell2.swift */; };
 		17EEB282242BA759002B2621 /* BillCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EEB280242BA759002B2621 /* BillCell2.xib */; };
+		17EFDBEC2448E4840068094A /* DataBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EFDBEB2448E4840068094A /* DataBank.swift */; };
 		17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */; };
 		17FB6F6C233E103800A039EC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB6F6B233E103800A039EC /* Payment.swift */; };
 		5B704A0CDAA0623865DFD0C6 /* Pods_My_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */; };
@@ -131,6 +132,7 @@
 		17E97A182432B0AD008D6A3B /* SuperNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperNavigationController.swift; sourceTree = "<group>"; };
 		17EEB27F242BA759002B2621 /* BillCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell2.swift; sourceTree = "<group>"; };
 		17EEB280242BA759002B2621 /* BillCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell2.xib; sourceTree = "<group>"; };
+		17EFDBEB2448E4840068094A /* DataBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBank.swift; path = ../../../../DataBank.swift; sourceTree = "<group>"; };
 		17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		17FB6F6B233E103800A039EC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		2DB5E2554933876A97E21DD4 /* Pods-My Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.release.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.release.xcconfig"; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		178EF38C241273360082901F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				17EFDBEB2448E4840068094A /* DataBank.swift */,
 				178EF38D241273520082901F /* DataSource.swift */,
 			);
 			path = Models;
@@ -495,6 +498,7 @@
 				170E8403241E6C3700A68971 /* StatTypeCell.swift in Sources */,
 				174CFAB2243E65270026250B /* BarChartCell.swift in Sources */,
 				179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */,
+				17EFDBEC2448E4840068094A /* DataBank.swift in Sources */,
 				179DBE22241D16CB0009C763 /* Budget.swift in Sources */,
 				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,
 			);

@@ -15,7 +15,6 @@ class BdgSavCell: UITableViewCell {
     @IBOutlet weak var sldr_budget: UISlider!
     @IBOutlet weak var sldr_savings: UISlider!
     
-    var dataSourceDelivery: DataSource?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

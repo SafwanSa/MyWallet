@@ -14,8 +14,6 @@ class AccountCell: UITableViewCell {
     @IBOutlet weak var txt_lname: UITextField!
     @IBOutlet weak var txt_email: UITextField!
 
-    //MARK:- Intsance Vars
-    var dataSourceDelivery : DataSource?
     
     override func awakeFromNib() {
         super.awakeFromNib()
