@@ -29,6 +29,9 @@ class HistoryTableViewController: UITableViewController {
         sgmnt_sp.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 11)], for: .normal)
         sgmnt_types.alpha = 0
         
+        
+        self.tableView.register(UINib(nibName: "TableViewCell1", bundle: nil), forCellReuseIdentifier: "TableViewCell1")
+        
         DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
             self.allPayments = paidList
             for i in 0..<paidList.count{
@@ -39,14 +42,6 @@ class HistoryTableViewController: UITableViewController {
             self.paidPaymentsList.sort(by: { $0.at.compare($1.at) == .orderedDescending })
             self.tableView.reloadData()
         }
-    }
-    
-    @objc func loadList(notification: NSNotification){
-        //load data here
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     @IBAction func sgmn_sp(_ sender: UISegmentedControl) {
@@ -123,28 +118,25 @@ class HistoryTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Take the payments one by one from the array
         var payment: Payment?
         if showAll == 0{
             payment = self.paidPaymentsList[indexPath.row]
         }else{
             payment = self.allPayments[typesIndex][indexPath.row]
         }
-        let cost = payment?.cost
-        let title = payment?.title
-        let ats = payment?.at
-        let type = payment?.type
-        //Take the cell from TableViewCell1
-        let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
-            //Giving each cell an id (the date the time) Configure the cell...
-        let day = Calendar.getFormatedDate(by: "day", date: ats!)
-        let time = Calendar.getFormatedDate(by: "time", date: ats!)
-        cell.lbl_type.text = type
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "TableViewCell1") as! TableViewCell1
+        let day = Calendar.getFormatedDate(by: "day", date: payment!.at)
+        let time = Calendar.getFormatedDate(by: "time", date: payment!.at)
+        cell.lbl_type.text = payment!.type
         cell.lbl_day.text = "يوم: "+day
         cell.lbl_time.text = "الوقت: "+time
-        cell.lbl_title.text = String(title!)
-        cell.setPaidCell(cost: String(cost!))
-        if showAll == 1{cell.typeView.alpha = 0}
+        cell.lbl_title.text = String(payment!.title)
+        cell.setPaidCell(cost: String(payment!.cost))
+        if showAll == 1{
+            cell.typeView.alpha = 0
+        }else{
+            cell.typeView.alpha = 1
+        }
         return cell
     }
 }

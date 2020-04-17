@@ -29,6 +29,10 @@ class HomeViewController: UITableViewController{
         super.viewDidLoad()
         closeKeyboard()
         
+        myTableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
+        myTableView.register(UINib(nibName: "BillCell2", bundle: nil), forCellReuseIdentifier: "BillCell2")
+        myTableView.register(UINib(nibName: "UnpaidCell", bundle: nil), forCellReuseIdentifier: "UnpaidCell")
+        myTableView.register(UINib(nibName: "TableViewCell1", bundle: nil), forCellReuseIdentifier: "TableViewCell1")
         DataBank.shared.getUnpaidPayemnts { (unpaidList) in
             self.unpaidPaymentsList = unpaidList
             self.unpaidPaymentsList.removeAll { (payment) -> Bool in
@@ -59,51 +63,38 @@ class HomeViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Confgiuer Cells
         if(indexPath.section == 0){
-            let cell = Bundle.main.loadNibNamed("HomeCell", owner: self, options: nil)?.first as! HomeCell
+            let cell = myTableView.dequeueReusableCell(withIdentifier: "HomeCell") as! HomeCell
             cell.delegate = self
             return cell
         }else if indexPath.section == 1{
-            //Take the payments one by one from the array
             let payment = self.unpaidPaymentsList[indexPath.row]
-            let cost = payment.cost
-            let title = payment.title
-            let ats = payment.at
-            let type = payment.type
-
-            if(type == "فواتير"){
+            if(payment.type == "فواتير"){
                 let bill = payment as! Bill
-                let cell1 = Bundle.main.loadNibNamed("BillCell2", owner: self, options: nil)?.first as! BillCell2
-                cell1.lbl_cost.text = "SAR "+String(cost)
-                cell1.lbl_title.text = title
-                cell1.paymentType = type
-                cell1.paymentDate = ats
-                cell1.lbl_day.text = bill.day
-                return cell1
+                let cell = myTableView.dequeueReusableCell(withIdentifier: "BillCell2") as! BillCell2
+                cell.lbl_cost.text = "SAR "+String(bill.cost)
+                cell.lbl_title.text = bill.title
+                cell.paymentType = bill.title
+                cell.paymentDate = bill.at
+                cell.lbl_day.text = bill.day
+                return cell
             }else{
-                let cell1 = Bundle.main.loadNibNamed("UnpaidCell", owner: self, options: nil)?.first as! UnpaidCell
-                cell1.lbl_cost.text = "SAR "+String(cost)
-                cell1.lbl_title.text = title
-                cell1.paymentType = type
-                cell1.paymentDate = ats
-                return cell1
+                let cell = myTableView.dequeueReusableCell(withIdentifier: "UnpaidCell") as! UnpaidCell
+                cell.lbl_cost.text = "SAR "+String(payment.cost)
+                cell.lbl_title.text = payment.title
+                cell.paymentType = payment.type
+                cell.paymentDate = payment.at
+                return cell
             }
         }else{
-            //Take the payments one by one from the array
             let payment = self.paidPaymentsList[indexPath.row]
-            let cost = payment.cost
-            let title = payment.title
-            let ats = payment.at
-            let type = payment.type
-            //Take the cell from TableViewCell1
-            let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
-            //Giving each cell an id (the date the time) Configure the cell...
-            let day = Calendar.getFormatedDate(by: "day", date: ats)
-            let time = Calendar.getFormatedDate(by: "time", date: ats)
-            cell.lbl_type.text = type
+            let cell = myTableView.dequeueReusableCell(withIdentifier: "TableViewCell1") as! TableViewCell1
+            let day = Calendar.getFormatedDate(by: "day", date: payment.at)
+            let time = Calendar.getFormatedDate(by: "time", date: payment.at)
+            cell.lbl_type.text = payment.type
             cell.lbl_day.text = "يوم: "+day
             cell.lbl_time.text = "الوقت: "+time
-            cell.lbl_title.text = String(title)
-            cell.setPaidCell(cost: String(cost))
+            cell.lbl_title.text = String(payment.title)
+            cell.setPaidCell(cost: String(payment.cost))
             return cell
         }
     }

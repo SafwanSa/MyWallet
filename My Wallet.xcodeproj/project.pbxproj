@@ -44,7 +44,6 @@
 		1767B508242AE1F8008ECDDE /* BillMngTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */; };
 		1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B509242AE249008ECDDE /* AddBillCell.swift */; };
 		1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B50A242AE249008ECDDE /* AddBillCell.xib */; };
-		178EF38E241273520082901F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EF38D241273520082901F /* DataSource.swift */; };
 		1790276D24426DC000631D68 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790276B24426DC000631D68 /* StatusCell.swift */; };
 		1790276E24426DC000631D68 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1790276C24426DC000631D68 /* StatusCell.xib */; };
 		179B74E62426B66800471439 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E52426B66800471439 /* Bill.swift */; };
@@ -65,9 +64,9 @@
 		17E97A192432B0AD008D6A3B /* SuperNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E97A182432B0AD008D6A3B /* SuperNavigationController.swift */; };
 		17EEB281242BA759002B2621 /* BillCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEB27F242BA759002B2621 /* BillCell2.swift */; };
 		17EEB282242BA759002B2621 /* BillCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EEB280242BA759002B2621 /* BillCell2.xib */; };
-		17EFDBEC2448E4840068094A /* DataBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EFDBEB2448E4840068094A /* DataBank.swift */; };
 		17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */; };
 		17FB6F6C233E103800A039EC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB6F6B233E103800A039EC /* Payment.swift */; };
+		17FD1E662449178900A9B3FE /* DataBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD1E652449178900A9B3FE /* DataBank.swift */; };
 		5B704A0CDAA0623865DFD0C6 /* Pods_My_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +110,6 @@
 		1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillMngTableViewController.swift; sourceTree = "<group>"; };
 		1767B509242AE249008ECDDE /* AddBillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillCell.swift; sourceTree = "<group>"; };
 		1767B50A242AE249008ECDDE /* AddBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBillCell.xib; sourceTree = "<group>"; };
-		178EF38D241273520082901F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		1790276B24426DC000631D68 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		1790276C24426DC000631D68 /* StatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
 		179B74E52426B66800471439 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -132,9 +130,9 @@
 		17E97A182432B0AD008D6A3B /* SuperNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperNavigationController.swift; sourceTree = "<group>"; };
 		17EEB27F242BA759002B2621 /* BillCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell2.swift; sourceTree = "<group>"; };
 		17EEB280242BA759002B2621 /* BillCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell2.xib; sourceTree = "<group>"; };
-		17EFDBEB2448E4840068094A /* DataBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBank.swift; path = ../../../../DataBank.swift; sourceTree = "<group>"; };
 		17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		17FB6F6B233E103800A039EC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		17FD1E652449178900A9B3FE /* DataBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBank.swift; path = ../../../../DataBank.swift; sourceTree = "<group>"; };
 		2DB5E2554933876A97E21DD4 /* Pods-My Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.release.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.release.xcconfig"; sourceTree = "<group>"; };
 		C0747466D98594EEE97021C2 /* Pods-My Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.debug.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,8 +278,7 @@
 		178EF38C241273360082901F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				17EFDBEB2448E4840068094A /* DataBank.swift */,
-				178EF38D241273520082901F /* DataSource.swift */,
+				17FD1E652449178900A9B3FE /* DataBank.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,7 +458,6 @@
 			files = (
 				1790276D24426DC000631D68 /* StatusCell.swift in Sources */,
 				1705F68323463DF6009C16DF /* UserInfo.swift in Sources */,
-				178EF38E241273520082901F /* DataSource.swift in Sources */,
 				171D5D582333AABF00EA774D /* LoginViewController.swift in Sources */,
 				17012FF224027E08000B840A /* GradientView.swift in Sources */,
 				179B74E62426B66800471439 /* Bill.swift in Sources */,
@@ -472,6 +468,7 @@
 				1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */,
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,
 				1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */,
+				17FD1E662449178900A9B3FE /* DataBank.swift in Sources */,
 				171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */,
 				17CFCE45242C2D2100452242 /* Goal.swift in Sources */,
 				17EEB281242BA759002B2621 /* BillCell2.swift in Sources */,
@@ -498,7 +495,6 @@
 				170E8403241E6C3700A68971 /* StatTypeCell.swift in Sources */,
 				174CFAB2243E65270026250B /* BarChartCell.swift in Sources */,
 				179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */,
-				17EFDBEC2448E4840068094A /* DataBank.swift in Sources */,
 				179DBE22241D16CB0009C763 /* Budget.swift in Sources */,
 				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,
 			);

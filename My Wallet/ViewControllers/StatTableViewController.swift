@@ -22,6 +22,7 @@ class StatTableViewController: UITableViewController{
         myTableView.register(UINib(nibName: "StatAvgCell", bundle: nil), forCellReuseIdentifier: "StatAvgCell")
         myTableView.register(UINib(nibName: "BarChartCell", bundle: nil), forCellReuseIdentifier: "BarChartCell")
         myTableView.register(UINib(nibName: "StatTypeCell", bundle: nil), forCellReuseIdentifier: "StatTypeCell")
+        myTableView.register(UINib(nibName: "StatGoalCell", bundle: nil), forCellReuseIdentifier: "StatGoalCell")
     }
     
     //MARK:- TableView Methods
@@ -67,16 +68,16 @@ class StatTableViewController: UITableViewController{
             return cell
         }
         if(indexPath.section == 1){
-            let cell = Bundle.main.loadNibNamed("StatAvgCell", owner: self, options: nil)?.first as! StatAvgCell
+            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatAvgCell")!
             return cell
         }else if(indexPath.section == 2){
-            let cell = Bundle.main.loadNibNamed("StatGoalCell", owner: self, options: nil)?.first as! StatGoalCell
+            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatGoalCell")!
             return cell
         }else if(indexPath.section == 3){
-            let cell = Bundle.main.loadNibNamed("BarChartCell", owner: self, options: nil)?.first as! BarChartCell
+            let cell = myTableView.dequeueReusableCell(withIdentifier: "BarChartCell")!
             return cell
         }else{
-            let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
+            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatTypeCell")!
             return cell
         }
     }

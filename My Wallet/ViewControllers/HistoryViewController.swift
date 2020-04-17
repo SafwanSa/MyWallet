@@ -17,6 +17,8 @@ class HistoryViewController: UITableViewController{
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
         SuperNavigationController.setTitle(title: "الملخص", nv: self)
+        self.tableView.register(UINib(nibName: "HistoryCell", bundle: nil), forCellReuseIdentifier: "HistoryCell")
+
     }
     
    
@@ -50,7 +52,7 @@ class HistoryViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Take the cell from HistoryCell
-        let cell = Bundle.main.loadNibNamed("HistoryCell", owner: self, options: nil)?.first as! HistoryCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryCell
         if(indexPath == IndexPath.init(item: 0, section: 0)){
             cell.category = "Current Month"
         }else{

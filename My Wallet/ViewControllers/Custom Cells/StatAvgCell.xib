@@ -14,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="168" id="Law-lo-K7f" customClass="StatAvgCell" customModule="My_Wallet" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatAvgCell" rowHeight="168" id="Law-lo-K7f" customClass="StatAvgCell" customModule="My_Wallet" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Law-lo-K7f" id="tLT-mp-2lT">
@@ -121,7 +121,7 @@
                 <outlet property="lbl_count_byDay" destination="GgN-T3-O1A" id="ju3-08-z2i"/>
                 <outlet property="lbl_count_byWeek" destination="Uso-b8-jVN" id="JHJ-QD-cZQ"/>
             </connections>
-            <point key="canvasLocation" x="-123.18840579710145" y="105.13392857142857"/>
+            <point key="canvasLocation" x="-45" y="94"/>
         </tableViewCell>
     </objects>
 </document>

@@ -20,6 +20,8 @@ class FinanceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(UINib(nibName: "BdgSavCell", bundle: nil), forCellReuseIdentifier: "BdgSavCell")
+        self.tableView.register(UINib(nibName: "GoalCell", bundle: nil), forCellReuseIdentifier: "GoalCell")
         SuperNavigationController.setTitle(title: "معلومات مالية", nv: self)
         setupNavigationRightButton()
     }
@@ -82,11 +84,10 @@ class FinanceTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
-            let cell = Bundle.main.loadNibNamed("BdgSavCell", owner: self, options: nil)?.first as! BdgSavCell
-            //Config the cell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "BdgSavCell") as! BdgSavCell
             return cell
         }else{
-            let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "GoalCell") as! GoalCell
             if indexPath.row == 0 {cell.lbl_cellTitle.text = "اليومي"} else{cell.lbl_cellTitle.text = "الأسبوعي"}
             return cell
         }

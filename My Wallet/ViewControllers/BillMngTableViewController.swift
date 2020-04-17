@@ -17,6 +17,8 @@ class BillMngTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
+        self.tableView.register(UINib(nibName: "AddBillCell", bundle: nil), forCellReuseIdentifier: "AddBillCell")
+        self.tableView.register(UINib(nibName: "BillCell2", bundle: nil), forCellReuseIdentifier: "BillCell2")
         DataBank.shared.getUnpaidPayemnts { (unpaidList) in
             self.bills = unpaidList
             self.bills.removeAll { (payment) -> Bool in
@@ -107,33 +109,19 @@ class BillMngTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
-            let cell = Bundle.main.loadNibNamed("AddBillCell", owner: self, options: nil)?.first as! AddBillCell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "AddBillCell") as! AddBillCell
             return cell
         }else{
-            let payment = self.bills[indexPath.row] as! Bill
-            let cost = payment.cost
-            let title = payment.title
-            let ats = payment.at
-            let type = payment.type
-            let day = payment.day
-            let cell = Bundle.main.loadNibNamed("BillCell2", owner: self, options: nil)?.first as! BillCell2
-            cell.lbl_cost.text = "SAR "+String(cost)
-            cell.lbl_title.text = title
-            cell.paymentDate = ats
-            cell.paymentType = type
-            cell.lbl_day.text = day
+            let bill = self.bills[indexPath.row] as! Bill
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "BillCell2") as! BillCell2
+            cell.lbl_cost.text = "SAR "+String(bill.cost)
+            cell.lbl_title.text = bill.title
+            cell.paymentDate = bill.at
+            cell.paymentType = bill.type
+            cell.lbl_day.text = bill.day
             return cell
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func closeKeyboard(){
               let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
               view.addGestureRecognizer(tap)
