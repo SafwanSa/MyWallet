@@ -57,13 +57,7 @@ class FinanceTableViewController: UITableViewController {
         //Taking the values from the cells
         takeValues()
         //Create a Budget
-        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
-        //Creating goals
-        let goal1 = Goal(type: .dailyCostGoal, value: dailyCost)
-        let goal2 = Goal(type: .weeklyCostGoal, value: weeklyCost)
-        //Add them in the data base
-        goal1.addGoal()
-        goal2.addGoal()
+        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings, "dailyCostGoal": dailyCost, "weeklyCostGoal": weeklyCost]
         //Update the database
         DataBank.shared.updateBudget(data: newData)
         //Dismiss

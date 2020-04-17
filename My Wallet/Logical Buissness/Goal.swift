@@ -76,10 +76,6 @@ class Goal{
         return false
     }
     
-    func addGoal(){
-        let data:[String:Any] = [type : value]
-        db.collection("goals").document(getID()).updateData(data)
-    }
     
     func getID()->String{
         return Auth.auth().currentUser!.uid

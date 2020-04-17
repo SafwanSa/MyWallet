@@ -123,7 +123,7 @@ class DataBank{
     }
     
     func getBudgets(complete: @escaping ([Budget])->Void){
-        db.collection("budgets").whereField("uid", isEqualTo: getID())
+        db.collection("budgets").whereField("uid", isEqualTo:getID())
             .addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else {
                 print("Error fetching document: \(error!)")
@@ -132,7 +132,7 @@ class DataBank{
             self.clearArray()
             for doc in documents{
                 let data = doc.data()
-                let budget = Budget(amount: data["Start Amount"] as! Float, savings: data["Savings"] as! Float)
+                let budget = Budget(amount: data["Start Amount"] as! Float, savings: data["Savings"] as! Float, dGoal: data["dailyCostGoal"] as! Float, wGoal: data["weeklyCostGoal"] as! Float)
                 budget.current_amount = data["Current Amount"] as! Float
                 budget.bid = data["bid"] as! String
                 self.budgets.append(budget)
@@ -164,18 +164,6 @@ class DataBank{
         }
     }
     
-    func getGoals(complete: @escaping ([Goal])->Void){
-        db.collection("goals").document(getID()).addSnapshotListener { (documentSnapshot, error) in
-            guard let document = documentSnapshot?.data() else{
-                print("Error fetching document: \(error!)")
-                    return
-            }
-            let goal = Goal(type: .dailyCostGoal, value: document["dailyCostGoal"] as! Float)
-            let goal2 = Goal(type: .weeklyCostGoal, value: document["weeklyCostGoal"] as! Float)
-            complete([goal, goal2])
-        }
-    }
-    
     func addPreviuosInfo(){
         //If the previuos was 12 !!!?. Look at the current year
         // if 12 preM = 1,
@@ -189,7 +177,7 @@ class DataBank{
                 print("He has no previuos budgets... never happens", budget)
                 return
             }
-            let budget = Budget(amount: previuosBudget["Start Amount"]! as! Float, savings: previuosBudget["Savings"]! as! Float)
+            let budget = Budget(amount: previuosBudget["Start Amount"] as! Float, savings: previuosBudget["Savings"] as! Float, dGoal: previuosBudget["dailyCostGaol"] as! Float, wGoal: previuosBudget["weeklyCostGoal"] as! Float)
             budget.setBudgetData()
         }
     }

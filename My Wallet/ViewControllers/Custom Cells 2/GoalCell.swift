@@ -16,8 +16,8 @@ class GoalCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        DataBank.shared.getGoals { (goals) in
-            self.setupInfo(goals: goals)
+        DataBank.shared.getCurrentBudget { (budget) in
+            self.setupInfo(goals: budget.goals)
         }
     }
     

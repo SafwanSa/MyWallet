@@ -53,11 +53,9 @@ class HomeCell: UITableViewCell {
         prog_view.style = .dashed(pattern: [7.0, 7.0])
         
         Calendar.categ = Calendar.getCurrentMonth()+"/"+Calendar.getCurrentYear()
-        DataBank.shared.getGoals { (gls) in
-            self.goals = gls
-        }
         DataBank.shared.getCurrentBudget { (bdg) in
             self.budget = bdg
+            self.goals = bdg.goals
             self.setUserData()
             self.checkGoals()
         }
