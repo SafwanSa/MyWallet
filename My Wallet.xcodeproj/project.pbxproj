@@ -66,7 +66,7 @@
 		17EEB282242BA759002B2621 /* BillCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EEB280242BA759002B2621 /* BillCell2.xib */; };
 		17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */; };
 		17FB6F6C233E103800A039EC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB6F6B233E103800A039EC /* Payment.swift */; };
-		17FD1E662449178900A9B3FE /* DataBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD1E652449178900A9B3FE /* DataBank.swift */; };
+		17FD1E68244998BD00A9B3FE /* DataBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD1E67244998BC00A9B3FE /* DataBank.swift */; };
 		5B704A0CDAA0623865DFD0C6 /* Pods_My_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,7 +132,7 @@
 		17EEB280242BA759002B2621 /* BillCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell2.xib; sourceTree = "<group>"; };
 		17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		17FB6F6B233E103800A039EC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
-		17FD1E652449178900A9B3FE /* DataBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBank.swift; path = ../../../../DataBank.swift; sourceTree = "<group>"; };
+		17FD1E67244998BC00A9B3FE /* DataBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBank.swift; sourceTree = "<group>"; };
 		2DB5E2554933876A97E21DD4 /* Pods-My Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.release.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.release.xcconfig"; sourceTree = "<group>"; };
 		C0747466D98594EEE97021C2 /* Pods-My Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.debug.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,7 +278,7 @@
 		178EF38C241273360082901F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				17FD1E652449178900A9B3FE /* DataBank.swift */,
+				17FD1E67244998BC00A9B3FE /* DataBank.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -468,7 +468,7 @@
 				1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */,
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,
 				1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */,
-				17FD1E662449178900A9B3FE /* DataBank.swift in Sources */,
+				17FD1E68244998BD00A9B3FE /* DataBank.swift in Sources */,
 				171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */,
 				17CFCE45242C2D2100452242 /* Goal.swift in Sources */,
 				17EEB281242BA759002B2621 /* BillCell2.swift in Sources */,
