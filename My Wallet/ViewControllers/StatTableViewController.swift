@@ -14,20 +14,18 @@ class StatTableViewController: UITableViewController{
     
     //MARK:- Vars Declaration
     var costs = [Float]()
-    
+    let cells = ["StatusCell","BillInfoCell","StatGoalCell","StatAvgCell","BarChartCell","StatTypeCell"]
     override func viewDidLoad() {
         super.viewDidLoad()
         SuperNavigationController.setTitle(title: "إحصائيات", nv: self)
-        myTableView.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "StatusCell")
-        myTableView.register(UINib(nibName: "StatAvgCell", bundle: nil), forCellReuseIdentifier: "StatAvgCell")
-        myTableView.register(UINib(nibName: "BarChartCell", bundle: nil), forCellReuseIdentifier: "BarChartCell")
-        myTableView.register(UINib(nibName: "StatTypeCell", bundle: nil), forCellReuseIdentifier: "StatTypeCell")
-        myTableView.register(UINib(nibName: "StatGoalCell", bundle: nil), forCellReuseIdentifier: "StatGoalCell")
+        for cellName in cells{
+            myTableView.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
+        }
     }
     
     //MARK:- TableView Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,7 +36,7 @@ class StatTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 3 || indexPath.section == 4{
+        if indexPath.section == 4 || indexPath.section == 5{
             return 247
         }else{
             return 168
@@ -48,13 +46,8 @@ class StatTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //Styling the Title of the Table
         let label = UILabel()
-        let title1 = ""
-        let title2 = "متوسط الصرف"
-        let title3 = "هدفك لمقدار الصرف"
-        let title4 = "قيمة كل تصنيف من مجموع المصاريف"
-        let title5 = "نسبة كل تصنيف من الميزانية"
-        let sectionsNames = [title1,title2,title3,title4,title5]
-        label.text = sectionsNames[section]
+        let sectionNames = ["","فواتيرك","هدفك لمقدار الصرف","متوسط الصرف","قيمة كل تصنيف من مجموع المصاريف","نسبة كل تصنيف من الميزانية"]
+        label.text = sectionNames[section]
         label.font = UIFont.init(name: "JF Flat", size: 16)
         label.textAlignment = NSTextAlignment.right
         label.textColor = .gray
@@ -63,22 +56,6 @@ class StatTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.section == 0){
-            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatusCell")!
-            return cell
-        }
-        if(indexPath.section == 1){
-            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatAvgCell")!
-            return cell
-        }else if(indexPath.section == 2){
-            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatGoalCell")!
-            return cell
-        }else if(indexPath.section == 3){
-            let cell = myTableView.dequeueReusableCell(withIdentifier: "BarChartCell")!
-            return cell
-        }else{
-            let cell = myTableView.dequeueReusableCell(withIdentifier: "StatTypeCell")!
-            return cell
-        }
+        return myTableView.dequeueReusableCell(withIdentifier: cells[indexPath.section])!
     }
 }

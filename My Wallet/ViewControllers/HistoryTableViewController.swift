@@ -87,9 +87,9 @@ class HistoryTableViewController: UITableViewController {
         let sectionsNames = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
         let label = UILabel()
         if showAll == 1{
-            label.text = sectionsNames[typesIndex]
+            label.text = String(self.allPayments[typesIndex].count)+" "+sectionsNames[typesIndex]
         }else{
-            label.text = "الكل"
+            label.text = String(self.paidPaymentsList.count)+" من المدفوعات"
         }
         label.font = UIFont.init(name: "JF Flat", size: 19)
         label.textAlignment = NSTextAlignment.center

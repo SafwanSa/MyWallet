@@ -57,10 +57,10 @@ class StatusCell: UITableViewCell {
             var percent: Float = 0.0
             if startBudget != 0{percent = (100 * remaining)/startBudget}
             
-            self.lbl_expenses.text = ": مصروفات "+String(totalCost)+" SAR "
-            self.lbl_savings.text = ": مدخرات "+String(savings)+" SAR "
-            self.lbl_startBudget.text = ": الميزانية "+String(savings)+" SAR "
-            self.lbl_remaining.text = ": المتبقي "+String(remaining)+" SAR "
+            self.lbl_expenses.text = " مصروفات :"+String(totalCost)+" SAR "
+            self.lbl_savings.text = " مدخرات :"+String(savings)+" SAR "
+            self.lbl_startBudget.text = " الميزانية :"+String(savings)+" SAR "
+            self.lbl_remaining.text = " المتبقي :"+String(remaining)+" SAR "
             self.progressView.startProgress(to: CGFloat(percent), duration: 0.0) {}
         }
     }

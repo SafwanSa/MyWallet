@@ -28,8 +28,8 @@ class StatGoalCell: UITableViewCell {
     }
     
     func setupGoals(goals: [Goal]){
-        lbl_dGoal.text = String(goals[0].value)
-        lbl_wGoal.text = String(goals[1].value)
+        lbl_dGoal.text = "SAR "+String(goals[0].value)
+        lbl_wGoal.text = "SAR "+String(goals[1].value)
     }
     
 }
