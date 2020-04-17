@@ -38,18 +38,10 @@ class HomeCell: UITableViewCell {
     
     var t1 = 0
     var t2 = 0
-    var userGloas = [String:Any]()
-    var userData = [String:Any]()
+    var goals = [Goal]()
+    var budget: Budget?
     var delegate: HomeCellProtocol?
-    var allPayments = [
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment]()
-    ]
+    var allPayments = [[Payment]]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,9 +52,18 @@ class HomeCell: UITableViewCell {
         //Styling the progress bar
         prog_view.style = .dashed(pattern: [7.0, 7.0])
         
-        Calendar.categ = Calendar.getCurrentMonth()
-        let dataSourceDelivery = DataSource(type: "ppayment")
-        dataSourceDelivery.dataSourceDelegate = self
+        Calendar.categ = Calendar.getCurrentMonth()+"/"+Calendar.getCurrentYear()
+        DataBank.shared.getCurrentBudget { (bdg) in
+            self.budget = bdg
+            self.goals = bdg.goals
+            self.setUserData()
+            self.checkGoals()
+        }
+        DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            self.allPayments = paidList
+            self.setUserData()
+            self.checkGoals()
+        }
     }
     
     @IBAction func btn_addPressed(_ sender: RoundButton) {
@@ -72,17 +73,13 @@ class HomeCell: UITableViewCell {
     }
     
     func checkGoals(){
-        let budget = self.userData["Current Amount"] as! Float
-        let savings = self.userData["Savings"] as! Float
-        let start_budget = self.userData["Start Amount"] as! Float
-        
         let goal = Goal(type: .belowBudgetGoal, value: -1)
-        goal.setAmounts(start_amount: start_budget, budget_amount: budget , savings_amount: savings)
+        goal.setAmounts(start_amount: budget!.start_amount, budget_amount: budget!.current_amount , savings_amount: budget!.savings)
         
         let savingsCheck = goal.checkSavings()
         let blwBudget = goal.checkBelowBudget()
-        let dailyCost = goal.checkDailyCost(payemnts: allPayments, dailyCost: self.userGloas["dailyCostGoal"] as! Float)
-        let weeklyCost = goal.checkWeeklyCost(payments: allPayments, weeklyCost:  self.userGloas["weeklyCostGoal"] as! Float)
+        let dailyCost = goal.checkDailyCost(payemnts: allPayments, dailyCost: goals[0].value)
+        let weeklyCost = goal.checkWeeklyCost(payments: allPayments, weeklyCost: goals[1].value)
         let expensesCheck = goal.checkHighExpenses(payments: self.allPayments)
         if savingsCheck{
             lbl_blwSavings.textColor = .red
@@ -120,28 +117,14 @@ class HomeCell: UITableViewCell {
     }
     
     func setUserData(){
-        let budget = self.userData["Current Amount"] as! Float
-        let savings = self.userData["Savings"] as! Float
-        let startBudget = self.userData["Start Amount"] as! Float
         var percent: Float = 0.0
-        if startBudget != 0{percent = (100 * budget)/startBudget}
-        let totalCosts = startBudget - budget
+        if budget!.start_amount != 0{percent = (100 * budget!.current_amount)/budget!.start_amount}
+        let totalCosts = budget!.start_amount - budget!.current_amount
         
         self.lbl_totalPaymentsCost.text = "مصروفات "+String(totalCosts)+" SAR "
-        self.lbl_savings.text = "مدخرات "+String(savings)+" SAR "
-        self.lbl_budget.text = String(budget)+" SAR "
+        self.lbl_savings.text = "مدخرات "+String(budget!.savings)+" SAR "
+        self.lbl_budget.text = String(budget!.current_amount)+" SAR "
         self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
     }
 }
-extension HomeCell: DataSourceProtocol{
-    //This will be excuted when any updates happens to userInfo
-    func userDataUpdated(data: [String : Any], which: String) {
-        //Apply cloures
-        if(which == "goals"){self.userGloas = data ;t1 = 1}
-        if(which == "budgets"){self.userData = data;t2 = 1;setUserData()}
-        if t1+t2 == 2{checkGoals()}
-        
-    }
-    func paidDataUpdated(data: [[Payment]]) {allPayments = data}
-    
-}
+

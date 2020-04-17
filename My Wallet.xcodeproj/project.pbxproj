@@ -29,6 +29,8 @@
 		172820EB2431389300D069F1 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172820E92431389300D069F1 /* GoalCell.swift */; };
 		172820EC2431389300D069F1 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172820EA2431389300D069F1 /* GoalCell.xib */; };
 		1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745E11A24199CC5003C697A /* MonthsTableViewController.swift */; };
+		174CFAB2243E65270026250B /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174CFAB0243E65270026250B /* BarChartCell.swift */; };
+		174CFAB3243E65270026250B /* BarChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174CFAB1243E65270026250B /* BarChartCell.xib */; };
 		1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED372333A1400052CE54 /* AppDelegate.swift */; };
 		1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1752ED392333A1400052CE54 /* ViewController.swift */; };
 		1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1752ED3B2333A1410052CE54 /* Main.storyboard */; };
@@ -42,14 +44,15 @@
 		1767B508242AE1F8008ECDDE /* BillMngTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */; };
 		1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767B509242AE249008ECDDE /* AddBillCell.swift */; };
 		1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B50A242AE249008ECDDE /* AddBillCell.xib */; };
-		178EF38E241273520082901F /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178EF38D241273520082901F /* DataSource.swift */; };
+		1790276D24426DC000631D68 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790276B24426DC000631D68 /* StatusCell.swift */; };
+		1790276E24426DC000631D68 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1790276C24426DC000631D68 /* StatusCell.xib */; };
 		179B74E62426B66800471439 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E52426B66800471439 /* Bill.swift */; };
 		179DBE22241D16CB0009C763 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE21241D16CB0009C763 /* Budget.swift */; };
 		179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE23241D426E0009C763 /* StatTableViewController.swift */; };
 		179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE25241D42D80009C763 /* StatAvgCell.swift */; };
 		179DBE2A241D431C0009C763 /* StatAvgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179DBE29241D431C0009C763 /* StatAvgCell.xib */; };
-		179DBE2E241D6A9A0009C763 /* MaxTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE2D241D6A9A0009C763 /* MaxTypeCell.swift */; };
-		179DBE30241D6AA80009C763 /* MaxTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179DBE2F241D6AA80009C763 /* MaxTypeCell.xib */; };
+		179DBE2E241D6A9A0009C763 /* StatGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE2D241D6A9A0009C763 /* StatGoalCell.swift */; };
+		179DBE30241D6AA80009C763 /* StatGoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179DBE2F241D6AA80009C763 /* StatGoalCell.xib */; };
 		179DBE32241D756C0009C763 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE31241D756C0009C763 /* Calculation.swift */; };
 		17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B42951233ACA4C004F2436 /* MyRoundedView.swift */; };
 		17BC79F8242FE24C00884D75 /* BdgSavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC79F6242FE24C00884D75 /* BdgSavCell.swift */; };
@@ -63,6 +66,9 @@
 		17EEB282242BA759002B2621 /* BillCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EEB280242BA759002B2621 /* BillCell2.xib */; };
 		17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */; };
 		17FB6F6C233E103800A039EC /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB6F6B233E103800A039EC /* Payment.swift */; };
+		17FD1E68244998BD00A9B3FE /* DataBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD1E67244998BC00A9B3FE /* DataBank.swift */; };
+		17FD1E6B24499C3600A9B3FE /* BillInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD1E6924499C3600A9B3FE /* BillInfoCell.swift */; };
+		17FD1E6C24499C3600A9B3FE /* BillInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FD1E6A24499C3600A9B3FE /* BillInfoCell.xib */; };
 		5B704A0CDAA0623865DFD0C6 /* Pods_My_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +95,8 @@
 		172820E92431389300D069F1 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		172820EA2431389300D069F1 /* GoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalCell.xib; sourceTree = "<group>"; };
 		1745E11A24199CC5003C697A /* MonthsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewController.swift; sourceTree = "<group>"; };
+		174CFAB0243E65270026250B /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		174CFAB1243E65270026250B /* BarChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartCell.xib; sourceTree = "<group>"; };
 		1752ED342333A1400052CE54 /* My Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1752ED372333A1400052CE54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1752ED392333A1400052CE54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,14 +112,15 @@
 		1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillMngTableViewController.swift; sourceTree = "<group>"; };
 		1767B509242AE249008ECDDE /* AddBillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillCell.swift; sourceTree = "<group>"; };
 		1767B50A242AE249008ECDDE /* AddBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBillCell.xib; sourceTree = "<group>"; };
-		178EF38D241273520082901F /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		1790276B24426DC000631D68 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		1790276C24426DC000631D68 /* StatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
 		179B74E52426B66800471439 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		179DBE21241D16CB0009C763 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		179DBE23241D426E0009C763 /* StatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
 		179DBE25241D42D80009C763 /* StatAvgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatAvgCell.swift; sourceTree = "<group>"; };
 		179DBE29241D431C0009C763 /* StatAvgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatAvgCell.xib; sourceTree = "<group>"; };
-		179DBE2D241D6A9A0009C763 /* MaxTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxTypeCell.swift; sourceTree = "<group>"; };
-		179DBE2F241D6AA80009C763 /* MaxTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaxTypeCell.xib; sourceTree = "<group>"; };
+		179DBE2D241D6A9A0009C763 /* StatGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatGoalCell.swift; sourceTree = "<group>"; };
+		179DBE2F241D6AA80009C763 /* StatGoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatGoalCell.xib; sourceTree = "<group>"; };
 		179DBE31241D756C0009C763 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		17B42951233ACA4C004F2436 /* MyRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedView.swift; sourceTree = "<group>"; };
 		17BC79F6242FE24C00884D75 /* BdgSavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BdgSavCell.swift; sourceTree = "<group>"; };
@@ -125,6 +134,9 @@
 		17EEB280242BA759002B2621 /* BillCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell2.xib; sourceTree = "<group>"; };
 		17F6CF8423412324004C3CFC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		17FB6F6B233E103800A039EC /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		17FD1E67244998BC00A9B3FE /* DataBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBank.swift; sourceTree = "<group>"; };
+		17FD1E6924499C3600A9B3FE /* BillInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillInfoCell.swift; sourceTree = "<group>"; };
+		17FD1E6A24499C3600A9B3FE /* BillInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillInfoCell.xib; sourceTree = "<group>"; };
 		2DB5E2554933876A97E21DD4 /* Pods-My Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.release.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.release.xcconfig"; sourceTree = "<group>"; };
 		C0747466D98594EEE97021C2 /* Pods-My Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Wallet.debug.xcconfig"; path = "Target Support Files/Pods-My Wallet/Pods-My Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		FA4E5EC42637746892E466D1 /* Pods_My_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,8 +177,8 @@
 				171029CC2415B27B00D0D697 /* HistoryCell.swift */,
 				179DBE25241D42D80009C763 /* StatAvgCell.swift */,
 				179DBE29241D431C0009C763 /* StatAvgCell.xib */,
-				179DBE2D241D6A9A0009C763 /* MaxTypeCell.swift */,
-				179DBE2F241D6AA80009C763 /* MaxTypeCell.xib */,
+				179DBE2D241D6A9A0009C763 /* StatGoalCell.swift */,
+				179DBE2F241D6AA80009C763 /* StatGoalCell.xib */,
 				170E8401241E6C3700A68971 /* StatTypeCell.swift */,
 				170E8402241E6C3700A68971 /* StatTypeCell.xib */,
 				170D23C1241EAF2B007A69D9 /* HomeCell.swift */,
@@ -260,7 +272,7 @@
 		178EF38C241273360082901F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				178EF38D241273520082901F /* DataSource.swift */,
+				17FD1E67244998BC00A9B3FE /* DataBank.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,10 +280,16 @@
 		17CFCE43242C2BAB00452242 /* Custom Cells 2 */ = {
 			isa = PBXGroup;
 			children = (
+				174CFAB0243E65270026250B /* BarChartCell.swift */,
+				174CFAB1243E65270026250B /* BarChartCell.xib */,
 				17BC79F6242FE24C00884D75 /* BdgSavCell.swift */,
 				17BC79F7242FE24C00884D75 /* BdgSavCell.xib */,
 				172820E92431389300D069F1 /* GoalCell.swift */,
 				172820EA2431389300D069F1 /* GoalCell.xib */,
+				1790276B24426DC000631D68 /* StatusCell.swift */,
+				1790276C24426DC000631D68 /* StatusCell.xib */,
+				17FD1E6924499C3600A9B3FE /* BillInfoCell.swift */,
+				17FD1E6A24499C3600A9B3FE /* BillInfoCell.xib */,
 			);
 			path = "Custom Cells 2";
 			sourceTree = "<group>";
@@ -365,6 +383,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FD1E6C24499C3600A9B3FE /* BillInfoCell.xib in Resources */,
+				1790276E24426DC000631D68 /* StatusCell.xib in Resources */,
 				1752ED422333A1420052CE54 /* LaunchScreen.storyboard in Resources */,
 				1752ED4A2333A2770052CE54 /* GoogleService-Info.plist in Resources */,
 				172820EC2431389300D069F1 /* GoalCell.xib in Resources */,
@@ -374,9 +394,10 @@
 				1752ED3D2333A1410052CE54 /* Main.storyboard in Resources */,
 				17BC79F9242FE24C00884D75 /* BdgSavCell.xib in Resources */,
 				170E79C723F9C029007A894C /* Assets.xcassets in Resources */,
-				179DBE30241D6AA80009C763 /* MaxTypeCell.xib in Resources */,
+				179DBE30241D6AA80009C763 /* StatGoalCell.xib in Resources */,
 				17012FF824032966000B840A /* UnpaidCell.xib in Resources */,
 				179DBE2A241D431C0009C763 /* StatAvgCell.xib in Resources */,
+				174CFAB3243E65270026250B /* BarChartCell.xib in Resources */,
 				1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */,
 				170E8404241E6C3700A68971 /* StatTypeCell.xib in Resources */,
 				1767B4FE242AC0DD008ECDDE /* AccountCell.xib in Resources */,
@@ -434,8 +455,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1790276D24426DC000631D68 /* StatusCell.swift in Sources */,
 				1705F68323463DF6009C16DF /* UserInfo.swift in Sources */,
-				178EF38E241273520082901F /* DataSource.swift in Sources */,
 				171D5D582333AABF00EA774D /* LoginViewController.swift in Sources */,
 				17012FF224027E08000B840A /* GradientView.swift in Sources */,
 				179B74E62426B66800471439 /* Bill.swift in Sources */,
@@ -446,6 +467,7 @@
 				1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */,
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,
 				1752ED3A2333A1400052CE54 /* ViewController.swift in Sources */,
+				17FD1E68244998BD00A9B3FE /* DataBank.swift in Sources */,
 				171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */,
 				17CFCE45242C2D2100452242 /* Goal.swift in Sources */,
 				17EEB281242BA759002B2621 /* BillCell2.swift in Sources */,
@@ -453,7 +475,7 @@
 				1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */,
 				179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */,
 				17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */,
-				179DBE2E241D6A9A0009C763 /* MaxTypeCell.swift in Sources */,
+				179DBE2E241D6A9A0009C763 /* StatGoalCell.swift in Sources */,
 				179DBE32241D756C0009C763 /* Calculation.swift in Sources */,
 				1757705D2437178B00348144 /* NewMonthViewController.swift in Sources */,
 				17BC79F8242FE24C00884D75 /* BdgSavCell.swift in Sources */,
@@ -461,6 +483,7 @@
 				172820EB2431389300D069F1 /* GoalCell.swift in Sources */,
 				17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */,
 				17BC79FB242FE8AC00884D75 /* FinanceTableViewController.swift in Sources */,
+				17FD1E6B24499C3600A9B3FE /* BillInfoCell.swift in Sources */,
 				17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */,
 				171029C92415AF8700D0D697 /* HistoryViewController.swift in Sources */,
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
@@ -470,6 +493,7 @@
 				1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */,
 				1767B4FA242AB927008ECDDE /* ProfileViewController.swift in Sources */,
 				170E8403241E6C3700A68971 /* StatTypeCell.swift in Sources */,
+				174CFAB2243E65270026250B /* BarChartCell.swift in Sources */,
 				179DBE26241D42D80009C763 /* StatAvgCell.swift in Sources */,
 				179DBE22241D16CB0009C763 /* Budget.swift in Sources */,
 				171029CF2415BFCB00D0D697 /* Calendar.swift in Sources */,

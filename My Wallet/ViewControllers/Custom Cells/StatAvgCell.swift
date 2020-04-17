@@ -19,6 +19,15 @@ class StatAvgCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            var paymentsCosts = [Float]()
+                    for i in 0..<paidList.count{
+                        for j in paidList[i]{
+                            paymentsCosts.append(j.cost)
+                        }
+                    }
+            self.setupAverage(costs: paymentsCosts)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,7 +36,7 @@ class StatAvgCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUpAverage(costs:[Float]){
+    func setupAverage(costs:[Float]){
         let avgCostByDay = String(Calculations.getAverageCosts(costs: costs, by: "day"))
         let avgCountByDay = String(Calculations.getAverageCounts(costs: costs, by: "day"))
         let avgCostByWeek = String(Calculations.getAverageCosts(costs: costs, by: "week"))

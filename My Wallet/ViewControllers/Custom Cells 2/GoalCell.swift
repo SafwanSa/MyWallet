@@ -13,12 +13,20 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var lbl_cellTitle: UILabel!
     @IBOutlet weak var lbl_cost: HSUnderLineTextField!
     
-    var dataDelivery: DataSource?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        dataDelivery = DataSource()
-        dataDelivery?.dataSourceDelegate = self
+        DataBank.shared.getCurrentBudget { (budget) in
+            self.setupInfo(goals: budget.goals)
+        }
+    }
+    
+    func setupInfo(goals: [Goal]){
+        if (lbl_cellTitle.text == "اليومي"){
+            lbl_cost.text = String(goals[0].value)
+        }else{
+            lbl_cost.text = String(goals[1].value)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,16 +35,4 @@ class GoalCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-}
-extension GoalCell: DataSourceProtocol{
-
-    func userDataUpdated(data: [String : Any], which:String) {
-        if(which == "goals"){
-            if (lbl_cellTitle.text == "اليومي"){
-                lbl_cost.text = String(data["dailyCostGoal"] as! Float)
-            }else{
-                lbl_cost.text = String(data["weeklyCostGoal"] as! Float)
-            }
-        }
-    }
 }

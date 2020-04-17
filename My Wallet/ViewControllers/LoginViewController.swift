@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
        loginView.layer.masksToBounds = false
     }
     
-    let em = "d@d.com"
+    let em = "s@s.com"
     let ps = "@s1111111"
     
     

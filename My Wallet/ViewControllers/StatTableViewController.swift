@@ -14,29 +14,18 @@ class StatTableViewController: UITableViewController{
     
     //MARK:- Vars Declaration
     var costs = [Float]()
-    var chart: PieChartView!
-    var userData = [String:Any]()
-    var allPayments = [
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment](),
-        [Payment]()
-    ]
-    
+    let cells = ["StatusCell","BillInfoCell","StatGoalCell","StatAvgCell","BarChartCell","StatTypeCell"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataSourceDelivery = DataSource(type: "ppayment")
-        dataSourceDelivery.dataSourceDelegate = self
-        
         SuperNavigationController.setTitle(title: "إحصائيات", nv: self)
+        for cellName in cells{
+            myTableView.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
+        }
     }
     
     //MARK:- TableView Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,47 +35,27 @@ class StatTableViewController: UITableViewController{
         return 30
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //If it is the first section, then display the (StatAvgCell)
-        if(indexPath.section == 0){
-            let cell = Bundle.main.loadNibNamed("StatAvgCell", owner: self, options: nil)?.first as! StatAvgCell
-            //Cell configuration
-            cell.setUpAverage(costs: self.costs)
-            return cell
-        //If it is the second section, then display the (MaxTypeCell)
-        }else if(indexPath.section == 1){
-            let cell = Bundle.main.loadNibNamed("MaxTypeCell", owner: self, options: nil)?.first as! MaxTypeCell
-            return cell
-        //If it is the third section, then display the (StatTypeCell)
-        }else if(indexPath.section == 2){
-            let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            cell.updateChartData(payments: self.allPayments, userData: self.userData, type: "cost")
-            cell.lbl_cellTitle.text = "قيمة كل تصنيف من مجموع المصاريف"
-            return cell
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 4 || indexPath.section == 5{
+            return 247
         }else{
-            let cell = Bundle.main.loadNibNamed("StatTypeCell", owner: self, options: nil)?.first as! StatTypeCell
-            cell.updateChartData(payments: self.allPayments, userData: self.userData, type: "percent")
-            cell.lbl_cellTitle.text = "نسبة كل تصنيف من الميزانية"
-            return cell
+            return 168
         }
     }
-}
-//MARK:- Delegate and protocol overriding
-extension StatTableViewController: DataSourceProtocol{
-    func paidDataUpdated(data: [[Payment]]) {
-        self.allPayments = data
-        self.myTableView.reloadData()
-    }
-    func userDataUpdated(data: [String : Any], which: String) {
-        if(which == "budgets"){
-            self.userData = data
-            self.myTableView.reloadData()
-        }
-    }
-    func getCosts(costs: [Float]) {
-        self.costs = costs
-        self.myTableView.reloadData()
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //Styling the Title of the Table
+        let label = UILabel()
+        let sectionNames = ["","فواتيرك","هدفك لمقدار الصرف","متوسط الصرف","قيمة كل تصنيف من مجموع المصاريف","نسبة كل تصنيف من الميزانية"]
+        label.text = sectionNames[section]
+        label.font = UIFont.init(name: "JF Flat", size: 16)
+        label.textAlignment = NSTextAlignment.right
+        label.textColor = .gray
+        label.alpha = 0.6
+        return label
     }
     
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return myTableView.dequeueReusableCell(withIdentifier: cells[indexPath.section])!
+    }
 }

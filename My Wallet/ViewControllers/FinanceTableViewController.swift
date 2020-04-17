@@ -12,7 +12,6 @@ class FinanceTableViewController: UITableViewController {
 
     
     
-    var dataSourceDelivery: DataSource?
     var userBudget = [String:Any]()
     var budget: Float = 0.0
     var savings: Float = 0.0
@@ -21,9 +20,8 @@ class FinanceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSourceDelivery = DataSource()
-        dataSourceDelivery?.dataSourceDelegate = self
-        
+        self.tableView.register(UINib(nibName: "BdgSavCell", bundle: nil), forCellReuseIdentifier: "BdgSavCell")
+        self.tableView.register(UINib(nibName: "GoalCell", bundle: nil), forCellReuseIdentifier: "GoalCell")
         SuperNavigationController.setTitle(title: "معلومات مالية", nv: self)
         setupNavigationRightButton()
     }
@@ -58,17 +56,10 @@ class FinanceTableViewController: UITableViewController {
     @objc func save(){
         //Taking the values from the cells
         takeValues()
-        print(budget, savings, dailyCost, weeklyCost)
         //Create a Budget
-        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings]
-        //Creating goals
-        let goal1 = Goal(type: .dailyCostGoal, value: dailyCost)
-        let goal2 = Goal(type: .weeklyCostGoal, value: weeklyCost)
-        //Add them in the data base
-        goal1.addGoal()
-        goal2.addGoal()
+        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings, "dailyCostGoal": dailyCost, "weeklyCostGoal": weeklyCost]
         //Update the database
-        dataSourceDelivery?.updateUserInformation(data: newData)
+        DataBank.shared.updateBudget(data: newData)
         //Dismiss
         self.navigationController?.popViewController(animated: true)
     }
@@ -85,16 +76,12 @@ class FinanceTableViewController: UITableViewController {
             return 2
         }
     }
-
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
-            let cell = Bundle.main.loadNibNamed("BdgSavCell", owner: self, options: nil)?.first as! BdgSavCell
-            //Config the cell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "BdgSavCell") as! BdgSavCell
             return cell
         }else{
-            let cell = Bundle.main.loadNibNamed("GoalCell", owner: self, options: nil)?.first as! GoalCell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "GoalCell") as! GoalCell
             if indexPath.row == 0 {cell.lbl_cellTitle.text = "اليومي"} else{cell.lbl_cellTitle.text = "الأسبوعي"}
             return cell
         }
@@ -113,12 +100,4 @@ class FinanceTableViewController: UITableViewController {
     }
 
     
-}
-extension FinanceTableViewController: DataSourceProtocol{
-    //Remove these
-    func getCosts(costs: [Float]) {}
-    func getMonths(months: [String]) {}
-    func paidDataUpdated(data: [[Payment]]) {}
-    func unpaidDataUpdated(data: [Payment]) {}
-    func userDataUpdated(data: [String : Any], which:String) {}
 }

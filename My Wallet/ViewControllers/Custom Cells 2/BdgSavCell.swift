@@ -15,12 +15,19 @@ class BdgSavCell: UITableViewCell {
     @IBOutlet weak var sldr_budget: UISlider!
     @IBOutlet weak var sldr_savings: UISlider!
     
-    var dataSourceDelivery: DataSource?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        dataSourceDelivery = DataSource()
-        dataSourceDelivery?.dataSourceDelegate = self
+        DataBank.shared.getCurrentBudget { (budget) in
+            self.setupInfo(budget: budget)
+        }
+    }
+    
+    func setupInfo(budget: Budget){
+        sldr_budget.value = budget.current_amount
+        lbl_budget.text = String(budget.current_amount)
+        sldr_savings.value = budget.savings
+        lbl_savings.text = String(budget.savings)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,15 +53,4 @@ class BdgSavCell: UITableViewCell {
       }
     
     
-}
-extension BdgSavCell: DataSourceProtocol{
-
-    func userDataUpdated(data: [String : Any], which:String) {
-        if(which == "budgets"){
-            sldr_budget.value = (data["Current Amount"] as? Float)!
-            lbl_budget.text = String((data["Current Amount"] as? Float)!)
-            sldr_savings.value = (data["Savings"] as? Float)!
-            lbl_savings.text = String((data["Savings"] as? Float)!)
-        }
-    }
 }

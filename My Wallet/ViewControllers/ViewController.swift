@@ -17,8 +17,7 @@ class ViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             // User is signed in.
             if Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate()) == "01"{
-                let dataSource = DataSource()
-                dataSource.addPreviuosInfo()
+                DataBank.shared.addPreviuosInfo()
                 performSegue(withIdentifier: "goToNewMonth", sender: self)
             }else{
                 performSegue(withIdentifier: "logedIn", sender: self)

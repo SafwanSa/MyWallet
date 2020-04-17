@@ -13,24 +13,21 @@ class NewMonthViewController: UIViewController {
     @IBOutlet weak var lbl_name: UILabel!
     @IBOutlet weak var lbl_month: UILabel!
     
-    var dataSourceDelivery: DataSource?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.dataSourceDelivery = DataSource()
-        self.dataSourceDelivery?.dataSourceDelegate = self
+        DataBank.shared.getUserInfo { (user) in
+            self.setupInfo(user: user)
+        }
     }
     
     @IBAction func btnPressed(_ sender: Any) {
         //Move the user
     }
     
-}
-extension NewMonthViewController: DataSourceProtocol{
-    func userDataUpdated(data: [String : Any], which: String) {
-        if which == "user"{
-            lbl_name.text = data["First Name"] as? String
-            lbl_month.text = Calendar.getMonthInAr(m: Calendar.getCurrentMonth())
-        }
+    func setupInfo(user: UserInfo){
+        lbl_name.text = user.first_name
+        lbl_month.text = Calendar.getMonthInAr(m: Calendar.getCurrentMonth())
     }
+    
 }

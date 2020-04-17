@@ -11,11 +11,12 @@ import UIKit
 class Bill: Payment{
     
     var lastUpdate: String
+    var day: String
     
     init(_ title: String, _ cost: Float, _ day: String, _ at: String, lastUpd: String) {
         self.lastUpdate = lastUpd
-        super.init(title, cost, "فواتير", false, at)
         self.day = day
+        super.init(title, cost, "فواتير", false, at)
     }
     
     override func addPayemnt() {

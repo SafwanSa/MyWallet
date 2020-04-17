@@ -25,7 +25,6 @@ class Goal{
     private var budget_amount: Float = 0.0
     private var start_amount: Float = 0.0
     private var savings_amount: Float = 0.0
-    var dataSourceDeleviry: DataSource?
     var db = Firestore.firestore()
     
     init(type: GoalType, value: Float) {
@@ -77,10 +76,6 @@ class Goal{
         return false
     }
     
-    func addGoal(){
-        let data:[String:Any] = [type : value]
-        db.collection("goals").document(getID()).updateData(data)
-    }
     
     func getID()->String{
         return Auth.auth().currentUser!.uid

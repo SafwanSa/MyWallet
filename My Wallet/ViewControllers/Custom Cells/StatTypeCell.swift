@@ -15,9 +15,20 @@ class StatTypeCell: UITableViewCell {
     @IBOutlet weak var lbl_cellTitle: UILabel!
     @IBOutlet weak var pieView: PieChartView!
 
+    var allPayments = [[Payment]]()
+    var budegt: Budget?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            self.allPayments = paidList
+        }
+        DataBank.shared.getCurrentBudget { (bdg) in
+            self.budegt = bdg
+            self.updateChartData()
+        }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,13 +37,9 @@ class StatTypeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateChartData(payments: [[Payment]], userData: [String:Any], type: String)  {
-        var values: [Double]!
-        if(type == "percent"){
-             values = Calculations.getCostPercentageForTypes(payments: payments, userData: userData)
-        }else if(type == "cost"){
-             values = Calculations.getCostForEachType(payments: payments)
-        }
+    func updateChartData()  {
+        var values = [Double]()
+        values = Calculations.getCostPercentageForTypes(payments: self.allPayments, userData: self.budegt!)
         let labels = ["أخرى","صحة","ترفيه","مواصلات","طعام","تسوق","فواتير"]
         var entries = [PieChartDataEntry]()
         for (index, value) in values.enumerated() {
@@ -63,16 +70,14 @@ class StatTypeCell: UITableViewCell {
         set.valueLineColor = .black
         set.xValuePosition = .outsideSlice
         let data = PieChartData(dataSet: set)
-        
+
         let formatter = NumberFormatter()
-        if(type == "percent"){
-            formatter.numberStyle = .percent
-            formatter.maximumFractionDigits = 2
-            formatter.multiplier = 1.0
-            formatter.percentSymbol = "%"
-            formatter.zeroSymbol = ""
-            data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
-        }
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 2
+        formatter.multiplier = 1.0
+        formatter.percentSymbol = "%"
+        formatter.zeroSymbol = ""
+        data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         pieView.data = data
         pieView.legend.enabled = false
         pieView.noDataText = "No data available"
