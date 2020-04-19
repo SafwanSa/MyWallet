@@ -392,53 +392,109 @@
             </objects>
             <point key="canvasLocation" x="577" y="-1986"/>
         </scene>
-        <!--Signup View Controller-->
+        <!--Forgot Password View Controller-->
         <scene sceneID="aRT-S2-6CX">
             <objects>
-                <viewController id="Re6-Xz-PJ5" customClass="SignupViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Re6-Xz-PJ5" customClass="ForgotPasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6f-ln-2OZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="enter email and password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWp-jb-ehV">
-                                <rect key="frame" x="109" y="198" width="196" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Ul8-hL-VcF">
+                                <rect key="frame" x="0.0" y="-12" width="435" height="151"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نسيت كلمة المرور" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6un-X7-c0q">
+                                <rect key="frame" x="113" y="100" width="281" height="38.666666666666657"/>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="37"/>
+                                <color key="textColor" red="0.036146998409999999" green="0.70900851490000005" blue="0.75688058140000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="coq-cq-Jbz">
-                                <rect key="frame" x="102" y="275" width="211" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ViM-oK-dT7">
-                                <rect key="frame" x="102" y="351" width="211" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1x-2v-AFl">
-                                <rect key="frame" x="184" y="429" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign in"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rnb-mK-7sx">
+                                <rect key="frame" x="30" y="198.66666666666666" width="354" height="104.99999999999997"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البريد الإلكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRR-VA-4cU">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="21.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                        <color key="textColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dlQ-FF-NdU" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="41.666666666666686" width="354" height="21.666666666666671"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.039215686270000001" green="0.59607843140000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خطآ في الدخول .. !" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qK-hV-rzw">
+                                        <rect key="frame" x="0.0" y="83.333333333333343" width="354" height="21.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
+                                        <color key="textColor" red="0.7005426307" green="0.2475695118" blue="0.2280554642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITm-OU-BdR" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
+                                <rect key="frame" x="30" y="633" width="354" height="53"/>
+                                <color key="backgroundColor" red="0.039215686270000001" green="0.60392156860000001" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ITm-OU-BdR" secondAttribute="height" multiplier="354:53" id="0sg-UY-gI5"/>
+                                    <constraint firstAttribute="height" constant="53" id="iGM-q4-Yr6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="24"/>
+                                <state key="normal" title="أرسل">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changePasswordRequestPressed:" destination="Re6-Xz-PJ5" eventType="touchUpInside" id="iul-ND-sfl"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ye-Zr-ZyG">
-                                <rect key="frame" x="91" y="500" width="214" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6un-X7-c0q" firstAttribute="top" secondItem="bLR-id-Drx" secondAttribute="top" constant="100" id="08R-tW-KlF"/>
+                            <constraint firstItem="6un-X7-c0q" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" constant="113" id="5Ie-0z-i3H"/>
+                            <constraint firstItem="Rnb-mK-7sx" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" constant="30" id="I6n-OA-YhI"/>
+                            <constraint firstItem="Ul8-hL-VcF" firstAttribute="top" secondItem="bLR-id-Drx" secondAttribute="top" constant="-12" id="Ldd-d5-PBN"/>
+                            <constraint firstItem="bLR-id-Drx" firstAttribute="trailing" secondItem="6un-X7-c0q" secondAttribute="trailing" constant="20" id="PgX-81-JNY"/>
+                            <constraint firstItem="Ul8-hL-VcF" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" id="ZrC-ki-HJU"/>
+                            <constraint firstItem="bLR-id-Drx" firstAttribute="bottom" secondItem="ITm-OU-BdR" secondAttribute="bottom" constant="30" id="fAk-cF-sTX"/>
+                            <constraint firstItem="bLR-id-Drx" firstAttribute="trailing" secondItem="Rnb-mK-7sx" secondAttribute="trailing" constant="30" id="ikG-i7-lwC"/>
+                            <constraint firstItem="bLR-id-Drx" firstAttribute="trailing" secondItem="ITm-OU-BdR" secondAttribute="trailing" constant="30" id="mQT-vf-1Lw"/>
+                            <constraint firstAttribute="trailing" secondItem="Ul8-hL-VcF" secondAttribute="trailing" constant="-21" id="srL-XY-yX0"/>
+                            <constraint firstItem="Rnb-mK-7sx" firstAttribute="top" secondItem="Ul8-hL-VcF" secondAttribute="bottom" constant="59.670000000000002" id="uPm-CW-ZO9"/>
+                            <constraint firstItem="ITm-OU-BdR" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" constant="30" id="vLW-7z-Eag"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bLR-id-Drx"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cOq-Pu-qyh"/>
+                    <connections>
+                        <outlet property="btn_send" destination="ITm-OU-BdR" id="3Be-lT-0Fy"/>
+                        <outlet property="email" destination="dlQ-FF-NdU" id="YvG-0L-vEh"/>
+                        <outlet property="lbl_error" destination="6qK-hV-rzw" id="u7U-us-WUg"/>
+                        <segue destination="x3p-sm-VMc" kind="show" identifier="goToLogin" id="zdE-Xr-qiR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERl-De-EJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260.86956521739131" y="734.51086956521749"/>
+            <point key="canvasLocation" x="2074" y="770"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="FJK-Z2-U3k">
@@ -448,17 +504,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="udI-IQ-Qy9">
-                                <rect key="frame" x="30" y="198.66666666666666" width="354" height="276.33333333333337"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="udI-IQ-Qy9">
+                                <rect key="frame" x="30" y="198.66666666666663" width="354" height="262"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البريد الإلكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZZ-d4-Fwx">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="21.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="27"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                         <color key="textColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJP-lN-cdZ" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="63.66666666666665" width="354" height="21.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="47" width="354" height="27"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
@@ -475,13 +531,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كلمة السر" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1t-TR-1fV">
-                                        <rect key="frame" x="0.0" y="127.33333333333336" width="354" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="94.000000000000028" width="354" height="27"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                         <color key="textColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDy-BT-IcW" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="191.00000000000003" width="354" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="141.00000000000003" width="354" height="27"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
@@ -497,11 +553,19 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خطآ في الدخول .. !" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFN-Jq-5oh">
-                                        <rect key="frame" x="0.0" y="254.66666666666666" width="354" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="188.00000000000003" width="354" height="27"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
                                         <color key="textColor" red="0.7005426307" green="0.2475695118" blue="0.2280554642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smC-Lr-iIz">
+                                        <rect key="frame" x="0.0" y="235.00000000000003" width="354" height="26.999999999999972"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="14"/>
+                                        <state key="normal" title="نسيت كلمة السر؟"/>
+                                        <connections>
+                                            <segue destination="Re6-Xz-PJ5" kind="show" id="QQB-0p-cnx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGV-XD-nDb" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
@@ -555,6 +619,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OXe-Zo-PXa"/>
                     <connections>
+                        <outlet property="btn_sign" destination="CGV-XD-nDb" id="1AN-ih-OsM"/>
                         <outlet property="lbl_error" destination="xFN-Jq-5oh" id="S36-Ti-7Um"/>
                         <outlet property="txt_email" destination="nJP-lN-cdZ" id="Y8B-ST-OQD"/>
                         <outlet property="txt_password" destination="YDy-BT-IcW" id="fcq-fc-nC5"/>
@@ -1106,6 +1171,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="QSa-JD-TbX"/>
                     <connections>
+                        <outlet property="btn_login" destination="fvb-dU-3iL" id="1tp-xB-9EI"/>
                         <outlet property="lbl_error" destination="qzt-aS-3lj" id="bi5-7I-8Wb"/>
                         <outlet property="txt_email" destination="K1T-pU-kYI" id="YlD-7S-gur"/>
                         <outlet property="txt_name" destination="HgF-MU-hK6" id="IyQ-Re-HTw"/>
@@ -1119,9 +1185,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="QQB-0p-cnx"/>
         <segue reference="rV6-Mh-avX"/>
         <segue reference="erF-3g-8gi"/>
-        <segue reference="OPe-XH-nwV"/>
+        <segue reference="zdE-Xr-qiR"/>
         <segue reference="W5A-zB-jkd"/>
         <segue reference="0S5-Hy-7db"/>
     </inferredMetricsTieBreakers>

@@ -16,6 +16,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var txt_password: HSUnderLineTextField!
     @IBOutlet weak var txt_email: HSUnderLineTextField!
     @IBOutlet weak var txt_name: HSUnderLineTextField!
+    @IBOutlet weak var btn_login: RoundButton!
     
     let db = Firestore.firestore()
     var email: String = ""
@@ -62,17 +63,29 @@ class SignupViewController: UIViewController {
         }
     }
     
+    func showProgress(){
+        btn_login.isEnabled = false
+        btn_login.alpha = 0.7
+        SVProgressHUD.show()
+    }
+    
+    func stopProgress(){
+        btn_login.isEnabled = true
+        btn_login.alpha = 1
+        SVProgressHUD.dismiss()
+    }
+    
     
     func showError(_ message:String){
-        SVProgressHUD.dismiss()
+        stopProgress()
         lbl_error.textColor = .red
         lbl_error.text = message + " ...!"
         lbl_error.alpha = 1
     }
     
     func showPrompt(_ message:String){
-        SVProgressHUD.dismiss()
-        lbl_error.textColor = .green
+        stopProgress()
+        lbl_error.textColor = .systemGreen
         lbl_error.text = message
         lbl_error.alpha = 1
     }
@@ -90,7 +103,7 @@ class SignupViewController: UIViewController {
                             self.handleError(error: error!)
                         }
                         //Email sent
-                        SVProgressHUD.dismiss()
+                        self.stopProgress()
                         print("user email verification sent")
                         self.txt_password.text = ""
                         self.showPrompt("تم إرسال رسالة تفعيل الحساب على البريد الإلكتروني")
@@ -119,7 +132,7 @@ class SignupViewController: UIViewController {
         let email = self.txt_email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = self.txt_password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         //Show loading
-        SVProgressHUD.show()
+        showProgress()
         if validation(email: email, password: password, name: name){
             register(email: email, password: password)
         }
@@ -134,6 +147,7 @@ class SignupViewController: UIViewController {
             valid = validateName(name: name)
             if password.count < 8{
                 showError("كلمة السر أقل من ٨ خانات")
+                valid = false
             }
         }
         return valid
@@ -168,22 +182,20 @@ class SignupViewController: UIViewController {
         let errorAuthStatus = AuthErrorCode.init(rawValue: error._code)!
         switch errorAuthStatus {
         case .invalidEmail:
-            showError("invalidEmail")
+            showError("أدخل البريد الاإلكتروني بشكل صحيح")
         case .operationNotAllowed:
             showError("operationNotAllowed")
         case .userDisabled:
             showError("userDisabled")
         case .tooManyRequests:
-            showError("tooManyRequests, oooops")
+            showError("تجاوزت عدد المحاولات، حاول لاحقاً")
         case .emailAlreadyInUse:
-            showError("Email used")
+            showError("البريد الإلكتروني مستخدم")
         case .missingEmail:
-            showError("Missigng email")
+            showError("أدخل البريد الإلكتروني")
         case .weakPassword:
-            showError("Weak password")
-        case .missingOrInvalidNonce:
-            showError("Missing")
-        default: fatalError("error not supported here")
+            showError("كلمة المرور ضعيفة")
+        default: showError("حدث خطأ، حاول مرة أخرة")
         }
     }
     

@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txt_email: UITextField!
     @IBOutlet weak var txt_password: UITextField!
     @IBOutlet weak var lbl_error: UILabel!
+    @IBOutlet weak var btn_sign: RoundButton!
+    
     let db = Firestore.firestore()
     var email: String = ""
     var msg: String = ""
@@ -35,41 +37,62 @@ class LoginViewController: UIViewController {
     let ps = "@s1111111"
     
     
-    
-    func showError(_ message:String){
-        lbl_error.textColor = .red
-        lbl_error.text = message
-        lbl_error.alpha = 1
+    func showProgress(){
+        btn_sign.isEnabled = false
+        btn_sign.alpha = 0.7
+        SVProgressHUD.show()
     }
+    
+    func stopProgress(){
+        btn_sign.isEnabled = true
+        btn_sign.alpha = 1
+        SVProgressHUD.dismiss()
+    }
+    
+     func showError(_ message:String){
+        stopProgress()
+        lbl_error.textColor = .red
+        lbl_error.text = message + " ...!"
+        lbl_error.alpha = 1
+       }
     
     func showPrompt(_ message:String){
-        lbl_error.textColor = .green
+        stopProgress()
+        lbl_error.textColor = .systemGreen
         lbl_error.text = message
         lbl_error.alpha = 1
     }
     
     
-    
+    func validation(email: String, password: String)->Bool{
+        if email.count == 0 || password.count == 0{
+            showError("بعض الحقول فارغة")
+            return false
+        }
+        return true
+    }
     
     @IBAction func btn_login(_ sender: Any) {
         lbl_error.alpha = 0
         //Taking inputs
         let email = txt_email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = txt_password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        SVProgressHUD.show()
-        let user = Auth.auth().currentUser
-        if user != nil{
-            user?.reload(completion: { (error) in
-                if user!.isEmailVerified{
-                    self.loging(email: email, password: password, name: self.name)
+        showProgress()
+        if validation(email: email, password: password){
+            let user = Auth.auth().currentUser
+                if user != nil{
+                    user?.reload(completion: { (error) in
+                        if user!.isEmailVerified{
+                            self.loging(email: email, password:password, name: self.name)
+                        }else{
+                            self.showPrompt("يجب عليك تفعيل حسابك عبر الرسالة المرسلة إلى البريد الألكتروني")
+                        }
+                    })
                 }else{
-                    self.showPrompt("يجب عليك تفعيل حسابك عبر الرسالة المرسلة إلى البريد الألكتروني")
+                    //Existent account
+                    self.loging(email: email, password: password, name: self.name)
                 }
-            })
-        }else{
-            //Existent account
-            self.loging(email: email, password: password, name: self.name)
-        }
+        }       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,14 +110,15 @@ class LoginViewController: UIViewController {
             if err != nil{
                 //Couldn't sign in
                 self.handleError(error: err!)
-                SVProgressHUD.dismiss()
+                self.stopProgress()
             }else{
                 self.isNewAccount(complete: { (newAcc) in
                     if newAcc{
-                       self.setupUser(name: self.name, id: (result?.user.uid)!, email: (result?.user.email!)!)
+                        self.setupUser(name: self.name, id: (result?.user.uid)!, email: (result?.user.email!)!)
+                    }else{
+                        self.stopProgress()
+                        self.performSegue(withIdentifier: "goToHomeVC", sender: self)
                     }
-                    SVProgressHUD.dismiss()
-                    self.performSegue(withIdentifier: "goToHomeVC", sender: self)
                 }, id: (result?.user.uid)!)
             }
         }
@@ -103,7 +127,6 @@ class LoginViewController: UIViewController {
     
     func isNewAccount(complete: @escaping (Bool)->Void, id: String){
         db.collection("user").document(id).getDocument { (documentSnapshot, error) in
-            
             let userData = documentSnapshot?.data()
             if userData == nil{
                 print("New User")
@@ -123,7 +146,7 @@ class LoginViewController: UIViewController {
         let budget = user.createBudget(amount: 0.0, savings: 0.0)
         db.collection("user").document(user.id).setData(user.setUserInfoData())
         budget.setBudgetData()
-        SVProgressHUD.dismiss()
+        stopProgress()
         //Transition to the home screen
         self.performSegue(withIdentifier: "goToHomeVC", sender: self)
     }
@@ -134,23 +157,21 @@ class LoginViewController: UIViewController {
         let errorAuthStatus = AuthErrorCode.init(rawValue: error._code)!
         switch errorAuthStatus {
         case .wrongPassword:
-            showError("Wrong password")
+            showError("كلمة المرور غير صحيحة")
         case .invalidEmail:
-            showError("invalidEmail")
+            showError("أدخل البريد الاإلكتروني بشكل صحيح")
         case .operationNotAllowed:
             showError("operationNotAllowed")
         case .userDisabled:
             showError("userDisabled")
         case .tooManyRequests:
-            showError("tooManyRequests, oooops")
+            showError("تجاوزت عدد المحاولات، حاول لاحقاً")
         case .missingEmail:
-            showError("Missigng email")
+            showError("أدخل البريد الإلكتروني")
         case .userNotFound:
-            showError("User not found")
+            showError("الحساب غير موجود")
             performSegue(withIdentifier: "goToSignUp", sender: self)
-        case .missingOrInvalidNonce:
-            showError("Missing")
-        default: fatalError("error not supported here")
+        default: showError("حدث خطأ، حاول مرة أخرة")
         }
     }
     
