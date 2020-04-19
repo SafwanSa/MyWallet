@@ -61,6 +61,8 @@
 		17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */; };
 		17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */; };
 		17CFCE45242C2D2100452242 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CFCE44242C2D2100452242 /* Goal.swift */; };
+		17DEDA75244A245900E2F966 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDA74244A245900E2F966 /* ForgotPasswordViewController.swift */; };
+		17DEDA77244AD13F00E2F966 /* TestAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEDA76244AD13F00E2F966 /* TestAuthVC.swift */; };
 		17E97A192432B0AD008D6A3B /* SuperNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E97A182432B0AD008D6A3B /* SuperNavigationController.swift */; };
 		17EEB281242BA759002B2621 /* BillCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEB27F242BA759002B2621 /* BillCell2.swift */; };
 		17EEB282242BA759002B2621 /* BillCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EEB280242BA759002B2621 /* BillCell2.xib */; };
@@ -129,6 +131,8 @@
 		17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
 		17CFCE44242C2D2100452242 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		17DEDA74244A245900E2F966 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		17DEDA76244AD13F00E2F966 /* TestAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAuthVC.swift; sourceTree = "<group>"; };
 		17E97A182432B0AD008D6A3B /* SuperNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperNavigationController.swift; sourceTree = "<group>"; };
 		17EEB27F242BA759002B2621 /* BillCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCell2.swift; sourceTree = "<group>"; };
 		17EEB280242BA759002B2621 /* BillCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillCell2.xib; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				17012FEF2401504A000B840A /* AddPaymentViewController.swift */,
 				1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */,
 				17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */,
+				17DEDA74244A245900E2F966 /* ForgotPasswordViewController.swift */,
 				17CFCE43242C2BAB00452242 /* Custom Cells 2 */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
 			);
@@ -265,6 +270,7 @@
 				170E79C623F9C029007A894C /* Assets.xcassets */,
 				1752ED492333A2770052CE54 /* GoogleService-Info.plist */,
 				17012FF32402CF60000B840A /* Designed Classes */,
+				17DEDA76244AD13F00E2F966 /* TestAuthVC.swift */,
 			);
 			path = "My Wallet";
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				17FD1E68244998BD00A9B3FE /* DataBank.swift in Sources */,
 				171D5D5A2333AACB00EA774D /* SignupViewController.swift in Sources */,
 				17CFCE45242C2D2100452242 /* Goal.swift in Sources */,
+				17DEDA75244A245900E2F966 /* ForgotPasswordViewController.swift in Sources */,
 				17EEB281242BA759002B2621 /* BillCell2.swift in Sources */,
 				171029CD2415B27B00D0D697 /* HistoryCell.swift in Sources */,
 				1767B500242AC55F008ECDDE /* HSUnderLineTextField.swift in Sources */,
@@ -488,6 +495,7 @@
 				171029C92415AF8700D0D697 /* HistoryViewController.swift in Sources */,
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
 				171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */,
+				17DEDA77244AD13F00E2F966 /* TestAuthVC.swift in Sources */,
 				170D23C3241EAF2B007A69D9 /* HomeCell.swift in Sources */,
 				1767B4FD242AC0DD008ECDDE /* AccountCell.swift in Sources */,
 				1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */,
