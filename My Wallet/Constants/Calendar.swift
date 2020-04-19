@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseAuth 
 class Calendar{
     
     static var categ = ""
