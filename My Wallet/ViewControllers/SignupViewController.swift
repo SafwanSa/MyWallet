@@ -12,93 +12,185 @@ import FirebaseFirestore
 import SVProgressHUD
 class SignupViewController: UIViewController {
 
-    @IBOutlet weak var signUpView: UIView!
     @IBOutlet weak var lbl_error: UILabel!
-    @IBOutlet weak var txt_password: UITextField!
-    @IBOutlet weak var txt_email: UITextField!
-    @IBOutlet weak var txt_last_name: UITextField!
-    @IBOutlet weak var txt_first_name: UITextField!
+    @IBOutlet weak var txt_password: HSUnderLineTextField!
+    @IBOutlet weak var txt_email: HSUnderLineTextField!
+    @IBOutlet weak var txt_name: HSUnderLineTextField!
+    
+    let db = Firestore.firestore()
+    var email: String = ""
+    var msg: String = ""
+    var name: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        signUpView.layer.shadowOpacity = 0.6
-        signUpView.layer.shadowRadius = 5
-        signUpView.layer.shadowOffset = .zero
-        signUpView.layer.masksToBounds = false
+//        try! Auth.auth().signOut()
+        if self.msg != ""{
+            //Coming from the log in VC
+            self.showPrompt(msg)
+            self.txt_email.text = email
+        }else{
+            //Coming from the base screen
+            checkAccount()
+        }
+
     }
     
-    func isPasswordValid(_ password : String) -> Bool{
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-        return passwordTest.evaluate(with: password)
+    
+    func checkAccount(){
+        let user = Auth.auth().currentUser
+        if user != nil{
+            //There is a user signed in
+            user!.reload { (error) in
+                if user!.isEmailVerified{
+                    self.showPrompt("تم تفعيل الحساب.. يمكنك الدخول الآن")
+                }else{
+                    self.deleteUser()
+                }
+            }
+        }else{
+            self.showError("No user")
+        }
     }
     
-    func isValidEmail(testStr:String) -> Bool {
-        print("validate emilId: \(testStr)")
-        let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let result = emailTest.evaluate(with: testStr)
-        return result
+    
+    func deleteUser(){
+        try! Auth.auth().signOut()
+        Auth.auth().currentUser!.delete { (error) in
+            self.showError("User deleted...")
+        }
     }
     
-    func validation()->String?{
-        //Check if there any textFields empty
-        if txt_first_name.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""||txt_last_name.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""||txt_email.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""||txt_password.text?.trimmingCharacters(in: .whitespacesAndNewlines)==""{
-            return "يجب تعبئة جميع الحقول ..! "
-        }
-        //Check if the password is secure
-        let cleanPassword = txt_password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        if isPasswordValid(cleanPassword) == false{
-            return "يجب أن تكون كلمة السر مكونة من ٨ خانات على الأقل، وتضمن رقم و رمز (!@#$٪^&..) ... ! "
-        }
-        //Check if the email is valid
-        let cleanEmail = txt_email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        if isValidEmail(testStr: cleanEmail) == false{
-            return "أدخل البريد الإلكتروني بشكل صحيح ... !"
-        }
-        return nil
-    }
     
     func showError(_ message:String){
+        SVProgressHUD.dismiss()
+        lbl_error.textColor = .red
+        lbl_error.text = message + " ...!"
+        lbl_error.alpha = 1
+    }
+    
+    func showPrompt(_ message:String){
+        SVProgressHUD.dismiss()
+        lbl_error.textColor = .green
         lbl_error.text = message
         lbl_error.alpha = 1
     }
     
-    @IBAction func btn_signup(_ sender: Any) {
-        //Adjusting the error label
-        lbl_error.alpha = 0
-        //Validate the textfields
-        let error = validation()
-        //Show loading
-        SVProgressHUD.show()
-        if error != nil{
-          showError(error!)
-            SVProgressHUD.dismiss()
-        }else{
-            //Create the user.
-            let db = Firestore.firestore()
-            let first_name = self.txt_first_name.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let last_name = self.txt_last_name.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = self.txt_email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = self.txt_password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-                if err != nil{
-                    //There is an error in creating the user.
-                    self.showError("البريد الإلكتروني مستخدم ... !")
-                    SVProgressHUD.dismiss()
-                }else{
-                    //The user has been created successfuly, now store his data in firestore.
-                    let user = UserInfo(first_name: first_name, last_name: last_name, email: email, id: result!.user.uid)
-                    let budget = user.createBudget(amount: 0.0, savings: 0.0)
-                    db.collection("user").document(user.id).setData(user.setUserInfoData())
-                    budget.setBudgetData()
-                    SVProgressHUD.dismiss()
-                    //Transition to the home screen
-                    self.performSegue(withIdentifier: "goToHomeVC", sender: self)
-                }
+    func register(email: String, password: String){
+        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+            if err != nil{
+                self.handleError(error: err!)
+            }else{
+                //There is no error in the fields
+                result?.user.reload(completion: { (error) in
+                    //Send email verificaition
+                    result?.user.sendEmailVerification(completion: { (error) in
+                        if error != nil{
+                            self.handleError(error: error!)
+                        }
+                        //Email sent
+                        SVProgressHUD.dismiss()
+                        print("user email verification sent")
+                        self.txt_password.text = ""
+                        self.showPrompt("تم إرسال رسالة تفعيل الحساب على البريد الإلكتروني")
+                        print(Auth.auth().currentUser!.email)
+                        self.performSegue(withIdentifier: "goToLogin", sender: self)
+                    })
+                })
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is LoginViewController{
+            let dest = segue.destination as! LoginViewController
+            dest.email = Auth.auth().currentUser!.email!
+            dest.msg = "تم إرسال رسالة تفعيل الحساب على البريد الإلكتروني"
+            dest.name = txt_name.text!
+        }
+    }
+    
+    
+    @IBAction func btn_signup(_ sender: Any) {
+        lbl_error.alpha = 0
+        //Taking the inputs
+        let name = self.txt_name.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = self.txt_email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = self.txt_password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        //Show loading
+        SVProgressHUD.show()
+        if validation(email: email, password: password, name: name){
+            register(email: email, password: password)
+        }
+    }
+    
+    func validation(email: String, password: String, name: String)->Bool{
+        var valid = true
+        if email.count == 0 || password.count == 0 || name.count == 0{
+            showError("بعض الحقول فارغة")
+            valid = false
+        }else{
+            valid = validateName(name: name)
+            if password.count < 8{
+                showError("كلمة السر أقل من ٨ خانات")
+            }
+        }
+        return valid
+    }
+    
+    
+    func validateName(name: String)->Bool{
+        if name.count < 2 {
+            showError("الاسم قصير ...")
+            return false
+        }else{
+            if !isValidLetters(name: name) {
+                showError("يجب أن يتكون الاسم من حروف فقط")
+                return false
+            }
+            if name.count > 20{
+                showError("يجب أن يكون الاسم أقصر من ٢٥ حرفاً")
+                return false
+            }
+        }
+        return true
+    }
+    
+    
+    
+    func isValidLetters(name :String) -> Bool {
+        let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
+        return predicateTest.evaluate(with: name)
+    }
+    
+    func handleError(error: Error) {
+        let errorAuthStatus = AuthErrorCode.init(rawValue: error._code)!
+        switch errorAuthStatus {
+        case .invalidEmail:
+            showError("invalidEmail")
+        case .operationNotAllowed:
+            showError("operationNotAllowed")
+        case .userDisabled:
+            showError("userDisabled")
+        case .tooManyRequests:
+            showError("tooManyRequests, oooops")
+        case .emailAlreadyInUse:
+            showError("Email used")
+        case .missingEmail:
+            showError("Missigng email")
+        case .weakPassword:
+            showError("Weak password")
+        case .missingOrInvalidNonce:
+            showError("Missing")
+        default: fatalError("error not supported here")
+        }
+    }
+    
+    
+    
+    
+    
     
     func closeKeyboard(){
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -106,3 +198,5 @@ class SignupViewController: UIViewController {
     }
     
 }
+
+
