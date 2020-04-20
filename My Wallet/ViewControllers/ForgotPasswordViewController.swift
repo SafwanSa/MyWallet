@@ -19,6 +19,7 @@ class ForgotPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        closeKeyboard()
     }
     
     func validation(email: String)->Bool{
@@ -94,5 +95,9 @@ class ForgotPasswordViewController: UIViewController {
         }
     }
     
+    func closeKeyboard(){
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
+    }
     
 }
