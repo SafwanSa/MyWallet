@@ -83,7 +83,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أهلا بك في تطبيق محفظتي" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0en-YG-Y0B">
-                                <rect key="frame" x="37" y="261" width="339" height="60.666666666666686"/>
+                                <rect key="frame" x="37" y="261" width="339" height="34"/>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="29"/>
                                 <color key="textColor" red="0.039215686270000001" green="0.59607843140000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -752,6 +752,7 @@
                     <connections>
                         <segue destination="UE2-ro-pFr" kind="show" identifier="goToBillMng" id="2kE-uT-Err"/>
                         <segue destination="wGQ-zZ-K7y" kind="show" identifier="goToFinance" id="ADV-BI-MKo"/>
+                        <segue destination="8Be-np-pjb" kind="show" identifier="goToChangePass" id="7fE-Bn-95U"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOG-Kg-l58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1051,12 +1052,12 @@
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="-580.58035714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Change Password View Controller-->
         <scene sceneID="yeG-UF-sry">
             <objects>
-                <viewController id="8Be-np-pjb" sceneMemberID="viewController">
+                <viewController id="8Be-np-pjb" customClass="ChangePasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHJ-D8-0hx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chnage password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of5-Uq-eKY">
@@ -1073,12 +1074,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHW-9b-zsc">
-                                <rect key="frame" x="69" y="267" width="179" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter your new password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Res-Hi-1jw">
                                 <rect key="frame" x="69" y="330" width="193" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1086,6 +1081,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHW-9b-zsc">
+                                <rect key="frame" x="69" y="267" width="179" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRR-aL-mRH">
                                 <rect key="frame" x="69" y="372" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1096,15 +1097,32 @@
                                 <rect key="frame" x="181" y="557" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Chnage"/>
+                                <connections>
+                                    <action selector="chnagePressed:" destination="8Be-np-pjb" eventType="touchUpInside" id="ZRE-7x-wBB"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3S-XG-Pe0">
+                                <rect key="frame" x="69" y="454" width="298" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="btc-N4-L0O"/>
                     </view>
+                    <navigationItem key="navigationItem" id="oYc-JD-RTH"/>
+                    <connections>
+                        <outlet property="btn_change" destination="1X3-WW-ecU" id="ZDM-Rn-EYr"/>
+                        <outlet property="lbl_msg" destination="J3S-XG-Pe0" id="TRT-bu-jlI"/>
+                        <outlet property="txt_currentPass" destination="cHW-9b-zsc" id="eN6-hJ-AKj"/>
+                        <outlet property="txt_newPass" destination="KRR-aL-mRH" id="nsa-NL-YKR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiM-gW-x8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176.81159420289856" y="304.07608695652175"/>
+            <point key="canvasLocation" x="7904" y="-582"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ytM-wv-gRe">

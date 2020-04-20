@@ -194,7 +194,7 @@ class SignupViewController: UIViewController {
         case .missingEmail:
             showError("أدخل البريد الإلكتروني")
         case .weakPassword:
-            showError("كلمة المرور ضعيفة")
+            showError("يجب أن تكون كلمة المرور مكونة من ٦ خانات على الأقل")
         default: showError("حدث خطأ، حاول مرة أخرة")
         }
     }

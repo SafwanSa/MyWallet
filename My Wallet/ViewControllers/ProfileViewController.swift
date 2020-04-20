@@ -87,6 +87,7 @@ class ProfileViewController: UITableViewController {
         }else if indexPath.section == 3{
             //Chnage password
             print("Chnage password")
+            self.performSegue(withIdentifier: "goToChangePass", sender: self)
         }else{
             //Delete Account
             print("Delete Account")

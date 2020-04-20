@@ -46,6 +46,7 @@
 		1767B50C242AE249008ECDDE /* AddBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1767B50A242AE249008ECDDE /* AddBillCell.xib */; };
 		1790276D24426DC000631D68 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1790276B24426DC000631D68 /* StatusCell.swift */; };
 		1790276E24426DC000631D68 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1790276C24426DC000631D68 /* StatusCell.xib */; };
+		17955DDB244DA9B20032CF4E /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17955DDA244DA9B20032CF4E /* ChangePasswordViewController.swift */; };
 		179B74E62426B66800471439 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179B74E52426B66800471439 /* Bill.swift */; };
 		179DBE22241D16CB0009C763 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE21241D16CB0009C763 /* Budget.swift */; };
 		179DBE24241D426E0009C763 /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DBE23241D426E0009C763 /* StatTableViewController.swift */; };
@@ -116,6 +117,7 @@
 		1767B50A242AE249008ECDDE /* AddBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBillCell.xib; sourceTree = "<group>"; };
 		1790276B24426DC000631D68 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		1790276C24426DC000631D68 /* StatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
+		17955DDA244DA9B20032CF4E /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		179B74E52426B66800471439 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		179DBE21241D16CB0009C763 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		179DBE23241D426E0009C763 /* StatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				17DEDA74244A245900E2F966 /* ForgotPasswordViewController.swift */,
 				17CFCE43242C2BAB00452242 /* Custom Cells 2 */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
+				17955DDA244DA9B20032CF4E /* ChangePasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				1790276D24426DC000631D68 /* StatusCell.swift in Sources */,
 				1705F68323463DF6009C16DF /* UserInfo.swift in Sources */,
 				171D5D582333AABF00EA774D /* LoginViewController.swift in Sources */,
+				17955DDB244DA9B20032CF4E /* ChangePasswordViewController.swift in Sources */,
 				17012FF224027E08000B840A /* GradientView.swift in Sources */,
 				179B74E62426B66800471439 /* Bill.swift in Sources */,
 				171D5D612333B39F00EA774D /* MyButton.swift in Sources */,
