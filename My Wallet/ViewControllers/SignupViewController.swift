@@ -27,6 +27,7 @@ class SignupViewController: UIViewController {
         super.viewDidLoad()
         closeKeyboard()
 //        try! Auth.auth().signOut()
+        
         if self.msg != ""{
             //Coming from the log in VC
             self.showPrompt(msg)
@@ -121,6 +122,7 @@ class SignupViewController: UIViewController {
             dest.email = Auth.auth().currentUser!.email!
             dest.msg = "تم إرسال رسالة تفعيل الحساب على البريد الإلكتروني"
             dest.name = txt_name.text!
+            dest.allowBack = false
         }
     }
     

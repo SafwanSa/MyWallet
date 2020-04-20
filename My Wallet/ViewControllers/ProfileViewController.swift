@@ -108,12 +108,15 @@ class ProfileViewController: UITableViewController {
     
     func deleteAccount(){
         let alert = UIAlertController(title: "أدخل كلمة المرور", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "إلغاء", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "إلغاء", style: .default, handler: nil))
         alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Input your name here..."
+//            textField.placeholder = "Input your name here..."
+            textField.textAlignment = .right
+            textField.textContentType = .password
+            textField.isSecureTextEntry = true
         })
         
-        alert.addAction(UIAlertAction(title: "أحذف الحساب", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "أحذف", style: .cancel, handler: { action in
             if let pass = alert.textFields?.first?.text {
                 if self.validation(pass: pass){
                     self.showProgress()

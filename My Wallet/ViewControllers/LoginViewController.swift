@@ -19,11 +19,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txt_password: UITextField!
     @IBOutlet weak var lbl_error: UILabel!
     @IBOutlet weak var btn_sign: RoundButton!
+    @IBOutlet weak var btn_back: UIButton!
     
     let db = Firestore.firestore()
     var email: String = ""
     var msg: String = ""
     var name: String = ""
+    var allowBack = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,10 @@ class LoginViewController: UIViewController {
         print(msg)
         txt_email.text = email
         showPrompt(msg)
+        
+        if !allowBack{
+            btn_back.alpha = 0
+        }
     }
     
     let em = "s@s.com"

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NWe-vy-cXs">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -118,7 +117,7 @@
             <objects>
                 <tableViewController id="FCZ-t8-D1f" customClass="StatTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="7sW-kW-OXD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="dataSource" destination="FCZ-t8-D1f" id="na1-Kp-EfL"/>
@@ -139,7 +138,7 @@
             <objects>
                 <tableViewController id="VmY-2Z-DH7" customClass="HistoryTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" id="QPL-EX-7ls">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -211,7 +210,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="yNn-WX-F34">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="LIg-C8-ARf">
-                            <rect key="frame" x="181" y="22" width="52" height="0.0"/>
+                            <rect key="frame" x="181" y="28" width="52" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مشترياتك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gO-W5-hNa">
@@ -243,7 +242,7 @@
             <objects>
                 <tableViewController id="nvo-ar-cdV" customClass="MonthsTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bE2-RC-8MC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="monthCell" rowHeight="77" id="opA-Bf-Wel">
@@ -397,7 +396,7 @@
             <objects>
                 <viewController id="Re6-Xz-PJ5" customClass="ForgotPasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6f-ln-2OZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Ul8-hL-VcF">
@@ -455,7 +454,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITm-OU-BdR" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="653" width="354" height="53"/>
+                                <rect key="frame" x="30" y="633" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.60392156860000001" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ITm-OU-BdR" secondAttribute="height" multiplier="354:53" id="0sg-UY-gI5"/>
@@ -513,7 +512,7 @@
             <objects>
                 <viewController id="x3p-sm-VMc" customClass="LoginViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VPz-TZ-wEd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="udI-IQ-Qy9">
@@ -581,7 +580,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGV-XD-nDb" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="653" width="354" height="53"/>
+                                <rect key="frame" x="30" y="633" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686274509803" green="0.60392156862745094" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CGV-XD-nDb" secondAttribute="height" multiplier="354:53" id="D8K-Wm-Ch4"/>
@@ -644,6 +643,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OXe-Zo-PXa"/>
                     <connections>
+                        <outlet property="btn_back" destination="A7d-Vy-Ndg" id="SqI-5G-Q8z"/>
                         <outlet property="btn_sign" destination="CGV-XD-nDb" id="1AN-ih-OsM"/>
                         <outlet property="lbl_error" destination="xFN-Jq-5oh" id="S36-Ti-7Um"/>
                         <outlet property="txt_email" destination="nJP-lN-cdZ" id="Y8B-ST-OQD"/>
@@ -661,7 +661,7 @@
             <objects>
                 <tableViewController id="thc-tz-GrI" customClass="ProfileViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xbU-xe-bw4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -789,7 +789,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="settings" id="wGQ-zZ-K7y" customClass="FinanceTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="right" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Fc0-mL-wX2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
@@ -808,7 +808,7 @@
             <objects>
                 <tableViewController id="i0J-bd-nYj" customClass="HistoryViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Oft-Kz-PvM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -863,7 +863,7 @@
             <objects>
                 <tableViewController id="bpp-xz-8YE" customClass="HomeViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ac-pP-BNT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <connections>
@@ -1026,7 +1026,7 @@
                 <navigationController id="1zn-Py-Fkz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fqL-JP-Dtm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9yP-Ae-2Vk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1042,7 +1042,7 @@
             <objects>
                 <tableViewController id="UE2-ro-pFr" customClass="BillMngTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ufj-fU-t6p">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="dataSource" destination="UE2-ro-pFr" id="EPg-4f-9cC"/>
@@ -1082,7 +1082,7 @@
             <objects>
                 <viewController id="8Be-np-pjb" customClass="ChangePasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHJ-D8-0hx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chnage password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of5-Uq-eKY">
@@ -1110,13 +1110,13 @@
                                 <rect key="frame" x="69" y="267" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRR-aL-mRH">
                                 <rect key="frame" x="69" y="372" width="179" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1X3-WW-ecU">
                                 <rect key="frame" x="181" y="557" width="53" height="30"/>
@@ -1157,7 +1157,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="XaZ-ZE-HEz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hUx-z9-Esj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1174,7 +1174,7 @@
             <objects>
                 <viewController id="Fs4-lH-GxD" customClass="SignupViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fVf-Gc-kPa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-HE-Km4">
@@ -1257,7 +1257,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvb-dU-3iL" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="653" width="354" height="53"/>
+                                <rect key="frame" x="30" y="633" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.60392156860000001" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fvb-dU-3iL" secondAttribute="height" multiplier="354:53" id="dMf-f8-Zky"/>
@@ -1334,9 +1334,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vix-50-GMu"/>
-        <segue reference="OQ9-H0-hYY"/>
-        <segue reference="mZs-z8-tJX"/>
+        <segue reference="rV6-Mh-avX"/>
+        <segue reference="erF-3g-8gi"/>
+        <segue reference="OPe-XH-nwV"/>
         <segue reference="W5A-zB-jkd"/>
         <segue reference="0S5-Hy-7db"/>
     </inferredMetricsTieBreakers>
