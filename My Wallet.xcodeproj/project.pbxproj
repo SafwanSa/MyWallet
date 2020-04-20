@@ -216,9 +216,9 @@
 				1767B507242AE1F8008ECDDE /* BillMngTableViewController.swift */,
 				17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */,
 				17DEDA74244A245900E2F966 /* ForgotPasswordViewController.swift */,
+				17955DDA244DA9B20032CF4E /* ChangePasswordViewController.swift */,
 				17CFCE43242C2BAB00452242 /* Custom Cells 2 */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
-				17955DDA244DA9B20032CF4E /* ChangePasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -658,7 +658,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HLS72XKTNJ;
 				INFOPLIST_FILE = "My Wallet/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,7 +678,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HLS72XKTNJ;
 				INFOPLIST_FILE = "My Wallet/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

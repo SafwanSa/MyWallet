@@ -81,7 +81,7 @@ class ProfileViewController: UITableViewController {
             //Sucssefuly loged out, now segue to base view
             let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let centerVC = mainStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            let centerVC = mainStoryBoard.instantiateViewController(withIdentifier: "startViewController") as! UINavigationController
             appDel.window!.rootViewController = centerVC
             appDel.window!.makeKeyAndVisible()
         }else if indexPath.section == 3{

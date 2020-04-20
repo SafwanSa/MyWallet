@@ -83,7 +83,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أهلا بك في تطبيق محفظتي" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0en-YG-Y0B">
-                                <rect key="frame" x="37" y="261" width="339" height="34"/>
+                                <rect key="frame" x="37" y="261" width="339" height="60.666666666666686"/>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="29"/>
                                 <color key="textColor" red="0.039215686270000001" green="0.59607843140000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -94,9 +94,9 @@
                             <constraint firstItem="CUn-ky-63A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CRV-Ox-bM6"/>
                             <constraint firstItem="CUn-ky-63A" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MBB-Rs-doB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0en-YG-Y0B" secondAttribute="trailing" constant="38" id="O6X-ih-A6V"/>
-                            <constraint firstItem="CUn-ky-63A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Teo-Y4-Jiu"/>
                             <constraint firstItem="Fne-Kj-ftd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="YQO-Zn-3yc"/>
                             <constraint firstItem="0en-YG-Y0B" firstAttribute="top" secondItem="CUn-ky-63A" secondAttribute="bottom" constant="60" id="ZfA-n5-tdP"/>
+                            <constraint firstItem="CUn-ky-63A" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cl3-DE-MHh"/>
                             <constraint firstItem="0en-YG-Y0B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="o8C-om-gma"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fne-Kj-ftd" secondAttribute="trailing" constant="30" id="uns-1w-XB0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fne-Kj-ftd" secondAttribute="bottom" constant="30" id="yeq-Ao-Oq6"/>
@@ -118,7 +118,7 @@
             <objects>
                 <tableViewController id="FCZ-t8-D1f" customClass="StatTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="7sW-kW-OXD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="dataSource" destination="FCZ-t8-D1f" id="na1-Kp-EfL"/>
@@ -139,7 +139,7 @@
             <objects>
                 <tableViewController id="VmY-2Z-DH7" customClass="HistoryTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" id="QPL-EX-7ls">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -211,7 +211,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="yNn-WX-F34">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="LIg-C8-ARf">
-                            <rect key="frame" x="181" y="28" width="52" height="0.0"/>
+                            <rect key="frame" x="181" y="22" width="52" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مشترياتك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gO-W5-hNa">
@@ -243,7 +243,7 @@
             <objects>
                 <tableViewController id="nvo-ar-cdV" customClass="MonthsTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bE2-RC-8MC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="monthCell" rowHeight="77" id="opA-Bf-Wel">
@@ -390,27 +390,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMt-Uh-gBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="-1986"/>
+            <point key="canvasLocation" x="2074" y="-2052"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="aRT-S2-6CX">
             <objects>
                 <viewController id="Re6-Xz-PJ5" customClass="ForgotPasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6f-ln-2OZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Ul8-hL-VcF">
                                 <rect key="frame" x="0.0" y="-12" width="435" height="151"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2se-Rw-QvM">
+                                <rect key="frame" x="19.999999999999996" y="20" width="37.666666666666657" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.left.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="Re6-Xz-PJ5" eventType="touchUpInside" id="TZb-kx-oUE"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نسيت كلمة المرور" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6un-X7-c0q">
                                 <rect key="frame" x="113" y="100" width="281" height="38.666666666666657"/>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="37"/>
                                 <color key="textColor" red="0.036146998409999999" green="0.70900851490000005" blue="0.75688058140000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rnb-mK-7sx">
-                                <rect key="frame" x="30" y="198.66666666666666" width="354" height="104.99999999999997"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rnb-mK-7sx">
+                                <rect key="frame" x="30" y="198.66666666666663" width="354" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البريد الإلكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRR-VA-4cU">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="21.666666666666668"/>
@@ -419,7 +430,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dlQ-FF-NdU" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="41.666666666666686" width="354" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="41.666666666666664" width="354" height="21.666666666666664"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
@@ -436,7 +447,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خطآ في الدخول .. !" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qK-hV-rzw">
-                                        <rect key="frame" x="0.0" y="83.333333333333343" width="354" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="83.333333333333329" width="354" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
                                         <color key="textColor" red="0.7005426307" green="0.2475695118" blue="0.2280554642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -444,7 +455,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITm-OU-BdR" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="633" width="354" height="53"/>
+                                <rect key="frame" x="30" y="653" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.60392156860000001" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ITm-OU-BdR" secondAttribute="height" multiplier="354:53" id="0sg-UY-gI5"/>
@@ -471,15 +482,16 @@
                         <constraints>
                             <constraint firstItem="6un-X7-c0q" firstAttribute="top" secondItem="bLR-id-Drx" secondAttribute="top" constant="100" id="08R-tW-KlF"/>
                             <constraint firstItem="6un-X7-c0q" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" constant="113" id="5Ie-0z-i3H"/>
+                            <constraint firstItem="Ul8-hL-VcF" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" id="AgU-Kq-wFV"/>
+                            <constraint firstItem="2se-Rw-QvM" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" constant="20" id="EZ0-h1-KSf"/>
                             <constraint firstItem="Rnb-mK-7sx" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" constant="30" id="I6n-OA-YhI"/>
-                            <constraint firstItem="Ul8-hL-VcF" firstAttribute="top" secondItem="bLR-id-Drx" secondAttribute="top" constant="-12" id="Ldd-d5-PBN"/>
                             <constraint firstItem="bLR-id-Drx" firstAttribute="trailing" secondItem="6un-X7-c0q" secondAttribute="trailing" constant="20" id="PgX-81-JNY"/>
-                            <constraint firstItem="Ul8-hL-VcF" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" id="ZrC-ki-HJU"/>
+                            <constraint firstItem="2se-Rw-QvM" firstAttribute="top" secondItem="L6f-ln-2OZ" secondAttribute="top" constant="20" id="USm-2f-XGd"/>
                             <constraint firstItem="bLR-id-Drx" firstAttribute="bottom" secondItem="ITm-OU-BdR" secondAttribute="bottom" constant="30" id="fAk-cF-sTX"/>
                             <constraint firstItem="bLR-id-Drx" firstAttribute="trailing" secondItem="Rnb-mK-7sx" secondAttribute="trailing" constant="30" id="ikG-i7-lwC"/>
+                            <constraint firstItem="Ul8-hL-VcF" firstAttribute="top" secondItem="L6f-ln-2OZ" secondAttribute="top" constant="-12" id="mAk-OK-Omq"/>
                             <constraint firstItem="bLR-id-Drx" firstAttribute="trailing" secondItem="ITm-OU-BdR" secondAttribute="trailing" constant="30" id="mQT-vf-1Lw"/>
                             <constraint firstAttribute="trailing" secondItem="Ul8-hL-VcF" secondAttribute="trailing" constant="-21" id="srL-XY-yX0"/>
-                            <constraint firstItem="Rnb-mK-7sx" firstAttribute="top" secondItem="Ul8-hL-VcF" secondAttribute="bottom" constant="59.670000000000002" id="uPm-CW-ZO9"/>
                             <constraint firstItem="ITm-OU-BdR" firstAttribute="leading" secondItem="bLR-id-Drx" secondAttribute="leading" constant="30" id="vLW-7z-Eag"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bLR-id-Drx"/>
@@ -501,7 +513,7 @@
             <objects>
                 <viewController id="x3p-sm-VMc" customClass="LoginViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VPz-TZ-wEd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="udI-IQ-Qy9">
@@ -569,7 +581,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGV-XD-nDb" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="633" width="354" height="53"/>
+                                <rect key="frame" x="30" y="653" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686274509803" green="0.60392156862745094" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CGV-XD-nDb" secondAttribute="height" multiplier="354:53" id="D8K-Wm-Ch4"/>
@@ -593,6 +605,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="hq5-WO-XXh">
                                 <rect key="frame" x="0.0" y="-12" width="435" height="151"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7d-Vy-Ndg">
+                                <rect key="frame" x="19.999999999999996" y="20" width="37.666666666666657" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.left.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="x3p-sm-VMc" eventType="touchUpInside" id="o7E-fx-dZN"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMo-pr-aMS">
                                 <rect key="frame" x="128" y="90" width="266" height="38.666666666666657"/>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="37"/>
@@ -606,11 +629,13 @@
                             <constraint firstItem="lHG-k8-Lfb" firstAttribute="trailing" secondItem="CGV-XD-nDb" secondAttribute="trailing" constant="30" id="5x6-Kf-GM6"/>
                             <constraint firstItem="LMo-pr-aMS" firstAttribute="leading" secondItem="lHG-k8-Lfb" secondAttribute="leading" constant="128" id="9ar-cQ-saO"/>
                             <constraint firstItem="lHG-k8-Lfb" firstAttribute="trailing" secondItem="udI-IQ-Qy9" secondAttribute="trailing" constant="30" id="EW1-5R-NhQ"/>
+                            <constraint firstItem="A7d-Vy-Ndg" firstAttribute="leading" secondItem="lHG-k8-Lfb" secondAttribute="leading" constant="20" id="IUR-Ze-jDh"/>
                             <constraint firstItem="udI-IQ-Qy9" firstAttribute="top" secondItem="LMo-pr-aMS" secondAttribute="bottom" constant="70" id="RSh-pF-aCb"/>
                             <constraint firstItem="CGV-XD-nDb" firstAttribute="leading" secondItem="lHG-k8-Lfb" secondAttribute="leading" constant="30" id="Se3-MV-r1a"/>
                             <constraint firstAttribute="trailing" secondItem="hq5-WO-XXh" secondAttribute="trailing" constant="-21" id="TMP-dw-VqX"/>
                             <constraint firstItem="lHG-k8-Lfb" firstAttribute="bottom" secondItem="CGV-XD-nDb" secondAttribute="bottom" constant="30" id="TU4-bW-d7T"/>
                             <constraint firstItem="hq5-WO-XXh" firstAttribute="top" secondItem="VPz-TZ-wEd" secondAttribute="top" constant="-12" id="XCJ-b3-eNl"/>
+                            <constraint firstItem="A7d-Vy-Ndg" firstAttribute="top" secondItem="VPz-TZ-wEd" secondAttribute="top" constant="20" id="l3i-OP-SUg"/>
                             <constraint firstItem="LMo-pr-aMS" firstAttribute="top" secondItem="lHG-k8-Lfb" secondAttribute="top" constant="90" id="mbB-2k-KJB"/>
                             <constraint firstItem="udI-IQ-Qy9" firstAttribute="leading" secondItem="lHG-k8-Lfb" secondAttribute="leading" constant="30" id="nnB-ha-C08"/>
                             <constraint firstItem="lHG-k8-Lfb" firstAttribute="trailing" secondItem="LMo-pr-aMS" secondAttribute="trailing" constant="20" id="pNT-pP-y6K"/>
@@ -636,7 +661,7 @@
             <objects>
                 <tableViewController id="thc-tz-GrI" customClass="ProfileViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xbU-xe-bw4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -764,7 +789,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="settings" id="wGQ-zZ-K7y" customClass="FinanceTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="right" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Fc0-mL-wX2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
@@ -783,7 +808,7 @@
             <objects>
                 <tableViewController id="i0J-bd-nYj" customClass="HistoryViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Oft-Kz-PvM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -838,7 +863,7 @@
             <objects>
                 <tableViewController id="bpp-xz-8YE" customClass="HomeViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ac-pP-BNT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <connections>
@@ -1001,7 +1026,7 @@
                 <navigationController id="1zn-Py-Fkz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fqL-JP-Dtm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9yP-Ae-2Vk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1017,7 +1042,7 @@
             <objects>
                 <tableViewController id="UE2-ro-pFr" customClass="BillMngTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ufj-fU-t6p">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="dataSource" destination="UE2-ro-pFr" id="EPg-4f-9cC"/>
@@ -1034,7 +1059,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hv3-UJ-jtf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NWe-vy-cXs" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="startViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NWe-vy-cXs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kMk-97-MJu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TpN-qs-w0g">
@@ -1057,7 +1082,7 @@
             <objects>
                 <viewController id="8Be-np-pjb" customClass="ChangePasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHJ-D8-0hx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chnage password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of5-Uq-eKY">
@@ -1132,7 +1157,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="XaZ-ZE-HEz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hUx-z9-Esj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1149,13 +1174,13 @@
             <objects>
                 <viewController id="Fs4-lH-GxD" customClass="SignupViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fVf-Gc-kPa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-HE-Km4">
                                 <rect key="frame" x="30" y="198.66666666666666" width="354" height="271.66666666666674"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاسم الأول" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lc-mW-B6m">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاسم" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lc-mW-B6m">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="21.666666666666668"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                         <color key="textColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1232,7 +1257,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvb-dU-3iL" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="633" width="354" height="53"/>
+                                <rect key="frame" x="30" y="653" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.60392156860000001" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fvb-dU-3iL" secondAttribute="height" multiplier="354:53" id="dMf-f8-Zky"/>
@@ -1262,6 +1287,17 @@
                                 <color key="textColor" red="0.036146998409999999" green="0.70900851490000005" blue="0.75688058140000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AI7-pU-YYy">
+                                <rect key="frame" x="19.999999999999996" y="20" width="37.666666666666657" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.left.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="Fs4-lH-GxD" eventType="touchUpInside" id="V5n-cy-4Tm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1269,6 +1305,7 @@
                             <constraint firstItem="q2E-W8-fco" firstAttribute="leading" secondItem="xci-LI-ZqE" secondAttribute="leading" id="1wc-YO-j4m"/>
                             <constraint firstItem="b3Z-lr-kKy" firstAttribute="leading" secondItem="xci-LI-ZqE" secondAttribute="leading" constant="128" id="5HM-B8-uVY"/>
                             <constraint firstItem="xci-LI-ZqE" firstAttribute="trailing" secondItem="b3Z-lr-kKy" secondAttribute="trailing" constant="20" id="DMb-hL-HoH"/>
+                            <constraint firstItem="AI7-pU-YYy" firstAttribute="top" secondItem="xci-LI-ZqE" secondAttribute="top" constant="20" id="OpX-Sx-Wb4"/>
                             <constraint firstItem="fvb-dU-3iL" firstAttribute="leading" secondItem="xci-LI-ZqE" secondAttribute="leading" constant="30" id="PDx-x8-hRG"/>
                             <constraint firstAttribute="trailing" secondItem="q2E-W8-fco" secondAttribute="trailing" constant="-21" id="Xk1-JM-CMr"/>
                             <constraint firstItem="xci-LI-ZqE" firstAttribute="trailing" secondItem="fvb-dU-3iL" secondAttribute="trailing" constant="30" id="dmd-6a-zcA"/>
@@ -1277,6 +1314,7 @@
                             <constraint firstItem="bYa-HE-Km4" firstAttribute="leading" secondItem="xci-LI-ZqE" secondAttribute="leading" constant="30" id="p9u-1H-wDv"/>
                             <constraint firstItem="xci-LI-ZqE" firstAttribute="bottom" secondItem="fvb-dU-3iL" secondAttribute="bottom" constant="30" id="w3N-8X-iVF"/>
                             <constraint firstItem="b3Z-lr-kKy" firstAttribute="top" secondItem="xci-LI-ZqE" secondAttribute="top" constant="90" id="xyz-Mb-rbE"/>
+                            <constraint firstItem="AI7-pU-YYy" firstAttribute="leading" secondItem="xci-LI-ZqE" secondAttribute="leading" constant="20" id="ya9-X4-2X6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xci-LI-ZqE"/>
                     </view>
@@ -1296,13 +1334,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rV6-Mh-avX"/>
-        <segue reference="erF-3g-8gi"/>
-        <segue reference="zdE-Xr-qiR"/>
+        <segue reference="vix-50-GMu"/>
+        <segue reference="OQ9-H0-hYY"/>
+        <segue reference="mZs-z8-tJX"/>
         <segue reference="W5A-zB-jkd"/>
         <segue reference="0S5-Hy-7db"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="creditcard.fill" catalog="system" width="128" height="91"/>
         <image name="doc.on.clipboard.fill" catalog="system" width="117" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
