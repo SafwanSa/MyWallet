@@ -34,6 +34,7 @@ class HomeViewController: UITableViewController{
         myTableView.register(UINib(nibName: "UnpaidCell", bundle: nil), forCellReuseIdentifier: "UnpaidCell")
         myTableView.register(UINib(nibName: "TableViewCell1", bundle: nil), forCellReuseIdentifier: "TableViewCell1")
         DataBank.shared.getUnpaidPayemnts { (unpaidList) in
+            self.unpaidPaymentsList.removeAll()
             self.unpaidPaymentsList = unpaidList
             self.unpaidPaymentsList.removeAll { (payment) -> Bool in
                 var remove = false
@@ -46,6 +47,7 @@ class HomeViewController: UITableViewController{
             self.myTableView.reloadData()
         }
         DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
+            self.paidPaymentsList.removeAll()
             for list in paidList{
                 for payemnt in list{
                     self.paidPaymentsList.append(payemnt)
@@ -73,7 +75,7 @@ class HomeViewController: UITableViewController{
                 let cell = myTableView.dequeueReusableCell(withIdentifier: "BillCell2") as! BillCell2
                 cell.lbl_cost.text = "SAR "+String(bill.cost)
                 cell.lbl_title.text = bill.title
-                cell.paymentType = bill.title
+                cell.paymentType = bill.type
                 cell.paymentDate = bill.at
                 cell.lbl_day.text = bill.day
                 return cell
@@ -111,19 +113,19 @@ class HomeViewController: UITableViewController{
            let index = indexPath.row
            let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
             if(self.isBill(index: index)){
-                    let bill = self.unpaidPaymentsList[index] as! Bill
-                    let cost = bill.cost
-                    bill.addBillToPaidList()
-                    bill.updateBillLastUpdate(id: bill.at ,lastUpdate: Calendar.getFullDate())
-                    bill.payPayment(cost: cost)
-                }else{
-                    let payment = self.unpaidPaymentsList[index]
-                    payment.deletePayment(id: payment.at)
-                    let newPayment = Payment(payment.title,payment.cost,payment.type,true, "auto")
-                    let cost = newPayment.cost
-                    newPayment.payPayment(cost: cost)
-                    newPayment.addPayemnt()
-                }
+                let bill = self.unpaidPaymentsList[index] as! Bill
+                bill.at = Calendar.getFullDate()
+                bill.addBillToPaidList()
+                bill.updateBillLastUpdate(id: bill.at, lastUpdate: Calendar.getFullDate())
+                bill.payPayment(cost: bill.cost)
+            }else{
+                let payment = self.unpaidPaymentsList[index]
+                payment.deletePayment(id: payment.at)
+                let newPayment = Payment(payment.title, payment.cost,payment.type, true, "auto")
+                let cost = newPayment.cost
+                newPayment.payPayment(cost: cost)
+                newPayment.addPayemnt()
+            }
             self.unpaidPaymentsList.remove(at: index)
             tableView.deleteRows(at: [indexPath], with: .top)
                }
