@@ -51,12 +51,14 @@ class ChangePasswordViewController: UIViewController {
     }
     
     @IBAction func chnagePressed(_ sender: Any) {
+        showProgress()
         if validation(){
             reAuthinticate { (result) in
                 if result{
                     self.updatePassword()
                 }else{
-                    print("Cannot chnage password")
+                    self.showError("Cannot change the password")
+                    self.stopProgress()
                 }
             }
         }
