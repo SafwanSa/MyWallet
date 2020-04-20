@@ -76,10 +76,8 @@ class ForgotPasswordViewController: UIViewController {
     func handleError(error: Error) {
         let errorAuthStatus = AuthErrorCode.init(rawValue: error._code)!
         switch errorAuthStatus {
-        case .wrongPassword:
-            showError("كلمة المرور غير صحيحة")
-        case .invalidEmail:
-            showError("أدخل البريد الاإلكتروني بشكل صحيح")
+        case .invalidRecipientEmail:
+            showError("الحساب غير موجود")
         case .operationNotAllowed:
             showError("operationNotAllowed")
         case .userDisabled:
@@ -90,7 +88,8 @@ class ForgotPasswordViewController: UIViewController {
             showError("أدخل البريد الإلكتروني")
         case .userNotFound:
             showError("الحساب غير موجود")
-            performSegue(withIdentifier: "goToSignUp", sender: self)
+        case .invalidEmail:
+            showError("أدخل البريد الاإلكتروني بشكل صحيح")
         default: showError("حدث خطأ، حاول مرة أخرة")
         }
     }

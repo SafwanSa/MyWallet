@@ -21,11 +21,14 @@ class ProfileViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 4
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if section == 1{
+            return 2
+        }
         return 1
     }
 
@@ -42,23 +45,33 @@ class ProfileViewController: UITableViewController {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountCell") as! AccountCell
             return cell
         }else if(indexPath.section == 1){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "financeInfo", for: indexPath)
-            return cell
+            if indexPath.row == 0{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "financeInfo", for: indexPath)
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "billMng", for: indexPath)
+                return cell
+            }
         }else if indexPath.section == 2{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "billMng", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "logout", for: indexPath)
+            return cell
+        } else if indexPath.section == 3{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "changePass", for: indexPath)
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "logout", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "deleteAcc", for: indexPath)
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 1){
-            self.performSegue(withIdentifier: "goToFinance", sender: self)
-        }else if(indexPath.section == 2){
-            self.performSegue(withIdentifier: "goToBillMng", sender: self)
-        }else if indexPath.section == 3{
+        if indexPath.section == 1{
+            if indexPath.row == 0{
+                self.performSegue(withIdentifier: "goToFinance", sender: self)
+            }else{
+                self.performSegue(withIdentifier: "goToBillMng", sender: self)
+            }
+        }else if indexPath.section == 2{
             //Logout
             do {
                 try Auth.auth().signOut()
@@ -71,6 +84,12 @@ class ProfileViewController: UITableViewController {
             let centerVC = mainStoryBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             appDel.window!.rootViewController = centerVC
             appDel.window!.makeKeyAndVisible()
+        }else if indexPath.section == 3{
+            //Chnage password
+            print("Chnage password")
+        }else{
+            //Delete Account
+            print("Delete Account")
         }
     }
 
