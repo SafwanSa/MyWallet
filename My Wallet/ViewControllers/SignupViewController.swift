@@ -173,11 +173,32 @@ class SignupViewController: UIViewController {
         return true
     }
     
-    
+    func validArabicLetters(name: String)->Bool{
+        let arabicList = ["ء","إ","ى","ئ","آ","إ","ي","و","ه","ن","م","ل","ك","ق","ف"
+            ,"غ","ع","ظ","ط","ض","ص","ش","س","ز","ر","ذ","د","خ","ح","ج","ث","ت","ب","أ","ا"]
+        var valid = false
+        for char in name{
+            valid = false
+            for letter in arabicList{
+                if String(char) == letter{
+                    valid = true
+                }
+            }
+            if !valid{
+                break
+            }
+        }
+        return valid
+    }
     
     func isValidLetters(name :String) -> Bool {
-        let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
-        return predicateTest.evaluate(with: name)
+        if !validArabicLetters(name: name){
+            let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
+            return predicateTest.evaluate(with: name)
+        }else{
+            return true
+        }
+
     }
     
     func handleError(error: Error) {

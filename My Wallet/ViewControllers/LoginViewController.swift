@@ -20,22 +20,30 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var lbl_error: UILabel!
     @IBOutlet weak var btn_sign: RoundButton!
     @IBOutlet weak var btn_back: UIButton!
+    @IBOutlet weak var btn_resend: RoundButton!
+    @IBOutlet weak var btn_forgotPassword: UIButton!
     
     let db = Firestore.firestore()
     var email: String = ""
     var msg: String = ""
     var name: String = ""
     var allowBack = true
+    var resendCounter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        print(msg)
         txt_email.text = email
         showPrompt(msg)
         
         if !allowBack{
-            btn_back.alpha = 0
+            btn_back.isHidden = true
+            btn_forgotPassword.isHidden = true
+            btn_resend.isHidden = false
+        }else{
+            btn_back.isHidden = false
+            btn_forgotPassword.isHidden = false
+            btn_resend.isHidden = true
         }
     }
     
@@ -131,6 +139,37 @@ class LoginViewController: UIViewController {
     }
     
     
+    
+    @IBAction func resendEmailButtonPressed(_ sender: Any) {
+        showProgress()
+        if resendCounter > 2{
+            showError("لقد تعديت عدد المحاولات في إرسال رسالة التفعيل")
+            self.btn_resend.isHidden = true
+        }else{
+            let user = Auth.auth().currentUser
+            if user != nil{
+                user!.reload { (error) in
+                    if user!.isEmailVerified{
+                        self.showPrompt("تم تفعيل البريد الإلكتروني، يمكنك الدخول")
+                    }else{
+                        user!.sendEmailVerification { (error) in
+                            if error != nil{
+                                self.handleError(error: error!)
+                            }else{
+                                self.resendCounter += 1
+                                self.showPrompt("تم إسال رسالة التفعيل مرة أخرة")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
     func isNewAccount(complete: @escaping (Bool)->Void, id: String){
         db.collection("user").document(id).getDocument { (documentSnapshot, error) in
             let userData = documentSnapshot?.data()
@@ -171,7 +210,7 @@ class LoginViewController: UIViewController {
         case .userDisabled:
             showError("userDisabled")
         case .tooManyRequests:
-            showError("تجاوزت عدد المحاولات، حاول لاحقاً")
+            showError("انتظر قليلاً، ثم حاول مرة أخرة")
         case .missingEmail:
             showError("أدخل البريد الإلكتروني")
         case .userNotFound:
