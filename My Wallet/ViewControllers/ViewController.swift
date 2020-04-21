@@ -13,25 +13,44 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        if Auth.auth().currentUser != nil {
-            // User is signed in.
-            if Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate()) == "01"{
-                DataBank.shared.addPreviuosInfo()
-                performSegue(withIdentifier: "goToNewMonth", sender: self)
-            }else{
-                performSegue(withIdentifier: "logedIn", sender: self)
-            }
-           } else {
-               // No user is signed in.
-               // ...
-               print("is not in")
-           }
+//        try! Auth.auth().signOut()
+        checkAccount()
     }
-
-    override func viewDidAppear(_ animated: Bool){
-        super.viewDidAppear(animated)
-   }
+    
+    
+    func run(){
+        if Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate()) == "01"{
+            DataBank.shared.addPreviuosInfo()
+            performSegue(withIdentifier: "goToNewMonth", sender: self)
+        }else{
+            performSegue(withIdentifier: "logedIn", sender: self)
+        }
+    }
+    
+    func deleteUser(){
+        Auth.auth().currentUser!.delete { (error) in
+            print("User deleted...")
+        }
+        try! Auth.auth().signOut()
+    }
+    
+    
+    func checkAccount(){
+        let user = Auth.auth().currentUser
+        if user != nil{
+            //There is a user signed in
+                if user!.isEmailVerified{
+                    print("Verified user")
+                    self.run()
+                }else{
+                    print("Not verified user")
+                    self.deleteUser()
+                }
+        }else{
+            print("No user signing in....")
+        }
+    }
+    
     
 
 }
@@ -48,4 +67,5 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
 
