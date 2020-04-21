@@ -1046,6 +1046,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CXO-Q9-8Hr"/>
                     <connections>
+                        <outlet property="btn_add" destination="Fsy-Cc-5cu" id="24k-Ak-5VZ"/>
                         <outlet property="sgmnt_paid" destination="NUt-N8-i5d" id="Ert-bk-hqk"/>
                         <outlet property="topView" destination="abj-Uf-12v" id="Ibv-9N-1Yz"/>
                         <outlet property="txt_cost" destination="W3Y-z7-Y6e" id="lFX-y2-d0G"/>
