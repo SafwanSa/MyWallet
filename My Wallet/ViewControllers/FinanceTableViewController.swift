@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class FinanceTableViewController: UITableViewController {
 
     
@@ -43,27 +43,96 @@ class FinanceTableViewController: UITableViewController {
         return title
     }
     
-    func takeValues(){
+
+    @objc func save(){
+        showProgress()
+        //Taking the values from the cells
+        if validation(){
+            //Create a Budget
+            let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings, "dailyCostGoal": dailyCost, "weeklyCostGoal": weeklyCost]
+            //Update the database
+            DataBank.shared.updateBudget(data: newData)
+            stopProgress()
+            //Dismiss
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
+    func validation()->Bool{
         let cell1 = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! BdgSavCell
         let cell2 = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! GoalCell
         let cell3 = self.tableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! GoalCell
-        self.budget = Float(cell1.lbl_budget.text!)!
-        self.savings = Float(cell1.lbl_savings.text!)!
-        self.dailyCost = Float(cell2.lbl_cost.text!)!
-        self.weeklyCost = Float(cell3.lbl_cost.text!)!
+        
+        if cell2.lbl_cost.text == "" || cell2.lbl_cost.text == ""{
+            showError("أدخل قيمة للأهداف...")
+            return false
+        }
+        
+        let numbers:[Character] = ["1","2","3","4","5","6","7","8","9","0","."]
+        var dot = 0
+        var dot1 = 0
+        for char in cell2.lbl_cost.text!{
+            if char == "."{
+                dot+=1
+            }
+            if(!numbers.contains(char)){
+                showError("أدخل قيمة الهدف بشكل صحيح...")
+                return false
+            }
+        }
+        for char in cell3.lbl_cost.text!{
+            if char == "."{
+                dot1+=1
+            }
+            if(!numbers.contains(char)){
+                showError("أدخل قيمة الهدف بشكل صحيح...")
+                return false
+            }
+        }
+        if dot > 1 || dot1 > 1{
+            showError("أدخل قيمة الهدف بشكل صحيح...")
+            return false
+        }
+        if cell2.lbl_cost.text!.last == "." || cell2.lbl_cost.text!.first == "."{
+            showError("أدخل قيمة الهدف بشكل صحيح...")
+            return false
+        }
+        if cell3.lbl_cost.text?.last == "." || cell3.lbl_cost.text?.first == "."{
+            showError("أدخل قيمة الهدف بشكل صحيح...")
+            return false
+        }
+        if Float(cell2.lbl_cost.text!)! < 0 || Float(cell3.lbl_cost.text!)! < 0{
+            showError("أدخل قيمة الهدف بشكل صحيح...")
+            return false
+        }
+        self.budget = round(Float(cell1.lbl_budget.text!)!)
+        self.savings = round(Float(cell1.lbl_savings.text!)!)
+        self.dailyCost = round(Float(cell2.lbl_cost.text!)!)
+        self.weeklyCost = round(Float(cell3.lbl_cost.text!)!)
+        return true
+        }
+    
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
     }
     
-    @objc func save(){
-        //Taking the values from the cells
-        takeValues()
-        //Create a Budget
-        let newData = ["Start Amount":budget, "Current Amount":budget, "Savings":savings, "dailyCostGoal": dailyCost, "weeklyCostGoal": weeklyCost]
-        //Update the database
-        DataBank.shared.updateBudget(data: newData)
-        //Dismiss
-        self.navigationController?.popViewController(animated: true)
-    }
     
+    func showProgress(){
+        SVProgressHUD.show()
+    }
+        
+    func stopProgress(){
+        SVProgressHUD.dismiss()
+    }
+            
+    func showError(_ message:String){
+        stopProgress()
+        let msg = message + " ...!"
+        let alert = UIAlertController(title: "حدث خطأ", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "حسناً", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2

@@ -76,43 +76,55 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
     
     
     func validation()->Bool{
-           let numbers:[Character] = ["1","2","3","4","5","6","7","8","9","0"]
-           if txt_cost.text == ""{
-               showError( "ادخل التكلفة..")
-               return false
-           }
-           for char in txt_cost.text!{
-               if(!numbers.contains(char)){
-                   showError( "أدخل التكلفة بشكل صحيح...")
-                   return false
-               }
-           }
-           if(Int(txt_cost.text!)! <= 0){
-               showError( "يجب أن تكون التكلفة أكبر من ٠...")
-               return false
-           }
-           return true
-       }
+        let numbers:[Character] = ["1","2","3","4","5","6","7","8","9","0","."]
+        var dot = 0
+        if txt_cost.text == ""{
+            showError( "ادخل التكلفة..")
+            return false
+        }
+        for char in txt_cost.text!{
+            if char == "."{
+                dot+=1
+            }
+            if(!numbers.contains(char)){
+                showError( "أدخل التكلفة بشكل صحيح...")
+                return false
+            }
+        }
+        if dot > 1{
+            showError( "أدخل التكلفة بشكل صحيح...")
+            return false
+        }
+        if txt_cost.text?.last == "." || txt_cost.text?.first == "."{
+            showError( "أدخل التكلفة بشكل صحيح...")
+            return false
+        }
+        if(Float(txt_cost.text!)! <= 0){
+            showError( "يجب أن تكون التكلفة أكبر من ٠...")
+            return false
+        }
+        return true
+    }
        
        func showProgress(){
-              btn_add.isEnabled = false
-              btn_add.alpha = 0.7
-              SVProgressHUD.show()
-          }
+            btn_add.isEnabled = false
+            btn_add.alpha = 0.7
+            SVProgressHUD.show()
+        }
           
           func stopProgress(){
-              btn_add.isEnabled = true
-              btn_add.alpha = 1
-              SVProgressHUD.dismiss()
+            btn_add.isEnabled = true
+            btn_add.alpha = 1
+            SVProgressHUD.dismiss()
           }
           
-           func showError(_ message:String){
-               stopProgress()
-               let msg = message + " ...!"
-               let alert = UIAlertController(title: "حدث خطأ", message: msg, preferredStyle: .alert)
-               alert.addAction(UIAlertAction(title: "حسناً", style: .default, handler: nil))
-               self.present(alert, animated: true, completion: nil)
-             }
+        func showError(_ message:String){
+            stopProgress()
+            let msg = message + " ...!"
+            let alert = UIAlertController(title: "حدث خطأ", message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "حسناً", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     
     
     @IBAction func btn_addPayment(_ sender: UIButton) {
@@ -127,6 +139,7 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
             if txt_type.text != ""{paymentType = txt_type.text!}
             if txt_title.text != ""{title = txt_title.text!}
             cost = Float(txt_cost.text!)!
+            cost = round(cost)
             if paidOrNot{
                 paid = true
             }
@@ -153,6 +166,10 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
 
     }
     
+    
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
+    }
     
     
     func closeKeyboard(){

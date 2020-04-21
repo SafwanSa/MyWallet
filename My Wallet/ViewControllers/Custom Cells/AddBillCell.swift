@@ -18,7 +18,7 @@ class AddBillCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource
     private var date = UIPickerView()
     private var days = [String]()
     
-    
+    var delegate: UITableViewController?
     //Setting the picker view functions
        func numberOfComponents(in pickerView: UIPickerView) -> Int {
            return 1
@@ -32,13 +32,11 @@ class AddBillCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource
        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
            return days[row]
        }
-    
-    var delegate: UITableViewController?
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-
         date.dataSource = self
         date.delegate = self
         txt_date.inputView = date
@@ -51,43 +49,51 @@ class AddBillCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func validation()->Bool{
-        let numbers:[Character] = ["1","2","3","4","5","6","7","8","9","0"]
+        let numbers:[Character] = ["1","2","3","4","5","6","7","8","9","0","."]
+        var dot = 0
         if txt_date.text == "" || txt_title.text == "" || txt_cost.text == ""{
             showError( "املأ الحقول الفارغة..")
             return false
         }
         for char in txt_cost.text!{
+            if char == "."{
+                dot+=1
+            }
             if(!numbers.contains(char)){
                 showError( "أدخل التكلفة بشكل صحيح...")
-                return false
+                    return false
             }
         }
-        if(Int(txt_cost.text!)! <= 0){
-            showError( "يجب أن تكون التكلفة أكبر من ٠...")
+        if dot > 1{
+            showError( "أدخل التكلفة بشكل صحيح...")
+            return false
+        }
+        if txt_cost.text?.last == "." || txt_cost.text?.first == "."{
+            showError( "أدخل التكلفة بشكل صحيح...")
             return false
         }
         return true
     }
     
     func showProgress(){
-           btn_add.isEnabled = false
-           btn_add.alpha = 0.7
-           SVProgressHUD.show()
-       }
+        btn_add.isEnabled = false
+        btn_add.alpha = 0.7
+        SVProgressHUD.show()
+    }
        
-       func stopProgress(){
-           btn_add.isEnabled = true
-           btn_add.alpha = 1
-           SVProgressHUD.dismiss()
-       }
+    func stopProgress(){
+        btn_add.isEnabled = true
+        btn_add.alpha = 1
+        SVProgressHUD.dismiss()
+    }
        
-        func showError(_ message:String){
-            stopProgress()
-            let msg = message + " ...!"
-            let alert = UIAlertController(title: "حدث خطأ", message: msg, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "حسناً", style: .default, handler: nil))
-            delegate?.present(alert, animated: true, completion: nil)
-          }
+    func showError(_ message:String){
+        stopProgress()
+        let msg = message + " ...!"
+        let alert = UIAlertController(title: "حدث خطأ", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "حسناً", style: .default, handler: nil))
+        delegate?.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func btnAddPressed(_ sender: Any) {
         showProgress()
@@ -99,6 +105,7 @@ class AddBillCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource
             //No errors
             title = txt_title.text!
             cost = Float(txt_cost.text!)!
+            cost = round(cost)
             day = txt_date.text!
             //Create a bill obj
             let bill = Bill(title, cost, day, "auto",lastUpd: "")
@@ -113,16 +120,7 @@ class AddBillCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource
           
       }
     
-}
-extension UIView {
-var parentViewController: UIViewController? {
-    var parentResponder: UIResponder? = self
-    while parentResponder != nil {
-        parentResponder = parentResponder!.next
-        if parentResponder is UIViewController {
-            return parentResponder as! UIViewController?
-        }
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
     }
-    return nil
-}
 }
