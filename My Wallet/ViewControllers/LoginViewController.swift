@@ -97,6 +97,9 @@ class LoginViewController: UIViewController {
                 if user != nil{
                     user?.reload(completion: { (error) in
                         if user!.isEmailVerified{
+                            self.btn_back.isHidden = false
+                            self.btn_resend.isHidden = true
+                            self.btn_forgotPassword.isHidden = false
                             self.loging(email: email, password:password, name: self.name)
                         }else{
                             self.showPrompt("يجب عليك تفعيل حسابك عبر الرسالة المرسلة إلى البريد الألكتروني")
