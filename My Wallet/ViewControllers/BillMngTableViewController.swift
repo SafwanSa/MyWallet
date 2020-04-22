@@ -120,6 +120,7 @@ class BillMngTableViewController: UITableViewController {
             cell.paymentDate = bill.at
             cell.paymentType = bill.type
             cell.lbl_day.text = bill.day
+            cell.setupInfo()
             return cell
         }
     }
