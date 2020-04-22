@@ -43,7 +43,6 @@ class TableViewCell1: UITableViewCell {
     
     func setPaidCell(cost:String){
         lbl_cost.text = String("-"+cost+" SAR")
-        lbl_cost.textColor = UIColor.red
         lbl_title.textAlignment = NSTextAlignment.center
     }
     
