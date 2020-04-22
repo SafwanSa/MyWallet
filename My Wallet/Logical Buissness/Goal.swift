@@ -55,24 +55,27 @@ class Goal{
     }
     
     func checkSavings()->Bool{
-        if budget_amount < savings_amount{
-            return true
-        }else{
-            return false
+        if savings_amount != 0{
+            if budget_amount < savings_amount{
+                return true
+            }else{
+                return false
+            }
         }
+        return false
     }
     
     
     func checkDailyCost(payemnts: [[Payment]], dailyCost: Float)->Bool{
         let dCost = Calculations.getCostInCurrentDay(payments: payemnts)
-        if dCost > dailyCost{return true}
+        if dCost > dailyCost && dailyCost != 0{return true}
         return false
     }
     
     func checkWeeklyCost(payments: [[Payment]], weeklyCost: Float)->Bool{
         let wcost = Calculations.getCostForWeek(payments: payments)
-        print(wcost)
-        if wcost > weeklyCost{return true}
+        print(wcost, "\n\n\n\n\n")
+        if wcost > weeklyCost && weeklyCost != 0{return true}
         return false
     }
     

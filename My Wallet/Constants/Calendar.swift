@@ -154,10 +154,10 @@ class Calendar{
     static func isInWeek(day: String)->Bool{
         let dayInt = Int(day)
         var rangee = getWeekRange()
+
         rangee.append("01,"+rangee[0].split(separator: ",")[0])
         var inRange = false
         for i in rangee{
-            inRange = false
             let sun = Int(i.split(separator: ",")[0])!
             let sat = Int(i.split(separator: ",")[1])!
             if dayInt! >= sun && dayInt! <= sat{

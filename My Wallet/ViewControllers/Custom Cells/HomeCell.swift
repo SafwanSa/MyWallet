@@ -57,7 +57,6 @@ class HomeCell: UITableViewCell {
             self.budget = bdg
             self.goals = bdg.goals
             self.setUserData()
-            self.checkGoals()
         }
         DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
             self.allPayments = paidList
