@@ -187,7 +187,7 @@ class LoginViewController: UIViewController {
     
     func setupUser(name: String, id: String, email: String){
         //The user has been created successfuly, now store his data in firestore.
-        let user = UserInfo(first_name: self.name, last_name: "", email: email, id: id)
+        let user = UserInfo(name: self.name, email: email, id: id)
         let budget = user.createBudget(amount: 0.0, savings: 0.0)
         db.collection("user").document(user.id).setData(user.setUserInfoData())
         budget.setBudgetData()

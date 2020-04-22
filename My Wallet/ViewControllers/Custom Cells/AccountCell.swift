@@ -11,7 +11,6 @@ import UIKit
 class AccountCell: UITableViewCell {
     
     @IBOutlet weak var txt_fname: UITextField!
-    @IBOutlet weak var txt_lname: UITextField!
     @IBOutlet weak var txt_email: UITextField!
 
     
@@ -25,8 +24,7 @@ class AccountCell: UITableViewCell {
     
     func setupInfo(user: UserInfo){
         txt_email.text = user.email
-        txt_fname.text = user.first_name
-        txt_lname.text = user.last_name
+        txt_fname.text = user.name
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
