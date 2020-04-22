@@ -119,12 +119,16 @@ class HomeCell: UITableViewCell {
     func setUserData(){
         var percent: Float = 0.0
         if budget!.start_amount != 0{percent = (100 * budget!.current_amount)/budget!.start_amount}
-        let totalCosts = budget!.start_amount - budget!.current_amount
+        let totalCosts = round(Float(Calculations.getTotalCost(paymnets: self.allPayments)))
         
         self.lbl_totalPaymentsCost.text = "مصروفات "+String(totalCosts)+" SAR "
         self.lbl_savings.text = "مدخرات "+String(budget!.savings)+" SAR "
         self.lbl_budget.text = String(budget!.current_amount)+" SAR "
         self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
+    }
+    
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
     }
 }
 

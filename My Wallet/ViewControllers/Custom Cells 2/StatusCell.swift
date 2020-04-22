@@ -21,7 +21,8 @@ class StatusCell: UITableViewCell {
     @IBOutlet weak var progressView: UICircularProgressRing!
     
     var budgets = [Budget]()
-    var totalCost: Double = 0.0
+    var allPayments = [[Payment]]()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,14 +40,17 @@ class StatusCell: UITableViewCell {
                 self.budgets.removeAll { (bdg) -> Bool in
                     return bdg.bid != requiredBudgetId
                 }
-            self.setupViews()
-            }
+        }
         
         DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
-            self.totalCost = Calculations.getTotalCost(paymnets: paidList)
+            self.allPayments = paidList
+            self.setupViews()
         }
     }
     
+    func round(_ num: Float)->Float{
+          return (num*100).rounded()/100
+      }
     
     func setupViews(){
         if budgets.count != 0{
@@ -54,6 +58,7 @@ class StatusCell: UITableViewCell {
             let remaining = budget.current_amount
             let savings = budget.savings
             let startBudget = budget.start_amount
+            let totalCost = round(Float(Calculations.getTotalCost(paymnets: self.allPayments)))
             var percent: Float = 0.0
             if startBudget != 0{percent = (100 * remaining)/startBudget}
             
@@ -61,7 +66,7 @@ class StatusCell: UITableViewCell {
             self.lbl_savings.text = " مدخرات :"+String(savings)+" SAR "
             self.lbl_startBudget.text = " الميزانية :"+String(savings)+" SAR "
             self.lbl_remaining.text = " المتبقي :"+String(remaining)+" SAR "
-            self.progressView.startProgress(to: CGFloat(percent), duration: 0.0) {}
+            self.progressView.startProgress(to: CGFloat(percent), duration: 3) {}
         }
     }
     

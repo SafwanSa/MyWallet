@@ -132,8 +132,8 @@ class DataBank{
             self.clearArray()
             for doc in documents{
                 let data = doc.data()
-                let budget = Budget(amount: data["Start Amount"] as! Float, savings: data["Savings"] as! Float, dGoal: data["dailyCostGoal"] as! Float, wGoal: data["weeklyCostGoal"] as! Float)
-                budget.current_amount = data["Current Amount"] as! Float
+                let budget = Budget(amount: data["Start Amount"] as! Float, savings: data["Savings"] as! Float, dGoal: data["dailyCostGoal"] as! Float, wGoal: (data["weeklyCostGoal"] as! NSNumber).floatValue)
+                budget.current_amount = (data["Current Amount"] as! NSNumber).floatValue
                 budget.bid = data["bid"] as! String
                 self.budgets.append(budget)
             }

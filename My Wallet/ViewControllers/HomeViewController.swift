@@ -114,9 +114,9 @@ class HomeViewController: UITableViewController{
            let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
             if(self.isBill(index: index)){
                 let bill = self.unpaidPaymentsList[index] as! Bill
+                bill.updateBillLastUpdate(id: bill.at, lastUpdate: Calendar.getFullDate())
                 bill.at = Calendar.getFullDate()
                 bill.addBillToPaidList()
-                bill.updateBillLastUpdate(id: bill.at, lastUpdate: Calendar.getFullDate())
                 bill.payPayment(cost: bill.cost)
             }else{
                 let payment = self.unpaidPaymentsList[index]
