@@ -14,13 +14,15 @@ class StatTypeCell: UITableViewCell {
     
     @IBOutlet weak var lbl_cellTitle: UILabel!
     @IBOutlet weak var pieView: PieChartView!
-
+    @IBOutlet weak var lbl_noData: UILabel!
+    
     var allPayments = [[Payment]]()
     var budegt: Budget?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        lbl_noData.isHidden = true
         DataBank.shared.getPaidPayemnts(all: false) { (paidList) in
             self.allPayments = paidList
         }
@@ -80,9 +82,11 @@ class StatTypeCell: UITableViewCell {
         data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         pieView.data = data
         pieView.legend.enabled = false
-        pieView.noDataText = "No data available"
+        if pieView.isEmpty(){
+            lbl_noData.isHidden = false
+        }
         // user interaction
-        pieView.isUserInteractionEnabled = true
+        pieView.isUserInteractionEnabled = false
 
 //        let d = Description()
 //        d.text = "iOSCharts.io"
