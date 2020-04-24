@@ -181,6 +181,10 @@ class DataBank{
             budget.setBudgetData()
         }
     }
+    func updateUserData(data: [String:Any]){
+        var newData = data
+        db.collection("user").document(getID()).updateData(newData)
+    }
     
     func updateBudget(data: [String:Any]){
         var newData = data

@@ -789,7 +789,7 @@
                         <outlet property="btn_start" destination="fCe-hg-Qg8" id="dV5-jk-T8l"/>
                         <outlet property="lbl_error" destination="zCD-Hc-vm3" id="YRx-hY-f31"/>
                         <outlet property="txt_income" destination="isT-Bg-5Al" id="Arg-mR-5pa"/>
-                        <segue destination="M85-wA-YG9" kind="show" identifier="goToHomeVc" id="Gcr-LX-MZv"/>
+                        <segue destination="M85-wA-YG9" kind="show" identifier="goToHomeVC" id="Gcr-LX-MZv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45U-7e-YE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1251,20 +1251,20 @@
             <objects>
                 <viewController id="Fs4-lH-GxD" customClass="SignupViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fVf-Gc-kPa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-HE-Km4">
-                                <rect key="frame" x="30" y="198.66666666666666" width="354" height="271.66666666666674"/>
+                                <rect key="frame" x="30" y="203.33333333333337" width="354" height="288"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاسم" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lc-mW-B6m">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="21.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="24"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                         <color key="textColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HgF-MU-hK6" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="41.666666666666686" width="354" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="44" width="354" height="24"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
@@ -1281,13 +1281,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البريد الإلكتروني" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wb2-4g-lTp">
-                                        <rect key="frame" x="0.0" y="83.333333333333343" width="354" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="87.999999999999972" width="354" height="24"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                         <color key="textColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1T-pU-kYI" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125.00000000000004" width="354" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="131.99999999999997" width="354" height="24"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="19"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
@@ -1304,13 +1304,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كلمة السر" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEV-Bh-dv7">
-                                        <rect key="frame" x="0.0" y="166.66666666666666" width="354" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="175.99999999999997" width="354" height="24"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
                                         <color key="textColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9m5-wq-btq" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="208.33333333333334" width="354" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="219.99999999999997" width="354" height="24"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <userDefinedRuntimeAttributes>
@@ -1326,7 +1326,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خطآ في الدخول .. !" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzt-aS-3lj">
-                                        <rect key="frame" x="0.0" y="250.00000000000003" width="354" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="264" width="354" height="24"/>
                                         <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
                                         <color key="textColor" red="0.7005426307" green="0.2475695118" blue="0.2280554642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -1359,7 +1359,7 @@
                                 <rect key="frame" x="0.0" y="-12" width="435" height="151"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل حساب" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3Z-lr-kKy">
-                                <rect key="frame" x="128" y="90" width="266" height="38.666666666666657"/>
+                                <rect key="frame" x="128" y="90" width="266" height="43.333333333333343"/>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="37"/>
                                 <color key="textColor" red="0.036146998409999999" green="0.70900851490000005" blue="0.75688058140000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>

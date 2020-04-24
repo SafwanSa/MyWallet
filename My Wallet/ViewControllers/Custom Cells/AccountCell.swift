@@ -12,7 +12,8 @@ class AccountCell: UITableViewCell {
     
     @IBOutlet weak var txt_fname: UITextField!
     @IBOutlet weak var txt_email: UITextField!
-
+    @IBOutlet weak var txt_income: HSUnderLineTextField!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +26,7 @@ class AccountCell: UITableViewCell {
     func setupInfo(user: UserInfo){
         txt_email.text = user.email
         txt_fname.text = user.name
+        txt_income.text = String(user.income)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
