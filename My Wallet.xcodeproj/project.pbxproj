@@ -60,6 +60,7 @@
 		17BC79F9242FE24C00884D75 /* BdgSavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BC79F7242FE24C00884D75 /* BdgSavCell.xib */; };
 		17BC79FB242FE8AC00884D75 /* FinanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */; };
 		17C246F224526B1000766FB4 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C246F124526B1000766FB4 /* IncomeViewController.swift */; };
+		17C246F424527EC700766FB4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C246F324527EC700766FB4 /* SettingsTableViewController.swift */; };
 		17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */; };
 		17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */; };
 		17CFCE45242C2D2100452242 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CFCE44242C2D2100452242 /* Goal.swift */; };
@@ -132,6 +133,7 @@
 		17BC79F7242FE24C00884D75 /* BdgSavCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BdgSavCell.xib; sourceTree = "<group>"; };
 		17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTableViewController.swift; sourceTree = "<group>"; };
 		17C246F124526B1000766FB4 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
+		17C246F324527EC700766FB4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
 		17CFCE44242C2D2100452242 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				17C246F124526B1000766FB4 /* IncomeViewController.swift */,
 				17CFCE43242C2BAB00452242 /* Custom Cells 2 */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
+				17C246F324527EC700766FB4 /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				171D5D612333B39F00EA774D /* MyButton.swift in Sources */,
 				1767B508242AE1F8008ECDDE /* BillMngTableViewController.swift in Sources */,
 				17012FFA24032990000B840A /* UnpaidCell.swift in Sources */,
+				17C246F424527EC700766FB4 /* SettingsTableViewController.swift in Sources */,
 				17FB6F6C233E103800A039EC /* Payment.swift in Sources */,
 				1767B50B242AE249008ECDDE /* AddBillCell.swift in Sources */,
 				17012FF02401504A000B840A /* AddPaymentViewController.swift in Sources */,
