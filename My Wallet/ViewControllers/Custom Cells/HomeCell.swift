@@ -44,11 +44,6 @@ class HomeCell: UITableViewCell {
     var allPayments = [[Payment]]()
     
     override func awakeFromNib() {
-        super.awakeFromNib()
-        btn_add.layer.shadowOffset = .zero
-        btn_add.layer.shadowRadius = 5
-        btn_add.layer.shadowOpacity = 0.8
-        btn_add.layer.masksToBounds = false
         //Styling the progress bar
         prog_view.style = .dashed(pattern: [7.0, 7.0])
         

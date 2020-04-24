@@ -15,19 +15,25 @@ class BdgSavCell: UITableViewCell {
     @IBOutlet weak var sldr_budget: UISlider!
     @IBOutlet weak var sldr_savings: UISlider!
     
+    var budget: Budget?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         DataBank.shared.getCurrentBudget { (budget) in
-            self.setupInfo(budget: budget)
+            self.budget = budget
+        }
+        DataBank.shared.getUserInfo { (user) in
+            self.setupInfo(user: user)
         }
     }
     
-    func setupInfo(budget: Budget){
-        sldr_budget.value = budget.current_amount
-        lbl_budget.text = String(budget.current_amount)
-        sldr_savings.value = budget.savings
-        lbl_savings.text = String(budget.savings)
+    func setupInfo(user: UserInfo){
+        sldr_budget.maximumValue = user.income
+        sldr_budget.value = self.budget!.current_amount
+        lbl_budget.text = String(self.budget!.current_amount)
+        sldr_savings.value = self.budget!.savings
+        lbl_savings.text = String(self.budget!.savings)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -16,13 +16,14 @@ class UserInfo{
     var name:String
     var id:String
     var email:String
+    var income: Float
     
     
-    
-    init(name:String,email:String,id:String) {
-            self.name = name
-            self.email = email
-            self.id = id
+    init(name:String,email:String,id:String, income: Float) {
+        self.name = name
+        self.email = email
+        self.id = id
+        self.income = income
        }
     
     

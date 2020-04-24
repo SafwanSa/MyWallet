@@ -190,13 +190,13 @@ class LoginViewController: UIViewController {
     
     func setupUser(name: String, id: String, email: String){
         //The user has been created successfuly, now store his data in firestore.
-        let user = UserInfo(name: self.name, email: email, id: id)
+        let user = UserInfo(name: self.name, email: email, id: id, income: 0)
         let budget = user.createBudget(amount: 0.0, savings: 0.0)
         db.collection("user").document(user.id).setData(user.setUserInfoData())
         budget.setBudgetData()
         stopProgress()
         //Transition to the home screen
-        self.performSegue(withIdentifier: "goToHomeVC", sender: self)
+        self.performSegue(withIdentifier: "goToIncome", sender: self)
     }
     
     

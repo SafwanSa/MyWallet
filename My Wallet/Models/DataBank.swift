@@ -147,7 +147,7 @@ class DataBank{
                 print("Error fetching document: \(error!)")
                     return
             }
-            let user = UserInfo(name: document["Name"] as! String, email: document["Email"] as! String, id: self.getID())
+            let user = UserInfo(name: document["Name"] as! String, email: document["Email"] as! String, id: self.getID(), income: document["Income"] as! Float)
             complete(user)
         }
     }

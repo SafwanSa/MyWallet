@@ -59,6 +59,7 @@
 		17BC79F8242FE24C00884D75 /* BdgSavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC79F6242FE24C00884D75 /* BdgSavCell.swift */; };
 		17BC79F9242FE24C00884D75 /* BdgSavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BC79F7242FE24C00884D75 /* BdgSavCell.xib */; };
 		17BC79FB242FE8AC00884D75 /* FinanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */; };
+		17C246F224526B1000766FB4 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C246F124526B1000766FB4 /* IncomeViewController.swift */; };
 		17C2580F2358CDC3005AFC19 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */; };
 		17C258102358CDC3005AFC19 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */; };
 		17CFCE45242C2D2100452242 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CFCE44242C2D2100452242 /* Goal.swift */; };
@@ -130,6 +131,7 @@
 		17BC79F6242FE24C00884D75 /* BdgSavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BdgSavCell.swift; sourceTree = "<group>"; };
 		17BC79F7242FE24C00884D75 /* BdgSavCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BdgSavCell.xib; sourceTree = "<group>"; };
 		17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTableViewController.swift; sourceTree = "<group>"; };
+		17C246F124526B1000766FB4 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		17C2580D2358CDC3005AFC19 /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		17C2580E2358CDC3005AFC19 /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
 		17CFCE44242C2D2100452242 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				17BC79FA242FE8AC00884D75 /* FinanceTableViewController.swift */,
 				17DEDA74244A245900E2F966 /* ForgotPasswordViewController.swift */,
 				17955DDA244DA9B20032CF4E /* ChangePasswordViewController.swift */,
+				17C246F124526B1000766FB4 /* IncomeViewController.swift */,
 				17CFCE43242C2BAB00452242 /* Custom Cells 2 */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
 			);
@@ -497,6 +500,7 @@
 				17FD1E6B24499C3600A9B3FE /* BillInfoCell.swift in Sources */,
 				17F6CF8523412324004C3CFC /* HistoryTableViewController.swift in Sources */,
 				171029C92415AF8700D0D697 /* HistoryViewController.swift in Sources */,
+				17C246F224526B1000766FB4 /* IncomeViewController.swift in Sources */,
 				1752ED382333A1400052CE54 /* AppDelegate.swift in Sources */,
 				171D5D562333AAA800EA774D /* HomeViewController.swift in Sources */,
 				17DEDA77244AD13F00E2F966 /* TestAuthVC.swift in Sources */,
