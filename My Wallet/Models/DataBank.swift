@@ -165,25 +165,29 @@ class DataBank{
     }
     
     func addPreviuosInfo(){
-        //If the previuos was 12 !!!?. Look at the current year
-        // if 12 preM = 1,
+        var prevYear = String(Int(Calendar.getCurrentYear())!)
         var prevMonth = String(Int(Calendar.getCurrentMonth())! - 1)
+        
+        if Int(Calendar.getCurrentMonth()) == 1{
+            prevYear = String(Int(Calendar.getCurrentYear())! - 1)
+            prevMonth = "12"
+        }
         if prevMonth.count == 1{
             prevMonth = "0"+prevMonth
         }
-        let budget = getID()+"_Budget_"+prevMonth+"_"+Calendar.getCurrentYear()
+        
+        let budget = getID()+"_Budget_"+prevMonth+"_"+prevYear
         db.collection("budgets").document(budget).getDocument { (DocumentSnapshot, Error) in
             guard let previuosBudget = DocumentSnapshot?.data() else{
                 print("He has no previuos budgets... never happens", budget)
                 return
             }
-            let budget = Budget(amount: previuosBudget["Start Amount"] as! Float, savings: previuosBudget["Savings"] as! Float, dGoal: previuosBudget["dailyCostGaol"] as! Float, wGoal: previuosBudget["weeklyCostGoal"] as! Float)
+            let budget = Budget(amount: previuosBudget["Start Amount"] as! Float, savings: previuosBudget["Savings"] as! Float, dGoal: previuosBudget["dailyCostGoal"] as! Float, wGoal: previuosBudget["weeklyCostGoal"] as! Float)
             budget.setBudgetData()
         }
     }
     func updateUserData(data: [String:Any]){
-        var newData = data
-        db.collection("user").document(getID()).updateData(newData)
+        db.collection("user").document(getID()).updateData(data)
     }
     
     func updateBudget(data: [String:Any]){

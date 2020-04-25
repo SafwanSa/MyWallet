@@ -29,6 +29,7 @@ class IncomeViewController: UIViewController {
         showProgress()
         if validation(){
             self.setupIncome(income: Float(txt_income.text!)!)
+            stopProgress()
             self.performSegue(withIdentifier: "goToHomeVC", sender: self)
         }
     }

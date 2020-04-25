@@ -222,9 +222,9 @@
 				17DEDA74244A245900E2F966 /* ForgotPasswordViewController.swift */,
 				17955DDA244DA9B20032CF4E /* ChangePasswordViewController.swift */,
 				17C246F124526B1000766FB4 /* IncomeViewController.swift */,
+				17C246F324527EC700766FB4 /* SettingsTableViewController.swift */,
 				17CFCE43242C2BAB00452242 /* Custom Cells 2 */,
 				17012FF42402CFF4000B840A /* Custom Cells */,
-				17C246F324527EC700766FB4 /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
