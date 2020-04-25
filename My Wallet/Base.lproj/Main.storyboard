@@ -857,7 +857,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOG-Kg-l58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7658" y="-988"/>
+            <point key="canvasLocation" x="7626" y="-288"/>
         </scene>
         <!--Finance Table View Controller-->
         <scene sceneID="mFH-WB-OnP">
@@ -876,7 +876,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhu-SJ-rGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6500" y="-1095"/>
+            <point key="canvasLocation" x="7625" y="-1043"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="Dfh-N8-9mc">
@@ -924,7 +924,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="bpp-xz-8YE" kind="relationship" relationship="viewControllers" id="o3B-LA-2lR"/>
+                        <segue destination="47w-I3-Kgt" kind="relationship" relationship="viewControllers" id="o3B-LA-2lR"/>
                         <segue destination="deO-By-FK2" kind="relationship" relationship="viewControllers" id="HCB-gT-14f"/>
                         <segue destination="1zn-Py-Fkz" kind="relationship" relationship="viewControllers" id="LAI-gf-dkf"/>
                     </connections>
@@ -946,9 +946,7 @@
                             <outlet property="delegate" destination="bpp-xz-8YE" id="wkm-X3-DdD"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" image="house.fill" catalog="system" id="u0B-2U-V5f">
-                        <color key="badgeColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="TcN-7h-rkA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myTableView" destination="9ac-pP-BNT" id="22n-aO-rae"/>
@@ -959,7 +957,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmA-C3-uRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4241" y="-1206"/>
+            <point key="canvasLocation" x="5147.826086956522" y="-1206.521739130435"/>
         </scene>
         <!--Add Payment View Controller-->
         <scene sceneID="GMN-wW-di3">
@@ -1094,7 +1092,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feq-g5-7td" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5414" y="-1630"/>
+            <point key="canvasLocation" x="6320.289855072464" y="-1630.4347826086957"/>
         </scene>
         <!--Item-->
         <scene sceneID="x27-ff-JtR">
@@ -1112,7 +1110,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPA-YO-BWX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5135" y="-609"/>
+            <point key="canvasLocation" x="6042.0289855072469" y="-609.78260869565224"/>
         </scene>
         <!--Item-->
         <scene sceneID="E9Y-uo-EuQ">
@@ -1131,7 +1129,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFV-vQ-LdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6500" y="-211"/>
+            <point key="canvasLocation" x="6874" y="214"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hv3-UJ-jtf">
@@ -1224,7 +1222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiM-gW-x8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7658" y="-259"/>
+            <point key="canvasLocation" x="8530" y="-289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ytM-wv-gRe">
@@ -1519,7 +1517,28 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4g-Db-7gg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5788" y="-610"/>
+            <point key="canvasLocation" x="6874" y="-610"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kyV-nn-T7t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="47w-I3-Kgt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="house.fill" catalog="system" id="u0B-2U-V5f">
+                        <color key="badgeColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1MC-KV-hS7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bpp-xz-8YE" kind="relationship" relationship="rootViewController" id="CsF-8f-P3k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0P0-i7-DWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4240.579710144928" y="-1206.521739130435"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

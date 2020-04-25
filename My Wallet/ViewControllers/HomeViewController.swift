@@ -28,7 +28,7 @@ class HomeViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        
+        SuperNavigationController.setTitle(title: "الرئيسية", nv: self)
         myTableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
         myTableView.register(UINib(nibName: "BillCell2", bundle: nil), forCellReuseIdentifier: "BillCell2")
         myTableView.register(UINib(nibName: "UnpaidCell", bundle: nil), forCellReuseIdentifier: "UnpaidCell")
