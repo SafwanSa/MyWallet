@@ -28,7 +28,7 @@ class HomeViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         closeKeyboard()
-        
+        SuperNavigationController.setTitle(title: "الرئيسية", nv: self)
         myTableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
         myTableView.register(UINib(nibName: "BillCell2", bundle: nil), forCellReuseIdentifier: "BillCell2")
         myTableView.register(UINib(nibName: "UnpaidCell", bundle: nil), forCellReuseIdentifier: "UnpaidCell")
@@ -114,9 +114,9 @@ class HomeViewController: UITableViewController{
            let payButton = UITableViewRowAction(style: .normal, title: "ادفع") { (rowAction, ibdexPath) in
             if(self.isBill(index: index)){
                 let bill = self.unpaidPaymentsList[index] as! Bill
+                bill.updateBillLastUpdate(id: bill.at, lastUpdate: Calendar.getFullDate())
                 bill.at = Calendar.getFullDate()
                 bill.addBillToPaidList()
-                bill.updateBillLastUpdate(id: bill.at, lastUpdate: Calendar.getFullDate())
                 bill.payPayment(cost: bill.cost)
             }else{
                 let payment = self.unpaidPaymentsList[index]
@@ -155,14 +155,21 @@ class HomeViewController: UITableViewController{
         //Styling the Title of the Table
         let label = UILabel()
         let str = " لديك " + String(self.unpaidPaymentsList.count) + " من المصروفات غير مدفوعة"
-        let sectionsNames = ["",str,"اخر المدفوعات"]
+        let sectionsNames = ["أهلا safwan",str,"اخر المدفوعات"]
         if section == 1 && paidPaymentsList.count == 0{
             label.text = ""
         }else {label.text = sectionsNames[section]}
-        label.font = UIFont.init(name: "JF Flat", size: 16)
-        label.textAlignment = NSTextAlignment.center
-        label.textColor = .gray
-        label.alpha = 0.6
+        if section == 0{
+            label.font = UIFont.init(name: "JF Flat", size: 30)
+            label.textAlignment = NSTextAlignment.right
+            label.textColor = .black
+            label.alpha = 0.8
+        }else{
+            label.font = UIFont.init(name: "JF Flat", size: 16)
+            label.textAlignment = NSTextAlignment.center
+            label.textColor = .gray
+            label.alpha = 0.6
+        }
         return label
     }
     

@@ -13,6 +13,11 @@ class Calculations{
     
     var costs = [Float]()
     
+   static func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
+    }
+    
+    
     static func getAverageCosts(costs: [Float], by:String)->Float{
         var sum : Float = 0
         var divd : Float = 0
@@ -24,7 +29,7 @@ class Calculations{
         for i in costs{
             sum = sum + i
         }
-        return (sum / divd).rounded()
+        return round(sum / divd)
     }
     static func getAverageCounts(costs: [Float], by:String)->Int{
         var counter : Float = 0
@@ -46,7 +51,7 @@ class Calculations{
         for cost in typesCosts{
             sum += cost
         }
-        return sum.rounded()
+        return Double(round(Float(sum)))
     }
     
     static func getCostForEachType(payments:[[Payment]]) -> [Double]{
@@ -56,7 +61,7 @@ class Calculations{
             for j in payments[i]{
                 sum += Double(j.cost)
             }
-            result.append(sum.rounded())
+            result.append(Double(round(Float(sum))))
         }
         return result
     }

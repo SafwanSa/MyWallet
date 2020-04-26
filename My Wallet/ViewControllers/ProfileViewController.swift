@@ -11,24 +11,70 @@ import FirebaseAuth
 import SVProgressHUD
 class ProfileViewController: UITableViewController {
 
+    
+    var income: Float = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SuperNavigationController.setTitle(title: "الحساب", nv: self)
         self.tableView.register(UINib(nibName: "AccountCell", bundle: nil), forCellReuseIdentifier: "AccountCell")
+        setupNavigationRightButton()
+    }
+    
+    func setupNavigationRightButton(){
+        let saveButton = UIBarButtonItem(title: "حفظ", style: .plain, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItems = [saveButton]
     }
 
+    func validatedIncome()->Bool{
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! AccountCell
+        let numbers:[Character] = ["1","2","3","4","5","6","7","8","9","0","."]
+        if cell.txt_income.text == ""{
+            showPromptAndError( "ادخل الدخل..")
+            return false
+        }
+        for char in cell.txt_income.text!{
+            if(!numbers.contains(char)){
+                print(char)
+                showPromptAndError( "أدخل الدخل بشكل صحيح...")
+                return false
+            }
+        }
+        if cell.txt_income.text?.last == "." || cell.txt_income.text?.first == "."{
+            showPromptAndError( "أدخل الدخل بشكل صحيح...")
+            return false
+        }
+        if(Float(cell.txt_income.text!)! <= 0){
+            showPromptAndError( "يجب أن يكون الدخل أكبر من ٠...")
+            return false
+        }
+        self.income = Float(cell.txt_income.text!)!
+        return true
+    }
+    
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
+    }
+    
+    @objc func save(){
+        showProgress()
+        if validatedIncome(){
+            DataBank.shared.updateUserData(data: ["Income": round(self.income)])
+            stopProgress()
+            //Dismiss
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if section == 1{
-            return 2
-        }
         return 1
     }
 
@@ -44,18 +90,7 @@ class ProfileViewController: UITableViewController {
         if (indexPath.section == 0){
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AccountCell") as! AccountCell
             return cell
-        }else if(indexPath.section == 1){
-            if indexPath.row == 0{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "financeInfo", for: indexPath)
-                return cell
-            }else{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "billMng", for: indexPath)
-                return cell
-            }
-        }else if indexPath.section == 2{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "logout", for: indexPath)
-            return cell
-        } else if indexPath.section == 3{
+        } else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "changePass", for: indexPath)
             return cell
         }else{
@@ -66,35 +101,12 @@ class ProfileViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1{
-            if indexPath.row == 0{
-                self.performSegue(withIdentifier: "goToFinance", sender: self)
-            }else{
-                self.performSegue(withIdentifier: "goToBillMng", sender: self)
-            }
-        }else if indexPath.section == 2{
-            //Logout
-            self.signOut()
-        }else if indexPath.section == 3{
             //Chnage password
             self.performSegue(withIdentifier: "goToChangePass", sender: self)
-        }else{
+        }else if indexPath.section == 2{
             //Delete Account
             self.deleteAccount()
         }
-    }
-    
-    func signOut(){
-        let alert = UIAlertController(title: "هل تريد تسجيل الخروج؟", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "نعم", style: .cancel, handler: { action in
-            do {
-                try Auth.auth().signOut()
-            } catch let signOutError as NSError {
-              print ("Error signing out: %@", signOutError)
-            }
-                self.transateToStart()
-        }))
-        alert.addAction(UIAlertAction(title: "لا", style: .default, handler: nil))
-        self.present(alert, animated: true)
     }
     
     func deleteUser(){

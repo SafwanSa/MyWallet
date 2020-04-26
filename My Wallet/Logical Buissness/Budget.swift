@@ -22,15 +22,20 @@ import FirebaseAuth
     
     init(amount: Float, savings: Float, dGoal: Float, wGoal: Float) {
         self.bid = Calendar.getBudgetId()
-        self.start_amount = amount
-        self.current_amount = amount
         self.savings = savings
+        start_amount = 0
+        current_amount = 0
         super.init()
+        start_amount = self.round(amount)
+        current_amount = self.round(amount)
         self.userId = getID()
-        goals.append(Goal(type: .dailyCostGoal, value: dGoal))
-        goals.append(Goal(type: .weeklyCostGoal, value: wGoal))
+        goals.append(Goal(type: .dailyCostGoal, value: round(dGoal)))
+        goals.append(Goal(type: .weeklyCostGoal, value: round(wGoal)))
     }
     
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
+    }
     
     func getID()->String{
         return Auth.auth().currentUser!.uid

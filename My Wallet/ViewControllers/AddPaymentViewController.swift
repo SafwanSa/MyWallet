@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import UIKit
 import FirebaseAuth
-
+import SVProgressHUD
 class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource{
     
 
@@ -19,6 +19,7 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
     @IBOutlet weak var txt_cost: UITextField!
     @IBOutlet weak var txt_type: UITextField!
     @IBOutlet weak var topView: MyRoundedView!
+    @IBOutlet weak var btn_add: RoundButton!
     
     //Setting the picker view functions
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -73,34 +74,82 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
         return Auth.auth().currentUser!.uid
     }
     
+    
+    func validation()->Bool{
+        let numbers:[Character] = ["1","2","3","4","5","6","7","8","9","0","."]
+        var dot = 0
+        if txt_cost.text == ""{
+            showError( "ادخل التكلفة..")
+            return false
+        }
+        for char in txt_cost.text!{
+            if char == "."{
+                dot+=1
+            }
+            if(!numbers.contains(char)){
+                showError( "أدخل التكلفة بشكل صحيح...")
+                return false
+            }
+        }
+        if dot > 1{
+            showError( "أدخل التكلفة بشكل صحيح...")
+            return false
+        }
+        if txt_cost.text?.last == "." || txt_cost.text?.first == "."{
+            showError( "أدخل التكلفة بشكل صحيح...")
+            return false
+        }
+        if(Float(txt_cost.text!)! <= 0){
+            showError( "يجب أن تكون التكلفة أكبر من ٠...")
+            return false
+        }
+        return true
+    }
+       
+       func showProgress(){
+            btn_add.isEnabled = false
+            btn_add.alpha = 0.7
+            SVProgressHUD.show()
+        }
+          
+          func stopProgress(){
+            btn_add.isEnabled = true
+            btn_add.alpha = 1
+            SVProgressHUD.dismiss()
+          }
+          
+        func showError(_ message:String){
+            stopProgress()
+            let msg = message + " ...!"
+            let alert = UIAlertController(title: "حدث خطأ", message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "حسناً", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    
+    
     @IBAction func btn_addPayment(_ sender: UIButton) {
+        showProgress()
         //Initilizing default
-        var title = "No Title"
+        var title = "بدون عنوان"
         var cost = Float(0.0)
         var paid = false
         var paymentType = PickerData[0]
         //Check if one of the fields is not empty.
-        if txt_type.text != ""{
-            paymentType = txt_type.text!
-        }
-        if txt_title.text != ""{
-            title = txt_title.text!
-        }
-        if txt_cost.text != ""{
+        if validation(){
+            if txt_type.text != ""{paymentType = txt_type.text!}
+            if txt_title.text != ""{title = txt_title.text!}
             cost = Float(txt_cost.text!)!
-        }
-        if paidOrNot{
-            paid = true
-        }
-        //Check if there is a cost or not, because we do not want to add a payment without cost
-        if cost > 0{
+            cost = round(cost)
+            if paidOrNot{
+                paid = true
+            }
             //Create a payment object
             let payment = Payment(title, cost, paymentType, paid, "auto")
             //Do this if he adds a paid payemnt
             if(paid){
-            payment.addPayemnt()
-            //Subtract the cost from the budget
-            payment.payPayment(cost: cost)
+                payment.addPayemnt()
+                //Subtract the cost from the budget
+                payment.payPayment(cost: cost)
             }else{
                 //Do this if he adds unpaid payment
                 payment.addPayemnt()
@@ -111,10 +160,16 @@ class AddPaymentViewController: UIViewController, UIPickerViewDelegate,UIPickerV
             txt_type.text = ""
             paidOrNot = false
             sgmnt_paid.selectedSegmentIndex = 0
+            stopProgress()
             self.dismiss(animated: true, completion: nil)
         }
+
     }
     
+    
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
+    }
     
     
     func closeKeyboard(){

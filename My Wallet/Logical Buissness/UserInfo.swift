@@ -13,18 +13,17 @@ import FirebaseFirestore
 class UserInfo{
     
 
-    var first_name:String
-    var last_name:String
+    var name:String
     var id:String
     var email:String
+    var income: Float
     
     
-    
-    init(first_name:String,last_name:String,email:String,id:String) {
-            self.first_name = first_name
-            self.last_name = last_name
-            self.email = email
-            self.id = id
+    init(name:String,email:String,id:String, income: Float) {
+        self.name = name
+        self.email = email
+        self.id = id
+        self.income = income
        }
     
     
@@ -33,7 +32,7 @@ class UserInfo{
     }
     
     func setUserInfoData() -> [String:Any]{
-        return ["First Name":first_name, "Last Name":last_name, "Email":email, "uid":id]
+        return ["Name": name, "Email":email, "uid":id]
     }
         
     func createBudget(amount: Float, savings: Float)->Budget{

@@ -24,15 +24,16 @@ import FirebaseAuth
     
      init(_ title:String,_ cost:Float, _ type:String, _ paid:Bool, _ at:String) {
         self.title = title
-        self.cost = cost
         self.type = type
         self.paid = paid
+        self.cost = 0
         super.init()
         if(at == "auto"){
             self.at = self.getDate()
         }else{
             self.at = at
         }
+        self.cost = round(cost)
     }
     
     
@@ -44,12 +45,16 @@ import FirebaseAuth
         return formattedDate
     }
     
+    func round(_ num: Float)->Float{
+        return (num*100).rounded()/100
+    }
+    
     func getPaymentID(id: String)->String{
         let a = Calendar.getFormatedDate(by: "day", date: id)
         let b = Calendar.getFormatedDate(by: "month", date: id)
         let c = Calendar.getFormatedDate(by: "time", date: id)
            return a+"_"+b+"_"+c+"_"+getID()
-       }
+    }
     
     func getID()->String{
         return Auth.auth().currentUser!.uid
@@ -57,22 +62,22 @@ import FirebaseAuth
 
     func payPayment(cost:Float){
         db.collection("budgets").document(Calendar.getBudgetId()).getDocument { (DocumentSnapshot, Error) in
-                      let data =  DocumentSnapshot!.data()
-                       let budget = data!["Current Amount"] as! Float - cost
-                       let newData = ["Current Amount":budget]
+            let data =  DocumentSnapshot!.data()
+            let budget = self.round(data!["Current Amount"] as! Float - cost)
+            let newData = ["Current Amount":budget]
             self.db.collection("budgets").document(Calendar.getBudgetId()).updateData(newData)
-                   }
+        }
     }
     
     
     func deletePayment(id:String){
         db.collection("uppayment").document(getPaymentID(id: id)).getDocument() { (querySnapshot, err) in
-                         if let err = err {
-                             print("Error getting documents: \(err)")
-                         } else {
-                            self.db.collection("uppayment").document(querySnapshot!.documentID).delete()
-                         }
-                 }
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.db.collection("uppayment").document(querySnapshot!.documentID).delete()
+            }
+        }
     }
     
     

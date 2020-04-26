@@ -26,7 +26,7 @@ class NewMonthViewController: UIViewController {
     }
     
     func setupInfo(user: UserInfo){
-        lbl_name.text = user.first_name
+        lbl_name.text = user.name
         lbl_month.text = Calendar.getMonthInAr(m: Calendar.getCurrentMonth())
     }
     

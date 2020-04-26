@@ -12,7 +12,6 @@ class GoalCell: UITableViewCell {
 
     @IBOutlet weak var lbl_cellTitle: UILabel!
     @IBOutlet weak var lbl_cost: HSUnderLineTextField!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,5 +33,4 @@ class GoalCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

@@ -65,7 +65,7 @@ class ForgotPasswordViewController: UIViewController {
                     self.handleError(error: error!)
                 }else{
                     self.stopProgress()
-                    self.performSegue(withIdentifier: "goToLogin", sender: self)
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }

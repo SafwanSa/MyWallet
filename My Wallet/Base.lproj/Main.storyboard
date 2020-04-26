@@ -120,14 +120,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086.9565217391305" y="-582.06521739130437"/>
+            <point key="canvasLocation" x="-64" y="-582"/>
         </scene>
         <!--Stat Table View Controller-->
         <scene sceneID="w5l-7C-Plm">
             <objects>
                 <tableViewController id="FCZ-t8-D1f" customClass="StatTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="7sW-kW-OXD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="dataSource" destination="FCZ-t8-D1f" id="na1-Kp-EfL"/>
@@ -148,7 +148,7 @@
             <objects>
                 <tableViewController id="VmY-2Z-DH7" customClass="HistoryTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" contentViewInsetsToSafeArea="NO" id="QPL-EX-7ls">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -220,7 +220,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="yNn-WX-F34">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="LIg-C8-ARf">
-                            <rect key="frame" x="181" y="22" width="52" height="0.0"/>
+                            <rect key="frame" x="181" y="28" width="52" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مشترياتك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gO-W5-hNa">
@@ -252,7 +252,7 @@
             <objects>
                 <tableViewController id="nvo-ar-cdV" customClass="MonthsTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="bE2-RC-8MC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="monthCell" rowHeight="77" id="opA-Bf-Wel">
@@ -312,7 +312,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="btnPressed:" destination="6wf-nh-M7g" eventType="touchUpInside" id="KiX-1j-PR0"/>
+                                            <segue destination="M85-wA-YG9" kind="show" id="uQb-Se-wQB"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wYZ-0b-jb2">
@@ -399,14 +399,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMt-Uh-gBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="-2052"/>
+            <point key="canvasLocation" x="2073.913043478261" y="-2052.717391304348"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="aRT-S2-6CX">
             <objects>
                 <viewController id="Re6-Xz-PJ5" customClass="ForgotPasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6f-ln-2OZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="Ul8-hL-VcF">
@@ -464,7 +464,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITm-OU-BdR" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="653" width="354" height="53"/>
+                                <rect key="frame" x="30" y="633" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.60392156860000001" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ITm-OU-BdR" secondAttribute="height" multiplier="354:53" id="0sg-UY-gI5"/>
@@ -511,19 +511,18 @@
                         <outlet property="btn_send" destination="ITm-OU-BdR" id="3Be-lT-0Fy"/>
                         <outlet property="email" destination="dlQ-FF-NdU" id="YvG-0L-vEh"/>
                         <outlet property="lbl_error" destination="6qK-hV-rzw" id="u7U-us-WUg"/>
-                        <segue destination="x3p-sm-VMc" kind="show" identifier="goToLogin" id="zdE-Xr-qiR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERl-De-EJf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="770"/>
+            <point key="canvasLocation" x="809" y="1286"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="FJK-Z2-U3k">
             <objects>
                 <viewController id="x3p-sm-VMc" customClass="LoginViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VPz-TZ-wEd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="udI-IQ-Qy9">
@@ -583,7 +582,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGV-XD-nDb" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="653" width="354" height="53"/>
+                                <rect key="frame" x="30" y="633" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.59607843140000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CGV-XD-nDb" secondAttribute="height" multiplier="354:53" id="D8K-Wm-Ch4"/>
@@ -685,88 +684,129 @@
                         <outlet property="lbl_error" destination="xFN-Jq-5oh" id="S36-Ti-7Um"/>
                         <outlet property="txt_email" destination="nJP-lN-cdZ" id="Y8B-ST-OQD"/>
                         <outlet property="txt_password" destination="YDy-BT-IcW" id="fcq-fc-nC5"/>
-                        <segue destination="M85-wA-YG9" kind="show" identifier="goToHomeVC" id="erF-3g-8gi"/>
                         <segue destination="Fs4-lH-GxD" kind="show" identifier="goToSignUp" id="rV6-Mh-avX"/>
+                        <segue destination="81F-uV-XDx" kind="show" identifier="goToIncome" id="63N-Jz-rnA"/>
+                        <segue destination="M85-wA-YG9" kind="show" identifier="goToHomeVC" id="J9K-eO-rSL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rj7-nq-3hI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073.913043478261" y="-179.34782608695653"/>
+            <point key="canvasLocation" x="810" y="404"/>
+        </scene>
+        <!--Income View Controller-->
+        <scene sceneID="gZ6-br-n82">
+            <objects>
+                <viewController id="81F-uV-XDx" customClass="IncomeViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yFA-zj-5py">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="FZJ-zt-pII">
+                                <rect key="frame" x="0.0" y="-13" width="435" height="151"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الدخل الشهري" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwa-5j-4tJ">
+                                <rect key="frame" x="128" y="114" width="266" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rwa-5j-4tJ" secondAttribute="height" multiplier="7:1" id="a0R-Ba-zfK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="37"/>
+                                <color key="textColor" red="0.039215686270000001" green="0.59607843140000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCe-hg-Qg8" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
+                                <rect key="frame" x="30" y="367" width="354" height="53"/>
+                                <color key="backgroundColor" red="0.039215686270000001" green="0.59607843140000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fCe-hg-Qg8" secondAttribute="height" multiplier="354:53" id="Rx4-et-RyG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="24"/>
+                                <state key="normal" title="إبدأ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btn_login:" destination="x3p-sm-VMc" eventType="touchUpInside" id="2je-AU-Y3g"/>
+                                    <action selector="startPressed:" destination="81F-uV-XDx" eventType="touchUpInside" id="4yx-2l-CWI"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="mzO-Zi-WNl">
+                                <rect key="frame" x="30" y="223.00000000000003" width="354" height="71.333333333333343"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="isT-Bg-5Al" customClass="HSUnderLineTextField" customModule="My_Wallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="21.666666666666668"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" red="0.039215686270000001" green="0.59607843140000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خطآ في الدخول .. !" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCD-Hc-vm3">
+                                        <rect key="frame" x="0.0" y="49.666666666666686" width="354" height="21.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="15"/>
+                                        <color key="textColor" red="0.7005426307" green="0.2475695118" blue="0.2280554642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mzO-Zi-WNl" firstAttribute="leading" secondItem="6lb-gl-ZSq" secondAttribute="leading" constant="30" id="8O2-77-Oo1"/>
+                            <constraint firstItem="fCe-hg-Qg8" firstAttribute="top" secondItem="mzO-Zi-WNl" secondAttribute="bottom" constant="72.670000000000002" id="9x8-9K-jfK"/>
+                            <constraint firstItem="fCe-hg-Qg8" firstAttribute="leading" secondItem="6lb-gl-ZSq" secondAttribute="leading" constant="30" id="IRb-fe-gQM"/>
+                            <constraint firstItem="6lb-gl-ZSq" firstAttribute="bottom" secondItem="fCe-hg-Qg8" secondAttribute="bottom" constant="296" id="UG9-9d-4B4"/>
+                            <constraint firstItem="FZJ-zt-pII" firstAttribute="leading" secondItem="6lb-gl-ZSq" secondAttribute="leading" id="h2E-TZ-4R5"/>
+                            <constraint firstAttribute="trailing" secondItem="FZJ-zt-pII" secondAttribute="trailing" constant="-21" id="iIY-d5-ojt"/>
+                            <constraint firstItem="mzO-Zi-WNl" firstAttribute="top" secondItem="rwa-5j-4tJ" secondAttribute="bottom" constant="71" id="ijX-WW-QtW"/>
+                            <constraint firstItem="6lb-gl-ZSq" firstAttribute="trailing" secondItem="mzO-Zi-WNl" secondAttribute="trailing" constant="30" id="ipp-B1-K0Y"/>
+                            <constraint firstItem="6lb-gl-ZSq" firstAttribute="trailing" secondItem="rwa-5j-4tJ" secondAttribute="trailing" constant="20" id="jGJ-yL-BfV"/>
+                            <constraint firstItem="rwa-5j-4tJ" firstAttribute="top" secondItem="6lb-gl-ZSq" secondAttribute="top" constant="114" id="jod-0x-o29"/>
+                            <constraint firstItem="rwa-5j-4tJ" firstAttribute="leading" secondItem="6lb-gl-ZSq" secondAttribute="leading" constant="128" id="kID-cW-Z7B"/>
+                            <constraint firstItem="mzO-Zi-WNl" firstAttribute="top" secondItem="rwa-5j-4tJ" secondAttribute="bottom" constant="71" id="sUR-3P-puH"/>
+                            <constraint firstItem="FZJ-zt-pII" firstAttribute="top" secondItem="yFA-zj-5py" secondAttribute="top" constant="-13" id="uTO-14-fK3"/>
+                            <constraint firstItem="6lb-gl-ZSq" firstAttribute="trailing" secondItem="fCe-hg-Qg8" secondAttribute="trailing" constant="30" id="vUK-Sg-BZF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6lb-gl-ZSq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iLx-Vf-7hd"/>
+                    <connections>
+                        <outlet property="btn_start" destination="fCe-hg-Qg8" id="dV5-jk-T8l"/>
+                        <outlet property="lbl_error" destination="zCD-Hc-vm3" id="YRx-hY-f31"/>
+                        <outlet property="txt_income" destination="isT-Bg-5Al" id="Arg-mR-5pa"/>
+                        <segue destination="M85-wA-YG9" kind="show" identifier="goToHomeVC" id="Gcr-LX-MZv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45U-7e-YE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2026.0869565217392" y="404.34782608695656"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="0wj-XA-iG2">
             <objects>
                 <tableViewController id="thc-tz-GrI" customClass="ProfileViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xbU-xe-bw4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="financeInfo" textLabel="eVX-6A-TVf" imageView="cSY-71-JeS" style="IBUITableViewCellStyleDefault" id="jAi-HC-71M">
-                                <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jAi-HC-71M" id="8fp-Hu-Qvn">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="معلومات مالية" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eVX-6A-TVf">
-                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="creditcard.fill" catalog="system" id="cSY-71-JeS">
-                                            <rect key="frame" x="20.833333333333336" y="13.666666666666664" width="22.333333333333332" height="16"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="billMng" textLabel="qpA-4G-x5U" imageView="Oiw-AS-Fhh" style="IBUITableViewCellStyleDefault" id="jly-lS-2lx">
-                                <rect key="frame" x="20" y="99" width="374" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jly-lS-2lx" id="2sd-z2-FSl">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="إدارة الفواتير" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qpA-4G-x5U">
-                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="doc.on.clipboard.fill" catalog="system" id="Oiw-AS-Fhh">
-                                            <rect key="frame" x="21.166666666666664" y="9.9999999999999982" width="21.666666666666668" height="23.333333333333332"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="logout" textLabel="a0R-2O-X04" style="IBUITableViewCellStyleDefault" id="Cnh-RO-7Db">
-                                <rect key="frame" x="20" y="142.66666793823242" width="374" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cnh-RO-7Db" id="1SH-3e-dzi">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="تسجيل الخروج" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a0R-2O-X04">
-                                            <rect key="frame" x="20" y="0.0" width="334" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="changePass" textLabel="Nhj-iS-6EK" style="IBUITableViewCellStyleDefault" id="ynw-Ny-TBG" userLabel="chnage pass">
-                                <rect key="frame" x="20" y="186.33333587646484" width="374" height="43.666667938232422"/>
+                                <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ynw-Ny-TBG" id="x6P-C7-5Ma">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
@@ -785,7 +825,7 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="deleteAcc" textLabel="M0h-Sk-yKe" style="IBUITableViewCellStyleDefault" id="yqL-z8-1qU" userLabel="delete acc">
-                                <rect key="frame" x="20" y="230.00000381469727" width="374" height="43.666667938232422"/>
+                                <rect key="frame" x="20" y="99" width="374" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yqL-z8-1qU" id="kyb-Yt-i1j">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
@@ -812,21 +852,19 @@
                     <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="Hhh-34-ZfX"/>
                     <navigationItem key="navigationItem" id="glb-KR-o0x"/>
                     <connections>
-                        <segue destination="UE2-ro-pFr" kind="show" identifier="goToBillMng" id="2kE-uT-Err"/>
-                        <segue destination="wGQ-zZ-K7y" kind="show" identifier="goToFinance" id="ADV-BI-MKo"/>
                         <segue destination="8Be-np-pjb" kind="show" identifier="goToChangePass" id="7fE-Bn-95U"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOG-Kg-l58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6041" y="-609"/>
+            <point key="canvasLocation" x="7626" y="-288"/>
         </scene>
         <!--Finance Table View Controller-->
         <scene sceneID="mFH-WB-OnP">
             <objects>
                 <tableViewController storyboardIdentifier="settings" id="wGQ-zZ-K7y" customClass="FinanceTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="right" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Fc0-mL-wX2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
@@ -838,14 +876,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fhu-SJ-rGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6897" y="-961"/>
+            <point key="canvasLocation" x="7625" y="-1043"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="Dfh-N8-9mc">
             <objects>
                 <tableViewController id="i0J-bd-nYj" customClass="HistoryViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Oft-Kz-PvM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -886,7 +924,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="bpp-xz-8YE" kind="relationship" relationship="viewControllers" id="o3B-LA-2lR"/>
+                        <segue destination="47w-I3-Kgt" kind="relationship" relationship="viewControllers" id="o3B-LA-2lR"/>
                         <segue destination="deO-By-FK2" kind="relationship" relationship="viewControllers" id="HCB-gT-14f"/>
                         <segue destination="1zn-Py-Fkz" kind="relationship" relationship="viewControllers" id="LAI-gf-dkf"/>
                     </connections>
@@ -900,7 +938,7 @@
             <objects>
                 <tableViewController id="bpp-xz-8YE" customClass="HomeViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ac-pP-BNT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <connections>
@@ -908,9 +946,7 @@
                             <outlet property="delegate" destination="bpp-xz-8YE" id="wkm-X3-DdD"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" image="house.fill" catalog="system" id="u0B-2U-V5f">
-                        <color key="badgeColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="TcN-7h-rkA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myTableView" destination="9ac-pP-BNT" id="22n-aO-rae"/>
@@ -921,7 +957,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmA-C3-uRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4241" y="-1206"/>
+            <point key="canvasLocation" x="5147.826086956522" y="-1206.521739130435"/>
         </scene>
         <!--Add Payment View Controller-->
         <scene sceneID="GMN-wW-di3">
@@ -965,7 +1001,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="34"/>
                                                 <color key="backgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="yes" smartQuotesType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="yes" smartQuotesType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="العنوان" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crp-nh-eyT" userLabel="Cost">
                                                 <rect key="frame" x="91.666666666666643" y="0.0" width="213.33333333333337" height="34"/>
@@ -974,7 +1010,7 @@
                                                     <constraint firstAttribute="height" constant="34" id="kk3-Cz-vMp"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="yes" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="yes" textContentType="name"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -1046,6 +1082,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CXO-Q9-8Hr"/>
                     <connections>
+                        <outlet property="btn_add" destination="Fsy-Cc-5cu" id="24k-Ak-5VZ"/>
                         <outlet property="sgmnt_paid" destination="NUt-N8-i5d" id="Ert-bk-hqk"/>
                         <outlet property="topView" destination="abj-Uf-12v" id="Ibv-9N-1Yz"/>
                         <outlet property="txt_cost" destination="W3Y-z7-Y6e" id="lFX-y2-d0G"/>
@@ -1055,31 +1092,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feq-g5-7td" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5414" y="-1630"/>
+            <point key="canvasLocation" x="6320.289855072464" y="-1630.4347826086957"/>
         </scene>
         <!--Item-->
         <scene sceneID="x27-ff-JtR">
             <objects>
                 <navigationController id="1zn-Py-Fkz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fqL-JP-Dtm"/>
+                    <navigationItem key="navigationItem" id="EEk-5Z-8Tu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9yP-Ae-2Vk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="thc-tz-GrI" kind="relationship" relationship="rootViewController" id="IDJ-i0-WRW"/>
+                        <segue destination="Yhd-2J-qGg" kind="relationship" relationship="rootViewController" id="B1j-Pe-LvV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPA-YO-BWX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5135" y="-609"/>
+            <point key="canvasLocation" x="6042.0289855072469" y="-609.78260869565224"/>
         </scene>
         <!--Item-->
         <scene sceneID="E9Y-uo-EuQ">
             <objects>
                 <tableViewController id="UE2-ro-pFr" customClass="BillMngTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ufj-fU-t6p">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="dataSource" destination="UE2-ro-pFr" id="EPg-4f-9cC"/>
@@ -1091,7 +1129,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFV-vQ-LdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6897" y="-259"/>
+            <point key="canvasLocation" x="6874" y="214"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hv3-UJ-jtf">
@@ -1112,14 +1150,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVZ-Bz-Msc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="-580.58035714285711"/>
+            <point key="canvasLocation" x="-804" y="-582"/>
         </scene>
         <!--Change Password View Controller-->
         <scene sceneID="yeG-UF-sry">
             <objects>
                 <viewController id="8Be-np-pjb" customClass="ChangePasswordViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHJ-D8-0hx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chnage password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of5-Uq-eKY">
@@ -1184,7 +1222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiM-gW-x8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7904" y="-582"/>
+            <point key="canvasLocation" x="8530" y="-289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ytM-wv-gRe">
@@ -1194,7 +1232,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="XaZ-ZE-HEz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hUx-z9-Esj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1211,7 +1249,7 @@
             <objects>
                 <viewController id="Fs4-lH-GxD" customClass="SignupViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fVf-Gc-kPa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-HE-Km4">
@@ -1294,7 +1332,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvb-dU-3iL" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="30" y="653" width="354" height="53"/>
+                                <rect key="frame" x="30" y="633" width="354" height="53"/>
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.60392156860000001" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fvb-dU-3iL" secondAttribute="height" multiplier="354:53" id="dMf-f8-Zky"/>
@@ -1367,13 +1405,146 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3y-ch-jPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073.913043478261" y="-1301.0869565217392"/>
+            <point key="canvasLocation" x="1820" y="-1042"/>
+        </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="2DK-qM-QTJ">
+            <objects>
+                <tableViewController id="Yhd-2J-qGg" customClass="SettingsTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="0Fy-M4-L9v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="account" textLabel="m53-tc-6hp" imageView="eeG-eb-AOL" style="IBUITableViewCellStyleDefault" id="qwi-4b-6cT">
+                                <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qwi-4b-6cT" id="iM5-Yf-CuF">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="الحساب" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m53-tc-6hp">
+                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="pencil" catalog="system" id="eeG-eb-AOL">
+                                            <rect key="frame" x="23.166666666666668" y="14.333333333333332" width="17.666666666666664" height="15.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="financeInfo" textLabel="vO2-qQ-0a9" imageView="7Jb-zI-i95" style="IBUITableViewCellStyleDefault" id="fIn-9H-KFz">
+                                <rect key="frame" x="20" y="99" width="374" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fIn-9H-KFz" id="RFk-Bu-yOF">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="معلومات مالية" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vO2-qQ-0a9">
+                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="creditcard.fill" catalog="system" id="7Jb-zI-i95">
+                                            <rect key="frame" x="20.833333333333336" y="13.666666666666664" width="22.333333333333332" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="billMng" textLabel="fwE-a6-11I" imageView="rbA-gY-JlL" style="IBUITableViewCellStyleDefault" id="oG2-dn-nWp">
+                                <rect key="frame" x="20" y="142.66666793823242" width="374" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oG2-dn-nWp" id="sEr-sF-p08">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="إدارة الفواتير" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwE-a6-11I">
+                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="doc.on.clipboard.fill" catalog="system" id="rbA-gY-JlL">
+                                            <rect key="frame" x="21.166666666666664" y="9.9999999999999982" width="21.666666666666668" height="23.333333333333332"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="logout" textLabel="QIb-Ei-W7h" style="IBUITableViewCellStyleDefault" id="nlC-Xl-MUq">
+                                <rect key="frame" x="20" y="186.33333587646484" width="374" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nlC-Xl-MUq" id="obC-fI-eox">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="تسجيل الخروج" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QIb-Ei-W7h">
+                                            <rect key="frame" x="20" y="0.0" width="334" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Yhd-2J-qGg" id="w19-lS-epm"/>
+                            <outlet property="delegate" destination="Yhd-2J-qGg" id="yCO-bx-Gkw"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="r7d-8o-QBb"/>
+                    <navigationItem key="navigationItem" id="Iys-eM-lG1"/>
+                    <connections>
+                        <segue destination="wGQ-zZ-K7y" kind="show" identifier="goToFinance" id="cHV-mT-wKb"/>
+                        <segue destination="UE2-ro-pFr" kind="show" identifier="goToBillMng" id="4az-ae-g0F"/>
+                        <segue destination="thc-tz-GrI" kind="show" identifier="goToAccount" id="21o-61-NGX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4g-Db-7gg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6874" y="-610"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kyV-nn-T7t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="47w-I3-Kgt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="house.fill" catalog="system" id="u0B-2U-V5f">
+                        <color key="badgeColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1MC-KV-hS7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bpp-xz-8YE" kind="relationship" relationship="rootViewController" id="CsF-8f-P3k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0P0-i7-DWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4240.579710144928" y="-1206.521739130435"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rV6-Mh-avX"/>
-        <segue reference="erF-3g-8gi"/>
-        <segue reference="mZs-z8-tJX"/>
+        <segue reference="Gcr-LX-MZv"/>
+        <segue reference="OPe-XH-nwV"/>
         <segue reference="W5A-zB-jkd"/>
         <segue reference="0S5-Hy-7db"/>
     </inferredMetricsTieBreakers>
@@ -1384,6 +1555,7 @@
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="images" width="334" height="151"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="pngtree-finance-app-page-geometric-background-banner-image_157396" width="960" height="443"/>
     </resources>

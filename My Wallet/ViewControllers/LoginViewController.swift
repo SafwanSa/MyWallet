@@ -97,6 +97,9 @@ class LoginViewController: UIViewController {
                 if user != nil{
                     user?.reload(completion: { (error) in
                         if user!.isEmailVerified{
+                            self.btn_back.isHidden = false
+                            self.btn_resend.isHidden = true
+                            self.btn_forgotPassword.isHidden = false
                             self.loging(email: email, password:password, name: self.name)
                         }else{
                             self.showPrompt("يجب عليك تفعيل حسابك عبر الرسالة المرسلة إلى البريد الألكتروني")
@@ -187,13 +190,13 @@ class LoginViewController: UIViewController {
     
     func setupUser(name: String, id: String, email: String){
         //The user has been created successfuly, now store his data in firestore.
-        let user = UserInfo(first_name: self.name, last_name: "", email: email, id: id)
+        let user = UserInfo(name: self.name, email: email, id: id, income: 0)
         let budget = user.createBudget(amount: 0.0, savings: 0.0)
         db.collection("user").document(user.id).setData(user.setUserInfoData())
         budget.setBudgetData()
         stopProgress()
         //Transition to the home screen
-        self.performSegue(withIdentifier: "goToHomeVC", sender: self)
+        self.performSegue(withIdentifier: "goToIncome", sender: self)
     }
     
     

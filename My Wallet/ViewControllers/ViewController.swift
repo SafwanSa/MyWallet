@@ -8,12 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import UserNotifications
 class ViewController: UIViewController {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        try! Auth.auth().signOut()
+        NotificationsHandler.setNotifications()
         checkAccount()
     }
     

@@ -129,6 +129,15 @@ class Calendar{
         return days.upperBound-1
     }
     
+    static func getMaxDayIntMonth(month: Int)->Int{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM"
+        let someDateTime = formatter.date(from: getCurrentYear()+"/"+String(month))
+        let cal = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)!
+        let days = cal.range(of: .day, in: .month, for: someDateTime!)
+        return days.upperBound-1
+    }
+    
     static func getWeekRange()->[String]{
         var results = [String]()
         let dt = getCurrentYear()+"-"+getCurrentMonth()+"-"
@@ -154,10 +163,10 @@ class Calendar{
     static func isInWeek(day: String)->Bool{
         let dayInt = Int(day)
         var rangee = getWeekRange()
+
         rangee.append("01,"+rangee[0].split(separator: ",")[0])
         var inRange = false
         for i in rangee{
-            inRange = false
             let sun = Int(i.split(separator: ",")[0])!
             let sat = Int(i.split(separator: ",")[1])!
             if dayInt! >= sun && dayInt! <= sat{
@@ -220,6 +229,8 @@ class Calendar{
               }
               return showBill
     }
+    
+
     
 }
 

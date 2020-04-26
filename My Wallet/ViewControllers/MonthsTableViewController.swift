@@ -45,7 +45,21 @@ class MonthsTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return months.count
+        let numOfRows = months.count
+        let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        if numOfRows == 0{
+            noDataLabel.text          = "لا توجد لديك ميزاينة للشهور الماضية"
+            noDataLabel.textColor     = UIColor.black
+            noDataLabel.textAlignment = .center
+            noDataLabel.font = UIFont(name: "JF Flat", size: 16)
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
+            noDataLabel.isHidden = false
+        }else{
+            noDataLabel.isHidden = true
+            tableView.backgroundView = .none
+        }
+        return numOfRows
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

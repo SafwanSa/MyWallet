@@ -26,11 +26,11 @@ class Bill: Payment{
     
     func updateBillLastUpdate(id: String, lastUpdate: String){
         db.collection("uppayment").document(getPaymentID(id: id)).getDocument() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                        self.db.collection("uppayment").document(querySnapshot!.documentID).updateData(["Last Updated": lastUpdate, "Paid": true])
-                }
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.db.collection("uppayment").document(querySnapshot!.documentID).updateData(["Last Updated": lastUpdate, "Paid": true])
+            }
         }
     }
     

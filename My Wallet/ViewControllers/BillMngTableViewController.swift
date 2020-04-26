@@ -110,6 +110,7 @@ class BillMngTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "AddBillCell") as! AddBillCell
+            cell.delegate = self
             return cell
         }else{
             let bill = self.bills[indexPath.row] as! Bill
@@ -119,6 +120,7 @@ class BillMngTableViewController: UITableViewController {
             cell.paymentDate = bill.at
             cell.paymentType = bill.type
             cell.lbl_day.text = bill.day
+            cell.setupInfo()
             return cell
         }
     }

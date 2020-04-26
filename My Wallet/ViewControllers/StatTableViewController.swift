@@ -17,6 +17,7 @@ class StatTableViewController: UITableViewController{
     let cells = ["StatusCell","BillInfoCell","StatGoalCell","StatAvgCell","BarChartCell","StatTypeCell"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         SuperNavigationController.setTitle(title: "إحصائيات", nv: self)
         for cellName in cells{
             myTableView.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)

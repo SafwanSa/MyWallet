@@ -15,7 +15,7 @@ class HistoryViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
         SuperNavigationController.setTitle(title: "الملخص", nv: self)
         self.tableView.register(UINib(nibName: "HistoryCell", bundle: nil), forCellReuseIdentifier: "HistoryCell")
 
