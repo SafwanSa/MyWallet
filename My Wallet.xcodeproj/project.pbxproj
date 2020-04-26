@@ -28,6 +28,7 @@
 		171D5D612333B39F00EA774D /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171D5D602333B39F00EA774D /* MyButton.swift */; };
 		172820EB2431389300D069F1 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172820E92431389300D069F1 /* GoalCell.swift */; };
 		172820EC2431389300D069F1 /* GoalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172820EA2431389300D069F1 /* GoalCell.xib */; };
+		17315CDC24543B5F00583ECD /* NotificationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17315CDB24543B5F00583ECD /* NotificationsHandler.swift */; };
 		1745E11B24199CC5003C697A /* MonthsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745E11A24199CC5003C697A /* MonthsTableViewController.swift */; };
 		174CFAB2243E65270026250B /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174CFAB0243E65270026250B /* BarChartCell.swift */; };
 		174CFAB3243E65270026250B /* BarChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174CFAB1243E65270026250B /* BarChartCell.xib */; };
@@ -99,6 +100,7 @@
 		171D5D602333B39F00EA774D /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		172820E92431389300D069F1 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		172820EA2431389300D069F1 /* GoalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalCell.xib; sourceTree = "<group>"; };
+		17315CDB24543B5F00583ECD /* NotificationsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHandler.swift; sourceTree = "<group>"; };
 		1745E11A24199CC5003C697A /* MonthsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsTableViewController.swift; sourceTree = "<group>"; };
 		174CFAB0243E65270026250B /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
 		174CFAB1243E65270026250B /* BarChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartCell.xib; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				171029CE2415BFCB00D0D697 /* Calendar.swift */,
 				179DBE31241D756C0009C763 /* Calculation.swift */,
+				17315CDB24543B5F00583ECD /* NotificationsHandler.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				17BC79F8242FE24C00884D75 /* BdgSavCell.swift in Sources */,
 				17E97A192432B0AD008D6A3B /* SuperNavigationController.swift in Sources */,
 				172820EB2431389300D069F1 /* GoalCell.swift in Sources */,
+				17315CDC24543B5F00583ECD /* NotificationsHandler.swift in Sources */,
 				17B42952233ACA4C004F2436 /* MyRoundedView.swift in Sources */,
 				17BC79FB242FE8AC00884D75 /* FinanceTableViewController.swift in Sources */,
 				17FD1E6B24499C3600A9B3FE /* BillInfoCell.swift in Sources */,

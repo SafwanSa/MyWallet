@@ -155,14 +155,21 @@ class HomeViewController: UITableViewController{
         //Styling the Title of the Table
         let label = UILabel()
         let str = " لديك " + String(self.unpaidPaymentsList.count) + " من المصروفات غير مدفوعة"
-        let sectionsNames = ["",str,"اخر المدفوعات"]
+        let sectionsNames = ["أهلا safwan",str,"اخر المدفوعات"]
         if section == 1 && paidPaymentsList.count == 0{
             label.text = ""
         }else {label.text = sectionsNames[section]}
-        label.font = UIFont.init(name: "JF Flat", size: 16)
-        label.textAlignment = NSTextAlignment.center
-        label.textColor = .gray
-        label.alpha = 0.6
+        if section == 0{
+            label.font = UIFont.init(name: "JF Flat", size: 30)
+            label.textAlignment = NSTextAlignment.right
+            label.textColor = .black
+            label.alpha = 0.8
+        }else{
+            label.font = UIFont.init(name: "JF Flat", size: 16)
+            label.textAlignment = NSTextAlignment.center
+            label.textColor = .gray
+            label.alpha = 0.6
+        }
         return label
     }
     
