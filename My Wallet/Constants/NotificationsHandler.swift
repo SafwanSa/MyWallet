@@ -21,6 +21,7 @@ class NotificationsHandler{
     
     static func setNotifications(){
         self.newBill()
+        self.payPayments()
         var allNotifications = [[Any]]()
         allNotifications.append(newMonth())
         allNotifications.append(addPayments())
@@ -108,6 +109,7 @@ class NotificationsHandler{
                     identifiers.append("BillReminder"+bill.day)
                 }
             }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
             UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: identifiers)
             var title = "Reminder"
             var body = self.englishBodies[3]
@@ -125,25 +127,27 @@ class NotificationsHandler{
     
     static func payPayments(){
         DataBank.shared.getUnpaidPayemnts { (payments) in
-            var identifiers = [String]()
+            var exist = 0
             for payment in payments{
                 if payment.type != "فواتير"{
-                    identifiers.append("UnpaidReminder"+payment.at)
+                    exist+=1
                 }
             }
-            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: identifiers)
-            var title = "Reminder"
-            var body = self.englishBodies[2]
-            if self.lang == "ar"{
-                title = "تذكير"
-                body = self.arabicBodies[2]
-            }
-            for ident in identifiers{
-                let identifier = ident
-                self.scheduleNotification(title: title, body: body, ident: identifier, components: DateComponents(), re: true, interval: 86400)
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["PayReminder"])
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["PayReminder"])
+            if exist > 0{
+                var title = "Reminder"
+                var body = self.englishBodies[2]
+                if self.lang == "ar"{
+                    title = "تذكير"
+                    body = self.arabicBodies[2]
+                }
+                self.scheduleNotification(title: title, body: body, ident: "PayReminder", components: DateComponents(), re: false, interval: 86400)
             }
         }
     }
+    
+
     
     
     
