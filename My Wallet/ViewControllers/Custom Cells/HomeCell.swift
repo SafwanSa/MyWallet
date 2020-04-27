@@ -16,12 +16,17 @@ protocol HomeCellProtocol {
 class HomeCell: UITableViewCell {
 
     @IBOutlet weak var prog_view: UICircularProgressRing!
-    @IBOutlet weak var btn_add: RoundButton!
+    @IBOutlet weak var prog_cost_view: UICircularProgressRing!
+    @IBOutlet weak var prog_savings_view: UICircularProgressRing!
+    
+    @IBOutlet weak var btn_add: BorderedButton!
     @IBOutlet weak var lbl_budget: UILabel!
     @IBOutlet weak var lbl_savings: UILabel!
     @IBOutlet weak var lbl_totalPaymentsCost: UILabel!
     
     @IBOutlet weak var gradView: GradientView!
+    @IBOutlet weak var rightView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     @IBOutlet weak var hightExpensesLabelView: UIView!
     @IBOutlet weak var lbl_highExpenses: UILabel!
@@ -44,8 +49,20 @@ class HomeCell: UITableViewCell {
     var allPayments = [[Payment]]()
     
     override func awakeFromNib() {
-        //Styling the progress bar
-        prog_view.style = .dashed(pattern: [7.0, 7.0])
+
+        
+        gradView.layer.shadowOpacity = 0.6
+        gradView.layer.shadowRadius = 1
+        gradView.layer.shadowOffset = .zero
+        gradView.layer.masksToBounds = false
+        rightView.layer.shadowOpacity = 0.6
+        rightView.layer.shadowRadius = 1
+        rightView.layer.shadowOffset = .zero
+        rightView.layer.masksToBounds = false
+        bottomView.layer.shadowOpacity = 0.6
+        bottomView.layer.shadowRadius = 1
+        bottomView.layer.shadowOffset = .zero
+        bottomView.layer.masksToBounds = false
         
         Calendar.categ = Calendar.getCurrentMonth()+"/"+Calendar.getCurrentYear()
         DataBank.shared.getCurrentBudget { (bdg) in
@@ -60,7 +77,7 @@ class HomeCell: UITableViewCell {
         }
     }
     
-    @IBAction func btn_addPressed(_ sender: RoundButton) {
+    @IBAction func btn_addPressed(_ sender: Any) {
         if(self.delegate != nil){ //Just to be safe.
             self.delegate?.transitions()
         }
@@ -76,34 +93,34 @@ class HomeCell: UITableViewCell {
         let weeklyCost = goal.checkWeeklyCost(payments: allPayments, weeklyCost: goals[1].value)
         let expensesCheck = goal.checkHighExpenses(payments: self.allPayments)
         if savingsCheck{
-            lbl_blwSavings.textColor = .red
-            blwSavingsLabelView.backgroundColor = .red
+            lbl_blwSavings.textColor = .systemRed
+            blwSavingsLabelView.backgroundColor = .systemRed
         }else{
             lbl_blwSavings.textColor = .white
             blwSavingsLabelView.backgroundColor = .white
         }
         if blwBudget{
-            lbl_budget.textColor = .red
+            lbl_budget.textColor = .systemRed
         }else{
             lbl_budget.textColor = .white
         }
         if expensesCheck{
-            lbl_highExpenses.textColor = .red
-            hightExpensesLabelView.backgroundColor = .red
+            lbl_highExpenses.textColor = .systemRed
+            hightExpensesLabelView.backgroundColor = .systemRed
         }else{
             lbl_highExpenses.textColor = .white
             hightExpensesLabelView.backgroundColor = .white
         }
         if dailyCost{
-            lbl_dcost.textColor = .red
-            dcostLabelView.backgroundColor = .red
+            lbl_dcost.textColor = .systemRed
+            dcostLabelView.backgroundColor = .systemRed
         }else{
             lbl_dcost.textColor = .white
             dcostLabelView.backgroundColor = .white
         }
         if weeklyCost{
-            lbl_wcost.textColor = .red
-            wcostLabelView.backgroundColor = .red
+            lbl_wcost.textColor = .systemRed
+            wcostLabelView.backgroundColor = .systemRed
         }else{
             lbl_wcost.textColor = .white
             wcostLabelView.backgroundColor = .white
@@ -119,6 +136,8 @@ class HomeCell: UITableViewCell {
         self.lbl_savings.text = "مدخرات "+String(budget!.savings)+" SAR "
         self.lbl_budget.text = String(budget!.current_amount)+" SAR "
         self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
+        self.prog_cost_view.startProgress(to: CGFloat(100 - percent), duration: 3.0){}
+        self.prog_savings_view.startProgress(to: CGFloat(CFloat((100*budget!.savings)/budget!.start_amount)), duration: 3.0){}
     }
     
     func round(_ num: Float)->Float{

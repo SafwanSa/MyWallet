@@ -960,7 +960,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ac-pP-BNT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="bpp-xz-8YE" id="ohB-Ec-5ty"/>
                             <outlet property="delegate" destination="bpp-xz-8YE" id="wkm-X3-DdD"/>
@@ -1540,28 +1542,28 @@
         <!--Navigation Controller-->
         <scene sceneID="kyV-nn-T7t">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="47w-I3-Kgt" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0P0-i7-DWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="47w-I3-Kgt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="house.fill" catalog="system" id="u0B-2U-V5f">
                         <color key="badgeColor" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1MC-KV-hS7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="1MC-KV-hS7">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="bpp-xz-8YE" kind="relationship" relationship="rootViewController" id="CsF-8f-P3k"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0P0-i7-DWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4240.579710144928" y="-1206.521739130435"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vix-50-GMu"/>
-        <segue reference="uQb-Se-wQB"/>
+        <segue reference="rV6-Mh-avX"/>
+        <segue reference="J9K-eO-rSL"/>
         <segue reference="mZs-z8-tJX"/>
         <segue reference="V7c-Ve-NWA"/>
         <segue reference="GkP-Fr-Hdb"/>
