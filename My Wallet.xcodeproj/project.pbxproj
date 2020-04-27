@@ -666,7 +666,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C0747466D98594EEE97021C2 /* Pods-My Wallet.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HLS72XKTNJ;
 				INFOPLIST_FILE = "My Wallet/Info.plist";
@@ -686,7 +686,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2DB5E2554933876A97E21DD4 /* Pods-My Wallet.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HLS72XKTNJ;
 				INFOPLIST_FILE = "My Wallet/Info.plist";
