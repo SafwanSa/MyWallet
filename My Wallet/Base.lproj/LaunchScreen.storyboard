@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,16 +15,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transLogo" translatesAutoresizingMaskIntoConstraints="NO" id="9If-fo-FBn">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboKhlood" translatesAutoresizingMaskIntoConstraints="NO" id="9If-fo-FBn">
                                 <rect key="frame" x="45" y="215" width="324" height="306"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9If-fo-FBn" secondAttribute="bottom" constant="215" id="Ier-0Z-lkV"/>
-                            <constraint firstItem="9If-fo-FBn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="215" id="NK2-iY-Quv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9If-fo-FBn" secondAttribute="trailing" constant="45" id="P11-xK-Lwi"/>
-                            <constraint firstItem="9If-fo-FBn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="WI9-Fj-qly"/>
+                            <constraint firstItem="9If-fo-FBn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="5N8-Md-6Io"/>
+                            <constraint firstItem="9If-fo-FBn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KSm-e4-omN"/>
+                            <constraint firstItem="9If-fo-FBn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hKz-U1-efX"/>
+                            <constraint firstItem="9If-fo-FBn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="215" id="thd-dz-VV1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="transLogo" width="1000" height="1000"/>
+        <image name="AboKhlood" width="2000" height="2000"/>
     </resources>
 </document>

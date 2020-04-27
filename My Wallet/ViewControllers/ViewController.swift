@@ -15,12 +15,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        try! Auth.auth().signOut()
-        NotificationsHandler.setNotifications()
         checkAccount()
     }
     
     
     func run(){
+        NotificationsHandler.setNotifications()
         if Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate()) == "01"{
             DataBank.shared.addPreviuosInfo()
             performSegue(withIdentifier: "goToNewMonth", sender: self)

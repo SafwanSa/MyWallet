@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            window?.overrideUserInterfaceStyle = .light
         }
         
+
         NotificationsHandler.askForPermission()
         
         FirebaseApp.configure()
