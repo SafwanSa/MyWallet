@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     func run(){
         NotificationsHandler.setNotifications()
-        if Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate()) == "01"{
+        if Calendar.getFormatedDate(by: "day", date: Calendar.getFullDate()) == "27"{
             DataBank.shared.addPreviuosInfo()
             performSegue(withIdentifier: "goToNewMonth", sender: self)
         }else{
