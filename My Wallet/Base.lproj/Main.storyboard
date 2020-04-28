@@ -1439,34 +1439,38 @@
         <scene sceneID="2DK-qM-QTJ">
             <objects>
                 <tableViewController id="Yhd-2J-qGg" customClass="SettingsTableViewController" customModule="My_Wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="0Fy-M4-L9v">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="0Fy-M4-L9v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="separatorColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="account" textLabel="m53-tc-6hp" imageView="eeG-eb-AOL" style="IBUITableViewCellStyleDefault" id="qwi-4b-6cT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="account" textLabel="m53-tc-6hp" imageView="eeG-eb-AOL" style="IBUITableViewCellStyleDefault" id="qwi-4b-6cT">
                                 <rect key="frame" x="20" y="55.333332061767578" width="374" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qwi-4b-6cT" id="iM5-Yf-CuF">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="forceRightToLeft" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qwi-4b-6cT" id="iM5-Yf-CuF">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="الحساب" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m53-tc-6hp">
-                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
+                                            <rect key="frame" x="19.999999999999972" y="0.0" width="295" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="pencil" catalog="system" id="eeG-eb-AOL">
-                                            <rect key="frame" x="23.166666666666668" y="14.333333333333332" width="17.666666666666664" height="15.333333333333334"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="person" catalog="system" id="eeG-eb-AOL">
+                                            <rect key="frame" x="332.66666666666663" y="13.000000000000002" width="18.666666666666668" height="17.666666666666668"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.2274509804" green="0.22352941179999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="financeInfo" textLabel="vO2-qQ-0a9" imageView="7Jb-zI-i95" style="IBUITableViewCellStyleDefault" id="fIn-9H-KFz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="financeInfo" textLabel="vO2-qQ-0a9" imageView="7Jb-zI-i95" style="IBUITableViewCellStyleDefault" id="fIn-9H-KFz">
                                 <rect key="frame" x="20" y="99" width="374" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fIn-9H-KFz" id="RFk-Bu-yOF">
@@ -1474,21 +1478,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="معلومات مالية" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vO2-qQ-0a9">
-                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
+                                            <rect key="frame" x="20.000000000000028" y="0.0" width="295" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="creditcard.fill" catalog="system" id="7Jb-zI-i95">
-                                            <rect key="frame" x="20.833333333333336" y="13.666666666666664" width="22.333333333333332" height="16"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="creditcard" catalog="system" id="7Jb-zI-i95">
+                                            <rect key="frame" x="330.83333333333337" y="13.666666666666664" width="22.333333333333332" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.2274509804" green="0.22352941179999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="billMng" textLabel="fwE-a6-11I" imageView="rbA-gY-JlL" style="IBUITableViewCellStyleDefault" id="oG2-dn-nWp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="billMng" textLabel="fwE-a6-11I" imageView="rbA-gY-JlL" style="IBUITableViewCellStyleDefault" id="oG2-dn-nWp">
                                 <rect key="frame" x="20" y="142.66666793823242" width="374" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oG2-dn-nWp" id="sEr-sF-p08">
@@ -1496,21 +1502,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="إدارة الفواتير" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwE-a6-11I">
-                                            <rect key="frame" x="59" y="0.0" width="295" height="43.666667938232422"/>
+                                            <rect key="frame" x="19.999999999999972" y="0.0" width="295" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                            <color key="textColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="doc.on.clipboard.fill" catalog="system" id="rbA-gY-JlL">
-                                            <rect key="frame" x="21.166666666666664" y="9.9999999999999982" width="21.666666666666668" height="23.333333333333332"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="doc.on.doc" catalog="system" id="rbA-gY-JlL">
+                                            <rect key="frame" x="331.16666666666663" y="9.9999999999999982" width="21.666666666666668" height="23.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.2274509804" green="0.22352941179999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="logout" textLabel="QIb-Ei-W7h" style="IBUITableViewCellStyleDefault" id="nlC-Xl-MUq">
+                            <tableViewCell clipsSubviews="YES" contentMode="center" semanticContentAttribute="forceRightToLeft" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="logout" textLabel="QIb-Ei-W7h" style="IBUITableViewCellStyleDefault" id="nlC-Xl-MUq">
                                 <rect key="frame" x="20" y="186.33333587646484" width="374" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nlC-Xl-MUq" id="obC-fI-eox">
@@ -1526,6 +1534,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.2274509804" green="0.22352941179999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableViewCell>
@@ -1535,7 +1544,7 @@
                             <outlet property="delegate" destination="Yhd-2J-qGg" id="yCO-bx-Gkw"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" id="r7d-8o-QBb"/>
+                    <tabBarItem key="tabBarItem" title="" image="gear" catalog="system" id="r7d-8o-QBb"/>
                     <navigationItem key="navigationItem" id="Iys-eM-lG1"/>
                     <connections>
                         <segue destination="wGQ-zZ-K7y" kind="show" identifier="goToFinance" id="cHV-mT-wKb"/>
@@ -1579,11 +1588,12 @@
     <resources>
         <image name="AboKhlood" width="2000" height="2000"/>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="creditcard.fill" catalog="system" width="128" height="91"/>
-        <image name="doc.on.clipboard.fill" catalog="system" width="117" height="128"/>
+        <image name="creditcard" catalog="system" width="128" height="91"/>
+        <image name="doc.on.doc" catalog="system" width="117" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="color1">
             <color red="0.35686274509803922" green="0.34509803921568627" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
