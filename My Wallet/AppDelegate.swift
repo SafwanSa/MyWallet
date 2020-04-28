@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //           window?.overrideUserInterfaceStyle = .light
 //        }
         
+       
+        UITabBar.appearance().backgroundImage = UIImage.colorForNavBar(color: UIColor(named: "color3")!)
+        UITabBar.appearance().shadowImage = UIImage.colorForNavBar(color: .white)
 
         NotificationsHandler.askForPermission()
         
@@ -52,3 +55,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIImage {
+    class func colorForNavBar(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.2)
+        //    Or if you need a thinner border :
+        //    let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.5)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image!
+    }
+}
