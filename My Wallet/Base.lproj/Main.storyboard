@@ -3,6 +3,7 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -992,14 +993,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abj-Uf-12v" userLabel="Bottom View" customClass="GradientView" customModule="My_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="38" y="58" width="339" height="299"/>
+                                <rect key="frame" x="37.666666666666657" y="208" width="339" height="300"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsy-Cc-5cu" customClass="RoundButton" customModule="My_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="98" y="248" width="143" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="s1w-H3-1p2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="oMl-m6-LDq">
+                                        <rect key="frame" x="30" y="30" width="279" height="125"/>
+                                        <subviews>
+                                            <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="العنوان" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crp-nh-eyT" userLabel="Cost">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="34"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="yes"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="LL7-L2-Pk0">
+                                                <rect key="frame" x="0.0" y="47" width="279" height="34"/>
+                                                <subviews>
+                                                    <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="التصنيف" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFm-Cn-Bfm" userLabel="Type">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186.33333333333334" height="34"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="التكلفة" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3Y-z7-Y6e" userLabel="Title">
+                                                        <rect key="frame" x="195.33333333333331" y="0.0" width="83.666666666666686" height="34"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="yes" smartQuotesType="no"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NUt-N8-i5d">
+                                                <rect key="frame" x="0.0" y="94" width="279" height="32"/>
+                                                <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <segments>
+                                                    <segment title=" غير مدفوع"/>
+                                                    <segment title="مدفوع"/>
+                                                </segments>
+                                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <color key="selectedSegmentTintColor" red="0.78391355279999997" green="0.37831425670000002" blue="0.70591473579999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <connections>
+                                                    <action selector="sgmnt_choose:" destination="59f-kL-Az5" eventType="valueChanged" id="yly-Ba-HJb"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsy-Cc-5cu" customClass="BorderedButton" customModule="My_Wallet" customModuleProvider="target">
+                                        <rect key="frame" x="69" y="258" width="201" height="27"/>
+                                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="14"/>
                                         <state key="normal" title="أضف">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1013,94 +1052,59 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                <color key="value" name="color2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                <color key="value" name="color1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="btn_addPayment:" destination="59f-kL-Az5" eventType="touchUpInside" id="scy-Nq-66V"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HuP-zl-Mam">
-                                        <rect key="frame" x="17" y="60" width="305" height="34"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="التكلفة" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3Y-z7-Y6e" userLabel="Title">
-                                                <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="34"/>
-                                                <color key="backgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="yes" smartQuotesType="no"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="العنوان" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crp-nh-eyT" userLabel="Cost">
-                                                <rect key="frame" x="73.666666666666643" y="0.0" width="231.33333333333337" height="34"/>
-                                                <color key="backgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="kk3-Cz-vMp"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="yes" textContentType="name"/>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="jle-Pt-rq2"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="pGj-qS-l8f">
-                                        <rect key="frame" x="17" y="132" width="305" height="34"/>
-                                        <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NUt-N8-i5d">
-                                                <rect key="frame" x="0.0" y="0.0" width="214.33333333333334" height="35"/>
-                                                <segments>
-                                                    <segment title=" غير مدفوع"/>
-                                                    <segment title="مدفوع"/>
-                                                </segments>
-                                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                <color key="selectedSegmentTintColor" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <connections>
-                                                    <action selector="sgmnt_choose:" destination="59f-kL-Az5" eventType="valueChanged" id="yly-Ba-HJb"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="التصنيف" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFm-Cn-Bfm" userLabel="Type">
-                                                <rect key="frame" x="223.33333333333329" y="0.0" width="81.666666666666657" height="34"/>
-                                                <color key="backgroundColor" white="0.85849184779999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.21960784310000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Fsy-Cc-5cu" secondAttribute="trailing" constant="98" id="0N5-m4-faS"/>
-                                    <constraint firstItem="Fsy-Cc-5cu" firstAttribute="leading" secondItem="abj-Uf-12v" secondAttribute="leading" constant="98" id="1h4-uu-fVA"/>
-                                    <constraint firstItem="HuP-zl-Mam" firstAttribute="leading" secondItem="abj-Uf-12v" secondAttribute="leading" constant="17" id="8p9-X8-UdW"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fsy-Cc-5cu" secondAttribute="bottom" constant="21" id="DTX-6K-Uah"/>
-                                    <constraint firstItem="HuP-zl-Mam" firstAttribute="top" secondItem="abj-Uf-12v" secondAttribute="top" constant="60" id="UQy-5U-oI8"/>
-                                    <constraint firstAttribute="trailing" secondItem="HuP-zl-Mam" secondAttribute="trailing" constant="17" id="dht-fw-zdP"/>
-                                    <constraint firstItem="pGj-qS-l8f" firstAttribute="leading" secondItem="abj-Uf-12v" secondAttribute="leading" constant="17" id="dsY-UC-o2f"/>
-                                    <constraint firstItem="pGj-qS-l8f" firstAttribute="top" secondItem="HuP-zl-Mam" secondAttribute="bottom" constant="38" id="g37-m2-Ehj"/>
-                                    <constraint firstAttribute="trailing" secondItem="pGj-qS-l8f" secondAttribute="trailing" constant="17" id="t5q-mE-iJ1"/>
+                                    <constraint firstAttribute="trailing" secondItem="oMl-m6-LDq" secondAttribute="trailing" constant="30" id="0lI-oM-iuQ"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Fsy-Cc-5cu" secondAttribute="trailing" constant="69" id="ClA-ah-xnk"/>
+                                    <constraint firstItem="oMl-m6-LDq" firstAttribute="leading" secondItem="abj-Uf-12v" secondAttribute="leading" constant="30" id="GZh-4V-u4m"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fsy-Cc-5cu" secondAttribute="bottom" constant="15" id="STT-J8-k2t"/>
+                                    <constraint firstItem="oMl-m6-LDq" firstAttribute="top" secondItem="abj-Uf-12v" secondAttribute="top" constant="30" id="bv0-hm-Zk9"/>
+                                    <constraint firstItem="Fsy-Cc-5cu" firstAttribute="top" relation="lessThanOrEqual" secondItem="oMl-m6-LDq" secondAttribute="bottom" constant="103" id="fap-5f-oIE"/>
+                                    <constraint firstItem="Fsy-Cc-5cu" firstAttribute="leading" secondItem="abj-Uf-12v" secondAttribute="leading" constant="69" id="iiH-2n-awC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="VcornerRadius">
-                                        <real key="value" value="30"/>
+                                        <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="topColor">
-                                        <color key="value" red="0.35294117650000001" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.2274509804" green="0.22352941179999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
-                                        <color key="value" red="0.19586145399999999" green="0.28269930850000002" blue="0.4573279328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.2274509804" green="0.22352941179999999" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إضافة مدفوع" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CoM-CQ-jeB">
+                                <rect key="frame" x="141" y="161" width="132" height="23"/>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gvT-P8-RyS" firstAttribute="trailing" secondItem="abj-Uf-12v" secondAttribute="trailing" constant="37" id="LgB-rb-az4"/>
-                            <constraint firstItem="abj-Uf-12v" firstAttribute="leading" secondItem="gvT-P8-RyS" secondAttribute="leading" constant="38" id="SZu-0x-DfF"/>
-                            <constraint firstItem="abj-Uf-12v" firstAttribute="top" secondItem="gvT-P8-RyS" secondAttribute="top" constant="58" id="kj0-e6-mhx"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="abj-Uf-12v" secondAttribute="bottom" constant="359" id="wv4-cZ-euc"/>
+                            <constraint firstItem="gvT-P8-RyS" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="abj-Uf-12v" secondAttribute="bottom" constant="208" id="0kh-Dh-YD9"/>
+                            <constraint firstItem="CoM-CQ-jeB" firstAttribute="leading" secondItem="gvT-P8-RyS" secondAttribute="leading" constant="141" id="6WZ-Hh-0bq"/>
+                            <constraint firstItem="abj-Uf-12v" firstAttribute="leading" secondItem="gvT-P8-RyS" secondAttribute="leading" constant="37.670000000000002" id="Nlv-lI-pdX"/>
+                            <constraint firstItem="gvT-P8-RyS" firstAttribute="trailing" secondItem="abj-Uf-12v" secondAttribute="trailing" constant="37.329999999999998" id="Sw1-vZ-Wzn"/>
+                            <constraint firstItem="abj-Uf-12v" firstAttribute="top" secondItem="CoM-CQ-jeB" secondAttribute="bottom" constant="24" id="Wvh-PT-aHU"/>
+                            <constraint firstItem="gvT-P8-RyS" firstAttribute="trailing" secondItem="CoM-CQ-jeB" secondAttribute="trailing" constant="141" id="eT8-T5-jNj"/>
+                            <constraint firstItem="CoM-CQ-jeB" firstAttribute="top" secondItem="gvT-P8-RyS" secondAttribute="top" constant="161" id="wJg-VG-66z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gvT-P8-RyS"/>
                     </view>
@@ -1566,8 +1570,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rV6-Mh-avX"/>
-        <segue reference="J9K-eO-rSL"/>
+        <segue reference="vix-50-GMu"/>
+        <segue reference="OQ9-H0-hYY"/>
         <segue reference="mZs-z8-tJX"/>
         <segue reference="V7c-Ve-NWA"/>
         <segue reference="GkP-Fr-Hdb"/>
@@ -1581,5 +1585,11 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <namedColor name="color1">
+            <color red="0.35686274509803922" green="0.34509803921568627" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color2">
+            <color red="0.84313725490196079" green="0.34901960784313724" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
