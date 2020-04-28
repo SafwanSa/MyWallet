@@ -160,15 +160,15 @@ class HomeViewController: UITableViewController{
             label.text = ""
         }else {label.text = sectionsNames[section]}
         if section == 0{
-            label.font = UIFont.init(name: "JF Flat", size: 30)
-            label.textAlignment = NSTextAlignment.right
+            label.font = UIFont.init(name: "JF Flat", size: 19)
+            label.textAlignment = NSTextAlignment.center
             label.textColor = .white
             label.alpha = 0.8
         }else{
             label.font = UIFont.init(name: "JF Flat", size: 16)
             label.textAlignment = NSTextAlignment.center
             label.textColor = .white
-            label.alpha = 0.6
+            label.alpha = 0.8
         }
         return label
     }
@@ -178,7 +178,11 @@ class HomeViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 0{
+            return 50
+        }else{
+            return 25
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -136,7 +136,7 @@ class HomeCell: UITableViewCell {
         self.lbl_savings.text = "مدخرات "+String(budget!.savings)+" SAR "
         self.lbl_budget.text = String(budget!.current_amount)+" SAR "
         self.prog_view.startProgress(to: CGFloat(percent), duration: 3.0) {}
-        self.prog_cost_view.startProgress(to: CGFloat(100 - percent), duration: 3.0){}
+        self.prog_cost_view.startProgress(to: CGFloat(CFloat((100*totalCosts)/budget!.start_amount)), duration: 3.0){}
         self.prog_savings_view.startProgress(to: CGFloat(CFloat((100*budget!.savings)/budget!.start_amount)), duration: 3.0){}
     }
     

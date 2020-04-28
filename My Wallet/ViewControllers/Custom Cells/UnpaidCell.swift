@@ -26,7 +26,7 @@ class UnpaidCell: UITableViewCell{
         super.awakeFromNib()
         // Initialization code
         backGroundView.layer.shadowOpacity = 0.6
-        backGroundView.layer.shadowRadius = 2
+        backGroundView.layer.shadowRadius = 1
         backGroundView.layer.shadowOffset = .zero
         backGroundView.layer.masksToBounds = false
     }
